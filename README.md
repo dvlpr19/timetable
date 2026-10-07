@@ -9,7 +9,7 @@ Kerak: Docker va Docker Compose.
 ```bash
 cp .env.example .env     # parollar va maxfiy kalitni o'zgartiring
 make up                  # postgres, redis, backend, worker, frontend
-make seed                # namuna ma'lumotlar (2-bosqichdan boshlab)
+make seed                # bazani tozalab, namuna ma'lumotlarni yuklaydi (~10 soniya)
 ```
 
 | Manzil | Nima |
@@ -39,8 +39,25 @@ kalitlar to'liq mosligini tekshiradi; JSX ichida qattiq yozilgan matnni ESLint t
 
 ## Demo foydalanuvchilar
 
-2-bosqichdagi `make seed` dan keyin paydo bo'ladi (ro'yxat shu yerga yoziladi).
+`make seed` dan keyin:
+
+| Login | Parol | Kim |
+|---|---|---|
+| `admin` | `admin123` | Dispetcher (o'quv bo'limi), Django admin'ga ham kiradi |
+| `dekanat` | `dekanat123` | Islomshunoslik fakulteti dekanati |
+| `kafedra` | `kafedra123` | Qur'onshunoslik va hadisshunoslik kafedrasi mudiri (Ibragimov Sh.) |
+| `oqituvchi` | `oqituvchi123` | Yusupov Sardor, dotsent |
+| `talaba` | `talaba123` | Karimova Aziza, IS-301 |
+| `talaba_ru` | `talaba123` | IS-R-201 guruhi talabasi (rus guruhi), ilova tili rus |
+
+## Namuna ma'lumotlar
+
+Ikki fakultet: Islomshunoslik (o'zbek tilida) va Rus tilida ta'lim fakulteti. Jami 26 guruh, ~600 talaba,
+33 o'qituvchi, 28 xona, 20 fan. To'rtala ta'lim shakli bor: kunduzgi, kechki, sirtqi sessiya va masofaviy.
+Joriy davr: 2025–2026 o'quv yilining bahorgi semestri. IS-301 guruhining haftalik jadvali mobil dizayndagidek
+qo'lda joylashtirilgan va e'lon qilingan. Qolgan guruhlar uchun yuklama tayyor, ularning jadvali avtomatik
+tuzish orqali to'ldiriladi. Hamma ism va ID'lar to'qima.
 
 ## Hujjatlar
 
-`docs/PLAN.md` (bosqichlar), `docs/ASSUMPTIONS.md` (taxminlar).
+`docs/PLAN.md` (bosqichlar), `docs/ER.md` (ER-diagramma), `docs/ASSUMPTIONS.md` (taxminlar).

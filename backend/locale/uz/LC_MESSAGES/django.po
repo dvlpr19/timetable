@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dars-jadvali 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-07 09:58+0500\n"
+"POT-Creation-Date: 2026-10-07 10:44+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,730 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: apps/accounts/admin.py:14 config/views.py:24
+#: apps/academics/choices.py:10 config/settings.py:92
+msgid "Uzbek"
+msgstr "O'zbekcha"
+
+#: apps/academics/choices.py:11 config/settings.py:93
+msgid "Russian"
+msgstr "Ruscha"
+
+#: apps/academics/choices.py:12 config/settings.py:94
+msgid "English"
+msgstr "Inglizcha"
+
+#: apps/academics/choices.py:13
+msgid "Arabic"
+msgstr "Arabcha"
+
+#: apps/academics/choices.py:17
+msgid "Weekly recurring"
+msgstr "Haftalik takrorlanuvchi"
+
+#: apps/academics/choices.py:18
+msgid "Session (fixed dates)"
+msgstr "Sessiya (aniq sanalar)"
+
+#: apps/academics/choices.py:22
+msgid "Autumn semester"
+msgstr "Kuzgi semestr"
+
+#: apps/academics/choices.py:23
+msgid "Spring semester"
+msgstr "Bahorgi semestr"
+
+#: apps/academics/choices.py:27 apps/notifications/rendering.py:15
+msgid "Monday"
+msgstr "Dushanba"
+
+#: apps/academics/choices.py:28 apps/notifications/rendering.py:16
+msgid "Tuesday"
+msgstr "Seshanba"
+
+#: apps/academics/choices.py:29 apps/notifications/rendering.py:17
+msgid "Wednesday"
+msgstr "Chorshanba"
+
+#: apps/academics/choices.py:30 apps/notifications/rendering.py:18
+msgid "Thursday"
+msgstr "Payshanba"
+
+#: apps/academics/choices.py:31 apps/notifications/rendering.py:19
+msgid "Friday"
+msgstr "Juma"
+
+#: apps/academics/choices.py:32 apps/notifications/rendering.py:20
+msgid "Saturday"
+msgstr "Shanba"
+
+#: apps/academics/choices.py:33 apps/notifications/rendering.py:21
+msgid "Sunday"
+msgstr "Yakshanba"
+
+#: apps/academics/choices.py:37
+msgid "Every week"
+msgstr "Har hafta"
+
+#: apps/academics/choices.py:38
+msgid "Odd weeks"
+msgstr "Toq haftalar"
+
+#: apps/academics/choices.py:39
+msgid "Even weeks"
+msgstr "Juft haftalar"
+
+#: apps/academics/choices.py:43
+msgid "Public holiday"
+msgstr "Bayram kuni"
+
+#: apps/academics/choices.py:44
+#| msgid "Dean's office"
+msgid "Day off"
+msgstr "Dam olish kuni"
+
+#: apps/academics/choices.py:45
+msgid "Transferred working day"
+msgstr "Ko'chirilgan ish kuni"
+
+#: apps/academics/choices.py:49
+msgid "Mixed"
+msgstr "Aralash"
+
+#: apps/academics/choices.py:50
+#| msgid "Student"
+msgid "Male students"
+msgstr "O'g'il bolalar"
+
+#: apps/academics/choices.py:51
+msgid "Female students"
+msgstr "Qizlar"
+
+#: apps/academics/choices.py:55
+msgid "Male"
+msgstr "Erkak"
+
+#: apps/academics/choices.py:56
+msgid "Female"
+msgstr "Ayol"
+
+#: apps/academics/choices.py:60
+msgid "Assistant"
+msgstr "Assistent"
+
+#: apps/academics/choices.py:61
+msgid "Lecturer"
+msgstr "O'qituvchi"
+
+#: apps/academics/choices.py:62
+msgid "Senior lecturer"
+msgstr "Katta o'qituvchi"
+
+#: apps/academics/choices.py:63
+msgid "Associate professor"
+msgstr "Dotsent"
+
+#: apps/academics/choices.py:64
+msgid "Professor"
+msgstr "Professor"
+
+#: apps/academics/choices.py:68
+msgid "No degree"
+msgstr "Ilmiy darajasiz"
+
+#: apps/academics/choices.py:69
+msgid "PhD"
+msgstr "PhD"
+
+#: apps/academics/choices.py:70
+msgid "DSc"
+msgstr "DSc"
+
+#: apps/academics/choices.py:74
+msgid "Full-time"
+msgstr "Shtatdagi"
+
+#: apps/academics/choices.py:75
+msgid "Part-time (second job)"
+msgstr "O'rindosh"
+
+#: apps/academics/choices.py:76
+msgid "Hourly"
+msgstr "Soatbay"
+
+#: apps/academics/choices.py:80
+msgid "Exam"
+msgstr "Imtihon"
+
+#: apps/academics/choices.py:81
+msgid "Pass/fail test"
+msgstr "Sinov"
+
+#: apps/academics/choices.py:85
+msgid "Preferred"
+msgstr "Qulay"
+
+#: apps/academics/choices.py:86
+msgid "Possible"
+msgstr "Mumkin"
+
+#: apps/academics/choices.py:87
+msgid "Unavailable"
+msgstr "Mumkin emas"
+
+#: apps/academics/choices.py:91
+msgid "Lecture"
+msgstr "Ma'ruza"
+
+#: apps/academics/choices.py:92
+msgid "Practical class"
+msgstr "Amaliy mashg'ulot"
+
+#: apps/academics/choices.py:93
+msgid "Seminar"
+msgstr "Seminar"
+
+#: apps/academics/choices.py:94
+msgid "Laboratory"
+msgstr "Laboratoriya"
+
+#: apps/academics/models/assignments.py:41
+msgid "lessons every week"
+msgstr "har haftadagi darslar"
+
+#: apps/academics/models/assignments.py:42
+msgid "lessons every other week"
+msgstr "hafta oralab darslar"
+
+#: apps/academics/models/assignments.py:43
+msgid "lessons in the period"
+msgstr "davrdagi darslar soni"
+
+#: apps/academics/models/assignments.py:49
+msgid "teaching assignment"
+msgstr "dars topshirig'i"
+
+#: apps/academics/models/assignments.py:50
+msgid "teaching assignments"
+msgstr "yuklama taqsimoti"
+
+#: apps/academics/models/calendar.py:14 apps/academics/models/calendar.py:65
+#: apps/academics/models/calendar.py:112 apps/academics/models/calendar.py:169
+#: apps/academics/models/curriculum.py:17
+#: apps/academics/models/curriculum.py:39 apps/academics/models/people.py:28
+#: apps/academics/models/people.py:109 apps/academics/models/rooms.py:12
+#: apps/academics/models/rooms.py:26 apps/academics/models/structure.py:12
+#: apps/academics/models/structure.py:26 apps/academics/models/structure.py:48
+#: apps/academics/models/structure.py:61 apps/academics/models/structure.py:75
+#: apps/academics/models/structure.py:128 apps/scheduling/models.py:25
+msgid "name"
+msgstr "nomi"
+
+#: apps/academics/models/calendar.py:15 apps/academics/models/calendar.py:35
+#: apps/academics/models/calendar.py:66
+msgid "start date"
+msgstr "boshlanish sanasi"
+
+#: apps/academics/models/calendar.py:16 apps/academics/models/calendar.py:36
+#: apps/academics/models/calendar.py:67
+msgid "end date"
+msgstr "tugash sanasi"
+
+#: apps/academics/models/calendar.py:19
+msgid "academic year"
+msgstr "o'quv yili"
+
+#: apps/academics/models/calendar.py:20
+msgid "academic years"
+msgstr "o'quv yillari"
+
+#: apps/academics/models/calendar.py:34 apps/academics/models/calendar.py:40
+msgid "semester"
+msgstr "semestr"
+
+#: apps/academics/models/calendar.py:37
+msgid "current semester"
+msgstr "joriy semestr"
+
+#: apps/academics/models/calendar.py:41
+msgid "semesters"
+msgstr "semestrlar"
+
+#: apps/academics/models/calendar.py:69
+msgid "teaching weeks"
+msgstr "dars haftalari"
+
+#: apps/academics/models/calendar.py:69
+msgid "Only for weekly forms."
+msgstr "Faqat haftalik shakllar uchun."
+
+#: apps/academics/models/calendar.py:73
+msgid "teaching period"
+msgstr "o'qish davri"
+
+#: apps/academics/models/calendar.py:74
+msgid "teaching periods"
+msgstr "o'qish davrlari"
+
+#: apps/academics/models/calendar.py:110 apps/scheduling/models.py:77
+msgid "date"
+msgstr "sana"
+
+#: apps/academics/models/calendar.py:111
+msgid "type"
+msgstr "turi"
+
+#: apps/academics/models/calendar.py:114
+msgid "works as weekday"
+msgstr "qaysi kun jadvali bo'yicha"
+
+#: apps/academics/models/calendar.py:118
+msgid "For transferred working days: whose timetable is followed."
+msgstr "Ko'chirilgan ish kuni uchun: qaysi kunning jadvali bo'yicha o'qiladi."
+
+#: apps/academics/models/calendar.py:121
+msgid "date is an estimate"
+msgstr "sana taxminiy"
+
+#: apps/academics/models/calendar.py:123
+msgid "E.g. Eid dates depend on the lunar calendar and must be confirmed."
+msgstr "Masalan, hayit sanalari oy taqvimiga bog'liq va tasdiqlanishi kerak."
+
+#: apps/academics/models/calendar.py:127
+msgid "calendar day"
+msgstr "kalendar kuni"
+
+#: apps/academics/models/calendar.py:128
+msgid "academic calendar"
+msgstr "akademik kalendar"
+
+#: apps/academics/models/calendar.py:146
+msgid "lesson number"
+msgstr "dars raqami"
+
+#: apps/academics/models/calendar.py:147 apps/academics/models/calendar.py:177
+msgid "start"
+msgstr "boshlanishi"
+
+#: apps/academics/models/calendar.py:148 apps/academics/models/calendar.py:178
+msgid "end"
+msgstr "tugashi"
+
+#: apps/academics/models/calendar.py:149 apps/academics/models/people.py:38
+msgid "shift"
+msgstr "smena"
+
+#: apps/academics/models/calendar.py:152
+msgid "lesson time"
+msgstr "dars vaqti"
+
+#: apps/academics/models/calendar.py:153
+msgid "bell schedule"
+msgstr "qo'ng'iroq jadvali"
+
+#: apps/academics/models/calendar.py:171 apps/academics/models/people.py:190
+#: apps/scheduling/models.py:71
+msgid "weekday"
+msgstr "hafta kuni"
+
+#: apps/academics/models/calendar.py:175
+msgid "Empty means every day."
+msgstr "Bo'sh bo'lsa, har kuni."
+
+#: apps/academics/models/calendar.py:185
+msgid "Empty means all education forms."
+msgstr "Bo'sh bo'lsa, barcha ta'lim shakllari."
+
+#: apps/academics/models/calendar.py:188
+msgid "strict"
+msgstr "qat'iy"
+
+#: apps/academics/models/calendar.py:188
+msgid "Strict: never schedule. Otherwise only avoided."
+msgstr ""
+"Qat'iy: hech qachon dars qo'yilmaydi. Aks holda faqat iloji boricha "
+"qo'yilmaydi."
+
+#: apps/academics/models/calendar.py:192
+msgid "blocked time"
+msgstr "band vaqt"
+
+#: apps/academics/models/calendar.py:193
+msgid "blocked times"
+msgstr "band vaqtlar"
+
+#: apps/academics/models/curriculum.py:16
+#: apps/academics/models/curriculum.py:38 apps/academics/models/rooms.py:11
+#: apps/academics/models/rooms.py:25 apps/academics/models/structure.py:25
+#: apps/academics/models/structure.py:47 apps/academics/models/structure.py:60
+#: apps/academics/models/structure.py:74
+msgid "code"
+msgstr "kodi"
+
+#: apps/academics/models/curriculum.py:24
+msgid ""
+"Room type this kind of lesson needs by default (e.g. lab → computer room)."
+msgstr ""
+"Bu turdagi dars uchun odatda kerak bo'ladigan xona turi (masalan, "
+"laboratoriya → kompyuter xona)."
+
+#: apps/academics/models/curriculum.py:29
+msgid "lesson type"
+msgstr "dars turi"
+
+#: apps/academics/models/curriculum.py:30
+msgid "lesson types"
+msgstr "dars turlari"
+
+#: apps/academics/models/curriculum.py:44
+msgid "language subject"
+msgstr "til fani"
+
+#: apps/academics/models/curriculum.py:44
+msgid "Practice is usually split in subgroups."
+msgstr "Amaliy mashg'ulotlar odatda kichik guruhlarda o'tiladi."
+
+#: apps/academics/models/curriculum.py:52
+msgid "Room type required for practical/lab lessons of this subject, if any."
+msgstr ""
+"Bu fanning amaliy va laboratoriya darslari uchun kerak bo'lgan xona turi "
+"(bo'lsa)."
+
+#: apps/academics/models/curriculum.py:56
+msgid "subject"
+msgstr "fan"
+
+#: apps/academics/models/curriculum.py:57
+msgid "subjects"
+msgstr "fanlar"
+
+#: apps/academics/models/curriculum.py:73 apps/academics/models/people.py:32
+#: apps/academics/models/people.py:111
+#| msgid "interface language"
+msgid "teaching language"
+msgstr "ta'lim tili"
+
+#: apps/academics/models/curriculum.py:79
+msgid "study semester"
+msgstr "o'quv semestri"
+
+#: apps/academics/models/curriculum.py:81
+msgid "credits"
+msgstr "kredit"
+
+#: apps/academics/models/curriculum.py:82
+msgid "lecture hours"
+msgstr "ma'ruza soatlari"
+
+#: apps/academics/models/curriculum.py:83
+msgid "practice hours"
+msgstr "amaliy mashg'ulot soatlari"
+
+#: apps/academics/models/curriculum.py:84
+msgid "seminar hours"
+msgstr "seminar soatlari"
+
+#: apps/academics/models/curriculum.py:85
+msgid "laboratory hours"
+msgstr "laboratoriya soatlari"
+
+#: apps/academics/models/curriculum.py:86
+msgid "independent study hours"
+msgstr "mustaqil ta'lim soatlari"
+
+#: apps/academics/models/curriculum.py:87
+msgid "assessment"
+msgstr "nazorat turi"
+
+#: apps/academics/models/curriculum.py:90
+msgid "curriculum item"
+msgstr "o'quv reja qatori"
+
+#: apps/academics/models/curriculum.py:91
+msgid "curriculum"
+msgstr "o'quv reja"
+
+#: apps/academics/models/people.py:29
+msgid "year of study"
+msgstr "kurs"
+
+#: apps/academics/models/people.py:30
+msgid "number within course"
+msgstr "kursdagi tartib raqami"
+
+#: apps/academics/models/people.py:34 apps/academics/models/people.py:83
+#: apps/academics/models/people.py:235
+#| msgid "Student"
+msgid "students"
+msgstr "talabalar"
+
+#: apps/academics/models/people.py:36
+msgid "composition"
+msgstr "tarkibi"
+
+#: apps/academics/models/people.py:41
+msgid "group"
+msgstr "guruh"
+
+#: apps/academics/models/people.py:42
+msgid "groups"
+msgstr "guruhlar"
+
+#: apps/academics/models/people.py:82
+msgid "number"
+msgstr "raqami"
+
+#: apps/academics/models/people.py:86
+msgid "subgroup"
+msgstr "kichik guruh"
+
+#: apps/academics/models/people.py:87
+msgid "subgroups"
+msgstr "kichik guruhlar"
+
+#: apps/academics/models/people.py:116
+msgid "stream"
+msgstr "oqim"
+
+#: apps/academics/models/people.py:117
+msgid "streams"
+msgstr "oqimlar"
+
+#: apps/academics/models/people.py:135 apps/academics/models/people.py:222
+msgid "last name"
+msgstr "familiya"
+
+#: apps/academics/models/people.py:136 apps/academics/models/people.py:223
+msgid "first name"
+msgstr "ism"
+
+#: apps/academics/models/people.py:137 apps/academics/models/people.py:224
+msgid "patronymic"
+msgstr "otasining ismi"
+
+#: apps/academics/models/people.py:139
+msgid "position"
+msgstr "lavozim"
+
+#: apps/academics/models/people.py:141
+msgid "academic degree"
+msgstr "ilmiy daraja"
+
+#: apps/academics/models/people.py:144
+msgid "employment"
+msgstr "ish turi"
+
+#: apps/academics/models/people.py:146
+msgid "annual teaching load (hours)"
+msgstr "yillik o'quv yuklamasi (soat)"
+
+#: apps/academics/models/people.py:147
+msgid "max lessons per week"
+msgstr "haftasiga ko'pi bilan darslar"
+
+#: apps/academics/models/people.py:151
+#| msgid "interface language"
+msgid "teaching languages"
+msgstr "dars bera oladigan tillari"
+
+#: apps/academics/models/people.py:156
+#| msgid "Teacher"
+msgid "teacher"
+msgstr "o'qituvchi"
+
+#: apps/academics/models/people.py:157
+#| msgid "Teacher"
+msgid "teachers"
+msgstr "o'qituvchilar"
+
+#: apps/academics/models/people.py:194
+msgid "availability"
+msgstr "qulaylik"
+
+#: apps/academics/models/people.py:197 apps/academics/models/people.py:198
+msgid "teacher availability"
+msgstr "o'qituvchining qulay vaqtlari"
+
+#: apps/academics/models/people.py:225
+msgid "HEMIS ID"
+msgstr "HEMIS ID"
+
+#: apps/academics/models/people.py:230
+msgid "gender"
+msgstr "jinsi"
+
+#: apps/academics/models/people.py:231
+msgid "phone"
+msgstr "telefon"
+
+#: apps/academics/models/people.py:234
+#| msgid "Student"
+msgid "student"
+msgstr "talaba"
+
+#: apps/academics/models/rooms.py:13
+msgid "address"
+msgstr "manzil"
+
+#: apps/academics/models/rooms.py:16
+msgid "building"
+msgstr "bino"
+
+#: apps/academics/models/rooms.py:17
+msgid "buildings"
+msgstr "binolar"
+
+#: apps/academics/models/rooms.py:29
+msgid "room type"
+msgstr "xona turi"
+
+#: apps/academics/models/rooms.py:30
+msgid "room types"
+msgstr "xona turlari"
+
+#: apps/academics/models/rooms.py:39 apps/academics/models/rooms.py:57
+msgid "room"
+msgstr "xona"
+
+#: apps/academics/models/rooms.py:40
+msgid "floor"
+msgstr "qavat"
+
+#: apps/academics/models/rooms.py:42
+msgid "seats"
+msgstr "o'rinlar"
+
+#: apps/academics/models/rooms.py:43
+msgid "projector"
+msgstr "proyektor"
+
+#: apps/academics/models/rooms.py:44
+msgid "computers"
+msgstr "kompyuterlar"
+
+#: apps/academics/models/rooms.py:45
+msgid "board"
+msgstr "doska"
+
+#: apps/academics/models/rooms.py:52
+msgid "Optional: room reserved for a faculty."
+msgstr "Ixtiyoriy: xona biriktirilgan fakultet."
+
+#: apps/academics/models/rooms.py:54
+msgid "in use"
+msgstr "foydalanishda"
+
+#: apps/academics/models/rooms.py:58
+msgid "rooms"
+msgstr "xonalar"
+
+#: apps/academics/models/structure.py:13
+msgid "short name"
+msgstr "qisqa nomi"
+
+#: apps/academics/models/structure.py:16
+msgid "academy"
+msgstr "akademiya"
+
+#: apps/academics/models/structure.py:17
+msgid "academies"
+msgstr "akademiyalar"
+
+#: apps/academics/models/structure.py:28
+#| msgid "interface language"
+msgid "main teaching language"
+msgstr "asosiy ta'lim tili"
+
+#: apps/academics/models/structure.py:35 apps/accounts/models.py:36
+msgid "faculty"
+msgstr "fakultet"
+
+#: apps/academics/models/structure.py:36
+msgid "faculties"
+msgstr "fakultetlar"
+
+#: apps/academics/models/structure.py:51 apps/accounts/models.py:44
+#| msgid "Head of department"
+msgid "department"
+msgstr "kafedra"
+
+#: apps/academics/models/structure.py:52
+#| msgid "Head of department"
+msgid "departments"
+msgstr "kafedralar"
+
+#: apps/academics/models/structure.py:64
+msgid "education level"
+msgstr "ta'lim darajasi"
+
+#: apps/academics/models/structure.py:65
+msgid "education levels"
+msgstr "ta'lim darajalari"
+
+#: apps/academics/models/structure.py:77
+msgid "schedule type"
+msgstr "jadval turi"
+
+#: apps/academics/models/structure.py:80
+msgid "needs a physical room"
+msgstr "jismoniy xona kerak"
+
+#: apps/academics/models/structure.py:82
+msgid "Distance learning uses a virtual room link instead."
+msgstr "Masofaviy ta'limda xona o'rniga virtual xona havolasi ishlatiladi."
+
+#: apps/academics/models/structure.py:85
+msgid "max lessons per day for a group"
+msgstr "guruh uchun kuniga ko'pi bilan darslar"
+
+#: apps/academics/models/structure.py:90
+msgid "study days"
+msgstr "o'qish kunlari"
+
+#: apps/academics/models/structure.py:92
+msgid "0 = Monday … 6 = Sunday."
+msgstr "0 = dushanba … 6 = yakshanba."
+
+#: apps/academics/models/structure.py:97
+msgid "education form"
+msgstr "ta'lim shakli"
+
+#: apps/academics/models/structure.py:98
+msgid "education forms"
+msgstr "ta'lim shakllari"
+
+#: apps/academics/models/structure.py:127
+msgid "program code"
+msgstr "shifr"
+
+#: apps/academics/models/structure.py:131
+msgid "program"
+msgstr "ta'lim yo'nalishi"
+
+#: apps/academics/models/structure.py:132
+msgid "programs"
+msgstr "ta'lim yo'nalishlari"
+
+#: apps/academics/models/structure.py:150
+msgid "study duration (years)"
+msgstr "o'qish muddati (yil)"
+
+#: apps/academics/models/structure.py:153
+msgid "group name prefix"
+msgstr "guruh nomi boshlanishi"
+
+#: apps/academics/models/structure.py:155
+msgid "Used to build group names, e.g. IS → IS-301."
+msgstr "Guruh nomini yasashda ishlatiladi, masalan IS → IS-301."
+
+#: apps/academics/models/structure.py:159
+msgid "program form"
+msgstr "yo'nalish va ta'lim shakli"
+
+#: apps/academics/models/structure.py:160
+msgid "program forms"
+msgstr "yo'nalishlar va ta'lim shakllari"
+
+#: apps/accounts/admin.py:15 config/views.py:24
 msgid "Timetable"
 msgstr "Dars jadvali"
 
@@ -49,11 +772,11 @@ msgstr "rol"
 msgid "interface language"
 msgstr "ilova tili"
 
-#: apps/accounts/models.py:31
+#: apps/accounts/models.py:48
 msgid "user"
 msgstr "foydalanuvchi"
 
-#: apps/accounts/models.py:32
+#: apps/accounts/models.py:49
 msgid "users"
 msgstr "foydalanuvchilar"
 
@@ -61,17 +784,381 @@ msgstr "foydalanuvchilar"
 msgid "Incorrect login or password."
 msgstr "Login yoki parol noto'g'ri."
 
-#: config/settings.py:92
-msgid "Uzbek"
-msgstr "O'zbekcha"
+#: apps/notifications/models.py:9 apps/notifications/rendering.py:72
+msgid "Lesson moved to another room"
+msgstr "Dars boshqa xonaga ko'chirildi"
 
-#: config/settings.py:93
-msgid "Russian"
-msgstr "Ruscha"
+#: apps/notifications/models.py:10 apps/notifications/rendering.py:73
+msgid "Lesson moved to another time"
+msgstr "Dars boshqa vaqtga ko'chirildi"
 
-#: config/settings.py:94
-msgid "English"
-msgstr "Inglizcha"
+#: apps/notifications/models.py:11 apps/notifications/rendering.py:74
+#: apps/scheduling/models.py:185
+msgid "Lesson cancelled"
+msgstr "Dars bekor qilindi"
+
+#: apps/notifications/models.py:12 apps/notifications/rendering.py:75
+#| msgid "Teacher"
+msgid "Teacher replaced"
+msgstr "O'qituvchi almashtirildi"
+
+#: apps/notifications/models.py:13 apps/notifications/rendering.py:76
+msgid "New lesson added"
+msgstr "Yangi dars qo'shildi"
+
+#: apps/notifications/models.py:14 apps/notifications/rendering.py:77
+msgid "Online lesson link changed"
+msgstr "Onlayn dars havolasi o'zgardi"
+
+#: apps/notifications/models.py:15 apps/notifications/rendering.py:78
+msgid "New timetable published"
+msgstr "Yangi dars jadvali e'lon qilindi"
+
+#: apps/notifications/models.py:16
+msgid "Lesson reminder"
+msgstr "Dars haqida eslatma"
+
+#: apps/notifications/models.py:17
+msgid "Tomorrow's lessons"
+msgstr "Ertangi darslar"
+
+#: apps/notifications/models.py:18
+msgid "Reschedule request answered"
+msgstr "Ko'chirish so'roviga javob berildi"
+
+#: apps/notifications/models.py:37
+msgid "dispatcher comment"
+msgstr "dispetcher izohi"
+
+#: apps/notifications/models.py:51
+msgid "notification"
+msgstr "xabar"
+
+#: apps/notifications/models.py:52
+msgid "notifications"
+msgstr "xabarlar"
+
+#: apps/notifications/models.py:76
+msgid "push subscription"
+msgstr "push obunasi"
+
+#: apps/notifications/models.py:77
+msgid "push subscriptions"
+msgstr "push obunalari"
+
+#: apps/notifications/models.py:88
+msgid "remind before lessons"
+msgstr "darsdan oldin eslatish"
+
+#: apps/notifications/models.py:89
+msgid "minutes before"
+msgstr "necha daqiqa oldin"
+
+#: apps/notifications/models.py:90
+msgid "evening summary"
+msgstr "kechki xulosa"
+
+#: apps/notifications/models.py:93 apps/notifications/models.py:94
+msgid "notification settings"
+msgstr "xabar sozlamalari"
+
+#: apps/notifications/rendering.py:27
+msgctxt "genitive month"
+msgid "January"
+msgstr "yanvar"
+
+#: apps/notifications/rendering.py:28
+msgctxt "genitive month"
+msgid "February"
+msgstr "fevral"
+
+#: apps/notifications/rendering.py:29
+msgctxt "genitive month"
+msgid "March"
+msgstr "mart"
+
+#: apps/notifications/rendering.py:30
+msgctxt "genitive month"
+msgid "April"
+msgstr "aprel"
+
+#: apps/notifications/rendering.py:31
+msgctxt "genitive month"
+msgid "May"
+msgstr "may"
+
+#: apps/notifications/rendering.py:32
+msgctxt "genitive month"
+msgid "June"
+msgstr "iyun"
+
+#: apps/notifications/rendering.py:33
+msgctxt "genitive month"
+msgid "July"
+msgstr "iyul"
+
+#: apps/notifications/rendering.py:34
+msgctxt "genitive month"
+msgid "August"
+msgstr "avgust"
+
+#: apps/notifications/rendering.py:35
+msgctxt "genitive month"
+msgid "September"
+msgstr "sentabr"
+
+#: apps/notifications/rendering.py:36
+msgctxt "genitive month"
+msgid "October"
+msgstr "oktabr"
+
+#: apps/notifications/rendering.py:37
+msgctxt "genitive month"
+msgid "November"
+msgstr "noyabr"
+
+#: apps/notifications/rendering.py:38
+msgctxt "genitive month"
+msgid "December"
+msgstr "dekabr"
+
+#: apps/notifications/rendering.py:49
+#, python-format
+msgid "%(day)s %(month)s, %(weekday)s"
+msgstr "%(day)s-%(month)s, %(weekday)s"
+
+#: apps/notifications/rendering.py:85
+#, python-format
+msgid "The timetable for %(semester)s is published. Check your lessons."
+msgstr ""
+"%(semester)s uchun dars jadvali e'lon qilindi. Darslaringizni ko'rib "
+"chiqing."
+
+#: apps/notifications/rendering.py:91
+#, python-format
+msgid ""
+"%(day)s, lesson %(number)s: %(subject)s moved from %(old_room)s to room "
+"%(new_room)s."
+msgstr ""
+"%(day)s, %(number)s-dars: %(subject)s darsi %(old_room)s dan %(new_room)s "
+"xonasiga ko'chirildi."
+
+#: apps/notifications/rendering.py:95
+#, python-format
+msgid ""
+"%(subject)s moved from %(day)s, lesson %(number)s to %(new_day)s, lesson "
+"%(new_number)s."
+msgstr ""
+"%(subject)s darsi %(day)s, %(number)s-darsdan %(new_day)s, "
+"%(new_number)s-darsga ko'chirildi."
+
+#: apps/notifications/rendering.py:99
+#, python-format
+msgid "%(day)s, lesson %(number)s: %(subject)s is cancelled."
+msgstr "%(day)s, %(number)s-dars: %(subject)s darsi bekor qilindi."
+
+#: apps/notifications/rendering.py:102
+#, python-format
+msgid ""
+"%(day)s, lesson %(number)s: %(subject)s will be taught by %(new_teacher)s "
+"instead of %(old_teacher)s."
+msgstr ""
+"%(day)s, %(number)s-dars: %(subject)s darsini %(old_teacher)s o'rniga "
+"%(new_teacher)s o'tadi."
+
+#: apps/notifications/rendering.py:106
+#, python-format
+msgid "New lesson: %(subject)s, %(day)s, lesson %(number)s, %(room)s."
+msgstr "Yangi dars: %(subject)s, %(day)s, %(number)s-dars, %(room)s."
+
+#: apps/notifications/rendering.py:112
+#, python-format
+msgid ""
+"%(subject)s (%(day)s, lesson %(number)s): the online lesson link has "
+"changed."
+msgstr ""
+"%(subject)s (%(day)s, %(number)s-dars): onlayn dars havolasi o'zgardi."
+
+#: apps/scheduling/models.py:16
+msgid "Draft"
+msgstr "Qoralama"
+
+#: apps/scheduling/models.py:17
+msgid "Published"
+msgstr "E'lon qilingan"
+
+#: apps/scheduling/models.py:18
+msgid "Archived"
+msgstr "Arxivda"
+
+#: apps/scheduling/models.py:27
+msgid "status"
+msgstr "holati"
+
+#: apps/scheduling/models.py:39
+#| msgid "Timetable"
+msgid "timetable version"
+msgstr "jadval versiyasi"
+
+#: apps/scheduling/models.py:40
+msgid "timetable versions"
+msgstr "jadval versiyalari"
+
+#: apps/scheduling/models.py:75
+msgid "weeks"
+msgstr "haftalar"
+
+#: apps/scheduling/models.py:81
+msgid "online lesson link"
+msgstr "onlayn dars havolasi"
+
+#: apps/scheduling/models.py:83
+msgid "pinned"
+msgstr "qulflangan"
+
+#: apps/scheduling/models.py:83
+msgid "Pinned lessons are never moved by the solver."
+msgstr "Qulflangan dars avtomatik tuzishda o'zgartirilmaydi."
+
+#: apps/scheduling/models.py:85
+msgid "note"
+msgstr "izoh"
+
+#: apps/scheduling/models.py:88
+#| msgid "Timetable"
+msgid "timetable entry"
+msgstr "jadvaldagi dars"
+
+#: apps/scheduling/models.py:89
+#| msgid "Timetable"
+msgid "timetable entries"
+msgstr "jadvaldagi darslar"
+
+#: apps/scheduling/models.py:115
+msgid "Scheduled"
+msgstr "Rejada"
+
+#: apps/scheduling/models.py:116 apps/solver/models.py:15
+msgid "Cancelled"
+msgstr "Bekor qilingan"
+
+#: apps/scheduling/models.py:117
+msgid "Needs rescheduling"
+msgstr "Ko'chirilishi kerak"
+
+#: apps/scheduling/models.py:143
+msgid "lesson occurrence"
+msgstr "aniq sanadagi dars"
+
+#: apps/scheduling/models.py:144
+msgid "lesson occurrences"
+msgstr "aniq sanadagi darslar"
+
+#: apps/scheduling/models.py:182
+msgid "Lesson added"
+msgstr "Dars qo'shildi"
+
+#: apps/scheduling/models.py:183
+msgid "Lesson changed"
+msgstr "Dars o'zgartirildi"
+
+#: apps/scheduling/models.py:184
+msgid "Lesson removed"
+msgstr "Dars olib tashlandi"
+
+#: apps/scheduling/models.py:195
+msgid "change batch"
+msgstr "o'zgarishlar to'plami"
+
+#: apps/scheduling/models.py:200
+msgid "Set when only one dated lesson is affected."
+msgstr "Faqat bitta sanadagi dars o'zgarganda to'ldiriladi."
+
+#: apps/scheduling/models.py:202
+msgid "comment"
+msgstr "izoh"
+
+#: apps/scheduling/models.py:211
+#| msgid "Timetable"
+msgid "timetable change"
+msgstr "jadvaldagi o'zgarish"
+
+#: apps/scheduling/models.py:212
+#| msgid "Timetable"
+msgid "timetable changes"
+msgstr "jadvaldagi o'zgarishlar"
+
+#: apps/scheduling/models.py:220
+msgid "Pending"
+msgstr "Ko'rib chiqilmoqda"
+
+#: apps/scheduling/models.py:221
+msgid "Approved"
+msgstr "Tasdiqlandi"
+
+#: apps/scheduling/models.py:222
+msgid "Rejected"
+msgstr "Rad etildi"
+
+#: apps/scheduling/models.py:231
+msgid "Empty means the lesson every week."
+msgstr "Bo'sh bo'lsa, har haftadagi dars."
+
+#: apps/scheduling/models.py:233
+msgid "reason"
+msgstr "sababi"
+
+#: apps/scheduling/models.py:241
+msgid "preferred time"
+msgstr "qulay vaqt"
+
+#: apps/scheduling/models.py:248
+msgid "answer"
+msgstr "javob"
+
+#: apps/scheduling/models.py:253
+msgid "reschedule request"
+msgstr "ko'chirish so'rovi"
+
+#: apps/scheduling/models.py:254
+msgid "reschedule requests"
+msgstr "ko'chirish so'rovlari"
+
+#: apps/solver/models.py:10
+msgid "Queued"
+msgstr "Navbatda"
+
+#: apps/solver/models.py:11
+msgid "Running"
+msgstr "Bajarilmoqda"
+
+#: apps/solver/models.py:12
+msgid "Finished"
+msgstr "Tugadi"
+
+#: apps/solver/models.py:13
+msgid "No solution"
+msgstr "Yechim topilmadi"
+
+#: apps/solver/models.py:14
+msgid "Error"
+msgstr "Xatolik"
+
+#: apps/solver/models.py:28
+msgid "algorithm"
+msgstr "algoritm"
+
+#: apps/solver/models.py:35
+msgid "parameters"
+msgstr "parametrlar"
+
+#: apps/solver/models.py:58
+msgid "automatic scheduling run"
+msgstr "avtomatik tuzish"
+
+#: apps/solver/models.py:59
+msgid "automatic scheduling runs"
+msgstr "avtomatik tuzishlar"
 
 #: config/views.py:25
 msgid "International Islamic Academy of Uzbekistan"

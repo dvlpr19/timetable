@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dars-jadvali 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-07 09:58+0500\n"
+"POT-Creation-Date: 2026-10-07 10:44+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,734 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: apps/accounts/admin.py:14 config/views.py:24
+#: apps/academics/choices.py:10 config/settings.py:92
+msgid "Uzbek"
+msgstr "Узбекский"
+
+#: apps/academics/choices.py:11 config/settings.py:93
+msgid "Russian"
+msgstr "Русский"
+
+#: apps/academics/choices.py:12 config/settings.py:94
+msgid "English"
+msgstr "Английский"
+
+#: apps/academics/choices.py:13
+msgid "Arabic"
+msgstr "Арабский"
+
+#: apps/academics/choices.py:17
+msgid "Weekly recurring"
+msgstr "Еженедельное"
+
+#: apps/academics/choices.py:18
+msgid "Session (fixed dates)"
+msgstr "Сессия (фиксированные даты)"
+
+#: apps/academics/choices.py:22
+msgid "Autumn semester"
+msgstr "Осенний семестр"
+
+#: apps/academics/choices.py:23
+msgid "Spring semester"
+msgstr "Весенний семестр"
+
+#: apps/academics/choices.py:27 apps/notifications/rendering.py:15
+msgid "Monday"
+msgstr "Понедельник"
+
+#: apps/academics/choices.py:28 apps/notifications/rendering.py:16
+msgid "Tuesday"
+msgstr "Вторник"
+
+#: apps/academics/choices.py:29 apps/notifications/rendering.py:17
+msgid "Wednesday"
+msgstr "Среда"
+
+#: apps/academics/choices.py:30 apps/notifications/rendering.py:18
+msgid "Thursday"
+msgstr "Четверг"
+
+#: apps/academics/choices.py:31 apps/notifications/rendering.py:19
+msgid "Friday"
+msgstr "Пятница"
+
+#: apps/academics/choices.py:32 apps/notifications/rendering.py:20
+msgid "Saturday"
+msgstr "Суббота"
+
+#: apps/academics/choices.py:33 apps/notifications/rendering.py:21
+msgid "Sunday"
+msgstr "Воскресенье"
+
+#: apps/academics/choices.py:37
+msgid "Every week"
+msgstr "Каждую неделю"
+
+#: apps/academics/choices.py:38
+msgid "Odd weeks"
+msgstr "Нечётные недели"
+
+#: apps/academics/choices.py:39
+msgid "Even weeks"
+msgstr "Чётные недели"
+
+#: apps/academics/choices.py:43
+msgid "Public holiday"
+msgstr "Праздничный день"
+
+#: apps/academics/choices.py:44
+#| msgid "Dean's office"
+msgid "Day off"
+msgstr "Выходной день"
+
+#: apps/academics/choices.py:45
+msgid "Transferred working day"
+msgstr "Перенесённый рабочий день"
+
+#: apps/academics/choices.py:49
+msgid "Mixed"
+msgstr "Смешанная"
+
+#: apps/academics/choices.py:50
+#| msgid "Student"
+msgid "Male students"
+msgstr "Юноши"
+
+#: apps/academics/choices.py:51
+msgid "Female students"
+msgstr "Девушки"
+
+#: apps/academics/choices.py:55
+msgid "Male"
+msgstr "Мужской"
+
+#: apps/academics/choices.py:56
+msgid "Female"
+msgstr "Женский"
+
+#: apps/academics/choices.py:60
+msgid "Assistant"
+msgstr "Ассистент"
+
+#: apps/academics/choices.py:61
+msgid "Lecturer"
+msgstr "Преподаватель"
+
+#: apps/academics/choices.py:62
+msgid "Senior lecturer"
+msgstr "Старший преподаватель"
+
+#: apps/academics/choices.py:63
+msgid "Associate professor"
+msgstr "Доцент"
+
+#: apps/academics/choices.py:64
+msgid "Professor"
+msgstr "Профессор"
+
+#: apps/academics/choices.py:68
+msgid "No degree"
+msgstr "Без учёной степени"
+
+#: apps/academics/choices.py:69
+msgid "PhD"
+msgstr "PhD"
+
+#: apps/academics/choices.py:70
+msgid "DSc"
+msgstr "DSc"
+
+#: apps/academics/choices.py:74
+msgid "Full-time"
+msgstr "Штатный"
+
+#: apps/academics/choices.py:75
+msgid "Part-time (second job)"
+msgstr "Совместитель"
+
+#: apps/academics/choices.py:76
+msgid "Hourly"
+msgstr "Почасовик"
+
+#: apps/academics/choices.py:80
+msgid "Exam"
+msgstr "Экзамен"
+
+#: apps/academics/choices.py:81
+msgid "Pass/fail test"
+msgstr "Зачёт"
+
+#: apps/academics/choices.py:85
+msgid "Preferred"
+msgstr "Удобно"
+
+#: apps/academics/choices.py:86
+msgid "Possible"
+msgstr "Возможно"
+
+#: apps/academics/choices.py:87
+msgid "Unavailable"
+msgstr "Невозможно"
+
+#: apps/academics/choices.py:91
+msgid "Lecture"
+msgstr "Лекция"
+
+#: apps/academics/choices.py:92
+msgid "Practical class"
+msgstr "Практическое занятие"
+
+#: apps/academics/choices.py:93
+msgid "Seminar"
+msgstr "Семинар"
+
+#: apps/academics/choices.py:94
+msgid "Laboratory"
+msgstr "Лабораторная работа"
+
+#: apps/academics/models/assignments.py:41
+msgid "lessons every week"
+msgstr "занятий каждую неделю"
+
+#: apps/academics/models/assignments.py:42
+msgid "lessons every other week"
+msgstr "занятий через неделю"
+
+#: apps/academics/models/assignments.py:43
+msgid "lessons in the period"
+msgstr "занятий за период"
+
+#: apps/academics/models/assignments.py:49
+msgid "teaching assignment"
+msgstr "учебное поручение"
+
+#: apps/academics/models/assignments.py:50
+msgid "teaching assignments"
+msgstr "распределение нагрузки"
+
+#: apps/academics/models/calendar.py:14 apps/academics/models/calendar.py:65
+#: apps/academics/models/calendar.py:112 apps/academics/models/calendar.py:169
+#: apps/academics/models/curriculum.py:17
+#: apps/academics/models/curriculum.py:39 apps/academics/models/people.py:28
+#: apps/academics/models/people.py:109 apps/academics/models/rooms.py:12
+#: apps/academics/models/rooms.py:26 apps/academics/models/structure.py:12
+#: apps/academics/models/structure.py:26 apps/academics/models/structure.py:48
+#: apps/academics/models/structure.py:61 apps/academics/models/structure.py:75
+#: apps/academics/models/structure.py:128 apps/scheduling/models.py:25
+msgid "name"
+msgstr "название"
+
+#: apps/academics/models/calendar.py:15 apps/academics/models/calendar.py:35
+#: apps/academics/models/calendar.py:66
+msgid "start date"
+msgstr "дата начала"
+
+#: apps/academics/models/calendar.py:16 apps/academics/models/calendar.py:36
+#: apps/academics/models/calendar.py:67
+msgid "end date"
+msgstr "дата окончания"
+
+#: apps/academics/models/calendar.py:19
+msgid "academic year"
+msgstr "учебный год"
+
+#: apps/academics/models/calendar.py:20
+msgid "academic years"
+msgstr "учебные годы"
+
+#: apps/academics/models/calendar.py:34 apps/academics/models/calendar.py:40
+msgid "semester"
+msgstr "семестр"
+
+#: apps/academics/models/calendar.py:37
+msgid "current semester"
+msgstr "текущий семестр"
+
+#: apps/academics/models/calendar.py:41
+msgid "semesters"
+msgstr "семестры"
+
+#: apps/academics/models/calendar.py:69
+msgid "teaching weeks"
+msgstr "учебных недель"
+
+#: apps/academics/models/calendar.py:69
+msgid "Only for weekly forms."
+msgstr "Только для еженедельных форм."
+
+#: apps/academics/models/calendar.py:73
+msgid "teaching period"
+msgstr "учебный период"
+
+#: apps/academics/models/calendar.py:74
+msgid "teaching periods"
+msgstr "учебные периоды"
+
+#: apps/academics/models/calendar.py:110 apps/scheduling/models.py:77
+msgid "date"
+msgstr "дата"
+
+#: apps/academics/models/calendar.py:111
+msgid "type"
+msgstr "тип"
+
+#: apps/academics/models/calendar.py:114
+msgid "works as weekday"
+msgstr "работает как день недели"
+
+#: apps/academics/models/calendar.py:118
+msgid "For transferred working days: whose timetable is followed."
+msgstr ""
+"Для перенесённого рабочего дня: по расписанию какого дня идут занятия."
+
+#: apps/academics/models/calendar.py:121
+msgid "date is an estimate"
+msgstr "дата приблизительная"
+
+#: apps/academics/models/calendar.py:123
+msgid "E.g. Eid dates depend on the lunar calendar and must be confirmed."
+msgstr ""
+"Например, даты хайитов зависят от лунного календаря и требуют подтверждения."
+
+#: apps/academics/models/calendar.py:127
+msgid "calendar day"
+msgstr "день календаря"
+
+#: apps/academics/models/calendar.py:128
+msgid "academic calendar"
+msgstr "академический календарь"
+
+#: apps/academics/models/calendar.py:146
+msgid "lesson number"
+msgstr "номер пары"
+
+#: apps/academics/models/calendar.py:147 apps/academics/models/calendar.py:177
+msgid "start"
+msgstr "начало"
+
+#: apps/academics/models/calendar.py:148 apps/academics/models/calendar.py:178
+msgid "end"
+msgstr "окончание"
+
+#: apps/academics/models/calendar.py:149 apps/academics/models/people.py:38
+msgid "shift"
+msgstr "смена"
+
+#: apps/academics/models/calendar.py:152
+msgid "lesson time"
+msgstr "время занятия"
+
+#: apps/academics/models/calendar.py:153
+msgid "bell schedule"
+msgstr "расписание звонков"
+
+#: apps/academics/models/calendar.py:171 apps/academics/models/people.py:190
+#: apps/scheduling/models.py:71
+msgid "weekday"
+msgstr "день недели"
+
+#: apps/academics/models/calendar.py:175
+msgid "Empty means every day."
+msgstr "Если пусто — каждый день."
+
+#: apps/academics/models/calendar.py:185
+msgid "Empty means all education forms."
+msgstr "Если пусто — все формы обучения."
+
+#: apps/academics/models/calendar.py:188
+msgid "strict"
+msgstr "строго"
+
+#: apps/academics/models/calendar.py:188
+msgid "Strict: never schedule. Otherwise only avoided."
+msgstr ""
+"Строго: занятия не ставятся никогда. Иначе — только по возможности "
+"избегаются."
+
+#: apps/academics/models/calendar.py:192
+msgid "blocked time"
+msgstr "закрытое время"
+
+#: apps/academics/models/calendar.py:193
+msgid "blocked times"
+msgstr "закрытое время"
+
+#: apps/academics/models/curriculum.py:16
+#: apps/academics/models/curriculum.py:38 apps/academics/models/rooms.py:11
+#: apps/academics/models/rooms.py:25 apps/academics/models/structure.py:25
+#: apps/academics/models/structure.py:47 apps/academics/models/structure.py:60
+#: apps/academics/models/structure.py:74
+msgid "code"
+msgstr "код"
+
+#: apps/academics/models/curriculum.py:24
+msgid ""
+"Room type this kind of lesson needs by default (e.g. lab → computer room)."
+msgstr ""
+"Тип аудитории, нужный для такого занятия по умолчанию (например, "
+"лабораторная → компьютерный класс)."
+
+#: apps/academics/models/curriculum.py:29
+msgid "lesson type"
+msgstr "вид занятия"
+
+#: apps/academics/models/curriculum.py:30
+msgid "lesson types"
+msgstr "виды занятий"
+
+#: apps/academics/models/curriculum.py:44
+msgid "language subject"
+msgstr "языковой предмет"
+
+#: apps/academics/models/curriculum.py:44
+msgid "Practice is usually split in subgroups."
+msgstr "Практические занятия обычно проходят по подгруппам."
+
+#: apps/academics/models/curriculum.py:52
+msgid "Room type required for practical/lab lessons of this subject, if any."
+msgstr ""
+"Тип аудитории для практических и лабораторных занятий по предмету (если "
+"нужен)."
+
+#: apps/academics/models/curriculum.py:56
+msgid "subject"
+msgstr "предмет"
+
+#: apps/academics/models/curriculum.py:57
+msgid "subjects"
+msgstr "предметы"
+
+#: apps/academics/models/curriculum.py:73 apps/academics/models/people.py:32
+#: apps/academics/models/people.py:111
+#| msgid "interface language"
+msgid "teaching language"
+msgstr "язык обучения"
+
+#: apps/academics/models/curriculum.py:79
+msgid "study semester"
+msgstr "семестр обучения"
+
+#: apps/academics/models/curriculum.py:81
+msgid "credits"
+msgstr "кредиты"
+
+#: apps/academics/models/curriculum.py:82
+msgid "lecture hours"
+msgstr "часы лекций"
+
+#: apps/academics/models/curriculum.py:83
+msgid "practice hours"
+msgstr "часы практических занятий"
+
+#: apps/academics/models/curriculum.py:84
+msgid "seminar hours"
+msgstr "часы семинаров"
+
+#: apps/academics/models/curriculum.py:85
+msgid "laboratory hours"
+msgstr "часы лабораторных"
+
+#: apps/academics/models/curriculum.py:86
+msgid "independent study hours"
+msgstr "часы самостоятельной работы"
+
+#: apps/academics/models/curriculum.py:87
+msgid "assessment"
+msgstr "форма контроля"
+
+#: apps/academics/models/curriculum.py:90
+msgid "curriculum item"
+msgstr "строка учебного плана"
+
+#: apps/academics/models/curriculum.py:91
+msgid "curriculum"
+msgstr "учебный план"
+
+#: apps/academics/models/people.py:29
+msgid "year of study"
+msgstr "курс"
+
+#: apps/academics/models/people.py:30
+msgid "number within course"
+msgstr "номер в пределах курса"
+
+#: apps/academics/models/people.py:34 apps/academics/models/people.py:83
+#: apps/academics/models/people.py:235
+#| msgid "Student"
+msgid "students"
+msgstr "студенты"
+
+#: apps/academics/models/people.py:36
+msgid "composition"
+msgstr "состав"
+
+#: apps/academics/models/people.py:41
+msgid "group"
+msgstr "группа"
+
+#: apps/academics/models/people.py:42
+msgid "groups"
+msgstr "группы"
+
+#: apps/academics/models/people.py:82
+msgid "number"
+msgstr "номер"
+
+#: apps/academics/models/people.py:86
+msgid "subgroup"
+msgstr "подгруппа"
+
+#: apps/academics/models/people.py:87
+msgid "subgroups"
+msgstr "подгруппы"
+
+#: apps/academics/models/people.py:116
+msgid "stream"
+msgstr "поток"
+
+#: apps/academics/models/people.py:117
+msgid "streams"
+msgstr "потоки"
+
+#: apps/academics/models/people.py:135 apps/academics/models/people.py:222
+msgid "last name"
+msgstr "фамилия"
+
+#: apps/academics/models/people.py:136 apps/academics/models/people.py:223
+msgid "first name"
+msgstr "имя"
+
+#: apps/academics/models/people.py:137 apps/academics/models/people.py:224
+msgid "patronymic"
+msgstr "отчество"
+
+#: apps/academics/models/people.py:139
+msgid "position"
+msgstr "должность"
+
+#: apps/academics/models/people.py:141
+msgid "academic degree"
+msgstr "учёная степень"
+
+#: apps/academics/models/people.py:144
+msgid "employment"
+msgstr "тип занятости"
+
+#: apps/academics/models/people.py:146
+msgid "annual teaching load (hours)"
+msgstr "годовая учебная нагрузка (часы)"
+
+#: apps/academics/models/people.py:147
+msgid "max lessons per week"
+msgstr "максимум занятий в неделю"
+
+#: apps/academics/models/people.py:151
+#| msgid "interface language"
+msgid "teaching languages"
+msgstr "языки преподавания"
+
+#: apps/academics/models/people.py:156
+#| msgid "Teacher"
+msgid "teacher"
+msgstr "преподаватель"
+
+#: apps/academics/models/people.py:157
+#| msgid "Teacher"
+msgid "teachers"
+msgstr "преподаватели"
+
+#: apps/academics/models/people.py:194
+msgid "availability"
+msgstr "доступность"
+
+#: apps/academics/models/people.py:197 apps/academics/models/people.py:198
+msgid "teacher availability"
+msgstr "доступность преподавателя"
+
+#: apps/academics/models/people.py:225
+msgid "HEMIS ID"
+msgstr "HEMIS ID"
+
+#: apps/academics/models/people.py:230
+msgid "gender"
+msgstr "пол"
+
+#: apps/academics/models/people.py:231
+msgid "phone"
+msgstr "телефон"
+
+#: apps/academics/models/people.py:234
+#| msgid "Student"
+msgid "student"
+msgstr "студент"
+
+#: apps/academics/models/rooms.py:13
+msgid "address"
+msgstr "адрес"
+
+#: apps/academics/models/rooms.py:16
+msgid "building"
+msgstr "корпус"
+
+#: apps/academics/models/rooms.py:17
+msgid "buildings"
+msgstr "корпуса"
+
+#: apps/academics/models/rooms.py:29
+msgid "room type"
+msgstr "тип аудитории"
+
+#: apps/academics/models/rooms.py:30
+msgid "room types"
+msgstr "типы аудиторий"
+
+#: apps/academics/models/rooms.py:39 apps/academics/models/rooms.py:57
+msgid "room"
+msgstr "аудитория"
+
+#: apps/academics/models/rooms.py:40
+msgid "floor"
+msgstr "этаж"
+
+#: apps/academics/models/rooms.py:42
+msgid "seats"
+msgstr "мест"
+
+#: apps/academics/models/rooms.py:43
+msgid "projector"
+msgstr "проектор"
+
+#: apps/academics/models/rooms.py:44
+msgid "computers"
+msgstr "компьютеры"
+
+#: apps/academics/models/rooms.py:45
+msgid "board"
+msgstr "доска"
+
+#: apps/academics/models/rooms.py:52
+msgid "Optional: room reserved for a faculty."
+msgstr "Необязательно: факультет, за которым закреплена аудитория."
+
+#: apps/academics/models/rooms.py:54
+msgid "in use"
+msgstr "используется"
+
+#: apps/academics/models/rooms.py:58
+msgid "rooms"
+msgstr "аудитории"
+
+#: apps/academics/models/structure.py:13
+msgid "short name"
+msgstr "краткое название"
+
+#: apps/academics/models/structure.py:16
+msgid "academy"
+msgstr "академия"
+
+#: apps/academics/models/structure.py:17
+msgid "academies"
+msgstr "академии"
+
+#: apps/academics/models/structure.py:28
+#| msgid "interface language"
+msgid "main teaching language"
+msgstr "основной язык обучения"
+
+#: apps/academics/models/structure.py:35 apps/accounts/models.py:36
+msgid "faculty"
+msgstr "факультет"
+
+#: apps/academics/models/structure.py:36
+msgid "faculties"
+msgstr "факультеты"
+
+#: apps/academics/models/structure.py:51 apps/accounts/models.py:44
+#| msgid "Head of department"
+msgid "department"
+msgstr "кафедра"
+
+#: apps/academics/models/structure.py:52
+#| msgid "Head of department"
+msgid "departments"
+msgstr "кафедры"
+
+#: apps/academics/models/structure.py:64
+msgid "education level"
+msgstr "уровень образования"
+
+#: apps/academics/models/structure.py:65
+msgid "education levels"
+msgstr "уровни образования"
+
+#: apps/academics/models/structure.py:77
+msgid "schedule type"
+msgstr "тип расписания"
+
+#: apps/academics/models/structure.py:80
+msgid "needs a physical room"
+msgstr "нужна аудитория"
+
+#: apps/academics/models/structure.py:82
+msgid "Distance learning uses a virtual room link instead."
+msgstr ""
+"В дистанционном обучении вместо аудитории используется ссылка на онлайн-"
+"занятие."
+
+#: apps/academics/models/structure.py:85
+msgid "max lessons per day for a group"
+msgstr "максимум занятий в день для группы"
+
+#: apps/academics/models/structure.py:90
+msgid "study days"
+msgstr "учебные дни"
+
+#: apps/academics/models/structure.py:92
+msgid "0 = Monday … 6 = Sunday."
+msgstr "0 = понедельник … 6 = воскресенье."
+
+#: apps/academics/models/structure.py:97
+msgid "education form"
+msgstr "форма обучения"
+
+#: apps/academics/models/structure.py:98
+msgid "education forms"
+msgstr "формы обучения"
+
+#: apps/academics/models/structure.py:127
+msgid "program code"
+msgstr "шифр"
+
+#: apps/academics/models/structure.py:131
+msgid "program"
+msgstr "направление"
+
+#: apps/academics/models/structure.py:132
+msgid "programs"
+msgstr "направления"
+
+#: apps/academics/models/structure.py:150
+msgid "study duration (years)"
+msgstr "срок обучения (лет)"
+
+#: apps/academics/models/structure.py:153
+msgid "group name prefix"
+msgstr "префикс названия группы"
+
+#: apps/academics/models/structure.py:155
+msgid "Used to build group names, e.g. IS → IS-301."
+msgstr "Используется в названиях групп, например IS → IS-301."
+
+#: apps/academics/models/structure.py:159
+msgid "program form"
+msgstr "направление и форма обучения"
+
+#: apps/academics/models/structure.py:160
+msgid "program forms"
+msgstr "направления и формы обучения"
+
+#: apps/accounts/admin.py:15 config/views.py:24
 msgid "Timetable"
 msgstr "Расписание занятий"
 
@@ -49,11 +776,11 @@ msgstr "роль"
 msgid "interface language"
 msgstr "язык интерфейса"
 
-#: apps/accounts/models.py:31
+#: apps/accounts/models.py:48
 msgid "user"
 msgstr "пользователь"
 
-#: apps/accounts/models.py:32
+#: apps/accounts/models.py:49
 msgid "users"
 msgstr "пользователи"
 
@@ -61,17 +788,380 @@ msgstr "пользователи"
 msgid "Incorrect login or password."
 msgstr "Неверный логин или пароль."
 
-#: config/settings.py:92
-msgid "Uzbek"
-msgstr "Узбекский"
+#: apps/notifications/models.py:9 apps/notifications/rendering.py:72
+msgid "Lesson moved to another room"
+msgstr "Занятие перенесено в другую аудиторию"
 
-#: config/settings.py:93
-msgid "Russian"
-msgstr "Русский"
+#: apps/notifications/models.py:10 apps/notifications/rendering.py:73
+msgid "Lesson moved to another time"
+msgstr "Занятие перенесено на другое время"
 
-#: config/settings.py:94
-msgid "English"
-msgstr "Английский"
+#: apps/notifications/models.py:11 apps/notifications/rendering.py:74
+#: apps/scheduling/models.py:185
+msgid "Lesson cancelled"
+msgstr "Занятие отменено"
+
+#: apps/notifications/models.py:12 apps/notifications/rendering.py:75
+#| msgid "Teacher"
+msgid "Teacher replaced"
+msgstr "Заменён преподаватель"
+
+#: apps/notifications/models.py:13 apps/notifications/rendering.py:76
+msgid "New lesson added"
+msgstr "Добавлено новое занятие"
+
+#: apps/notifications/models.py:14 apps/notifications/rendering.py:77
+msgid "Online lesson link changed"
+msgstr "Изменилась ссылка на онлайн-занятие"
+
+#: apps/notifications/models.py:15 apps/notifications/rendering.py:78
+msgid "New timetable published"
+msgstr "Опубликовано новое расписание"
+
+#: apps/notifications/models.py:16
+msgid "Lesson reminder"
+msgstr "Напоминание о занятии"
+
+#: apps/notifications/models.py:17
+msgid "Tomorrow's lessons"
+msgstr "Занятия на завтра"
+
+#: apps/notifications/models.py:18
+msgid "Reschedule request answered"
+msgstr "Получен ответ на запрос о переносе"
+
+#: apps/notifications/models.py:37
+msgid "dispatcher comment"
+msgstr "комментарий диспетчера"
+
+#: apps/notifications/models.py:51
+msgid "notification"
+msgstr "уведомление"
+
+#: apps/notifications/models.py:52
+msgid "notifications"
+msgstr "уведомления"
+
+#: apps/notifications/models.py:76
+msgid "push subscription"
+msgstr "push-подписка"
+
+#: apps/notifications/models.py:77
+msgid "push subscriptions"
+msgstr "push-подписки"
+
+#: apps/notifications/models.py:88
+msgid "remind before lessons"
+msgstr "напоминать перед занятием"
+
+#: apps/notifications/models.py:89
+msgid "minutes before"
+msgstr "за сколько минут"
+
+#: apps/notifications/models.py:90
+msgid "evening summary"
+msgstr "вечерняя сводка"
+
+#: apps/notifications/models.py:93 apps/notifications/models.py:94
+msgid "notification settings"
+msgstr "настройки уведомлений"
+
+#: apps/notifications/rendering.py:27
+msgctxt "genitive month"
+msgid "January"
+msgstr "января"
+
+#: apps/notifications/rendering.py:28
+msgctxt "genitive month"
+msgid "February"
+msgstr "февраля"
+
+#: apps/notifications/rendering.py:29
+msgctxt "genitive month"
+msgid "March"
+msgstr "марта"
+
+#: apps/notifications/rendering.py:30
+msgctxt "genitive month"
+msgid "April"
+msgstr "апреля"
+
+#: apps/notifications/rendering.py:31
+msgctxt "genitive month"
+msgid "May"
+msgstr "мая"
+
+#: apps/notifications/rendering.py:32
+msgctxt "genitive month"
+msgid "June"
+msgstr "июня"
+
+#: apps/notifications/rendering.py:33
+msgctxt "genitive month"
+msgid "July"
+msgstr "июля"
+
+#: apps/notifications/rendering.py:34
+msgctxt "genitive month"
+msgid "August"
+msgstr "августа"
+
+#: apps/notifications/rendering.py:35
+msgctxt "genitive month"
+msgid "September"
+msgstr "сентября"
+
+#: apps/notifications/rendering.py:36
+msgctxt "genitive month"
+msgid "October"
+msgstr "октября"
+
+#: apps/notifications/rendering.py:37
+msgctxt "genitive month"
+msgid "November"
+msgstr "ноября"
+
+#: apps/notifications/rendering.py:38
+msgctxt "genitive month"
+msgid "December"
+msgstr "декабря"
+
+#: apps/notifications/rendering.py:49
+#, python-format
+msgid "%(day)s %(month)s, %(weekday)s"
+msgstr "%(day)s %(month)s, %(weekday)s"
+
+#: apps/notifications/rendering.py:85
+#, python-format
+msgid "The timetable for %(semester)s is published. Check your lessons."
+msgstr "Опубликовано расписание на %(semester)s. Посмотрите свои занятия."
+
+#: apps/notifications/rendering.py:91
+#, python-format
+msgid ""
+"%(day)s, lesson %(number)s: %(subject)s moved from %(old_room)s to room "
+"%(new_room)s."
+msgstr ""
+"%(day)s, %(number)s-я пара: занятие «%(subject)s» перенесено из %(old_room)s"
+" в аудиторию %(new_room)s."
+
+#: apps/notifications/rendering.py:95
+#, python-format
+msgid ""
+"%(subject)s moved from %(day)s, lesson %(number)s to %(new_day)s, lesson "
+"%(new_number)s."
+msgstr ""
+"Занятие «%(subject)s» перенесено: %(day)s, %(number)s-я пара → %(new_day)s, "
+"%(new_number)s-я пара."
+
+#: apps/notifications/rendering.py:99
+#, python-format
+msgid "%(day)s, lesson %(number)s: %(subject)s is cancelled."
+msgstr "%(day)s, %(number)s-я пара: занятие «%(subject)s» отменено."
+
+#: apps/notifications/rendering.py:102
+#, python-format
+msgid ""
+"%(day)s, lesson %(number)s: %(subject)s will be taught by %(new_teacher)s "
+"instead of %(old_teacher)s."
+msgstr ""
+"%(day)s, %(number)s-я пара: занятие «%(subject)s» вместо %(old_teacher)s "
+"проведёт %(new_teacher)s."
+
+#: apps/notifications/rendering.py:106
+#, python-format
+msgid "New lesson: %(subject)s, %(day)s, lesson %(number)s, %(room)s."
+msgstr "Новое занятие: «%(subject)s», %(day)s, %(number)s-я пара, %(room)s."
+
+#: apps/notifications/rendering.py:112
+#, python-format
+msgid ""
+"%(subject)s (%(day)s, lesson %(number)s): the online lesson link has "
+"changed."
+msgstr ""
+"«%(subject)s» (%(day)s, %(number)s-я пара): изменилась ссылка на онлайн-"
+"занятие."
+
+#: apps/scheduling/models.py:16
+msgid "Draft"
+msgstr "Черновик"
+
+#: apps/scheduling/models.py:17
+msgid "Published"
+msgstr "Опубликовано"
+
+#: apps/scheduling/models.py:18
+msgid "Archived"
+msgstr "В архиве"
+
+#: apps/scheduling/models.py:27
+msgid "status"
+msgstr "статус"
+
+#: apps/scheduling/models.py:39
+#| msgid "Timetable"
+msgid "timetable version"
+msgstr "версия расписания"
+
+#: apps/scheduling/models.py:40
+msgid "timetable versions"
+msgstr "версии расписания"
+
+#: apps/scheduling/models.py:75
+msgid "weeks"
+msgstr "недели"
+
+#: apps/scheduling/models.py:81
+msgid "online lesson link"
+msgstr "ссылка на онлайн-занятие"
+
+#: apps/scheduling/models.py:83
+msgid "pinned"
+msgstr "закреплено"
+
+#: apps/scheduling/models.py:83
+msgid "Pinned lessons are never moved by the solver."
+msgstr "Закреплённые занятия не перемещаются при автоматическом составлении."
+
+#: apps/scheduling/models.py:85
+msgid "note"
+msgstr "примечание"
+
+#: apps/scheduling/models.py:88
+#| msgid "Timetable"
+msgid "timetable entry"
+msgstr "занятие в расписании"
+
+#: apps/scheduling/models.py:89
+#| msgid "Timetable"
+msgid "timetable entries"
+msgstr "занятия в расписании"
+
+#: apps/scheduling/models.py:115
+msgid "Scheduled"
+msgstr "Запланировано"
+
+#: apps/scheduling/models.py:116 apps/solver/models.py:15
+msgid "Cancelled"
+msgstr "Отменено"
+
+#: apps/scheduling/models.py:117
+msgid "Needs rescheduling"
+msgstr "Требует переноса"
+
+#: apps/scheduling/models.py:143
+msgid "lesson occurrence"
+msgstr "занятие на дату"
+
+#: apps/scheduling/models.py:144
+msgid "lesson occurrences"
+msgstr "занятия на даты"
+
+#: apps/scheduling/models.py:182
+msgid "Lesson added"
+msgstr "Занятие добавлено"
+
+#: apps/scheduling/models.py:183
+msgid "Lesson changed"
+msgstr "Занятие изменено"
+
+#: apps/scheduling/models.py:184
+msgid "Lesson removed"
+msgstr "Занятие удалено"
+
+#: apps/scheduling/models.py:195
+msgid "change batch"
+msgstr "пакет изменений"
+
+#: apps/scheduling/models.py:200
+msgid "Set when only one dated lesson is affected."
+msgstr "Заполняется, если изменено занятие только на одну дату."
+
+#: apps/scheduling/models.py:202
+msgid "comment"
+msgstr "комментарий"
+
+#: apps/scheduling/models.py:211
+#| msgid "Timetable"
+msgid "timetable change"
+msgstr "изменение расписания"
+
+#: apps/scheduling/models.py:212
+#| msgid "Timetable"
+msgid "timetable changes"
+msgstr "изменения расписания"
+
+#: apps/scheduling/models.py:220
+msgid "Pending"
+msgstr "На рассмотрении"
+
+#: apps/scheduling/models.py:221
+msgid "Approved"
+msgstr "Одобрено"
+
+#: apps/scheduling/models.py:222
+msgid "Rejected"
+msgstr "Отклонено"
+
+#: apps/scheduling/models.py:231
+msgid "Empty means the lesson every week."
+msgstr "Если пусто — занятие каждую неделю."
+
+#: apps/scheduling/models.py:233
+msgid "reason"
+msgstr "причина"
+
+#: apps/scheduling/models.py:241
+msgid "preferred time"
+msgstr "удобное время"
+
+#: apps/scheduling/models.py:248
+msgid "answer"
+msgstr "ответ"
+
+#: apps/scheduling/models.py:253
+msgid "reschedule request"
+msgstr "запрос на перенос"
+
+#: apps/scheduling/models.py:254
+msgid "reschedule requests"
+msgstr "запросы на перенос"
+
+#: apps/solver/models.py:10
+msgid "Queued"
+msgstr "В очереди"
+
+#: apps/solver/models.py:11
+msgid "Running"
+msgstr "Выполняется"
+
+#: apps/solver/models.py:12
+msgid "Finished"
+msgstr "Завершено"
+
+#: apps/solver/models.py:13
+msgid "No solution"
+msgstr "Решение не найдено"
+
+#: apps/solver/models.py:14
+msgid "Error"
+msgstr "Ошибка"
+
+#: apps/solver/models.py:28
+msgid "algorithm"
+msgstr "алгоритм"
+
+#: apps/solver/models.py:35
+msgid "parameters"
+msgstr "параметры"
+
+#: apps/solver/models.py:58
+msgid "automatic scheduling run"
+msgstr "автоматическое составление"
+
+#: apps/solver/models.py:59
+msgid "automatic scheduling runs"
+msgstr "запуски автосоставления"
 
 #: config/views.py:25
 msgid "International Islamic Academy of Uzbekistan"

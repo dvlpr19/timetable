@@ -11,5 +11,8 @@ class UserAdmin(BaseUserAdmin):
     list_filter = ("role", "language", "is_active")
     fieldsets = (
         *BaseUserAdmin.fieldsets,
-        (_("Timetable"), {"fields": ("role", "language", "language_auto")}),
+        (
+            _("Timetable"),
+            {"fields": ("role", "language", "language_auto", "faculty", "department")},
+        ),
     )

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dars-jadvali 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-07 09:58+0500\n"
+"POT-Creation-Date: 2026-10-07 10:44+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,725 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps/accounts/admin.py:14 config/views.py:24
+#: apps/academics/choices.py:10 config/settings.py:92
+msgid "Uzbek"
+msgstr "Uzbek"
+
+#: apps/academics/choices.py:11 config/settings.py:93
+msgid "Russian"
+msgstr "Russian"
+
+#: apps/academics/choices.py:12 config/settings.py:94
+msgid "English"
+msgstr "English"
+
+#: apps/academics/choices.py:13
+msgid "Arabic"
+msgstr "Arabic"
+
+#: apps/academics/choices.py:17
+msgid "Weekly recurring"
+msgstr "Weekly recurring"
+
+#: apps/academics/choices.py:18
+msgid "Session (fixed dates)"
+msgstr "Session (fixed dates)"
+
+#: apps/academics/choices.py:22
+msgid "Autumn semester"
+msgstr "Autumn semester"
+
+#: apps/academics/choices.py:23
+msgid "Spring semester"
+msgstr "Spring semester"
+
+#: apps/academics/choices.py:27 apps/notifications/rendering.py:15
+msgid "Monday"
+msgstr "Monday"
+
+#: apps/academics/choices.py:28 apps/notifications/rendering.py:16
+msgid "Tuesday"
+msgstr "Tuesday"
+
+#: apps/academics/choices.py:29 apps/notifications/rendering.py:17
+msgid "Wednesday"
+msgstr "Wednesday"
+
+#: apps/academics/choices.py:30 apps/notifications/rendering.py:18
+msgid "Thursday"
+msgstr "Thursday"
+
+#: apps/academics/choices.py:31 apps/notifications/rendering.py:19
+msgid "Friday"
+msgstr "Friday"
+
+#: apps/academics/choices.py:32 apps/notifications/rendering.py:20
+msgid "Saturday"
+msgstr "Saturday"
+
+#: apps/academics/choices.py:33 apps/notifications/rendering.py:21
+msgid "Sunday"
+msgstr "Sunday"
+
+#: apps/academics/choices.py:37
+msgid "Every week"
+msgstr "Every week"
+
+#: apps/academics/choices.py:38
+msgid "Odd weeks"
+msgstr "Odd weeks"
+
+#: apps/academics/choices.py:39
+msgid "Even weeks"
+msgstr "Even weeks"
+
+#: apps/academics/choices.py:43
+msgid "Public holiday"
+msgstr "Public holiday"
+
+#: apps/academics/choices.py:44
+#| msgid "Dean's office"
+msgid "Day off"
+msgstr "Day off"
+
+#: apps/academics/choices.py:45
+msgid "Transferred working day"
+msgstr "Transferred working day"
+
+#: apps/academics/choices.py:49
+msgid "Mixed"
+msgstr "Mixed"
+
+#: apps/academics/choices.py:50
+#| msgid "Student"
+msgid "Male students"
+msgstr "Male students"
+
+#: apps/academics/choices.py:51
+msgid "Female students"
+msgstr "Female students"
+
+#: apps/academics/choices.py:55
+msgid "Male"
+msgstr "Male"
+
+#: apps/academics/choices.py:56
+msgid "Female"
+msgstr "Female"
+
+#: apps/academics/choices.py:60
+msgid "Assistant"
+msgstr "Assistant"
+
+#: apps/academics/choices.py:61
+msgid "Lecturer"
+msgstr "Lecturer"
+
+#: apps/academics/choices.py:62
+msgid "Senior lecturer"
+msgstr "Senior lecturer"
+
+#: apps/academics/choices.py:63
+msgid "Associate professor"
+msgstr "Associate professor"
+
+#: apps/academics/choices.py:64
+msgid "Professor"
+msgstr "Professor"
+
+#: apps/academics/choices.py:68
+msgid "No degree"
+msgstr "No degree"
+
+#: apps/academics/choices.py:69
+msgid "PhD"
+msgstr "PhD"
+
+#: apps/academics/choices.py:70
+msgid "DSc"
+msgstr "DSc"
+
+#: apps/academics/choices.py:74
+msgid "Full-time"
+msgstr "Full-time"
+
+#: apps/academics/choices.py:75
+msgid "Part-time (second job)"
+msgstr "Part-time (second job)"
+
+#: apps/academics/choices.py:76
+msgid "Hourly"
+msgstr "Hourly"
+
+#: apps/academics/choices.py:80
+msgid "Exam"
+msgstr "Exam"
+
+#: apps/academics/choices.py:81
+msgid "Pass/fail test"
+msgstr "Pass/fail test"
+
+#: apps/academics/choices.py:85
+msgid "Preferred"
+msgstr "Preferred"
+
+#: apps/academics/choices.py:86
+msgid "Possible"
+msgstr "Possible"
+
+#: apps/academics/choices.py:87
+msgid "Unavailable"
+msgstr "Unavailable"
+
+#: apps/academics/choices.py:91
+msgid "Lecture"
+msgstr "Lecture"
+
+#: apps/academics/choices.py:92
+msgid "Practical class"
+msgstr "Practical class"
+
+#: apps/academics/choices.py:93
+msgid "Seminar"
+msgstr "Seminar"
+
+#: apps/academics/choices.py:94
+msgid "Laboratory"
+msgstr "Laboratory"
+
+#: apps/academics/models/assignments.py:41
+msgid "lessons every week"
+msgstr "lessons every week"
+
+#: apps/academics/models/assignments.py:42
+msgid "lessons every other week"
+msgstr "lessons every other week"
+
+#: apps/academics/models/assignments.py:43
+msgid "lessons in the period"
+msgstr "lessons in the period"
+
+#: apps/academics/models/assignments.py:49
+msgid "teaching assignment"
+msgstr "teaching assignment"
+
+#: apps/academics/models/assignments.py:50
+msgid "teaching assignments"
+msgstr "teaching assignments"
+
+#: apps/academics/models/calendar.py:14 apps/academics/models/calendar.py:65
+#: apps/academics/models/calendar.py:112 apps/academics/models/calendar.py:169
+#: apps/academics/models/curriculum.py:17
+#: apps/academics/models/curriculum.py:39 apps/academics/models/people.py:28
+#: apps/academics/models/people.py:109 apps/academics/models/rooms.py:12
+#: apps/academics/models/rooms.py:26 apps/academics/models/structure.py:12
+#: apps/academics/models/structure.py:26 apps/academics/models/structure.py:48
+#: apps/academics/models/structure.py:61 apps/academics/models/structure.py:75
+#: apps/academics/models/structure.py:128 apps/scheduling/models.py:25
+msgid "name"
+msgstr "name"
+
+#: apps/academics/models/calendar.py:15 apps/academics/models/calendar.py:35
+#: apps/academics/models/calendar.py:66
+msgid "start date"
+msgstr "start date"
+
+#: apps/academics/models/calendar.py:16 apps/academics/models/calendar.py:36
+#: apps/academics/models/calendar.py:67
+msgid "end date"
+msgstr "end date"
+
+#: apps/academics/models/calendar.py:19
+msgid "academic year"
+msgstr "academic year"
+
+#: apps/academics/models/calendar.py:20
+msgid "academic years"
+msgstr "academic years"
+
+#: apps/academics/models/calendar.py:34 apps/academics/models/calendar.py:40
+msgid "semester"
+msgstr "semester"
+
+#: apps/academics/models/calendar.py:37
+msgid "current semester"
+msgstr "current semester"
+
+#: apps/academics/models/calendar.py:41
+msgid "semesters"
+msgstr "semesters"
+
+#: apps/academics/models/calendar.py:69
+msgid "teaching weeks"
+msgstr "teaching weeks"
+
+#: apps/academics/models/calendar.py:69
+msgid "Only for weekly forms."
+msgstr "Only for weekly forms."
+
+#: apps/academics/models/calendar.py:73
+msgid "teaching period"
+msgstr "teaching period"
+
+#: apps/academics/models/calendar.py:74
+msgid "teaching periods"
+msgstr "teaching periods"
+
+#: apps/academics/models/calendar.py:110 apps/scheduling/models.py:77
+msgid "date"
+msgstr "date"
+
+#: apps/academics/models/calendar.py:111
+msgid "type"
+msgstr "type"
+
+#: apps/academics/models/calendar.py:114
+msgid "works as weekday"
+msgstr "works as weekday"
+
+#: apps/academics/models/calendar.py:118
+msgid "For transferred working days: whose timetable is followed."
+msgstr "For transferred working days: whose timetable is followed."
+
+#: apps/academics/models/calendar.py:121
+msgid "date is an estimate"
+msgstr "date is an estimate"
+
+#: apps/academics/models/calendar.py:123
+msgid "E.g. Eid dates depend on the lunar calendar and must be confirmed."
+msgstr "E.g. Eid dates depend on the lunar calendar and must be confirmed."
+
+#: apps/academics/models/calendar.py:127
+msgid "calendar day"
+msgstr "calendar day"
+
+#: apps/academics/models/calendar.py:128
+msgid "academic calendar"
+msgstr "academic calendar"
+
+#: apps/academics/models/calendar.py:146
+msgid "lesson number"
+msgstr "lesson number"
+
+#: apps/academics/models/calendar.py:147 apps/academics/models/calendar.py:177
+msgid "start"
+msgstr "start"
+
+#: apps/academics/models/calendar.py:148 apps/academics/models/calendar.py:178
+msgid "end"
+msgstr "end"
+
+#: apps/academics/models/calendar.py:149 apps/academics/models/people.py:38
+msgid "shift"
+msgstr "shift"
+
+#: apps/academics/models/calendar.py:152
+msgid "lesson time"
+msgstr "lesson time"
+
+#: apps/academics/models/calendar.py:153
+msgid "bell schedule"
+msgstr "bell schedule"
+
+#: apps/academics/models/calendar.py:171 apps/academics/models/people.py:190
+#: apps/scheduling/models.py:71
+msgid "weekday"
+msgstr "weekday"
+
+#: apps/academics/models/calendar.py:175
+msgid "Empty means every day."
+msgstr "Empty means every day."
+
+#: apps/academics/models/calendar.py:185
+msgid "Empty means all education forms."
+msgstr "Empty means all education forms."
+
+#: apps/academics/models/calendar.py:188
+msgid "strict"
+msgstr "strict"
+
+#: apps/academics/models/calendar.py:188
+msgid "Strict: never schedule. Otherwise only avoided."
+msgstr "Strict: never schedule. Otherwise only avoided."
+
+#: apps/academics/models/calendar.py:192
+msgid "blocked time"
+msgstr "blocked time"
+
+#: apps/academics/models/calendar.py:193
+msgid "blocked times"
+msgstr "blocked times"
+
+#: apps/academics/models/curriculum.py:16
+#: apps/academics/models/curriculum.py:38 apps/academics/models/rooms.py:11
+#: apps/academics/models/rooms.py:25 apps/academics/models/structure.py:25
+#: apps/academics/models/structure.py:47 apps/academics/models/structure.py:60
+#: apps/academics/models/structure.py:74
+msgid "code"
+msgstr "code"
+
+#: apps/academics/models/curriculum.py:24
+msgid ""
+"Room type this kind of lesson needs by default (e.g. lab → computer room)."
+msgstr ""
+"Room type this kind of lesson needs by default (e.g. lab → computer room)."
+
+#: apps/academics/models/curriculum.py:29
+msgid "lesson type"
+msgstr "lesson type"
+
+#: apps/academics/models/curriculum.py:30
+msgid "lesson types"
+msgstr "lesson types"
+
+#: apps/academics/models/curriculum.py:44
+msgid "language subject"
+msgstr "language subject"
+
+#: apps/academics/models/curriculum.py:44
+msgid "Practice is usually split in subgroups."
+msgstr "Practice is usually split in subgroups."
+
+#: apps/academics/models/curriculum.py:52
+msgid "Room type required for practical/lab lessons of this subject, if any."
+msgstr "Room type required for practical/lab lessons of this subject, if any."
+
+#: apps/academics/models/curriculum.py:56
+msgid "subject"
+msgstr "subject"
+
+#: apps/academics/models/curriculum.py:57
+msgid "subjects"
+msgstr "subjects"
+
+#: apps/academics/models/curriculum.py:73 apps/academics/models/people.py:32
+#: apps/academics/models/people.py:111
+#| msgid "interface language"
+msgid "teaching language"
+msgstr "teaching language"
+
+#: apps/academics/models/curriculum.py:79
+msgid "study semester"
+msgstr "study semester"
+
+#: apps/academics/models/curriculum.py:81
+msgid "credits"
+msgstr "credits"
+
+#: apps/academics/models/curriculum.py:82
+msgid "lecture hours"
+msgstr "lecture hours"
+
+#: apps/academics/models/curriculum.py:83
+msgid "practice hours"
+msgstr "practice hours"
+
+#: apps/academics/models/curriculum.py:84
+msgid "seminar hours"
+msgstr "seminar hours"
+
+#: apps/academics/models/curriculum.py:85
+msgid "laboratory hours"
+msgstr "laboratory hours"
+
+#: apps/academics/models/curriculum.py:86
+msgid "independent study hours"
+msgstr "independent study hours"
+
+#: apps/academics/models/curriculum.py:87
+msgid "assessment"
+msgstr "assessment"
+
+#: apps/academics/models/curriculum.py:90
+msgid "curriculum item"
+msgstr "curriculum item"
+
+#: apps/academics/models/curriculum.py:91
+msgid "curriculum"
+msgstr "curriculum"
+
+#: apps/academics/models/people.py:29
+msgid "year of study"
+msgstr "year of study"
+
+#: apps/academics/models/people.py:30
+msgid "number within course"
+msgstr "number within course"
+
+#: apps/academics/models/people.py:34 apps/academics/models/people.py:83
+#: apps/academics/models/people.py:235
+#| msgid "Student"
+msgid "students"
+msgstr "students"
+
+#: apps/academics/models/people.py:36
+msgid "composition"
+msgstr "composition"
+
+#: apps/academics/models/people.py:41
+msgid "group"
+msgstr "group"
+
+#: apps/academics/models/people.py:42
+msgid "groups"
+msgstr "groups"
+
+#: apps/academics/models/people.py:82
+msgid "number"
+msgstr "number"
+
+#: apps/academics/models/people.py:86
+msgid "subgroup"
+msgstr "subgroup"
+
+#: apps/academics/models/people.py:87
+msgid "subgroups"
+msgstr "subgroups"
+
+#: apps/academics/models/people.py:116
+msgid "stream"
+msgstr "stream"
+
+#: apps/academics/models/people.py:117
+msgid "streams"
+msgstr "streams"
+
+#: apps/academics/models/people.py:135 apps/academics/models/people.py:222
+msgid "last name"
+msgstr "last name"
+
+#: apps/academics/models/people.py:136 apps/academics/models/people.py:223
+msgid "first name"
+msgstr "first name"
+
+#: apps/academics/models/people.py:137 apps/academics/models/people.py:224
+msgid "patronymic"
+msgstr "patronymic"
+
+#: apps/academics/models/people.py:139
+msgid "position"
+msgstr "position"
+
+#: apps/academics/models/people.py:141
+msgid "academic degree"
+msgstr "academic degree"
+
+#: apps/academics/models/people.py:144
+msgid "employment"
+msgstr "employment"
+
+#: apps/academics/models/people.py:146
+msgid "annual teaching load (hours)"
+msgstr "annual teaching load (hours)"
+
+#: apps/academics/models/people.py:147
+msgid "max lessons per week"
+msgstr "max lessons per week"
+
+#: apps/academics/models/people.py:151
+#| msgid "interface language"
+msgid "teaching languages"
+msgstr "teaching languages"
+
+#: apps/academics/models/people.py:156
+#| msgid "Teacher"
+msgid "teacher"
+msgstr "teacher"
+
+#: apps/academics/models/people.py:157
+#| msgid "Teacher"
+msgid "teachers"
+msgstr "teachers"
+
+#: apps/academics/models/people.py:194
+msgid "availability"
+msgstr "availability"
+
+#: apps/academics/models/people.py:197 apps/academics/models/people.py:198
+msgid "teacher availability"
+msgstr "teacher availability"
+
+#: apps/academics/models/people.py:225
+msgid "HEMIS ID"
+msgstr "HEMIS ID"
+
+#: apps/academics/models/people.py:230
+msgid "gender"
+msgstr "gender"
+
+#: apps/academics/models/people.py:231
+msgid "phone"
+msgstr "phone"
+
+#: apps/academics/models/people.py:234
+#| msgid "Student"
+msgid "student"
+msgstr "student"
+
+#: apps/academics/models/rooms.py:13
+msgid "address"
+msgstr "address"
+
+#: apps/academics/models/rooms.py:16
+msgid "building"
+msgstr "building"
+
+#: apps/academics/models/rooms.py:17
+msgid "buildings"
+msgstr "buildings"
+
+#: apps/academics/models/rooms.py:29
+msgid "room type"
+msgstr "room type"
+
+#: apps/academics/models/rooms.py:30
+msgid "room types"
+msgstr "room types"
+
+#: apps/academics/models/rooms.py:39 apps/academics/models/rooms.py:57
+msgid "room"
+msgstr "room"
+
+#: apps/academics/models/rooms.py:40
+msgid "floor"
+msgstr "floor"
+
+#: apps/academics/models/rooms.py:42
+msgid "seats"
+msgstr "seats"
+
+#: apps/academics/models/rooms.py:43
+msgid "projector"
+msgstr "projector"
+
+#: apps/academics/models/rooms.py:44
+msgid "computers"
+msgstr "computers"
+
+#: apps/academics/models/rooms.py:45
+msgid "board"
+msgstr "board"
+
+#: apps/academics/models/rooms.py:52
+msgid "Optional: room reserved for a faculty."
+msgstr "Optional: room reserved for a faculty."
+
+#: apps/academics/models/rooms.py:54
+msgid "in use"
+msgstr "in use"
+
+#: apps/academics/models/rooms.py:58
+msgid "rooms"
+msgstr "rooms"
+
+#: apps/academics/models/structure.py:13
+msgid "short name"
+msgstr "short name"
+
+#: apps/academics/models/structure.py:16
+msgid "academy"
+msgstr "academy"
+
+#: apps/academics/models/structure.py:17
+msgid "academies"
+msgstr "academies"
+
+#: apps/academics/models/structure.py:28
+#| msgid "interface language"
+msgid "main teaching language"
+msgstr "main teaching language"
+
+#: apps/academics/models/structure.py:35 apps/accounts/models.py:36
+msgid "faculty"
+msgstr "faculty"
+
+#: apps/academics/models/structure.py:36
+msgid "faculties"
+msgstr "faculties"
+
+#: apps/academics/models/structure.py:51 apps/accounts/models.py:44
+#| msgid "Head of department"
+msgid "department"
+msgstr "department"
+
+#: apps/academics/models/structure.py:52
+#| msgid "Head of department"
+msgid "departments"
+msgstr "departments"
+
+#: apps/academics/models/structure.py:64
+msgid "education level"
+msgstr "education level"
+
+#: apps/academics/models/structure.py:65
+msgid "education levels"
+msgstr "education levels"
+
+#: apps/academics/models/structure.py:77
+msgid "schedule type"
+msgstr "schedule type"
+
+#: apps/academics/models/structure.py:80
+msgid "needs a physical room"
+msgstr "needs a physical room"
+
+#: apps/academics/models/structure.py:82
+msgid "Distance learning uses a virtual room link instead."
+msgstr "Distance learning uses a virtual room link instead."
+
+#: apps/academics/models/structure.py:85
+msgid "max lessons per day for a group"
+msgstr "max lessons per day for a group"
+
+#: apps/academics/models/structure.py:90
+msgid "study days"
+msgstr "study days"
+
+#: apps/academics/models/structure.py:92
+msgid "0 = Monday … 6 = Sunday."
+msgstr "0 = Monday … 6 = Sunday."
+
+#: apps/academics/models/structure.py:97
+msgid "education form"
+msgstr "education form"
+
+#: apps/academics/models/structure.py:98
+msgid "education forms"
+msgstr "education forms"
+
+#: apps/academics/models/structure.py:127
+msgid "program code"
+msgstr "program code"
+
+#: apps/academics/models/structure.py:131
+msgid "program"
+msgstr "program"
+
+#: apps/academics/models/structure.py:132
+msgid "programs"
+msgstr "programs"
+
+#: apps/academics/models/structure.py:150
+msgid "study duration (years)"
+msgstr "study duration (years)"
+
+#: apps/academics/models/structure.py:153
+msgid "group name prefix"
+msgstr "group name prefix"
+
+#: apps/academics/models/structure.py:155
+msgid "Used to build group names, e.g. IS → IS-301."
+msgstr "Used to build group names, e.g. IS → IS-301."
+
+#: apps/academics/models/structure.py:159
+msgid "program form"
+msgstr "program form"
+
+#: apps/academics/models/structure.py:160
+msgid "program forms"
+msgstr "program forms"
+
+#: apps/accounts/admin.py:15 config/views.py:24
 msgid "Timetable"
 msgstr "Timetable"
 
@@ -49,11 +767,11 @@ msgstr "role"
 msgid "interface language"
 msgstr "interface language"
 
-#: apps/accounts/models.py:31
+#: apps/accounts/models.py:48
 msgid "user"
 msgstr "user"
 
-#: apps/accounts/models.py:32
+#: apps/accounts/models.py:49
 msgid "users"
 msgstr "users"
 
@@ -61,17 +779,380 @@ msgstr "users"
 msgid "Incorrect login or password."
 msgstr "Incorrect login or password."
 
-#: config/settings.py:92
-msgid "Uzbek"
-msgstr "Uzbek"
+#: apps/notifications/models.py:9 apps/notifications/rendering.py:72
+msgid "Lesson moved to another room"
+msgstr "Lesson moved to another room"
 
-#: config/settings.py:93
-msgid "Russian"
-msgstr "Russian"
+#: apps/notifications/models.py:10 apps/notifications/rendering.py:73
+msgid "Lesson moved to another time"
+msgstr "Lesson moved to another time"
 
-#: config/settings.py:94
-msgid "English"
-msgstr "English"
+#: apps/notifications/models.py:11 apps/notifications/rendering.py:74
+#: apps/scheduling/models.py:185
+msgid "Lesson cancelled"
+msgstr "Lesson cancelled"
+
+#: apps/notifications/models.py:12 apps/notifications/rendering.py:75
+#| msgid "Teacher"
+msgid "Teacher replaced"
+msgstr "Teacher replaced"
+
+#: apps/notifications/models.py:13 apps/notifications/rendering.py:76
+msgid "New lesson added"
+msgstr "New lesson added"
+
+#: apps/notifications/models.py:14 apps/notifications/rendering.py:77
+msgid "Online lesson link changed"
+msgstr "Online lesson link changed"
+
+#: apps/notifications/models.py:15 apps/notifications/rendering.py:78
+msgid "New timetable published"
+msgstr "New timetable published"
+
+#: apps/notifications/models.py:16
+msgid "Lesson reminder"
+msgstr "Lesson reminder"
+
+#: apps/notifications/models.py:17
+msgid "Tomorrow's lessons"
+msgstr "Tomorrow's lessons"
+
+#: apps/notifications/models.py:18
+msgid "Reschedule request answered"
+msgstr "Reschedule request answered"
+
+#: apps/notifications/models.py:37
+msgid "dispatcher comment"
+msgstr "dispatcher comment"
+
+#: apps/notifications/models.py:51
+msgid "notification"
+msgstr "notification"
+
+#: apps/notifications/models.py:52
+msgid "notifications"
+msgstr "notifications"
+
+#: apps/notifications/models.py:76
+msgid "push subscription"
+msgstr "push subscription"
+
+#: apps/notifications/models.py:77
+msgid "push subscriptions"
+msgstr "push subscriptions"
+
+#: apps/notifications/models.py:88
+msgid "remind before lessons"
+msgstr "remind before lessons"
+
+#: apps/notifications/models.py:89
+msgid "minutes before"
+msgstr "minutes before"
+
+#: apps/notifications/models.py:90
+msgid "evening summary"
+msgstr "evening summary"
+
+#: apps/notifications/models.py:93 apps/notifications/models.py:94
+msgid "notification settings"
+msgstr "notification settings"
+
+#: apps/notifications/rendering.py:27
+msgctxt "genitive month"
+msgid "January"
+msgstr "January"
+
+#: apps/notifications/rendering.py:28
+msgctxt "genitive month"
+msgid "February"
+msgstr "February"
+
+#: apps/notifications/rendering.py:29
+msgctxt "genitive month"
+msgid "March"
+msgstr "March"
+
+#: apps/notifications/rendering.py:30
+msgctxt "genitive month"
+msgid "April"
+msgstr "April"
+
+#: apps/notifications/rendering.py:31
+msgctxt "genitive month"
+msgid "May"
+msgstr "May"
+
+#: apps/notifications/rendering.py:32
+msgctxt "genitive month"
+msgid "June"
+msgstr "June"
+
+#: apps/notifications/rendering.py:33
+msgctxt "genitive month"
+msgid "July"
+msgstr "July"
+
+#: apps/notifications/rendering.py:34
+msgctxt "genitive month"
+msgid "August"
+msgstr "August"
+
+#: apps/notifications/rendering.py:35
+msgctxt "genitive month"
+msgid "September"
+msgstr "September"
+
+#: apps/notifications/rendering.py:36
+msgctxt "genitive month"
+msgid "October"
+msgstr "October"
+
+#: apps/notifications/rendering.py:37
+msgctxt "genitive month"
+msgid "November"
+msgstr "November"
+
+#: apps/notifications/rendering.py:38
+msgctxt "genitive month"
+msgid "December"
+msgstr "December"
+
+#: apps/notifications/rendering.py:49
+#, python-format
+msgid "%(day)s %(month)s, %(weekday)s"
+msgstr "%(day)s %(month)s, %(weekday)s"
+
+#: apps/notifications/rendering.py:85
+#, python-format
+msgid "The timetable for %(semester)s is published. Check your lessons."
+msgstr "The timetable for %(semester)s is published. Check your lessons."
+
+#: apps/notifications/rendering.py:91
+#, python-format
+msgid ""
+"%(day)s, lesson %(number)s: %(subject)s moved from %(old_room)s to room "
+"%(new_room)s."
+msgstr ""
+"%(day)s, lesson %(number)s: %(subject)s moved from %(old_room)s to room "
+"%(new_room)s."
+
+#: apps/notifications/rendering.py:95
+#, python-format
+msgid ""
+"%(subject)s moved from %(day)s, lesson %(number)s to %(new_day)s, lesson "
+"%(new_number)s."
+msgstr ""
+"%(subject)s moved from %(day)s, lesson %(number)s to %(new_day)s, lesson "
+"%(new_number)s."
+
+#: apps/notifications/rendering.py:99
+#, python-format
+msgid "%(day)s, lesson %(number)s: %(subject)s is cancelled."
+msgstr "%(day)s, lesson %(number)s: %(subject)s is cancelled."
+
+#: apps/notifications/rendering.py:102
+#, python-format
+msgid ""
+"%(day)s, lesson %(number)s: %(subject)s will be taught by %(new_teacher)s "
+"instead of %(old_teacher)s."
+msgstr ""
+"%(day)s, lesson %(number)s: %(subject)s will be taught by %(new_teacher)s "
+"instead of %(old_teacher)s."
+
+#: apps/notifications/rendering.py:106
+#, python-format
+msgid "New lesson: %(subject)s, %(day)s, lesson %(number)s, %(room)s."
+msgstr "New lesson: %(subject)s, %(day)s, lesson %(number)s, %(room)s."
+
+#: apps/notifications/rendering.py:112
+#, python-format
+msgid ""
+"%(subject)s (%(day)s, lesson %(number)s): the online lesson link has "
+"changed."
+msgstr ""
+"%(subject)s (%(day)s, lesson %(number)s): the online lesson link has "
+"changed."
+
+#: apps/scheduling/models.py:16
+msgid "Draft"
+msgstr "Draft"
+
+#: apps/scheduling/models.py:17
+msgid "Published"
+msgstr "Published"
+
+#: apps/scheduling/models.py:18
+msgid "Archived"
+msgstr "Archived"
+
+#: apps/scheduling/models.py:27
+msgid "status"
+msgstr "status"
+
+#: apps/scheduling/models.py:39
+#| msgid "Timetable"
+msgid "timetable version"
+msgstr "timetable version"
+
+#: apps/scheduling/models.py:40
+msgid "timetable versions"
+msgstr "timetable versions"
+
+#: apps/scheduling/models.py:75
+msgid "weeks"
+msgstr "weeks"
+
+#: apps/scheduling/models.py:81
+msgid "online lesson link"
+msgstr "online lesson link"
+
+#: apps/scheduling/models.py:83
+msgid "pinned"
+msgstr "pinned"
+
+#: apps/scheduling/models.py:83
+msgid "Pinned lessons are never moved by the solver."
+msgstr "Pinned lessons are never moved by the solver."
+
+#: apps/scheduling/models.py:85
+msgid "note"
+msgstr "note"
+
+#: apps/scheduling/models.py:88
+#| msgid "Timetable"
+msgid "timetable entry"
+msgstr "timetable entry"
+
+#: apps/scheduling/models.py:89
+#| msgid "Timetable"
+msgid "timetable entries"
+msgstr "timetable entries"
+
+#: apps/scheduling/models.py:115
+msgid "Scheduled"
+msgstr "Scheduled"
+
+#: apps/scheduling/models.py:116 apps/solver/models.py:15
+msgid "Cancelled"
+msgstr "Cancelled"
+
+#: apps/scheduling/models.py:117
+msgid "Needs rescheduling"
+msgstr "Needs rescheduling"
+
+#: apps/scheduling/models.py:143
+msgid "lesson occurrence"
+msgstr "lesson occurrence"
+
+#: apps/scheduling/models.py:144
+msgid "lesson occurrences"
+msgstr "lesson occurrences"
+
+#: apps/scheduling/models.py:182
+msgid "Lesson added"
+msgstr "Lesson added"
+
+#: apps/scheduling/models.py:183
+msgid "Lesson changed"
+msgstr "Lesson changed"
+
+#: apps/scheduling/models.py:184
+msgid "Lesson removed"
+msgstr "Lesson removed"
+
+#: apps/scheduling/models.py:195
+msgid "change batch"
+msgstr "change batch"
+
+#: apps/scheduling/models.py:200
+msgid "Set when only one dated lesson is affected."
+msgstr "Set when only one dated lesson is affected."
+
+#: apps/scheduling/models.py:202
+msgid "comment"
+msgstr "comment"
+
+#: apps/scheduling/models.py:211
+#| msgid "Timetable"
+msgid "timetable change"
+msgstr "timetable change"
+
+#: apps/scheduling/models.py:212
+#| msgid "Timetable"
+msgid "timetable changes"
+msgstr "timetable changes"
+
+#: apps/scheduling/models.py:220
+msgid "Pending"
+msgstr "Pending"
+
+#: apps/scheduling/models.py:221
+msgid "Approved"
+msgstr "Approved"
+
+#: apps/scheduling/models.py:222
+msgid "Rejected"
+msgstr "Rejected"
+
+#: apps/scheduling/models.py:231
+msgid "Empty means the lesson every week."
+msgstr "Empty means the lesson every week."
+
+#: apps/scheduling/models.py:233
+msgid "reason"
+msgstr "reason"
+
+#: apps/scheduling/models.py:241
+msgid "preferred time"
+msgstr "preferred time"
+
+#: apps/scheduling/models.py:248
+msgid "answer"
+msgstr "answer"
+
+#: apps/scheduling/models.py:253
+msgid "reschedule request"
+msgstr "reschedule request"
+
+#: apps/scheduling/models.py:254
+msgid "reschedule requests"
+msgstr "reschedule requests"
+
+#: apps/solver/models.py:10
+msgid "Queued"
+msgstr "Queued"
+
+#: apps/solver/models.py:11
+msgid "Running"
+msgstr "Running"
+
+#: apps/solver/models.py:12
+msgid "Finished"
+msgstr "Finished"
+
+#: apps/solver/models.py:13
+msgid "No solution"
+msgstr "No solution"
+
+#: apps/solver/models.py:14
+msgid "Error"
+msgstr "Error"
+
+#: apps/solver/models.py:28
+msgid "algorithm"
+msgstr "algorithm"
+
+#: apps/solver/models.py:35
+msgid "parameters"
+msgstr "parameters"
+
+#: apps/solver/models.py:58
+msgid "automatic scheduling run"
+msgstr "automatic scheduling run"
+
+#: apps/solver/models.py:59
+msgid "automatic scheduling runs"
+msgstr "automatic scheduling runs"
 
 #: config/views.py:25
 msgid "International Islamic Academy of Uzbekistan"

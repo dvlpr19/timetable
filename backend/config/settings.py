@@ -149,3 +149,6 @@ CELERY_TASK_TRACK_STARTED = True
 VAPID_PUBLIC_KEY = os.environ.get("VAPID_PUBLIC_KEY", "")
 VAPID_PRIVATE_KEY = os.environ.get("VAPID_PRIVATE_KEY", "")
 VAPID_CLAIM_EMAIL = os.environ.get("VAPID_CLAIM_EMAIL", "")
+
+# --- Academy rules (see docs/ASSUMPTIONS.md) --------------------------------
+GROUP_NAME_PATTERN = os.environ.get("GROUP_NAME_PATTERN", "{prefix}-{course}{number:02d}")

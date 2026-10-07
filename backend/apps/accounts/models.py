@@ -26,6 +26,23 @@ class User(AbstractUser):
     )
     # True until the user explicitly picks a language; lets the client apply browser detection.
     language_auto = models.BooleanField(default=True)
+    # Scope for the dekanat / kafedra_mudiri roles.
+    faculty = models.ForeignKey(
+        "academics.Faculty",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="+",
+        verbose_name=_("faculty"),
+    )
+    department = models.ForeignKey(
+        "academics.Department",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="+",
+        verbose_name=_("department"),
+    )
 
     class Meta:
         verbose_name = _("user")
