@@ -87,3 +87,11 @@ Ustunlar: **Qayerda sozlanadi** — admin panel (Django admin, 5-bosqichdan bosh
 | 43 | E'lon qilinishidan oldin bekor qilingan (undo) tahrir va uning bekor qilinishi xabarsiz qoladi. Xuddi shu o'zgarish bir kishiga ikki marta kelmaydi (`dedup_key`). | Kod | Taxmin |
 | 44 | Web Push uchun VAPID kalitlari `.env`da (`python manage.py generate_vapid_keys`). Kalitsiz push o'chiq, xabarlar ilova ichida ko'rinadi. iPhone'da push faqat bosh ekranga qo'shilgan ilovada ishlaydi (iOS 16.4+). Chiqishda shu qurilmaning push obunasi o'chiriladi. | `.env` | Taxmin |
 | 45 | Dars oldidan eslatma har daqiqada tekshiriladi (5, 10, 15, 30 yoki 60 daqiqa oldin), kechki xulosa soat 20:00 da faqat ertaga darsi borlarga yuboriladi. Demo sana (`DEMO_NOW`) bilan ham shu soatlar ishlaydi. | `CELERY_BEAT_SCHEDULE` | Taxmin |
+
+## Hisobotlar
+
+| # | Taxmin | Qayerda sozlanadi | Holat |
+|---|---|---|---|
+| 46 | Bitta dars (para, 80 daqiqa) = 2 akademik soat. O'qituvchining semestr me'yori yillik yuklamaning yarmi. | Kod: `HOURS_PER_LESSON` | Taxmin |
+| 47 | Xona bandligida haftalik vaqtlar: auditoriyada o'qiladigan haftalik shakllarning (kunduzgi, kechki) o'qish kunlari × paralari, yopiq vaqtlarsiz. Toq/juft hafta darsi yarim hisoblanadi; sessiya darslari alohida ustunda. | Kod | Taxmin |
+| 48 | Imzo joyida "Tasdiqlayman: o'quv ishlari bo'yicha prorektor" yoziladi. | Tarjima fayllari | Taxmin |

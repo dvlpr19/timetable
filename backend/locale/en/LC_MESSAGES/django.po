@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dars-jadvali 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-07 16:53+0500\n"
+"POT-Creation-Date: 2026-10-07 17:04+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -843,7 +843,8 @@ msgstr "Dean's office"
 msgid "Head of department"
 msgstr "Head of department"
 
-#: apps/accounts/models.py:10 apps/solver/api/views.py:167
+#: apps/accounts/models.py:10 apps/scheduling/reports.py:148
+#: apps/scheduling/reports.py:220 apps/solver/api/views.py:167
 msgid "Teacher"
 msgstr "Teacher"
 
@@ -1144,6 +1145,18 @@ msgstr "Only a pending request can be withdrawn."
 msgid "Choose approved or rejected."
 msgstr "Choose approved or rejected."
 
+#: apps/scheduling/api/personal.py:225
+msgid "Unknown report."
+msgstr "Unknown report."
+
+#: apps/scheduling/api/personal.py:232 apps/scheduling/api/views.py:702
+msgid "Choose uz, ru or en."
+msgstr "Choose uz, ru or en."
+
+#: apps/scheduling/api/personal.py:236 apps/scheduling/api/views.py:699
+msgid "Choose xlsx or pdf."
+msgstr "Choose xlsx or pdf."
+
 #: apps/scheduling/api/serializers.py:71
 msgid "Choose a weekday or a date."
 msgstr "Choose a weekday or a date."
@@ -1212,14 +1225,6 @@ msgstr "Enter a date (YYYY-MM-DD)."
 msgid "Choose at most two months."
 msgstr "Choose at most two months."
 
-#: apps/scheduling/api/views.py:699
-msgid "Choose xlsx or pdf."
-msgstr "Choose xlsx or pdf."
-
-#: apps/scheduling/api/views.py:702
-msgid "Choose uz, ru or en."
-msgstr "Choose uz, ru or en."
-
 #: apps/scheduling/exports.py:31
 msgid "Online"
 msgstr "Online"
@@ -1247,7 +1252,7 @@ msgstr "Date"
 msgid "Lesson"
 msgstr "Lesson"
 
-#: apps/scheduling/exports.py:172
+#: apps/scheduling/exports.py:172 apps/scheduling/reports.py:403
 msgid "(signature)"
 msgstr "(signature)"
 
@@ -1312,7 +1317,7 @@ msgstr "timetable entry"
 msgid "timetable entries"
 msgstr "timetable entries"
 
-#: apps/scheduling/models.py:115
+#: apps/scheduling/models.py:115 apps/scheduling/reports.py:151
 msgid "Scheduled"
 msgstr "Scheduled"
 
@@ -1403,6 +1408,169 @@ msgstr "reschedule request"
 #: apps/scheduling/models.py:257
 msgid "reschedule requests"
 msgstr "reschedule requests"
+
+#: apps/scheduling/reports.py:141
+msgid "Curriculum fulfilment"
+msgstr "Curriculum fulfilment"
+
+#: apps/scheduling/reports.py:145 apps/solver/api/views.py:166
+msgid "Subject"
+msgstr "Subject"
+
+#: apps/scheduling/reports.py:146 apps/solver/api/views.py:167
+msgid "Lesson type"
+msgstr "Lesson type"
+
+#: apps/scheduling/reports.py:147 apps/solver/api/views.py:167
+msgid "Groups"
+msgstr "Groups"
+
+#: apps/scheduling/reports.py:149 apps/solver/api/views.py:166
+msgid "Form"
+msgstr "Form"
+
+#: apps/scheduling/reports.py:150
+msgid "Planned"
+msgstr "Planned"
+
+#: apps/scheduling/reports.py:152
+msgid "Lost (days off, cancelled)"
+msgstr "Lost (days off, cancelled)"
+
+#: apps/scheduling/reports.py:153
+msgid "Difference"
+msgstr "Difference"
+
+#: apps/scheduling/reports.py:154
+msgid "Fulfilment"
+msgstr "Fulfilment"
+
+#: apps/scheduling/reports.py:157 apps/scheduling/reports.py:232
+#: apps/scheduling/reports.py:314
+msgid "Total"
+msgstr "Total"
+
+#: apps/scheduling/reports.py:159
+msgid ""
+"Lessons are counted on real dates: holidays and cancelled lessons are lost."
+msgstr ""
+"Lessons are counted on real dates: holidays and cancelled lessons are lost."
+
+#: apps/scheduling/reports.py:160
+#, python-format
+msgid "%(ok)s of %(all)s assignments match the plan exactly."
+msgstr "%(ok)s of %(all)s assignments match the plan exactly."
+
+#: apps/scheduling/reports.py:216
+msgid "Teacher workload"
+msgstr "Teacher workload"
+
+#: apps/scheduling/reports.py:221
+msgid "Department"
+msgstr "Department"
+
+#: apps/scheduling/reports.py:222
+msgid "Position"
+msgstr "Position"
+
+#: apps/scheduling/reports.py:223 apps/scheduling/reports.py:307
+msgid "Lessons a week"
+msgstr "Lessons a week"
+
+#: apps/scheduling/reports.py:224
+msgid "Weekly limit"
+msgstr "Weekly limit"
+
+#: apps/scheduling/reports.py:225
+msgid "Planned lessons"
+msgstr "Planned lessons"
+
+#: apps/scheduling/reports.py:226
+msgid "Scheduled lessons"
+msgstr "Scheduled lessons"
+
+#: apps/scheduling/reports.py:227
+msgid "Hours"
+msgstr "Hours"
+
+#: apps/scheduling/reports.py:228
+msgid "Semester norm, hours"
+msgstr "Semester norm, hours"
+
+#: apps/scheduling/reports.py:229
+msgid "Of the norm"
+msgstr "Of the norm"
+
+#: apps/scheduling/reports.py:234
+#, python-format
+msgid ""
+"One lesson = %(n)s academic hours; the semester norm is half the annual "
+"load."
+msgstr ""
+"One lesson = %(n)s academic hours; the semester norm is half the annual "
+"load."
+
+#: apps/scheduling/reports.py:236
+msgid "Odd/even-week lessons count as half a lesson a week."
+msgstr "Odd/even-week lessons count as half a lesson a week."
+
+#: apps/scheduling/reports.py:237
+#, python-format
+msgid "Teachers over their weekly limit: %(n)s."
+msgstr "Teachers over their weekly limit: %(n)s."
+
+#: apps/scheduling/reports.py:299
+msgid "Room occupancy"
+msgstr "Room occupancy"
+
+#: apps/scheduling/reports.py:303 apps/solver/api/views.py:167
+msgid "Room"
+msgstr "Room"
+
+#: apps/scheduling/reports.py:304
+msgid "Building"
+msgstr "Building"
+
+#: apps/scheduling/reports.py:305
+msgid "Room type"
+msgstr "Room type"
+
+#: apps/scheduling/reports.py:306
+msgid "Seats"
+msgstr "Seats"
+
+#: apps/scheduling/reports.py:308
+msgid "Weekly slots"
+msgstr "Weekly slots"
+
+#: apps/scheduling/reports.py:309
+msgid "Occupancy"
+msgstr "Occupancy"
+
+#: apps/scheduling/reports.py:310
+msgid "Average fill"
+msgstr "Average fill"
+
+#: apps/scheduling/reports.py:311
+msgid "Session lessons"
+msgstr "Session lessons"
+
+#: apps/scheduling/reports.py:317
+msgid ""
+"Weekly slots: study days × lesson times of in-person weekly forms, without "
+"closed times (Friday prayer)."
+msgstr ""
+"Weekly slots: study days × lesson times of in-person weekly forms, without "
+"closed times (Friday prayer)."
+
+#: apps/scheduling/reports.py:320
+msgid "Average fill: students of a lesson divided by the room's seats."
+msgstr "Average fill: students of a lesson divided by the room's seats."
+
+#: apps/scheduling/reports.py:321
+#, python-format
+msgid "Rooms without any lesson: %(n)s."
+msgstr "Rooms without any lesson: %(n)s."
 
 #: apps/scheduling/validators.py:792
 #, python-format
@@ -1520,10 +1688,6 @@ msgid "This run has no result yet."
 msgstr "This run has no result yet."
 
 #: apps/solver/api/views.py:166
-msgid "Form"
-msgstr "Form"
-
-#: apps/solver/api/views.py:166
 msgid "Day"
 msgstr "Day"
 
@@ -1534,22 +1698,6 @@ msgstr "Weeks"
 #: apps/solver/api/views.py:166
 msgid "Time"
 msgstr "Time"
-
-#: apps/solver/api/views.py:166
-msgid "Subject"
-msgstr "Subject"
-
-#: apps/solver/api/views.py:167
-msgid "Lesson type"
-msgstr "Lesson type"
-
-#: apps/solver/api/views.py:167
-msgid "Groups"
-msgstr "Groups"
-
-#: apps/solver/api/views.py:167
-msgid "Room"
-msgstr "Room"
 
 #: apps/solver/api/views.py:167
 msgid "Pinned"

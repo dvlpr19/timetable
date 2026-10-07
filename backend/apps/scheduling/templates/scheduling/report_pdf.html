@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="utf-8">
+<title>{{ r.title }}</title>
+<style>
+  @page { size: A4 landscape; margin: 14mm 12mm; @bottom-right { content: counter(page) " / " counter(pages); font-size: 7pt; color: #5B6863; } }
+  body { font-family: "DejaVu Sans", sans-serif; font-size: 8pt; color: #14201C; }
+  header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6mm; }
+  .academy { font-weight: 700; font-size: 10pt; color: #073D31; }
+  h1 { font-size: 15pt; margin: 2mm 0 1mm; }
+  .sub { color: #5B6863; }
+  .sign { text-align: right; width: 70mm; }
+  .sign .line { margin-top: 10mm; border-top: 0.6pt solid #14201C; padding-top: 1mm; color: #5B6863; font-size: 7.5pt; text-align: center; }
+  table { width: 100%; border-collapse: collapse; }
+  thead { display: table-header-group; }
+  th { background: #0B5D4B; color: #fff; font-weight: 700; padding: 1.8mm; text-align: center; }
+  td { border: 0.5pt solid #E1E5DF; padding: 1.4mm 1.8mm; vertical-align: top; }
+  td.num { text-align: right; white-space: nowrap; }
+  tr { page-break-inside: avoid; }
+  tr.total td { font-weight: 700; background: #EEF1EC; }
+  .notes { margin-top: 4mm; color: #5B6863; font-size: 7.5pt; }
+  .notes p { margin: 0.8mm 0; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <div class="academy">{{ r.academy }}</div>
+    <h1>{{ r.title }}</h1>
+    <div class="sub">{{ r.subtitle }}</div>
+  </div>
+  <div class="sign">{{ signature }}<div class="line">{{ signature_line }}</div></div>
+</header>
+<table>
+  <thead><tr>{% for c in r.columns %}<th>{{ c.label }}</th>{% endfor %}</tr></thead>
+  <tbody>
+  {% for row in rows %}<tr>{% for cell in row %}<td{% if cell.numeric %} class="num"{% endif %}>{{ cell.text }}</td>{% endfor %}</tr>{% endfor %}
+  {% if totals %}<tr class="total">{% for cell in totals %}<td{% if cell.numeric %} class="num"{% endif %}>{% if cell.text != "—" %}{{ cell.text }}{% endif %}</td>{% endfor %}</tr>{% endif %}
+  </tbody>
+</table>
+<div class="notes">{% for n in r.notes %}<p>{{ n }}</p>{% endfor %}<p>{{ generated }}</p></div>
+</body>
+</html>

@@ -8,7 +8,8 @@
     "schedule": "Timetable editor",
     "data": "Data",
     "solver": "Auto-scheduling",
-    "requests": "Reschedule requests"
+    "requests": "Reschedule requests",
+    "reports": "Reports"
   },
   "lesson": {
     "link": "Online lesson link",
@@ -119,6 +120,24 @@
     "reject": "Reject",
     "approve": "Approve",
     "answered": "Answer sent"
+  },
+  "reports": {
+    "title": "Reports",
+    "hint": "Curriculum fulfilment, teacher workload and room occupancy. Excel and PDF include the academy name, semester and a signature line.",
+    "kind": "Report",
+    "kinds": {
+      "plan": "Curriculum",
+      "teachers": "Teacher workload",
+      "rooms": "Room occupancy"
+    },
+    "version": "Timetable version",
+    "published": "Published timetable",
+    "faculty": "Faculty",
+    "allFaculties": "All faculties",
+    "search": "Search rows",
+    "empty": "No matching rows",
+    "excel": "Excel",
+    "pdf": "PDF"
   },
   "status": {
     "draft": "Draft",

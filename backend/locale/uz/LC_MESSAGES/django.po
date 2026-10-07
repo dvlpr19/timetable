@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dars-jadvali 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-07 16:53+0500\n"
+"POT-Creation-Date: 2026-10-07 17:04+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -848,7 +848,8 @@ msgstr "Dekanat"
 msgid "Head of department"
 msgstr "Kafedra mudiri"
 
-#: apps/accounts/models.py:10 apps/solver/api/views.py:167
+#: apps/accounts/models.py:10 apps/scheduling/reports.py:148
+#: apps/scheduling/reports.py:220 apps/solver/api/views.py:167
 msgid "Teacher"
 msgstr "O'qituvchi"
 
@@ -1149,6 +1150,18 @@ msgstr "Faqat javob kutayotgan so'rovni qaytarib olish mumkin."
 msgid "Choose approved or rejected."
 msgstr "«Rozi» yoki «rad etildi»ni tanlang."
 
+#: apps/scheduling/api/personal.py:225
+msgid "Unknown report."
+msgstr "Bunday hisobot yo'q."
+
+#: apps/scheduling/api/personal.py:232 apps/scheduling/api/views.py:702
+msgid "Choose uz, ru or en."
+msgstr "uz, ru yoki en ni tanlang."
+
+#: apps/scheduling/api/personal.py:236 apps/scheduling/api/views.py:699
+msgid "Choose xlsx or pdf."
+msgstr "xlsx yoki pdf ni tanlang."
+
 #: apps/scheduling/api/serializers.py:71
 msgid "Choose a weekday or a date."
 msgstr "Hafta kuni yoki sanani tanlang."
@@ -1217,14 +1230,6 @@ msgstr "Sanani kiriting (YYYY-MM-DD)."
 msgid "Choose at most two months."
 msgstr "Ko'pi bilan ikki oyni tanlang."
 
-#: apps/scheduling/api/views.py:699
-msgid "Choose xlsx or pdf."
-msgstr "xlsx yoki pdf ni tanlang."
-
-#: apps/scheduling/api/views.py:702
-msgid "Choose uz, ru or en."
-msgstr "uz, ru yoki en ni tanlang."
-
 #: apps/scheduling/exports.py:31
 msgid "Online"
 msgstr "Onlayn"
@@ -1252,7 +1257,7 @@ msgstr "Sana"
 msgid "Lesson"
 msgstr "Dars"
 
-#: apps/scheduling/exports.py:172
+#: apps/scheduling/exports.py:172 apps/scheduling/reports.py:403
 msgid "(signature)"
 msgstr "(imzo)"
 
@@ -1317,7 +1322,7 @@ msgstr "jadvaldagi dars"
 msgid "timetable entries"
 msgstr "jadvaldagi darslar"
 
-#: apps/scheduling/models.py:115
+#: apps/scheduling/models.py:115 apps/scheduling/reports.py:151
 msgid "Scheduled"
 msgstr "Rejada"
 
@@ -1410,6 +1415,169 @@ msgstr "ko'chirish so'rovi"
 #: apps/scheduling/models.py:257
 msgid "reschedule requests"
 msgstr "ko'chirish so'rovlari"
+
+#: apps/scheduling/reports.py:141
+msgid "Curriculum fulfilment"
+msgstr "O'quv reja bajarilishi"
+
+#: apps/scheduling/reports.py:145 apps/solver/api/views.py:166
+msgid "Subject"
+msgstr "Fan"
+
+#: apps/scheduling/reports.py:146 apps/solver/api/views.py:167
+msgid "Lesson type"
+msgstr "Dars turi"
+
+#: apps/scheduling/reports.py:147 apps/solver/api/views.py:167
+msgid "Groups"
+msgstr "Guruhlar"
+
+#: apps/scheduling/reports.py:149 apps/solver/api/views.py:166
+msgid "Form"
+msgstr "Ta'lim shakli"
+
+#: apps/scheduling/reports.py:150
+msgid "Planned"
+msgstr "Rejada"
+
+#: apps/scheduling/reports.py:152
+msgid "Lost (days off, cancelled)"
+msgstr "Yo'qotilgan (bayram, bekor)"
+
+#: apps/scheduling/reports.py:153
+msgid "Difference"
+msgstr "Farq"
+
+#: apps/scheduling/reports.py:154
+msgid "Fulfilment"
+msgstr "Bajarilishi"
+
+#: apps/scheduling/reports.py:157 apps/scheduling/reports.py:232
+#: apps/scheduling/reports.py:314
+msgid "Total"
+msgstr "Jami"
+
+#: apps/scheduling/reports.py:159
+msgid ""
+"Lessons are counted on real dates: holidays and cancelled lessons are lost."
+msgstr ""
+"Darslar haqiqiy sanalar bo'yicha sanaladi: bayramga tushgan va bekor "
+"qilingan darslar yo'qotilgan hisoblanadi."
+
+#: apps/scheduling/reports.py:160
+#, python-format
+msgid "%(ok)s of %(all)s assignments match the plan exactly."
+msgstr "%(all)s ta yuklamadan %(ok)s tasi rejaga to'liq mos."
+
+#: apps/scheduling/reports.py:216
+msgid "Teacher workload"
+msgstr "O'qituvchilar yuklamasi"
+
+#: apps/scheduling/reports.py:221
+msgid "Department"
+msgstr "Kafedra"
+
+#: apps/scheduling/reports.py:222
+msgid "Position"
+msgstr "Lavozim"
+
+#: apps/scheduling/reports.py:223 apps/scheduling/reports.py:307
+msgid "Lessons a week"
+msgstr "Haftada dars"
+
+#: apps/scheduling/reports.py:224
+msgid "Weekly limit"
+msgstr "Haftalik chegara"
+
+#: apps/scheduling/reports.py:225
+msgid "Planned lessons"
+msgstr "Rejadagi darslar"
+
+#: apps/scheduling/reports.py:226
+msgid "Scheduled lessons"
+msgstr "Jadvaldagi darslar"
+
+#: apps/scheduling/reports.py:227
+msgid "Hours"
+msgstr "Soat"
+
+#: apps/scheduling/reports.py:228
+msgid "Semester norm, hours"
+msgstr "Semestr me'yori, soat"
+
+#: apps/scheduling/reports.py:229
+msgid "Of the norm"
+msgstr "Me'yordan"
+
+#: apps/scheduling/reports.py:234
+#, python-format
+msgid ""
+"One lesson = %(n)s academic hours; the semester norm is half the annual "
+"load."
+msgstr ""
+"Bitta dars = %(n)s akademik soat; semestr me'yori yillik yuklamaning yarmi."
+
+#: apps/scheduling/reports.py:236
+msgid "Odd/even-week lessons count as half a lesson a week."
+msgstr "Toq/juft haftadagi darslar haftasiga yarim dars hisoblanadi."
+
+#: apps/scheduling/reports.py:237
+#, python-format
+msgid "Teachers over their weekly limit: %(n)s."
+msgstr "Haftalik chegaradan oshgan o'qituvchilar: %(n)s."
+
+#: apps/scheduling/reports.py:299
+msgid "Room occupancy"
+msgstr "Xonalar bandligi"
+
+#: apps/scheduling/reports.py:303 apps/solver/api/views.py:167
+msgid "Room"
+msgstr "Xona"
+
+#: apps/scheduling/reports.py:304
+msgid "Building"
+msgstr "Bino"
+
+#: apps/scheduling/reports.py:305
+msgid "Room type"
+msgstr "Xona turi"
+
+#: apps/scheduling/reports.py:306
+msgid "Seats"
+msgstr "O'rinlar"
+
+#: apps/scheduling/reports.py:308
+msgid "Weekly slots"
+msgstr "Haftalik vaqtlar"
+
+#: apps/scheduling/reports.py:309
+msgid "Occupancy"
+msgstr "Bandlik"
+
+#: apps/scheduling/reports.py:310
+msgid "Average fill"
+msgstr "O'rtacha to'lish"
+
+#: apps/scheduling/reports.py:311
+msgid "Session lessons"
+msgstr "Sessiya darslari"
+
+#: apps/scheduling/reports.py:317
+msgid ""
+"Weekly slots: study days × lesson times of in-person weekly forms, without "
+"closed times (Friday prayer)."
+msgstr ""
+"Haftalik vaqtlar: auditoriyada o'qiladigan haftalik shakllarning o'qish "
+"kunlari × paralari, yopiq vaqtlarsiz (juma namozi)."
+
+#: apps/scheduling/reports.py:320
+msgid "Average fill: students of a lesson divided by the room's seats."
+msgstr "O'rtacha to'lish: darsdagi talabalar soni / xonadagi o'rinlar."
+
+#: apps/scheduling/reports.py:321
+#, python-format
+msgid "Rooms without any lesson: %(n)s."
+msgstr "Birorta ham dars bo'lmagan xonalar: %(n)s."
 
 #: apps/scheduling/validators.py:792
 #, python-format
@@ -1535,10 +1703,6 @@ msgid "This run has no result yet."
 msgstr "Bu ishga tushirishning hali natijasi yo'q."
 
 #: apps/solver/api/views.py:166
-msgid "Form"
-msgstr "Ta'lim shakli"
-
-#: apps/solver/api/views.py:166
 msgid "Day"
 msgstr "Kun"
 
@@ -1549,22 +1713,6 @@ msgstr "Haftalar"
 #: apps/solver/api/views.py:166
 msgid "Time"
 msgstr "Vaqt"
-
-#: apps/solver/api/views.py:166
-msgid "Subject"
-msgstr "Fan"
-
-#: apps/solver/api/views.py:167
-msgid "Lesson type"
-msgstr "Dars turi"
-
-#: apps/solver/api/views.py:167
-msgid "Groups"
-msgstr "Guruhlar"
-
-#: apps/solver/api/views.py:167
-msgid "Room"
-msgstr "Xona"
 
 #: apps/solver/api/views.py:167
 msgid "Pinned"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dars-jadvali 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-07 16:53+0500\n"
+"POT-Creation-Date: 2026-10-07 17:04+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -852,7 +852,8 @@ msgstr "Деканат"
 msgid "Head of department"
 msgstr "Заведующий кафедрой"
 
-#: apps/accounts/models.py:10 apps/solver/api/views.py:167
+#: apps/accounts/models.py:10 apps/scheduling/reports.py:148
+#: apps/scheduling/reports.py:220 apps/solver/api/views.py:167
 msgid "Teacher"
 msgstr "Преподаватель"
 
@@ -1152,6 +1153,18 @@ msgstr "Отозвать можно только запрос, ожидающи�
 msgid "Choose approved or rejected."
 msgstr "Выберите «одобрено» или «отклонено»."
 
+#: apps/scheduling/api/personal.py:225
+msgid "Unknown report."
+msgstr "Такого отчёта нет."
+
+#: apps/scheduling/api/personal.py:232 apps/scheduling/api/views.py:702
+msgid "Choose uz, ru or en."
+msgstr "Выберите uz, ru или en."
+
+#: apps/scheduling/api/personal.py:236 apps/scheduling/api/views.py:699
+msgid "Choose xlsx or pdf."
+msgstr "Выберите xlsx или pdf."
+
 #: apps/scheduling/api/serializers.py:71
 msgid "Choose a weekday or a date."
 msgstr "Выберите день недели или дату."
@@ -1220,14 +1233,6 @@ msgstr "Введите дату (ГГГГ-ММ-ДД)."
 msgid "Choose at most two months."
 msgstr "Выберите не больше двух месяцев."
 
-#: apps/scheduling/api/views.py:699
-msgid "Choose xlsx or pdf."
-msgstr "Выберите xlsx или pdf."
-
-#: apps/scheduling/api/views.py:702
-msgid "Choose uz, ru or en."
-msgstr "Выберите uz, ru или en."
-
 #: apps/scheduling/exports.py:31
 msgid "Online"
 msgstr "Онлайн"
@@ -1255,7 +1260,7 @@ msgstr "Дата"
 msgid "Lesson"
 msgstr "Пара"
 
-#: apps/scheduling/exports.py:172
+#: apps/scheduling/exports.py:172 apps/scheduling/reports.py:403
 msgid "(signature)"
 msgstr "(подпись)"
 
@@ -1320,7 +1325,7 @@ msgstr "занятие в расписании"
 msgid "timetable entries"
 msgstr "занятия в расписании"
 
-#: apps/scheduling/models.py:115
+#: apps/scheduling/models.py:115 apps/scheduling/reports.py:151
 msgid "Scheduled"
 msgstr "Запланировано"
 
@@ -1411,6 +1416,171 @@ msgstr "запрос на перенос"
 #: apps/scheduling/models.py:257
 msgid "reschedule requests"
 msgstr "запросы на перенос"
+
+#: apps/scheduling/reports.py:141
+msgid "Curriculum fulfilment"
+msgstr "Выполнение учебного плана"
+
+#: apps/scheduling/reports.py:145 apps/solver/api/views.py:166
+msgid "Subject"
+msgstr "Предмет"
+
+#: apps/scheduling/reports.py:146 apps/solver/api/views.py:167
+msgid "Lesson type"
+msgstr "Тип занятия"
+
+#: apps/scheduling/reports.py:147 apps/solver/api/views.py:167
+msgid "Groups"
+msgstr "Группы"
+
+#: apps/scheduling/reports.py:149 apps/solver/api/views.py:166
+msgid "Form"
+msgstr "Форма обучения"
+
+#: apps/scheduling/reports.py:150
+msgid "Planned"
+msgstr "По плану"
+
+#: apps/scheduling/reports.py:152
+msgid "Lost (days off, cancelled)"
+msgstr "Потеряно (праздники, отмены)"
+
+#: apps/scheduling/reports.py:153
+msgid "Difference"
+msgstr "Разница"
+
+#: apps/scheduling/reports.py:154
+msgid "Fulfilment"
+msgstr "Выполнение"
+
+#: apps/scheduling/reports.py:157 apps/scheduling/reports.py:232
+#: apps/scheduling/reports.py:314
+msgid "Total"
+msgstr "Итого"
+
+#: apps/scheduling/reports.py:159
+msgid ""
+"Lessons are counted on real dates: holidays and cancelled lessons are lost."
+msgstr ""
+"Занятия считаются по реальным датам: выпавшие на праздники и отменённые "
+"считаются потерянными."
+
+#: apps/scheduling/reports.py:160
+#, python-format
+msgid "%(ok)s of %(all)s assignments match the plan exactly."
+msgstr "Точно по плану: %(ok)s из %(all)s нагрузок."
+
+#: apps/scheduling/reports.py:216
+msgid "Teacher workload"
+msgstr "Нагрузка преподавателей"
+
+#: apps/scheduling/reports.py:221
+msgid "Department"
+msgstr "Кафедра"
+
+#: apps/scheduling/reports.py:222
+msgid "Position"
+msgstr "Должность"
+
+#: apps/scheduling/reports.py:223 apps/scheduling/reports.py:307
+msgid "Lessons a week"
+msgstr "Занятий в неделю"
+
+#: apps/scheduling/reports.py:224
+msgid "Weekly limit"
+msgstr "Недельный лимит"
+
+#: apps/scheduling/reports.py:225
+msgid "Planned lessons"
+msgstr "Занятий по плану"
+
+#: apps/scheduling/reports.py:226
+msgid "Scheduled lessons"
+msgstr "Занятий в расписании"
+
+#: apps/scheduling/reports.py:227
+msgid "Hours"
+msgstr "Часы"
+
+#: apps/scheduling/reports.py:228
+msgid "Semester norm, hours"
+msgstr "Норма за семестр, ч"
+
+#: apps/scheduling/reports.py:229
+msgid "Of the norm"
+msgstr "От нормы"
+
+#: apps/scheduling/reports.py:234
+#, python-format
+msgid ""
+"One lesson = %(n)s academic hours; the semester norm is half the annual "
+"load."
+msgstr ""
+"Одно занятие = %(n)s академических часа; норма за семестр — половина годовой"
+" нагрузки."
+
+#: apps/scheduling/reports.py:236
+msgid "Odd/even-week lessons count as half a lesson a week."
+msgstr ""
+"Занятия по нечётным/чётным неделям считаются как половина занятия в неделю."
+
+#: apps/scheduling/reports.py:237
+#, python-format
+msgid "Teachers over their weekly limit: %(n)s."
+msgstr "Преподавателей сверх недельного лимита: %(n)s."
+
+#: apps/scheduling/reports.py:299
+msgid "Room occupancy"
+msgstr "Загруженность аудиторий"
+
+#: apps/scheduling/reports.py:303 apps/solver/api/views.py:167
+msgid "Room"
+msgstr "Аудитория"
+
+#: apps/scheduling/reports.py:304
+msgid "Building"
+msgstr "Корпус"
+
+#: apps/scheduling/reports.py:305
+msgid "Room type"
+msgstr "Тип аудитории"
+
+#: apps/scheduling/reports.py:306
+msgid "Seats"
+msgstr "Мест"
+
+#: apps/scheduling/reports.py:308
+msgid "Weekly slots"
+msgstr "Слотов в неделю"
+
+#: apps/scheduling/reports.py:309
+msgid "Occupancy"
+msgstr "Загрузка"
+
+#: apps/scheduling/reports.py:310
+msgid "Average fill"
+msgstr "Средняя заполненность"
+
+#: apps/scheduling/reports.py:311
+msgid "Session lessons"
+msgstr "Занятия сессии"
+
+#: apps/scheduling/reports.py:317
+msgid ""
+"Weekly slots: study days × lesson times of in-person weekly forms, without "
+"closed times (Friday prayer)."
+msgstr ""
+"Слотов в неделю: учебные дни × пары очных недельных форм, без закрытого "
+"времени (пятничная молитва)."
+
+#: apps/scheduling/reports.py:320
+msgid "Average fill: students of a lesson divided by the room's seats."
+msgstr "Средняя заполненность: студентов на занятии / мест в аудитории."
+
+#: apps/scheduling/reports.py:321
+#, python-format
+msgid "Rooms without any lesson: %(n)s."
+msgstr "Аудиторий без единого занятия: %(n)s."
 
 #: apps/scheduling/validators.py:792
 #, python-format
@@ -1533,10 +1703,6 @@ msgid "This run has no result yet."
 msgstr "У этого запуска пока нет результата."
 
 #: apps/solver/api/views.py:166
-msgid "Form"
-msgstr "Форма обучения"
-
-#: apps/solver/api/views.py:166
 msgid "Day"
 msgstr "День"
 
@@ -1547,22 +1713,6 @@ msgstr "Недели"
 #: apps/solver/api/views.py:166
 msgid "Time"
 msgstr "Время"
-
-#: apps/solver/api/views.py:166
-msgid "Subject"
-msgstr "Предмет"
-
-#: apps/solver/api/views.py:167
-msgid "Lesson type"
-msgstr "Тип занятия"
-
-#: apps/solver/api/views.py:167
-msgid "Groups"
-msgstr "Группы"
-
-#: apps/solver/api/views.py:167
-msgid "Room"
-msgstr "Аудитория"
 
 #: apps/solver/api/views.py:167
 msgid "Pinned"

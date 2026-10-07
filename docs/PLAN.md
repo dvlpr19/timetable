@@ -1,5 +1,7 @@
 # Dars Jadvali — 1-versiya rejasi
 
+**Holat:** 9 bosqichning hammasi bajarilgan (har biri alohida commit: `git log`).
+
 Loyiha ildizi: `lesschedule/` (promptdagi `dars-jadvali/` shu papka). Har bir bosqich oxirida:
 `make test` yashil, `docker compose up` ishlaydi, `git commit`, so'ng 5–10 qatorlik hisobot.
 

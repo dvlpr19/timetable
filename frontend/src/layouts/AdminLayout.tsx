@@ -1,4 +1,13 @@
-import { CalendarClock, CalendarDays, LayoutDashboard, LogOut, Menu, Wand2, X } from 'lucide-react';
+import {
+  BarChart3,
+  CalendarClock,
+  CalendarDays,
+  LayoutDashboard,
+  LogOut,
+  Menu,
+  Wand2,
+  X,
+} from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
@@ -66,6 +75,7 @@ function Sidebar() {
         <NavItem to="/admin/schedule" icon={CalendarDays} label={t('admin:nav.schedule')} />
         <NavItem to="/admin/solver" icon={Wand2} label={t('admin:nav.solver')} />
         <NavItem to="/admin/requests" icon={CalendarClock} label={t('admin:nav.requests')} />
+        <NavItem to="/admin/reports" icon={BarChart3} label={t('admin:nav.reports')} />
       </div>
       <div className="space-y-1">
         <p className="px-3 pb-1 text-xs font-bold uppercase tracking-wider text-mint/70">

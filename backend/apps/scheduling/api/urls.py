@@ -17,5 +17,6 @@ urlpatterns = [
     path("export/", views.ExportView.as_view(), name="export"),
     path("export/ics/", personal.IcsView.as_view(), name="export-ics"),
     path("free-rooms/", personal.FreeRoomsView.as_view(), name="free-rooms"),
+    path("reports/<str:kind>/", personal.ReportView.as_view(), name="report"),
     *router.urls,
 ]

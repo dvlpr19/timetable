@@ -8,7 +8,8 @@
     "schedule": "Jadval muharriri",
     "data": "Ma'lumotlar",
     "solver": "Avtomatik tuzish",
-    "requests": "Ko'chirish so'rovlari"
+    "requests": "Ko'chirish so'rovlari",
+    "reports": "Hisobotlar"
   },
   "lesson": {
     "link": "Onlayn dars havolasi",
@@ -119,6 +120,24 @@
     "reject": "Rad etish",
     "approve": "Rozi",
     "answered": "Javob yuborildi"
+  },
+  "reports": {
+    "title": "Hisobotlar",
+    "hint": "O'quv reja bajarilishi, o'qituvchilar yuklamasi va xonalar bandligi. Excel va PDF'da akademiya nomi, semestr va imzo joyi bor.",
+    "kind": "Hisobot",
+    "kinds": {
+      "plan": "Reja bajarilishi",
+      "teachers": "O'qituvchilar yuklamasi",
+      "rooms": "Xonalar bandligi"
+    },
+    "version": "Jadval versiyasi",
+    "published": "E'lon qilingan jadval",
+    "faculty": "Fakultet",
+    "allFaculties": "Barcha fakultetlar",
+    "search": "Qatorlarni qidirish",
+    "empty": "Mos qator yo'q",
+    "excel": "Excel",
+    "pdf": "PDF"
   },
   "status": {
     "draft": "Qoralama",

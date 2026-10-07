@@ -116,3 +116,14 @@ Bazadagi `EXCLUDE` cheklovlari validator ko'ra olmagan holatni ham ushlaydi, mas
 E'lon qilingan jadvaldagi har bir tahrir (`POST/PATCH/DELETE /api/entries/`, bitta sanani bekor qilish, undo) tranzaksiya saqlangach Celery vazifasiga beriladi.
 U xabarni kerakli odamlarga ularning tilida yaratadi va Web Push yuboradi. Yangi jadval e'lon qilinsa va ko'chirish so'roviga javob berilsa ham xabar ketadi.
 Celery beat har daqiqada eslatmalarni, soat 20:00 da ertangi xulosani yuboradi (`docker compose` ichidagi `beat` servisi).
+
+## Hisobotlar
+
+| So'rov | Kim | Nima qiladi |
+|---|---|---|
+| `GET /api/reports/plan/?schedule=&faculty=&type=json \| xlsx \| pdf&lang=` | xodimlar | O'quv reja bajarilishi: har bir yuklama bo'yicha rejadagi va haqiqiy sanalardagi darslar, yo'qotilganlari (bayram, bekor), farq |
+| `GET /api/reports/teachers/?…` | xodimlar | O'qituvchilar yuklamasi: haftalik darslar va chegara, semestrdagi darslar va soatlar, me'yordan foiz |
+| `GET /api/reports/rooms/?…` | xodimlar | Xonalar bandligi: haftalik vaqtlarning necha foizi band, o'rtacha to'lish, sessiya darslari |
+
+`schedule` bo'lmasa e'lon qilingan jadval olinadi. Excel va PDF'da akademiya nomi, semestr, imzo joyi va izohlar bor.
+Jadvalning o'zi uchun `GET /api/export/` (yuqorida) ishlatiladi.

@@ -25,6 +25,9 @@ const DashboardPage = lazy(() =>
 const ResourcePage = lazy(() =>
   import('@/pages/admin/data/ResourcePage').then((m) => ({ default: m.ResourcePage })),
 );
+const ReportsPage = lazy(() =>
+  import('@/pages/admin/ReportsPage').then((m) => ({ default: m.ReportsPage })),
+);
 const RequestsPage = lazy(() =>
   import('@/pages/admin/RequestsPage').then((m) => ({ default: m.RequestsPage })),
 );
@@ -117,6 +120,7 @@ export default function App() {
           <Route path="schedule" element={<SchedulePage />} />
           <Route path="solver" element={<SolverPage />} />
           <Route path="requests" element={<RequestsPage />} />
+          <Route path="reports" element={<ReportsPage />} />
           <Route path="data/:resource" element={<ResourcePage />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />

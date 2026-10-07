@@ -205,3 +205,36 @@ class RescheduleRequestViewSet(
 
         after_commit(announce_request, obj.pk)
         return Response(RescheduleRequestSerializer(obj).data)
+
+
+class ReportView(APIView):
+    """GET /api/reports/plan|teachers|rooms/?schedule=&faculty=&type=json|xlsx|pdf&lang=
+
+    Plan fulfilment, teacher workload and room occupancy (staff only)."""
+
+    permission_classes = [RolePermission]
+    read_roles = STAFF_ROLES
+    write_roles = frozenset()
+
+    def get(self, request, kind):
+        from apps.academics.models import Faculty
+
+        from .. import reports
+
+        if kind not in reports.BUILDERS:
+            raise ValidationError({"kind": _("Unknown report.")})
+        schedule = schedule_for(request, request.query_params.get("schedule"))
+        faculty_id = request.query_params.get("faculty")
+        faculty = get_object_or_404(Faculty, pk=faculty_id) if faculty_id else None
+        fmt = request.query_params.get("type", "json")
+        lang = request.query_params.get("lang") or request.LANGUAGE_CODE
+        if lang not in ("uz", "ru", "en"):
+            raise ValidationError({"lang": _("Choose uz, ru or en.")})
+        if fmt == "json":
+            return Response(reports.build(kind, schedule, faculty, lang).as_dict())
+        if fmt not in ("xlsx", "pdf"):
+            raise ValidationError({"type": _("Choose xlsx or pdf.")})
+        content, mime = reports.render_file(kind, schedule, faculty, fmt, lang)
+        response = HttpResponse(content, content_type=mime)
+        response["Content-Disposition"] = f'attachment; filename="report-{kind}.{fmt}"'
+        return response

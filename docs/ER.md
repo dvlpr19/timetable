@@ -191,6 +191,9 @@ ular bilan to'qnashadi. Toq va juft hafta darslarining sanalari kesishmaydi, shu
 erDiagram
     Semester ||--o{ SolverRun : ""
     Schedule |o--o{ SolverRun : "natija qoralamasi"
+    Schedule |o--o{ SolverRun : "boshlang'ich versiya"
+    Teacher ||--o{ RescheduleRequest : "ko'chirish so'rovi"
+    ScheduleEntry ||--o{ RescheduleRequest : ""
     User ||--o{ Notification : ""
     ScheduleEntry |o--o{ Notification : ""
     ScheduleChange |o--o{ Notification : ""
@@ -214,6 +217,12 @@ erDiagram
         int hard_violations
         json soft_violations
         json diagnostics "yechim yo'q bo'lsa sabablar"
+    }
+    RescheduleRequest {
+        date occurrence_date "bo'sh = har hafta"
+        text reason
+        string status "pending/approved/rejected"
+        string review_comment
     }
     Notification {
         string kind
