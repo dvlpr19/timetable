@@ -1,0 +1,19 @@
+{
+  "longDate": "{{day}}-{{month}}, {{weekday}}",
+  "monthsGenitive": [
+    "yanvar",
+    "fevral",
+    "mart",
+    "aprel",
+    "may",
+    "iyun",
+    "iyul",
+    "avgust",
+    "sentabr",
+    "oktabr",
+    "noyabr",
+    "dekabr"
+  ],
+  "weekdays": ["dushanba", "seshanba", "chorshanba", "payshanba", "juma", "shanba", "yakshanba"],
+  "weekdaysShort": ["Du", "Se", "Ch", "Pa", "Ju", "Sh", "Ya"]
+}

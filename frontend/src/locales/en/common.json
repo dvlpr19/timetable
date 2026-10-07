@@ -1,0 +1,30 @@
+{
+  "appName": "Timetable",
+  "academyName": "International Islamic Academy of Uzbekistan",
+  "language": {
+    "label": "App language",
+    "uz": "Uzbek",
+    "ru": "Russian",
+    "en": "English"
+  },
+  "roles": {
+    "admin": "Dispatcher",
+    "dekanat": "Dean's office",
+    "kafedra_mudiri": "Head of department",
+    "oqituvchi": "Teacher",
+    "talaba": "Student"
+  },
+  "actions": {
+    "logout": "Sign out",
+    "retry": "Try again"
+  },
+  "home": {
+    "greeting": "Welcome, {{name}}!",
+    "comingSoon": "This section will be ready in the next stages."
+  },
+  "errors": {
+    "network": "Can't reach the server. Check your connection and try again.",
+    "unknown": "Something went wrong. Please try again in a moment."
+  },
+  "loading": "Loading…"
+}

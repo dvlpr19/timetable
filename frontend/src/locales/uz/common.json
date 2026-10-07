@@ -1,0 +1,30 @@
+{
+  "appName": "Dars jadvali",
+  "academyName": "O'zbekiston xalqaro islom akademiyasi",
+  "language": {
+    "label": "Ilova tili",
+    "uz": "O'zbekcha",
+    "ru": "Ruscha",
+    "en": "Inglizcha"
+  },
+  "roles": {
+    "admin": "Dispetcher",
+    "dekanat": "Dekanat",
+    "kafedra_mudiri": "Kafedra mudiri",
+    "oqituvchi": "O'qituvchi",
+    "talaba": "Talaba"
+  },
+  "actions": {
+    "logout": "Chiqish",
+    "retry": "Qayta urinish"
+  },
+  "home": {
+    "greeting": "Assalomu alaykum, {{name}}!",
+    "comingSoon": "Bu bo'lim keyingi bosqichlarda tayyor bo'ladi."
+  },
+  "errors": {
+    "network": "Server bilan aloqa yo'q. Internetni tekshirib, qayta urinib ko'ring.",
+    "unknown": "Kutilmagan xatolik yuz berdi. Birozdan keyin qayta urinib ko'ring."
+  },
+  "loading": "Yuklanmoqda…"
+}

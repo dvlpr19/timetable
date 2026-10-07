@@ -1,0 +1,78 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: dars-jadvali 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-07 09:58+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: apps/accounts/admin.py:14 config/views.py:24
+msgid "Timetable"
+msgstr "Timetable"
+
+#: apps/accounts/models.py:7
+msgid "Dispatcher (academic office)"
+msgstr "Dispatcher (academic office)"
+
+#: apps/accounts/models.py:8
+msgid "Dean's office"
+msgstr "Dean's office"
+
+#: apps/accounts/models.py:9
+msgid "Head of department"
+msgstr "Head of department"
+
+#: apps/accounts/models.py:10
+msgid "Teacher"
+msgstr "Teacher"
+
+#: apps/accounts/models.py:11
+msgid "Student"
+msgstr "Student"
+
+#: apps/accounts/models.py:23
+msgid "role"
+msgstr "role"
+
+#: apps/accounts/models.py:25
+msgid "interface language"
+msgstr "interface language"
+
+#: apps/accounts/models.py:31
+msgid "user"
+msgstr "user"
+
+#: apps/accounts/models.py:32
+msgid "users"
+msgstr "users"
+
+#: apps/accounts/serializers.py:10
+msgid "Incorrect login or password."
+msgstr "Incorrect login or password."
+
+#: config/settings.py:92
+msgid "Uzbek"
+msgstr "Uzbek"
+
+#: config/settings.py:93
+msgid "Russian"
+msgstr "Russian"
+
+#: config/settings.py:94
+msgid "English"
+msgstr "English"
+
+#: config/views.py:25
+msgid "International Islamic Academy of Uzbekistan"
+msgstr "International Islamic Academy of Uzbekistan"
