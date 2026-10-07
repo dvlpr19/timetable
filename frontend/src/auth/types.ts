@@ -11,4 +11,12 @@ export interface CurrentUser {
   role: Role;
   language: Language;
   language_auto: boolean;
+  student: {
+    id: number;
+    group: { id: number; name: string; course: number };
+    subgroup: number | null;
+    program: string;
+    form: string;
+  } | null;
+  teacher: { id: number; short_name: string; department: string; position: string } | null;
 }

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dars-jadvali 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-07 15:42+0500\n"
+"POT-Creation-Date: 2026-10-07 16:34+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,15 +83,15 @@ msgstr "Choose exactly one of: group, stream or subgroup."
 msgid "This teacher does not teach in the group's language."
 msgstr "This teacher does not teach in the group's language."
 
-#: apps/academics/choices.py:10 config/settings.py:93
+#: apps/academics/choices.py:10 config/settings.py:95
 msgid "Uzbek"
 msgstr "Uzbek"
 
-#: apps/academics/choices.py:11 config/settings.py:94
+#: apps/academics/choices.py:11 config/settings.py:96
 msgid "Russian"
 msgstr "Russian"
 
-#: apps/academics/choices.py:12 config/settings.py:95
+#: apps/academics/choices.py:12 config/settings.py:97
 msgid "English"
 msgstr "English"
 
@@ -826,7 +826,8 @@ msgstr "Used to build group names, e.g. IS → IS-301."
 msgid "program forms"
 msgstr "program forms"
 
-#: apps/accounts/admin.py:15 config/views.py:24
+#: apps/accounts/admin.py:15 apps/scheduling/api/personal.py:44
+#: config/views.py:26
 msgid "Timetable"
 msgstr "Timetable"
 
@@ -1063,6 +1064,30 @@ msgid ""
 msgstr ""
 "%(subject)s (%(day)s, lesson %(number)s): the online lesson link has "
 "changed."
+
+#: apps/scheduling/api/personal.py:66
+msgid "Choose a date and a lesson time."
+msgstr "Choose a date and a lesson time."
+
+#: apps/scheduling/api/personal.py:146
+msgid "Write the reason."
+msgstr "Write the reason."
+
+#: apps/scheduling/api/personal.py:183
+msgid "You can only ask to move your own lessons."
+msgstr "You can only ask to move your own lessons."
+
+#: apps/scheduling/api/personal.py:185
+msgid "Only lessons of the published timetable."
+msgstr "Only lessons of the published timetable."
+
+#: apps/scheduling/api/personal.py:190
+msgid "Only a pending request can be withdrawn."
+msgstr "Only a pending request can be withdrawn."
+
+#: apps/scheduling/api/personal.py:198
+msgid "Choose approved or rejected."
+msgstr "Choose approved or rejected."
 
 #: apps/scheduling/api/serializers.py:71
 msgid "Choose a weekday or a date."
@@ -1630,6 +1655,6 @@ msgstr "automatic scheduling run"
 msgid "automatic scheduling runs"
 msgstr "automatic scheduling runs"
 
-#: config/views.py:25
+#: config/views.py:27
 msgid "International Islamic Academy of Uzbekistan"
 msgstr "International Islamic Academy of Uzbekistan"

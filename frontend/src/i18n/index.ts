@@ -3,16 +3,19 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 
 import enAdmin from '@/locales/en/admin.json';
+import enApp from '@/locales/en/app.json';
 import enAuth from '@/locales/en/auth.json';
 import enCommon from '@/locales/en/common.json';
 import enData from '@/locales/en/data.json';
 import enDates from '@/locales/en/dates.json';
 import ruAdmin from '@/locales/ru/admin.json';
+import ruApp from '@/locales/ru/app.json';
 import ruAuth from '@/locales/ru/auth.json';
 import ruCommon from '@/locales/ru/common.json';
 import ruData from '@/locales/ru/data.json';
 import ruDates from '@/locales/ru/dates.json';
 import uzAdmin from '@/locales/uz/admin.json';
+import uzApp from '@/locales/uz/app.json';
 import uzAuth from '@/locales/uz/auth.json';
 import uzCommon from '@/locales/uz/common.json';
 import uzData from '@/locales/uz/data.json';
@@ -24,9 +27,9 @@ export const DEFAULT_LANGUAGE: Language = 'uz';
 export const LANGUAGE_STORAGE_KEY = 'dj.language';
 
 export const resources = {
-  uz: { common: uzCommon, auth: uzAuth, dates: uzDates, admin: uzAdmin, data: uzData },
-  ru: { common: ruCommon, auth: ruAuth, dates: ruDates, admin: ruAdmin, data: ruData },
-  en: { common: enCommon, auth: enAuth, dates: enDates, admin: enAdmin, data: enData },
+  uz: { common: uzCommon, auth: uzAuth, dates: uzDates, admin: uzAdmin, data: uzData, app: uzApp },
+  ru: { common: ruCommon, auth: ruAuth, dates: ruDates, admin: ruAdmin, data: ruData, app: ruApp },
+  en: { common: enCommon, auth: enAuth, dates: enDates, admin: enAdmin, data: enData, app: enApp },
 } as const;
 
 export function isLanguage(value: unknown): value is Language {
@@ -48,7 +51,7 @@ i18n
     load: 'languageOnly',
     fallbackLng: DEFAULT_LANGUAGE,
     defaultNS: 'common',
-    ns: ['common', 'auth', 'dates', 'admin', 'data'],
+    ns: ['common', 'auth', 'dates', 'admin', 'data', 'app'],
     interpolation: { escapeValue: false },
     returnNull: false,
     detection: {

@@ -46,7 +46,7 @@ Ustunlar: **Qayerda sozlanadi** — admin panel (Django admin, 5-bosqichdan bosh
 |---|---|---|---|
 | 23 | O'zbek lotin matnlarida tutuq belgisi sifatida oddiy apostrof (`'`) ishlatiladi (`O'zbekiston`, `Qur'on`), `ʻ` emas. | Tarjima fayllari | Taxmin |
 | 24 | Ilova tili birinchi kirishda brauzer tilidan aniqlanadi, aniqlanmasa o'zbekcha. Keyin profilda saqlanadi. Rus guruhi talabalari uchun boshlang'ich til ruscha. | `frontend/src/i18n`, `User.language` | Promptdan |
-| 25 | Demo hozirgi sana sifatida 2026-yil 8-aprel (chorshanba) ishlatiladi. Haqiqiy sana 2025–2026 o'quv yilidan keyin bo'lgani uchun busiz "Bugun" ekrani bo'sh qolardi. Bu 7-bosqichda `DEMO_NOW` sozlamasi bilan qo'shiladi. | `.env` | Reja |
+| 25 | Demo "bugun" sanasi 2026-yil 8-aprel (chorshanba). Haqiqiy sana 2025–2026 o'quv yilidan keyin bo'lgani uchun busiz "Bugun" ekrani bo'sh qolardi. Faqat sana qotiriladi, kun vaqti haqiqiy ("hozir" va "keyingi" dars shunga qarab belgilanadi). Bo'sh qoldirilsa haqiqiy sana ishlatiladi. | `.env`: `DEMO_NOW` | Bajarildi |
 | 26 | Hamma ism, familiya, HEMIS ID va telefonlar to'qima. HEMIS ID formati namuna: `36` + shifrning oxirgi 4 raqami + tartib raqami. | Seed | To'qima |
 
 ## Cheklovlar (validator)
@@ -67,3 +67,12 @@ Ustunlar: **Qayerda sozlanadi** — admin panel (Django admin, 5-bosqichdan bosh
 | 33 | Qidiruv paytida optimallashtiriladi: talaba va o'qituvchi oynalari, o'qituvchining qulay vaqti, bir kunda bir fandan ko'p dars, smena, asr tanaffusi, guruh foydalanadigan binolar soni (binolar orasida yurishni ham kamaytiradi). "Avval ma'ruza, keyin seminar" tartibi va aniq yurishlar soni faqat natijada baholanadi. | Kod | Taxmin |
 | 34 | Avtomatik qo'yilgan masofaviy darslarga vaqtinchalik `https://link-kerak.invalid/…` havolasi yoziladi (bazada xona yoki havola majburiy). Bu manzil hech qachon ochilmaydi, validator uni "havola yo'q" deb hisoblaydi, shuning uchun haqiqiy havolalar kiritilmaguncha jadval e'lon qilinmaydi. | `LINK_PLACEHOLDER` | Taxmin |
 | 35 | Avtomatik tuzish natijasi har doim yangi qoralama bo'ladi; e'lon qilingan jadval o'zgarmaydi. Qadalgan darslar va tanlangan doiradan (fakultet, shakl) tashqaridagi darslar joyida qoladi. | "Avtomatik tuzish" ekrani | Promptdan |
+
+## Talaba va o'qituvchi ilovasi (PWA)
+
+| # | Taxmin | Qayerda sozlanadi | Holat |
+|---|---|---|---|
+| 36 | Offline rejimda oxirgi yuklangan jadval (har bir ochilgan hafta) brauzerda saqlanadi va "oxirgi yangilanish" vaqti bilan ko'rsatiladi. Chiqishda saqlangan nusxa o'chiriladi (umumiy telefonda boshqa odam ko'rmasligi uchun). Ilova qobig'i service worker orqali offline ochiladi. | Kod: `lib/offline.ts`, `public/sw.js` | Taxmin |
+| 37 | Ko'chirish so'rovi faqat xabar: dispetcher "Rozi" desa ham dars avtomatik ko'chmaydi, uni muharrirda o'zi ko'chiradi (ziddiyatlar shu yerda tekshiriladi). | Kod | Taxmin |
+| 38 | Bo'sh xona qidiruvi faqat e'lon qilingan jadvalga qaraydi (qoralamalar hisobga olinmaydi) va talabalarga ko'rinmaydi. | Kod | Taxmin |
+| 39 | "Qulay kunlarim" har bir ta'lim shaklining qo'ng'iroq jadvali bo'yicha alohida belgilanadi; "butun kun" holati barcha shakllarga tegishli. | O'qituvchi ilovasi | Taxmin |

@@ -15,5 +15,7 @@
     "dekabr"
   ],
   "weekdays": ["dushanba", "seshanba", "chorshanba", "payshanba", "juma", "shanba", "yakshanba"],
-  "weekdaysShort": ["Du", "Se", "Ch", "Pa", "Ju", "Sh", "Ya"]
+  "weekdaysShort": ["Du", "Se", "Ch", "Pa", "Ju", "Sh", "Ya"],
+  "dayMonth": "{{day}}-{{month}}",
+  "dayMonthTime": "{{day}}-{{month}}, {{time}}"
 }

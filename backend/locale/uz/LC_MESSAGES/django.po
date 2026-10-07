@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dars-jadvali 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-07 15:42+0500\n"
+"POT-Creation-Date: 2026-10-07 16:34+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,15 +83,15 @@ msgstr "Guruh, oqim yoki kichik guruhdan faqat bittasini tanlang."
 msgid "This teacher does not teach in the group's language."
 msgstr "Bu o'qituvchi guruhning ta'lim tilida dars bermaydi."
 
-#: apps/academics/choices.py:10 config/settings.py:93
+#: apps/academics/choices.py:10 config/settings.py:95
 msgid "Uzbek"
 msgstr "O'zbekcha"
 
-#: apps/academics/choices.py:11 config/settings.py:94
+#: apps/academics/choices.py:11 config/settings.py:96
 msgid "Russian"
 msgstr "Ruscha"
 
-#: apps/academics/choices.py:12 config/settings.py:95
+#: apps/academics/choices.py:12 config/settings.py:97
 msgid "English"
 msgstr "Inglizcha"
 
@@ -831,7 +831,8 @@ msgstr "Guruh nomini yasashda ishlatiladi, masalan IS → IS-301."
 msgid "program forms"
 msgstr "yo'nalishlar va ta'lim shakllari"
 
-#: apps/accounts/admin.py:15 config/views.py:24
+#: apps/accounts/admin.py:15 apps/scheduling/api/personal.py:44
+#: config/views.py:26
 msgid "Timetable"
 msgstr "Dars jadvali"
 
@@ -1069,6 +1070,30 @@ msgid ""
 "changed."
 msgstr ""
 "%(subject)s (%(day)s, %(number)s-dars): onlayn dars havolasi o'zgardi."
+
+#: apps/scheduling/api/personal.py:66
+msgid "Choose a date and a lesson time."
+msgstr "Sana va parani tanlang."
+
+#: apps/scheduling/api/personal.py:146
+msgid "Write the reason."
+msgstr "Sababni yozing."
+
+#: apps/scheduling/api/personal.py:183
+msgid "You can only ask to move your own lessons."
+msgstr "Faqat o'z darslaringizni ko'chirishni so'rashingiz mumkin."
+
+#: apps/scheduling/api/personal.py:185
+msgid "Only lessons of the published timetable."
+msgstr "Faqat e'lon qilingan jadvaldagi darslar uchun."
+
+#: apps/scheduling/api/personal.py:190
+msgid "Only a pending request can be withdrawn."
+msgstr "Faqat javob kutayotgan so'rovni qaytarib olish mumkin."
+
+#: apps/scheduling/api/personal.py:198
+msgid "Choose approved or rejected."
+msgstr "«Rozi» yoki «rad etildi»ni tanlang."
 
 #: apps/scheduling/api/serializers.py:71
 msgid "Choose a weekday or a date."
@@ -1648,6 +1673,6 @@ msgstr "avtomatik tuzish"
 msgid "automatic scheduling runs"
 msgstr "avtomatik tuzishlar"
 
-#: config/views.py:25
+#: config/views.py:27
 msgid "International Islamic Academy of Uzbekistan"
 msgstr "O'zbekiston xalqaro islom akademiyasi"

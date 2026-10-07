@@ -6,6 +6,8 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
+from apps.core import clock
+
 
 @api_view(["GET"])
 @permission_classes([AllowAny])
@@ -25,5 +27,8 @@ def meta(request):
             "academy_name": _("International Islamic Academy of Uzbekistan"),
             "language": get_language(),
             "languages": [code for code, _name in settings.LANGUAGES],
+            "now": clock.now().isoformat(timespec="seconds"),
+            "today": clock.today().isoformat(),
+            "demo_date": clock.is_demo(),
         }
     )

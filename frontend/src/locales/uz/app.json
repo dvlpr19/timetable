@@ -1,0 +1,137 @@
+{
+  "skipToContent": "Asosiy qismga o'tish",
+  "offline": "Internet yo'q — saqlangan jadval ko'rsatilmoqda",
+  "tabs": {
+    "label": "Bo'limlar",
+    "today": "Bugun",
+    "week": "Hafta",
+    "myWeek": "Mening haftam",
+    "search": "Qidiruv",
+    "rooms": "Bo'sh xona",
+    "availability": "Qulay kunlarim",
+    "profile": "Profil"
+  },
+  "today": {
+    "greeting": "Assalomu alaykum, {{name}}!",
+    "title": "Bugungi darslar",
+    "days": "Hafta kunlari",
+    "lessonsCount": "darslar soni {{n}}",
+    "demo": "Demo sana: o'quv semestri ichidagi kun"
+  },
+  "day": {
+    "today": "bugun",
+    "free": "Bu kuni dars yo'q"
+  },
+  "week": {
+    "previous": "Oldingi hafta",
+    "next": "Keyingi hafta",
+    "thisWeek": "Shu haftaga qaytish",
+    "sessionNow": "Sessiya davom etmoqda: {{from}} – {{to}}",
+    "sessionNext": "Keyingi sessiya: {{from}} – {{to}}"
+  },
+  "lesson": {
+    "number": "{{n}}-para",
+    "numberTime": "{{n}}-para · {{start}}–{{end}}",
+    "now": "Hozir",
+    "next": "Keyingi",
+    "cancelled": "Bekor qilindi",
+    "holiday": "Bayram",
+    "holidayLong": "Bayram kuni — dars ko'chiriladi",
+    "online": "Onlayn",
+    "linkSoon": "Havola keyinroq",
+    "linkSoonLong": "Onlayn dars, havola hali qo'yilmagan",
+    "join": "Darsga qo'shilish",
+    "subgroup": "{{n}}-kichik guruh",
+    "students": "{{n}} talaba",
+    "when": "Qachon",
+    "where": "Qayerda",
+    "teacher": "O'qituvchi",
+    "groups": "Guruhlar",
+    "building": "{{building}}, {{floor}}-qavat"
+  },
+  "updated": {
+    "at": "Yangilangan: {{when}}",
+    "saved": "Saqlangan nusxa ({{when}}) — server bilan aloqa yo'q",
+    "refresh": "Yangilash"
+  },
+  "request": {
+    "ask": "Darsni ko'chirishni so'rash",
+    "hint": "So'rov dispetcherga boradi. U javob beradi va kerak bo'lsa darsni ko'chiradi.",
+    "which": "Qaysi dars",
+    "once": "Faqat shu kuni",
+    "weekly": "Har hafta",
+    "reason": "Sabab",
+    "reasonPlaceholder": "Masalan: konferensiyada bo'laman",
+    "reasonRequired": "Sababni yozing.",
+    "day": "Qulay kun",
+    "time": "Qulay para",
+    "any": "Farqi yo'q",
+    "note": "Qo'shimcha (ixtiyoriy)",
+    "back": "Orqaga",
+    "send": "Yuborish",
+    "sent": "So'rov yuborildi",
+    "mine": "Mening so'rovlarim",
+    "none": "Hali so'rov yo'q. Darsni bosing va «Ko'chirishni so'rash»ni tanlang.",
+    "answer": "Javob",
+    "withdraw": "Qaytarib olish",
+    "withdrawn": "So'rov qaytarib olindi"
+  },
+  "availability": {
+    "hint": "Katakni bosib holatini almashtiring: mumkin → qulay → bo'lmaydi. «Bo'lmaydi» vaqtlariga dars qo'yilmaydi, «qulay» vaqtlar iloji boricha hisobga olinadi.",
+    "levels": {
+      "possible": "Mumkin",
+      "preferred": "Qulay",
+      "unavailable": "Bo'lmaydi"
+    },
+    "form": "Ta'lim shakli",
+    "wholeDay": "Butun kun",
+    "wholeDayLabel": "{{day}}, butun kun: {{level}}",
+    "cellLabel": "{{day}}, {{n}}-para: {{level}}",
+    "save": "Saqlash",
+    "saved": "Saqlandi",
+    "upToDate": "Saqlangan"
+  },
+  "rooms": {
+    "title": "Bo'sh xona topish",
+    "subtitle": "E'lon qilingan jadval bo'yicha",
+    "date": "Sana",
+    "time": "Para",
+    "capacity": "O'rinlar",
+    "any": "Farqi yo'q",
+    "atLeast": "kamida {{n}}",
+    "found": "Bo'sh xonalar: {{n}}",
+    "none": "Bu vaqtda mos bo'sh xona yo'q",
+    "seats": "O'rinlar soni",
+    "projector": "Proyektor bor",
+    "computers": "{{n}} ta kompyuter"
+  },
+  "search": {
+    "title": "Qidiruv",
+    "subtitle": "Boshqa guruh, o'qituvchi yoki xona jadvali",
+    "placeholder": "Qidirish",
+    "placeholders": {
+      "group": "Guruh nomi, masalan IS-302",
+      "teacher": "O'qituvchi familiyasi",
+      "room": "Xona, masalan A-204"
+    },
+    "what": "Nimani qidirish",
+    "kinds": {
+      "group": "Guruh",
+      "teacher": "O'qituvchi",
+      "room": "Xona"
+    },
+    "nothing": "Hech narsa topilmadi",
+    "back": "Qidiruvga qaytish",
+    "roomLine": "{{building}} · {{n}} o'rin"
+  },
+  "profile": {
+    "downloads": "Jadvalni yuklab olish",
+    "downloadsHint": "Kalendar fayli (.ics) Google, Apple yoki Outlook kalendariga qo'shiladi — bayramlar va bekor qilingan darslar hisobga olingan.",
+    "pdf": "PDF",
+    "excel": "Excel",
+    "calendar": "Kalendar (.ics)",
+    "install": "Telefonga o'rnatish",
+    "installHint": "Ilova bosh ekranda ochiladi va internet bo'lmaganda ham oxirgi yuklangan jadvalni ko'rsatadi. iPhone'da: Safari → «Ulashish» → «Bosh ekranga».",
+    "installButton": "O'rnatish"
+  }
+}

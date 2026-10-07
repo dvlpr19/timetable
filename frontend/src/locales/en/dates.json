@@ -15,5 +15,7 @@
     "December"
   ],
   "weekdays": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-  "weekdaysShort": ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"]
+  "weekdaysShort": ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
+  "dayMonth": "{{day}} {{month}}",
+  "dayMonthTime": "{{day}} {{month}}, {{time}}"
 }

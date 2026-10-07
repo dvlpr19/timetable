@@ -12,6 +12,7 @@ import { download } from '@/lib/api';
 import { cn } from '@/lib/cn';
 import { useAll } from '@/lib/query';
 import type { SolverRun } from '@/types/solver';
+import { formatDayMonthTime } from '@/i18n/date';
 
 import { RunPanel } from './RunPanel';
 import { STATUS_PILL, duration, isActive } from './runs';
@@ -19,7 +20,7 @@ import { StartForm } from './StartForm';
 
 /** Automatic timetabling (CP-SAT): start a run, watch it, compare the result. */
 export function SolverPage() {
-  const { t, i18n } = useTranslation(['admin', 'common']);
+  const { t } = useTranslation(['admin', 'common', 'dates']);
   const { user } = useAuth();
   const toast = useToast();
   const [params, setParams] = useSearchParams();
@@ -27,10 +28,6 @@ export function SolverPage() {
   const runs = useAll<SolverRun>('/api/solver-runs/');
   const selected = Number(params.get('run')) || runs.rows[0]?.id;
   const select = (id: number) => setParams({ run: String(id) }, { replace: true });
-  const date = new Intl.DateTimeFormat(i18n.resolvedLanguage, {
-    dateStyle: 'short',
-    timeStyle: 'short',
-  });
 
   return (
     <div className="space-y-6">
@@ -91,7 +88,7 @@ export function SolverPage() {
                       <Pill className={STATUS_PILL[run.status]}>{run.status_display}</Pill>
                     </span>
                     <span className="mt-1 block text-xs text-ink-muted">
-                      {date.format(new Date(run.created_at))} ·{' '}
+                      {formatDayMonthTime(new Date(run.created_at), t)} ·{' '}
                       {run.faculty_name ?? t('admin:solver.allFaculties')} ·{' '}
                       {run.form_name ?? t('admin:solver.allForms')}
                     </span>

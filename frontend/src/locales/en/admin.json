@@ -7,7 +7,8 @@
     "dashboard": "Dashboard",
     "schedule": "Timetable editor",
     "data": "Data",
-    "solver": "Auto-scheduling"
+    "solver": "Auto-scheduling",
+    "requests": "Reschedule requests"
   },
   "lesson": {
     "link": "Online lesson link",
@@ -100,6 +101,24 @@
       "links": "Missing links",
       "lowerBetter": "Soft measures are per week; lower is better."
     }
+  },
+  "requests": {
+    "title": "Reschedule requests",
+    "hint": "Teachers ask to move lessons. Answer, and if you agree, move the lesson in the editor.",
+    "filter": "Status",
+    "pending": "Waiting",
+    "all": "All",
+    "empty": "No requests",
+    "everyWeek": "every {{day}}",
+    "lessonAt": "Lesson",
+    "reason": "Reason",
+    "wish": "Wish",
+    "answer": "Answer",
+    "openEditor": "Open the teacher's timetable",
+    "comment": "Comment",
+    "reject": "Reject",
+    "approve": "Approve",
+    "answered": "Answer sent"
   },
   "status": {
     "draft": "Draft",

@@ -12,6 +12,7 @@ import { ApiError, api } from '@/lib/api';
 import { cn } from '@/lib/cn';
 import { useApi } from '@/lib/query';
 import type { ScheduleVersion } from '@/types/timetable';
+import { formatDayMonthTime } from '@/i18n/date';
 
 interface Change {
   id: number;
@@ -37,17 +38,13 @@ export function HistoryDrawer({
   editable: boolean;
   onClose: () => void;
 }) {
-  const { t, i18n } = useTranslation(['admin', 'common']);
+  const { t } = useTranslation(['admin', 'common', 'dates']);
   const toast = useToast();
   const queryClient = useQueryClient();
   const [busy, setBusy] = useState(false);
   const changes = useApi<Change[]>(`/api/schedules/${schedule.id}/changes/`);
   const rows = changes.data ?? [];
   const canUndo = editable && rows.some((c) => !c.undone && !c.reverts);
-  const format = new Intl.DateTimeFormat(i18n.resolvedLanguage, {
-    dateStyle: 'medium',
-    timeStyle: 'short',
-  });
 
   async function undo() {
     setBusy(true);
@@ -115,7 +112,9 @@ export function HistoryDrawer({
               </div>
               {c.comment && <p className="mt-1 text-ink">“{c.comment}”</p>}
               <p className="mt-1 text-xs text-ink-muted">
-                {[c.user_name, format.format(new Date(c.created_at))].filter(Boolean).join(' · ')}
+                {[c.user_name, formatDayMonthTime(new Date(c.created_at), t)]
+                  .filter(Boolean)
+                  .join(' · ')}
               </p>
             </li>
           ))}

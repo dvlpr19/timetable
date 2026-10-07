@@ -1,0 +1,137 @@
+{
+  "skipToContent": "Skip to content",
+  "offline": "Offline — showing the saved timetable",
+  "tabs": {
+    "label": "Sections",
+    "today": "Today",
+    "week": "Week",
+    "myWeek": "My week",
+    "search": "Search",
+    "rooms": "Free rooms",
+    "availability": "My availability",
+    "profile": "Profile"
+  },
+  "today": {
+    "greeting": "Hello, {{name}}!",
+    "title": "Today's lessons",
+    "days": "Days of the week",
+    "lessonsCount": "{{n}} lessons",
+    "demo": "Demo date: a day inside the semester"
+  },
+  "day": {
+    "today": "today",
+    "free": "No lessons on this day"
+  },
+  "week": {
+    "previous": "Previous week",
+    "next": "Next week",
+    "thisWeek": "Back to this week",
+    "sessionNow": "Session in progress: {{from}} – {{to}}",
+    "sessionNext": "Next session: {{from}} – {{to}}"
+  },
+  "lesson": {
+    "number": "Period {{n}}",
+    "numberTime": "Period {{n}} · {{start}}–{{end}}",
+    "now": "Now",
+    "next": "Next",
+    "cancelled": "Cancelled",
+    "holiday": "Holiday",
+    "holidayLong": "Holiday — the lesson will be moved",
+    "online": "Online",
+    "linkSoon": "Link coming",
+    "linkSoonLong": "Online lesson; the link is not set yet",
+    "join": "Join the lesson",
+    "subgroup": "subgroup {{n}}",
+    "students": "{{n}} students",
+    "when": "When",
+    "where": "Where",
+    "teacher": "Teacher",
+    "groups": "Groups",
+    "building": "{{building}}, floor {{floor}}"
+  },
+  "updated": {
+    "at": "Updated {{when}}",
+    "saved": "Saved copy ({{when}}) — can't reach the server",
+    "refresh": "Refresh"
+  },
+  "request": {
+    "ask": "Ask to move this lesson",
+    "hint": "The request goes to the dispatcher, who answers and moves the lesson if possible.",
+    "which": "Which lesson",
+    "once": "This day only",
+    "weekly": "Every week",
+    "reason": "Reason",
+    "reasonPlaceholder": "For example: I'll be at a conference",
+    "reasonRequired": "Write the reason.",
+    "day": "Preferred day",
+    "time": "Preferred period",
+    "any": "Any",
+    "note": "Note (optional)",
+    "back": "Back",
+    "send": "Send",
+    "sent": "Request sent",
+    "mine": "My requests",
+    "none": "No requests yet. Open a lesson and choose “Ask to move”.",
+    "answer": "Answer",
+    "withdraw": "Withdraw",
+    "withdrawn": "Request withdrawn"
+  },
+  "availability": {
+    "hint": "Tap a cell to change it: possible → preferred → unavailable. No lessons go into unavailable times; preferred times are used when possible.",
+    "levels": {
+      "possible": "Possible",
+      "preferred": "Preferred",
+      "unavailable": "Unavailable"
+    },
+    "form": "Study form",
+    "wholeDay": "Whole day",
+    "wholeDayLabel": "{{day}}, whole day: {{level}}",
+    "cellLabel": "{{day}}, period {{n}}: {{level}}",
+    "save": "Save",
+    "saved": "Saved",
+    "upToDate": "Saved"
+  },
+  "rooms": {
+    "title": "Find a free room",
+    "subtitle": "Based on the published timetable",
+    "date": "Date",
+    "time": "Period",
+    "capacity": "Seats",
+    "any": "Any",
+    "atLeast": "at least {{n}}",
+    "found": "Free rooms: {{n}}",
+    "none": "No suitable free room at this time",
+    "seats": "Seats",
+    "projector": "Has a projector",
+    "computers": "{{n}} computers"
+  },
+  "search": {
+    "title": "Search",
+    "subtitle": "Another group's, teacher's or room's timetable",
+    "placeholder": "Search",
+    "placeholders": {
+      "group": "Group name, e.g. IS-302",
+      "teacher": "Teacher's last name",
+      "room": "Room, e.g. A-204"
+    },
+    "what": "What to search",
+    "kinds": {
+      "group": "Group",
+      "teacher": "Teacher",
+      "room": "Room"
+    },
+    "nothing": "Nothing found",
+    "back": "Back to search",
+    "roomLine": "{{building}} · {{n}} seats"
+  },
+  "profile": {
+    "downloads": "Download the timetable",
+    "downloadsHint": "The calendar file (.ics) imports into Google, Apple or Outlook — holidays and cancellations included.",
+    "pdf": "PDF",
+    "excel": "Excel",
+    "calendar": "Calendar (.ics)",
+    "install": "Install on your phone",
+    "installHint": "The app opens from the home screen and shows the last loaded timetable offline. On iPhone: Safari → Share → Add to Home Screen.",
+    "installButton": "Install"
+  }
+}

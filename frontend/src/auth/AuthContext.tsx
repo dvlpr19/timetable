@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 
 import i18n, { currentLanguage, type Language } from '@/i18n';
 import { api } from '@/lib/api';
+import { clearOfflineCache } from '@/lib/offline';
 import { tokenStore } from '@/lib/tokens';
 
 import type { CurrentUser } from './types';
@@ -56,6 +57,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const logout = useCallback(() => {
     tokenStore.clear();
+    clearOfflineCache();
     setUser(null);
     queryClient.clear();
   }, [queryClient]);

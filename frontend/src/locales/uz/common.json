@@ -19,10 +19,6 @@
     "retry": "Qayta urinish",
     "close": "Yopish"
   },
-  "home": {
-    "greeting": "Assalomu alaykum, {{name}}!",
-    "comingSoon": "Bu bo'lim keyingi bosqichlarda tayyor bo'ladi."
-  },
   "errors": {
     "network": "Server bilan aloqa yo'q. Internetni tekshirib, qayta urinib ko'ring.",
     "unknown": "Kutilmagan xatolik yuz berdi. Birozdan keyin qayta urinib ko'ring.",

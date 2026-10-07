@@ -87,3 +87,17 @@ Bazadagi `EXCLUDE` cheklovlari validator ko'ra olmagan holatni ham ushlaydi, mas
 - `mode = rebuild`: tanlangan doiradagi darslar qaytadan qo'yiladi, qadalganlari qoladi. `fill`: mavjud darslar qoladi, faqat yetishmayotganlari qo'yiladi.
 - Natija har doim yangi qoralama (`result_schedule`). Undagi har bir dars validatordan qayta o'tkaziladi, `hard_violations` shu tekshiruv natijasi.
 - Buyruq qatoridan: `python manage.py run_solver --faculty ISL --time-limit 90`.
+
+## Talaba va o'qituvchi ilovasi
+
+| So'rov | Kim | Nima qiladi |
+|---|---|---|
+| `GET /api/meta/` | hamma | `today`, `now` (demo sana `DEMO_NOW` bilan), `demo_date` |
+| `GET /api/timetable/occurrences/?me=1&date_from=&date_to=` | hamma | "Bugun" va "Hafta" ekranlari: aniq sanalar, bekor qilingan va bayramga tushgan darslar bilan |
+| `GET /api/export/ics/?me=1 \| group= \| teacher= \| room=` | hamma | Butun davr `.ics` fayli (har bir sana alohida voqea, bekor qilinganlari `STATUS:CANCELLED`) |
+| `GET /api/free-rooms/?date=&lesson_time=&capacity=` | o'qituvchi, xodimlar | Shu vaqtda e'lon qilingan jadvalda band bo'lmagan xonalar |
+| `GET/PUT /api/teacher-availability/…` | o'qituvchi (o'ziniki) | "Qulay kunlarim" (yuqorida) |
+| `GET /api/reschedule-requests/` | o'qituvchi (o'ziniki), xodimlar | Ko'chirish so'rovlari |
+| `POST /api/reschedule-requests/ {"entry", "reason", "occurrence_date"?, "desired_weekday"?, "desired_lesson_time"?, "desired_note"?}` | o'qituvchi | O'z darsini ko'chirishni so'rash (faqat e'lon qilingan jadval) |
+| `DELETE /api/reschedule-requests/{id}/` | o'qituvchi | Javob kutayotgan so'rovni qaytarib olish |
+| `POST /api/reschedule-requests/{id}/review/ {"status": "approved" \| "rejected", "comment"?}` | admin | Javob berish (darsni muharrirda o'zi ko'chiradi) |

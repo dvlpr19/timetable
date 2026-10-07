@@ -12,8 +12,8 @@ interface Props {
   onClose: () => void;
   children: ReactNode;
   footer?: ReactNode;
-  /** "dialog" = centered box, "drawer" = panel sliding from the right */
-  variant?: 'dialog' | 'drawer';
+  /** "dialog" = centered box, "drawer" = panel from the right, "sheet" = from the bottom on phones */
+  variant?: 'dialog' | 'drawer' | 'sheet';
   size?: 'sm' | 'md' | 'lg';
 }
 
@@ -78,7 +78,9 @@ export function Modal({
           'relative flex max-h-full w-full flex-col bg-card shadow-xl',
           variant === 'drawer'
             ? 'ml-auto h-full max-w-lg animate-[slide-in_150ms_ease-out]'
-            : cn('m-auto max-h-[90dvh] rounded-card', widths[size]),
+            : variant === 'sheet'
+              ? 'mt-auto max-h-[92dvh] animate-[sheet-up_180ms_ease-out] rounded-t-header pb-[env(safe-area-inset-bottom)] sm:m-auto sm:max-w-xl sm:rounded-card'
+              : cn('m-auto max-h-[90dvh] rounded-card', widths[size]),
         )}
       >
         <header className="flex items-center justify-between gap-4 border-b border-line px-6 py-4">

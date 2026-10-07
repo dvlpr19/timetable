@@ -19,10 +19,6 @@
     "retry": "Try again",
     "close": "Close"
   },
-  "home": {
-    "greeting": "Welcome, {{name}}!",
-    "comingSoon": "This section will be ready in the next stages."
-  },
   "errors": {
     "network": "Can't reach the server. Check your connection and try again.",
     "unknown": "Something went wrong. Please try again in a moment.",

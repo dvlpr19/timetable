@@ -7,7 +7,8 @@
     "dashboard": "Bosh sahifa",
     "schedule": "Jadval muharriri",
     "data": "Ma'lumotlar",
-    "solver": "Avtomatik tuzish"
+    "solver": "Avtomatik tuzish",
+    "requests": "Ko'chirish so'rovlari"
   },
   "lesson": {
     "link": "Onlayn dars havolasi",
@@ -100,6 +101,24 @@
       "links": "Havolasi yo'q",
       "lowerBetter": "Yumshoq ko'rsatkichlar haftasiga hisoblangan; qancha kam bo'lsa, shuncha yaxshi."
     }
+  },
+  "requests": {
+    "title": "Ko'chirish so'rovlari",
+    "hint": "O'qituvchilar darsni ko'chirishni so'raydi. Javob bering, rozi bo'lsangiz darsni muharrirda ko'chiring.",
+    "filter": "Holat",
+    "pending": "Javob kutayotgan",
+    "all": "Hammasi",
+    "empty": "So'rov yo'q",
+    "everyWeek": "har {{day}}",
+    "lessonAt": "Dars",
+    "reason": "Sabab",
+    "wish": "Istagi",
+    "answer": "Javob",
+    "openEditor": "O'qituvchi jadvalini ochish",
+    "comment": "Javob izohi",
+    "reject": "Rad etish",
+    "approve": "Rozi",
+    "answered": "Javob yuborildi"
   },
   "status": {
     "draft": "Qoralama",

@@ -14,6 +14,8 @@ def env_bool(name: str, default: bool = False) -> bool:
 
 
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "insecure-dev-key-only")
+# Pin "today" for the demo semester (YYYY-MM-DD or YYYY-MM-DDTHH:MM); empty = real time.
+DEMO_NOW = os.environ.get("DEMO_NOW", "")
 DEBUG = env_bool("DJANGO_DEBUG", False)
 ALLOWED_HOSTS = [h for h in os.environ.get("DJANGO_ALLOWED_HOSTS", "localhost").split(",") if h]
 
