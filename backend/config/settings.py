@@ -4,6 +4,7 @@ import os
 from datetime import timedelta
 from pathlib import Path
 
+from celery.schedules import crontab
 from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -147,6 +148,13 @@ CELERY_BROKER_URL = REDIS_URL
 CELERY_RESULT_BACKEND = REDIS_URL
 CELERY_TIMEZONE = TIME_ZONE
 CELERY_TASK_TRACK_STARTED = True
+CELERY_BEAT_SCHEDULE = {
+    "lesson-reminders": {"task": "notifications.reminders", "schedule": 60.0},
+    "evening-summary": {
+        "task": "notifications.daily_digest",
+        "schedule": crontab(hour=20, minute=0),
+    },
+}
 
 # --- Web Push ---------------------------------------------------------------
 VAPID_PUBLIC_KEY = os.environ.get("VAPID_PUBLIC_KEY", "")

@@ -76,3 +76,14 @@ Ustunlar: **Qayerda sozlanadi** — admin panel (Django admin, 5-bosqichdan bosh
 | 37 | Ko'chirish so'rovi faqat xabar: dispetcher "Rozi" desa ham dars avtomatik ko'chmaydi, uni muharrirda o'zi ko'chiradi (ziddiyatlar shu yerda tekshiriladi). | Kod | Taxmin |
 | 38 | Bo'sh xona qidiruvi faqat e'lon qilingan jadvalga qaraydi (qoralamalar hisobga olinmaydi) va talabalarga ko'rinmaydi. | Kod | Taxmin |
 | 39 | "Qulay kunlarim" har bir ta'lim shaklining qo'ng'iroq jadvali bo'yicha alohida belgilanadi; "butun kun" holati barcha shakllarga tegishli. | O'qituvchi ilovasi | Taxmin |
+
+## Bildirishnomalar
+
+| # | Taxmin | Qayerda sozlanadi | Holat |
+|---|---|---|---|
+| 40 | Faqat e'lon qilingan jadvaldagi o'zgarishlar xabar qilinadi (qoralama hech kimga ko'rinmaydi). Xabar shu darsning talabalariga (kichik guruh darsida faqat shu kichik guruhga) va o'qituvchisiga boradi; o'qituvchi almashsa, eskisiga ham. | Kod | Taxmin |
+| 41 | "Dars bekor qilindi" va "dars vaqti o'zgardi" xabarlarini o'chirib bo'lmaydi; boshqalarini har kim profilida o'chira oladi. Eslatma va kechki xulosa sukut bo'yicha o'chiq. | Profil → Bildirishnomalar | Taxmin |
+| 42 | Xabar o'zgarishdan bir necha soniya ichida yaratiladi. Ilova yangi xabarlarni har 25 soniyada so'raydi, shuning uchun Web Push bo'lmasa ham o'zgarish 30 soniya ichida ko'rinadi. | Kod: `POLL_MS` | Taxmin |
+| 43 | E'lon qilinishidan oldin bekor qilingan (undo) tahrir va uning bekor qilinishi xabarsiz qoladi. Xuddi shu o'zgarish bir kishiga ikki marta kelmaydi (`dedup_key`). | Kod | Taxmin |
+| 44 | Web Push uchun VAPID kalitlari `.env`da (`python manage.py generate_vapid_keys`). Kalitsiz push o'chiq, xabarlar ilova ichida ko'rinadi. iPhone'da push faqat bosh ekranga qo'shilgan ilovada ishlaydi (iOS 16.4+). Chiqishda shu qurilmaning push obunasi o'chiriladi. | `.env` | Taxmin |
+| 45 | Dars oldidan eslatma har daqiqada tekshiriladi (5, 10, 15, 30 yoki 60 daqiqa oldin), kechki xulosa soat 20:00 da faqat ertaga darsi borlarga yuboriladi. Demo sana (`DEMO_NOW`) bilan ham shu soatlar ishlaydi. | `CELERY_BEAT_SCHEDULE` | Taxmin |

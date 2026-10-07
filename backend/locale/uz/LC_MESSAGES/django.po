@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dars-jadvali 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-07 16:34+0500\n"
+"POT-Creation-Date: 2026-10-07 16:53+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,15 +83,15 @@ msgstr "Guruh, oqim yoki kichik guruhdan faqat bittasini tanlang."
 msgid "This teacher does not teach in the group's language."
 msgstr "Bu o'qituvchi guruhning ta'lim tilida dars bermaydi."
 
-#: apps/academics/choices.py:10 config/settings.py:95
+#: apps/academics/choices.py:10 config/settings.py:96
 msgid "Uzbek"
 msgstr "O'zbekcha"
 
-#: apps/academics/choices.py:11 config/settings.py:96
+#: apps/academics/choices.py:11 config/settings.py:97
 msgid "Russian"
 msgstr "Ruscha"
 
-#: apps/academics/choices.py:12 config/settings.py:97
+#: apps/academics/choices.py:12 config/settings.py:98
 msgid "English"
 msgstr "Inglizcha"
 
@@ -942,6 +942,19 @@ msgstr "%(day)s-%(month)s, %(weekday)s"
 msgid "%(day)s, lesson %(number)s"
 msgstr "%(day)s, %(number)s-dars"
 
+#: apps/notifications/api.py:132
+#, python-format
+msgid "These messages cannot be switched off: %(kinds)s"
+msgstr "Bu xabarlarni o'chirib bo'lmaydi: %(kinds)s"
+
+#: apps/notifications/api.py:138
+msgid "Choose 5, 10, 15, 30 or 60 minutes."
+msgstr "5, 10, 15, 30 yoki 60 daqiqani tanlang."
+
+#: apps/notifications/api.py:176
+msgid "Incomplete push subscription."
+msgstr "Push obunasi to'liq emas."
+
 #: apps/notifications/models.py:9 apps/notifications/rendering.py:22
 msgid "Lesson moved to another room"
 msgstr "Dars boshqa xonaga ko'chirildi"
@@ -975,7 +988,7 @@ msgstr "Yangi dars jadvali e'lon qilindi"
 msgid "Lesson reminder"
 msgstr "Dars haqida eslatma"
 
-#: apps/notifications/models.py:17
+#: apps/notifications/models.py:17 apps/notifications/rendering.py:30
 msgid "Tomorrow's lessons"
 msgstr "Ertangi darslar"
 
@@ -1019,14 +1032,51 @@ msgstr "kechki xulosa"
 msgid "notification settings"
 msgstr "xabar sozlamalari"
 
+#: apps/notifications/rendering.py:29
+msgid "Lesson soon"
+msgstr "Dars yaqinlashdi"
+
+#: apps/notifications/rendering.py:31
+msgid "Your reschedule request was answered"
+msgstr "So'rovingizga javob berildi"
+
 #: apps/notifications/rendering.py:35
+msgid "approved"
+msgstr "ma'qullandi"
+
+#: apps/notifications/rendering.py:36
+msgid "rejected"
+msgstr "rad etildi"
+
+#: apps/notifications/rendering.py:43
+#, python-format
+msgid "%(subject)s starts at %(time)s, %(room)s."
+msgstr "%(subject)s %(time)s da boshlanadi, %(room)s."
+
+#: apps/notifications/rendering.py:46
+msgid "online"
+msgstr "onlayn"
+
+#: apps/notifications/rendering.py:49
+#, python-format
+msgid ""
+"Tomorrow, %(day)s: %(count)s lessons. The first is %(subject)s at %(time)s."
+msgstr ""
+"Ertaga, %(day)s: %(count)s ta dars. Birinchisi — %(subject)s, %(time)s da."
+
+#: apps/notifications/rendering.py:56
+#, python-format
+msgid "%(subject)s (%(day)s, lesson %(number)s): your request was %(status)s."
+msgstr "%(subject)s (%(day)s, %(number)s-dars): so'rovingiz %(status)s."
+
+#: apps/notifications/rendering.py:63
 #, python-format
 msgid "The timetable for %(semester)s is published. Check your lessons."
 msgstr ""
 "%(semester)s uchun dars jadvali e'lon qilindi. Darslaringizni ko'rib "
 "chiqing."
 
-#: apps/notifications/rendering.py:41
+#: apps/notifications/rendering.py:69
 #, python-format
 msgid ""
 "%(day)s, lesson %(number)s: %(subject)s moved from %(old_room)s to room "
@@ -1035,7 +1085,7 @@ msgstr ""
 "%(day)s, %(number)s-dars: %(subject)s darsi %(old_room)s dan %(new_room)s "
 "xonasiga ko'chirildi."
 
-#: apps/notifications/rendering.py:45
+#: apps/notifications/rendering.py:73
 #, python-format
 msgid ""
 "%(subject)s moved from %(day)s, lesson %(number)s to %(new_day)s, lesson "
@@ -1044,12 +1094,12 @@ msgstr ""
 "%(subject)s darsi %(day)s, %(number)s-darsdan %(new_day)s, "
 "%(new_number)s-darsga ko'chirildi."
 
-#: apps/notifications/rendering.py:49
+#: apps/notifications/rendering.py:77
 #, python-format
 msgid "%(day)s, lesson %(number)s: %(subject)s is cancelled."
 msgstr "%(day)s, %(number)s-dars: %(subject)s darsi bekor qilindi."
 
-#: apps/notifications/rendering.py:52
+#: apps/notifications/rendering.py:80
 #, python-format
 msgid ""
 "%(day)s, lesson %(number)s: %(subject)s will be taught by %(new_teacher)s "
@@ -1058,18 +1108,22 @@ msgstr ""
 "%(day)s, %(number)s-dars: %(subject)s darsini %(old_teacher)s o'rniga "
 "%(new_teacher)s o'tadi."
 
-#: apps/notifications/rendering.py:56
+#: apps/notifications/rendering.py:84
 #, python-format
 msgid "New lesson: %(subject)s, %(day)s, lesson %(number)s, %(room)s."
 msgstr "Yangi dars: %(subject)s, %(day)s, %(number)s-dars, %(room)s."
 
-#: apps/notifications/rendering.py:62
+#: apps/notifications/rendering.py:90
 #, python-format
 msgid ""
 "%(subject)s (%(day)s, lesson %(number)s): the online lesson link has "
 "changed."
 msgstr ""
 "%(subject)s (%(day)s, %(number)s-dars): onlayn dars havolasi o'zgardi."
+
+#: apps/notifications/rendering.py:114
+msgid "cancelled"
+msgstr "bekor qilindi"
 
 #: apps/scheduling/api/personal.py:66
 msgid "Choose a date and a lesson time."

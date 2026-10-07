@@ -8,6 +8,7 @@ import { useAuth } from '@/auth/useAuth';
 import { AppLayout } from '@/layouts/AppLayout';
 import { AvailabilityPage } from '@/pages/app/AvailabilityPage';
 import { FreeRoomsPage } from '@/pages/app/FreeRoomsPage';
+import { MessagesPage } from '@/pages/app/MessagesPage';
 import { ProfilePage } from '@/pages/app/ProfilePage';
 import { SearchPage } from '@/pages/app/SearchPage';
 import { TodayPage } from '@/pages/app/TodayPage';
@@ -86,6 +87,7 @@ export default function App() {
           <Route path="week" element={<WeekPage />} />
           <Route path="search" element={<SearchPage />} />
           <Route path="profile" element={<ProfilePage />} />
+          <Route path="messages" element={<MessagesPage />} />
           <Route
             path="rooms"
             element={

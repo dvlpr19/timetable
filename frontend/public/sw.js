@@ -1,12 +1,18 @@
 /* Dars jadvali service worker: keeps the app shell available offline.
  * Timetable data is cached by the app itself (localStorage, with "last updated"),
  * so API calls always go to the network here. */
-const VERSION = 'v1';
+const VERSION = 'v2';
+// In development the page registers "sw.js?push-only=1": push works, nothing is cached.
+const PUSH_ONLY = self.location.search.includes('push-only');
 const SHELL = `dj-shell-${VERSION}`;
 const RUNTIME = `dj-runtime-${VERSION}`;
 const PRECACHE = ['/', '/manifest.webmanifest', '/favicon.svg', '/icons/icon-192.png'];
 
 self.addEventListener('install', (event) => {
+  if (PUSH_ONLY) {
+    self.skipWaiting();
+    return;
+  }
   event.waitUntil(
     caches
       .open(SHELL)
@@ -28,7 +34,7 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   const { request } = event;
-  if (request.method !== 'GET') return;
+  if (PUSH_ONLY || request.method !== 'GET') return;
   const url = new URL(request.url);
   const sameOrigin = url.origin === self.location.origin;
   if (sameOrigin && (url.pathname.startsWith('/api/') || url.pathname.startsWith('/django-admin')))
@@ -65,4 +71,35 @@ self.addEventListener('fetch', (event) => {
       ),
     );
   }
+});
+
+// Web Push: the server sends {title, body, url, tag}.
+self.addEventListener('push', (event) => {
+  let data = {};
+  try {
+    data = event.data ? event.data.json() : {};
+  } catch {
+    data = { body: event.data ? event.data.text() : '' };
+  }
+  event.waitUntil(
+    self.registration.showNotification(data.title || 'Dars jadvali', {
+      body: data.body || '',
+      tag: data.tag,
+      icon: '/icons/icon-192.png',
+      badge: '/icons/icon-192.png',
+      data: { url: data.url || '/messages' },
+    }),
+  );
+});
+
+self.addEventListener('notificationclick', (event) => {
+  event.notification.close();
+  const url = new URL(event.notification.data?.url || '/messages', self.location.origin).href;
+  event.waitUntil(
+    self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((windows) => {
+      const open = windows.find((w) => w.url.startsWith(self.location.origin));
+      if (open) return open.focus().then(() => open.navigate(url));
+      return self.clients.openWindow(url);
+    }),
+  );
 });

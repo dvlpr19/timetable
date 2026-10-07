@@ -87,6 +87,7 @@ class Editor:
         self.ctx: ValidationContext = load_context(self.schedule.semester)
         self.validator = Validator(self.ctx, placements_from_entries(self.schedule.entries.all()))
         self.changes: list[ScheduleChange] = []
+        self._announcing = False
 
     # -- checks
     def check(self, data: dict, key="candidate") -> list[Violation]:
@@ -175,6 +176,11 @@ class Editor:
                 notified=self.schedule.status != ScheduleStatus.PUBLISHED,
             )
         )
+        if self.schedule.status == ScheduleStatus.PUBLISHED and not self._announcing:
+            from apps.notifications.tasks import after_commit, announce_changes
+
+            self._announcing = True  # one announcement per batch of edits
+            after_commit(announce_changes, self.schedule.pk)
 
 
 def _model_kwargs(data: dict) -> dict:
@@ -243,6 +249,9 @@ def publish(schedule: Schedule) -> None:
         schedule.status = ScheduleStatus.PUBLISHED
         schedule.published_at = timezone.now()
         schedule.save(update_fields=["status", "published_at"])
+        from apps.notifications.tasks import after_commit, announce_publication
+
+        after_commit(announce_publication, schedule.pk)
 
 
 @transaction.atomic

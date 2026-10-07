@@ -23,6 +23,8 @@ import { api, download } from '@/lib/api';
 import { cn } from '@/lib/cn';
 import { useApi } from '@/lib/query';
 import type { Occurrence } from '@/types/timetable';
+
+import { NotificationSettings } from './NotificationSettings';
 import { formatDayMonth } from '@/i18n/date';
 import { parseISO } from '@/lib/dates';
 
@@ -114,6 +116,8 @@ export function ProfilePage() {
             </Button>
           </div>
         </Card>
+
+        <NotificationSettings />
 
         {teacher && <MyRequests />}
 

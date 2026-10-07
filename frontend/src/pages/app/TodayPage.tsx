@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 import { useAuth } from '@/auth/useAuth';
 import { ScreenHeader } from '@/components/ScreenHeader';
@@ -8,9 +9,11 @@ import { formatLongDate } from '@/i18n/date';
 import { useToday } from '@/lib/clock';
 import { cn } from '@/lib/cn';
 import { addDays, mondayOf, parseISO } from '@/lib/dates';
+import { LESSON_CHANGES, useMarkRead, useNotifications } from '@/lib/notifications';
 import type { Occurrence } from '@/types/timetable';
 
 import { DayList } from './lessons/DayList';
+import { MessageCard } from './MessageCard';
 import { LastUpdated } from './lessons/LastUpdated';
 import { LessonSheet } from './lessons/LessonSheet';
 import { useLessons } from './lessons/useLessons';
@@ -26,6 +29,9 @@ export function TodayPage() {
   const monday = mondayOf(today);
   const lessons = useLessons({ me: 1 }, monday, addDays(monday, 6));
   const teacher = user?.role === 'oqituvchi';
+  const unread = useNotifications({ unread: true });
+  const mark = useMarkRead();
+  const notices = unread.items.filter((n) => LESSON_CHANGES.includes(n.kind)).slice(0, 2);
   const short = t('dates:weekdaysShort', { returnObjects: true }) as string[];
   const strip = Array.from({ length: 7 }, (_, i) => addDays(monday, i)).filter(
     (d, i) => i < 6 || lessons.data?.some((l) => l.date === d),
@@ -88,6 +94,21 @@ export function TodayPage() {
       </ScreenHeader>
 
       <div className="space-y-4 px-4 py-5 sm:px-6">
+        {notices.length > 0 && (
+          <section aria-label={t('app:messages.attention')} className="space-y-2">
+            {notices.map((n) => (
+              <MessageCard key={n.id} n={n} compact onRead={() => void mark.one(n.id)} />
+            ))}
+            {unread.items.length > notices.length && (
+              <Link
+                to="/messages"
+                className="inline-flex min-h-touch items-center text-sm font-bold text-link hover:underline"
+              >
+                {t('app:messages.all', { n: unread.items.length })}
+              </Link>
+            )}
+          </section>
+        )}
         <h2 className="text-lg font-extrabold text-ink">
           {day === today ? (
             t('app:today.title')

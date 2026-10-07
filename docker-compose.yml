@@ -50,6 +50,11 @@ services:
     <<: *backend-common
     command: ["celery", "-A", "config", "worker", "-l", "info", "--concurrency", "2"]
 
+  beat:
+    <<: *backend-common
+    # lesson reminders every minute, tomorrow's summary at 20:00
+    command: ["celery", "-A", "config", "beat", "-l", "info", "--schedule", "/tmp/celerybeat-schedule"]
+
   frontend:
     build:
       context: ./frontend

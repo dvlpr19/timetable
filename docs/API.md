@@ -101,3 +101,18 @@ Bazadagi `EXCLUDE` cheklovlari validator ko'ra olmagan holatni ham ushlaydi, mas
 | `POST /api/reschedule-requests/ {"entry", "reason", "occurrence_date"?, "desired_weekday"?, "desired_lesson_time"?, "desired_note"?}` | o'qituvchi | O'z darsini ko'chirishni so'rash (faqat e'lon qilingan jadval) |
 | `DELETE /api/reschedule-requests/{id}/` | o'qituvchi | Javob kutayotgan so'rovni qaytarib olish |
 | `POST /api/reschedule-requests/{id}/review/ {"status": "approved" \| "rejected", "comment"?}` | admin | Javob berish (darsni muharrirda o'zi ko'chiradi) |
+
+## Bildirishnomalar
+
+| So'rov | Kim | Nima qiladi |
+|---|---|---|
+| `GET /api/notifications/?unread=1` | har kim (o'ziniki) | Xabarlar, eng yangisi birinchi. `was` / `now` — eski va yangi holat (masalan, xona) |
+| `GET /api/notifications/unread-count/` | har kim | Qo'ng'iroqcha uchun o'qilmaganlar soni (ilova har 25 soniyada so'raydi) |
+| `POST /api/notifications/{id}/read/`, `POST /api/notifications/read-all/` | har kim | O'qildi deb belgilash |
+| `GET/PATCH /api/notifications/preferences/` | har kim | Qaysi xabarlar kelsin, eslatma (daqiqa), kechki xulosa |
+| `GET /api/notifications/push/` | har kim | Push yoqilganmi va ochiq VAPID kaliti |
+| `POST /api/notifications/push/ {"endpoint", "keys": {"p256dh", "auth"}}`, `DELETE … {"endpoint"}` | har kim | Shu qurilmani push uchun ro'yxatdan o'tkazish / o'chirish |
+
+E'lon qilingan jadvaldagi har bir tahrir (`POST/PATCH/DELETE /api/entries/`, bitta sanani bekor qilish, undo) tranzaksiya saqlangach Celery vazifasiga beriladi.
+U xabarni kerakli odamlarga ularning tilida yaratadi va Web Push yuboradi. Yangi jadval e'lon qilinsa va ko'chirish so'roviga javob berilsa ham xabar ketadi.
+Celery beat har daqiqada eslatmalarni, soat 20:00 da ertangi xulosani yuboradi (`docker compose` ichidagi `beat` servisi).

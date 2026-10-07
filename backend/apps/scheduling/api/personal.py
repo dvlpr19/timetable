@@ -201,4 +201,7 @@ class RescheduleRequestViewSet(
         obj.reviewed_by = request.user
         obj.reviewed_at = timezone.now()
         obj.save(update_fields=["status", "review_comment", "reviewed_by", "reviewed_at"])
+        from apps.notifications.tasks import after_commit, announce_request
+
+        after_commit(announce_request, obj.pk)
         return Response(RescheduleRequestSerializer(obj).data)

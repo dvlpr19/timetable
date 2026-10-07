@@ -10,8 +10,11 @@ import type { CurrentUser } from '@/auth/types';
 import { useCachedApi } from '@/lib/offline';
 import type { Occurrence } from '@/types/timetable';
 
+import { NotificationBell } from '@/components/NotificationBell';
+
 import { AvailabilityPage } from './AvailabilityPage';
 import { DayList } from './lessons/DayList';
+import { MessageCard } from './MessageCard';
 
 const teacherUser: CurrentUser = {
   id: 1,
@@ -197,5 +200,40 @@ describe('AvailabilityPage', () => {
       ]),
     );
     expect(body.rows).toHaveLength(3);
+  });
+});
+
+describe('messages', () => {
+  it('crosses out the old state and shows the dispatcher comment', () => {
+    renderApp(
+      <MessageCard
+        n={{
+          id: 1,
+          kind: 'room_changed',
+          title: "Dars boshqa xonaga ko'chirildi",
+          body: 'Payshanba, 3-dars: Aqida A-115 xonasiga ko‘chirildi.',
+          comment: "Ta'mir",
+          entry: 5,
+          lesson_date: null,
+          was: "Ma'ruza zali 2",
+          now: 'A-115',
+          is_read: false,
+          created_at: '2026-04-07T18:40:00+05:00',
+        }}
+      />,
+    );
+    expect(screen.getByText("Ma'ruza zali 2")).toHaveClass('line-through');
+    expect(screen.getByText('A-115')).toBeInTheDocument();
+    expect(screen.getByText("Izoh: Ta'mir")).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /^Yangi: Dars boshqa xonaga/ })).toBeInTheDocument();
+  });
+
+  it('shows the unread count on the bell', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(json({ count: 3, latest: 9 })));
+    renderApp(<NotificationBell />);
+    expect(await screen.findByRole('link', { name: 'Xabarlar: 3 ta yangi' })).toHaveAttribute(
+      'href',
+      '/messages',
+    );
   });
 });

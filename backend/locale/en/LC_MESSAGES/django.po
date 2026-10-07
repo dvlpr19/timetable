@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dars-jadvali 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-07 16:34+0500\n"
+"POT-Creation-Date: 2026-10-07 16:53+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,15 +83,15 @@ msgstr "Choose exactly one of: group, stream or subgroup."
 msgid "This teacher does not teach in the group's language."
 msgstr "This teacher does not teach in the group's language."
 
-#: apps/academics/choices.py:10 config/settings.py:95
+#: apps/academics/choices.py:10 config/settings.py:96
 msgid "Uzbek"
 msgstr "Uzbek"
 
-#: apps/academics/choices.py:11 config/settings.py:96
+#: apps/academics/choices.py:11 config/settings.py:97
 msgid "Russian"
 msgstr "Russian"
 
-#: apps/academics/choices.py:12 config/settings.py:97
+#: apps/academics/choices.py:12 config/settings.py:98
 msgid "English"
 msgstr "English"
 
@@ -937,6 +937,19 @@ msgstr "%(weekday)s, %(day)s %(month)s"
 msgid "%(day)s, lesson %(number)s"
 msgstr "%(day)s, lesson %(number)s"
 
+#: apps/notifications/api.py:132
+#, python-format
+msgid "These messages cannot be switched off: %(kinds)s"
+msgstr "These messages cannot be switched off: %(kinds)s"
+
+#: apps/notifications/api.py:138
+msgid "Choose 5, 10, 15, 30 or 60 minutes."
+msgstr "Choose 5, 10, 15, 30 or 60 minutes."
+
+#: apps/notifications/api.py:176
+msgid "Incomplete push subscription."
+msgstr "Incomplete push subscription."
+
 #: apps/notifications/models.py:9 apps/notifications/rendering.py:22
 msgid "Lesson moved to another room"
 msgstr "Lesson moved to another room"
@@ -970,7 +983,7 @@ msgstr "New timetable published"
 msgid "Lesson reminder"
 msgstr "Lesson reminder"
 
-#: apps/notifications/models.py:17
+#: apps/notifications/models.py:17 apps/notifications/rendering.py:30
 msgid "Tomorrow's lessons"
 msgstr "Tomorrow's lessons"
 
@@ -1014,12 +1027,50 @@ msgstr "evening summary"
 msgid "notification settings"
 msgstr "notification settings"
 
+#: apps/notifications/rendering.py:29
+msgid "Lesson soon"
+msgstr "Lesson soon"
+
+#: apps/notifications/rendering.py:31
+msgid "Your reschedule request was answered"
+msgstr "Your reschedule request was answered"
+
 #: apps/notifications/rendering.py:35
+msgid "approved"
+msgstr "approved"
+
+#: apps/notifications/rendering.py:36
+msgid "rejected"
+msgstr "rejected"
+
+#: apps/notifications/rendering.py:43
+#, python-format
+msgid "%(subject)s starts at %(time)s, %(room)s."
+msgstr "%(subject)s starts at %(time)s, %(room)s."
+
+#: apps/notifications/rendering.py:46
+msgid "online"
+msgstr "online"
+
+#: apps/notifications/rendering.py:49
+#, python-format
+msgid ""
+"Tomorrow, %(day)s: %(count)s lessons. The first is %(subject)s at %(time)s."
+msgstr ""
+"Tomorrow, %(day)s: %(count)s lessons. The first is %(subject)s at %(time)s."
+
+#: apps/notifications/rendering.py:56
+#, python-format
+msgid "%(subject)s (%(day)s, lesson %(number)s): your request was %(status)s."
+msgstr ""
+"%(subject)s (%(day)s, lesson %(number)s): your request was %(status)s."
+
+#: apps/notifications/rendering.py:63
 #, python-format
 msgid "The timetable for %(semester)s is published. Check your lessons."
 msgstr "The timetable for %(semester)s is published. Check your lessons."
 
-#: apps/notifications/rendering.py:41
+#: apps/notifications/rendering.py:69
 #, python-format
 msgid ""
 "%(day)s, lesson %(number)s: %(subject)s moved from %(old_room)s to room "
@@ -1028,7 +1079,7 @@ msgstr ""
 "%(day)s, lesson %(number)s: %(subject)s moved from %(old_room)s to room "
 "%(new_room)s."
 
-#: apps/notifications/rendering.py:45
+#: apps/notifications/rendering.py:73
 #, python-format
 msgid ""
 "%(subject)s moved from %(day)s, lesson %(number)s to %(new_day)s, lesson "
@@ -1037,12 +1088,12 @@ msgstr ""
 "%(subject)s moved from %(day)s, lesson %(number)s to %(new_day)s, lesson "
 "%(new_number)s."
 
-#: apps/notifications/rendering.py:49
+#: apps/notifications/rendering.py:77
 #, python-format
 msgid "%(day)s, lesson %(number)s: %(subject)s is cancelled."
 msgstr "%(day)s, lesson %(number)s: %(subject)s is cancelled."
 
-#: apps/notifications/rendering.py:52
+#: apps/notifications/rendering.py:80
 #, python-format
 msgid ""
 "%(day)s, lesson %(number)s: %(subject)s will be taught by %(new_teacher)s "
@@ -1051,12 +1102,12 @@ msgstr ""
 "%(day)s, lesson %(number)s: %(subject)s will be taught by %(new_teacher)s "
 "instead of %(old_teacher)s."
 
-#: apps/notifications/rendering.py:56
+#: apps/notifications/rendering.py:84
 #, python-format
 msgid "New lesson: %(subject)s, %(day)s, lesson %(number)s, %(room)s."
 msgstr "New lesson: %(subject)s, %(day)s, lesson %(number)s, %(room)s."
 
-#: apps/notifications/rendering.py:62
+#: apps/notifications/rendering.py:90
 #, python-format
 msgid ""
 "%(subject)s (%(day)s, lesson %(number)s): the online lesson link has "
@@ -1064,6 +1115,10 @@ msgid ""
 msgstr ""
 "%(subject)s (%(day)s, lesson %(number)s): the online lesson link has "
 "changed."
+
+#: apps/notifications/rendering.py:114
+msgid "cancelled"
+msgstr "cancelled"
 
 #: apps/scheduling/api/personal.py:66
 msgid "Choose a date and a lesson time."
