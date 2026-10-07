@@ -16,7 +16,7 @@ make seed                # bazani tozalab, namuna ma'lumotlarni yuklaydi (~10 so
 |---|---|
 | http://localhost:5173 | Ilova (admin panel, talaba va o'qituvchi sahifalari) |
 | http://localhost:8010/api/docs/ | API hujjati (Swagger) |
-| http://localhost:8010/admin/ | Django admin |
+| http://localhost:8010/django-admin/ | Django admin |
 
 Portlar `.env` faylida o'zgartiriladi (`FRONTEND_HOST_PORT`, `BACKEND_HOST_PORT`, `POSTGRES_HOST_PORT`).
 

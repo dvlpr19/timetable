@@ -2,11 +2,16 @@ import { useTranslation } from 'react-i18next';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import type { ReactNode } from 'react';
 
+import { isStaff } from '@/auth/roles';
 import { useAuth } from '@/auth/useAuth';
+import { AdminLayout } from '@/layouts/AdminLayout';
+import { DashboardPage } from '@/pages/admin/DashboardPage';
+import { ResourcePage } from '@/pages/admin/data/ResourcePage';
+import { SchedulePage } from '@/pages/admin/schedule/SchedulePage';
 import { HomePage } from '@/pages/HomePage';
 import { LoginPage } from '@/pages/LoginPage';
 
-function RequireAuth({ children }: { children: ReactNode }) {
+function RequireAuth({ children, staff }: { children: ReactNode; staff?: boolean }) {
   const { t } = useTranslation();
   const { user, restoring } = useAuth();
   if (restoring) {
@@ -16,7 +21,15 @@ function RequireAuth({ children }: { children: ReactNode }) {
       </div>
     );
   }
-  return user ? <>{children}</> : <Navigate to="/login" replace />;
+  if (!user) return <Navigate to="/login" replace />;
+  if (staff && !isStaff(user.role)) return <Navigate to="/" replace />;
+  return <>{children}</>;
+}
+
+/** Staff land in the admin panel; students and teachers get their own home (stage 7). */
+function Home() {
+  const { user } = useAuth();
+  return isStaff(user?.role) ? <Navigate to="/admin" replace /> : <HomePage />;
 }
 
 export default function App() {
@@ -27,10 +40,22 @@ export default function App() {
         path="/"
         element={
           <RequireAuth>
-            <HomePage />
+            <Home />
           </RequireAuth>
         }
       />
+      <Route
+        path="/admin"
+        element={
+          <RequireAuth staff>
+            <AdminLayout />
+          </RequireAuth>
+        }
+      >
+        <Route index element={<DashboardPage />} />
+        <Route path="schedule" element={<SchedulePage />} />
+        <Route path="data/:resource" element={<ResourcePage />} />
+      </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );

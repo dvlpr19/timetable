@@ -1,0 +1,144 @@
+{
+  "skipToContent": "Skip to content",
+  "nav": {
+    "label": "Sections",
+    "subtitle": "Admin panel",
+    "open": "Open menu",
+    "dashboard": "Dashboard",
+    "schedule": "Timetable editor",
+    "data": "Data"
+  },
+  "status": {
+    "draft": "Draft",
+    "published": "Published",
+    "archived": "Archived"
+  },
+  "forms": {
+    "all": "All",
+    "kunduzgi": "Full-time",
+    "kechki": "Evening",
+    "sirtqi": "Part-time",
+    "masofaviy": "Distance"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "formFilter": "Study form",
+    "groups": "Groups",
+    "teachers": "Teachers",
+    "rooms": "Rooms",
+    "placed": "Lessons placed",
+    "unplaced": "Lessons not placed",
+    "unitsNote": "Full-time and evening: lessons per week; part-time: total lessons in the session.",
+    "conflicts": "Conflicts",
+    "constraint": "Rule {{n}}",
+    "noConflicts": "No conflicts. The timetable can be published.",
+    "readiness": "Readiness by faculty",
+    "placedOf": "{{placed}} of {{required}} placed",
+    "openEditor": "Open the timetable editor"
+  },
+  "editor": {
+    "title": "Timetable editor",
+    "version": "Timetable version",
+    "form": "Study form",
+    "viewBy": "View by",
+    "views": {
+      "group": "Group",
+      "teacher": "Teacher",
+      "room": "Room"
+    },
+    "period": "Session period",
+    "conflictCount": "Conflicts: {{count}}",
+    "gridLabel": "Timetable grid",
+    "time": "Time",
+    "date": "Date",
+    "dateLabel": "{{weekday}}, {{day}} {{month}}",
+    "lessonNumber": "Period {{n}}",
+    "noGrid": "No bell schedule or study days are set for this study form.",
+    "noSchedule": "There are no timetable versions yet.",
+    "noTargets": "There is nothing to choose for this study form.",
+    "cardLabel": "{{subject}}, {{type}}, {{teacher}}, {{room}}",
+    "online": "Online",
+    "subgroup": "Subgroup {{n}}",
+    "parity": {
+      "odd": "odd",
+      "even": "even"
+    },
+    "parityLong": {
+      "odd": "Odd weeks",
+      "even": "Even weeks"
+    },
+    "placeHere": "Place here: {{cell}}",
+    "cannotPlace": "Cannot place: {{cell}}",
+    "notAvailable": "This time does not fit.",
+    "checking": "Checking free times…",
+    "chooseCell": "Choose a green cell for “{{name}}”. Press Esc to cancel.",
+    "cancelMove": "Cancel",
+    "newLesson": "New lesson",
+    "saved": "Timetable saved",
+    "unplaced": "Lessons to place",
+    "unplacedHint": "Drag a lesson into the grid or press “Choose a place”.",
+    "unplacedReadOnly": "Only the dispatcher can change the timetable.",
+    "allPlaced": "All lessons are placed",
+    "placedOf": "{{placed}} / {{required}}",
+    "exportXlsx": "Excel",
+    "exportPdf": "PDF",
+    "choosePlace": "Choose a place"
+  },
+  "legend": {
+    "free": "Can be placed",
+    "busy": "Busy or not suitable",
+    "blocked": "Closed time (Friday prayer)",
+    "conflict": "Lesson with a conflict"
+  },
+  "lesson": {
+    "when": "When",
+    "teacher": "Teacher",
+    "groups": "Groups",
+    "students": "Students",
+    "room": "Room",
+    "floor": "floor {{n}}",
+    "note": "Note",
+    "pinned": "Pinned",
+    "pinnedHint": "A pinned lesson stays in place during automatic scheduling. Unpin it first to move it.",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "move": "Move",
+    "changeRoom": "Change room (free at this time)",
+    "remove": "Remove",
+    "removeTitle": "Remove this lesson?",
+    "removeDraft": "The lesson will be removed from the draft. You can undo this in History.",
+    "removePublished": "The lesson will be removed from the published timetable; students and the teacher will be notified.",
+    "removed": "Lesson removed"
+  },
+  "confirm": {
+    "title": "Confirm the change",
+    "linkTitle": "Online lesson link",
+    "link": "Link (Zoom, Meet, etc.)",
+    "notify": "This will notify {{students}} students and {{teachers}} teachers.",
+    "nobody": "Nobody will be notified about this change.",
+    "comment": "Comment (added to the notification)",
+    "commentPlaceholder": "For example: the teacher is at a conference",
+    "save": "Save"
+  },
+  "history": {
+    "title": "History",
+    "undo": "Undo last change",
+    "undone": "The last change was undone",
+    "empty": "No changes yet",
+    "wasUndone": "undone",
+    "notified": "Notification sent"
+  },
+  "versions": {
+    "newDraft": "New draft",
+    "copyName": "{{name}} (copy)",
+    "name": "Name",
+    "draftHint": "A copy of “{{name}}” will be made. Students will not see draft changes until it is published.",
+    "create": "Create",
+    "created": "Draft created",
+    "publish": "Publish",
+    "publishTitle": "Publish “{{name}}”",
+    "publishText": "This version becomes the timetable everyone sees; the previous one is archived.",
+    "published": "Timetable published",
+    "hasConflicts": "Cannot publish, conflicts: {{count}}"
+  }
+}

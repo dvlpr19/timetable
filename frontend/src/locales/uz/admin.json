@@ -1,0 +1,144 @@
+{
+  "skipToContent": "Asosiy qismga o'tish",
+  "nav": {
+    "label": "Bo'limlar",
+    "subtitle": "Boshqaruv paneli",
+    "open": "Menyuni ochish",
+    "dashboard": "Bosh sahifa",
+    "schedule": "Jadval muharriri",
+    "data": "Ma'lumotlar"
+  },
+  "status": {
+    "draft": "Qoralama",
+    "published": "E'lon qilingan",
+    "archived": "Arxiv"
+  },
+  "forms": {
+    "all": "Hammasi",
+    "kunduzgi": "Kunduzgi",
+    "kechki": "Kechki",
+    "sirtqi": "Sirtqi",
+    "masofaviy": "Masofaviy"
+  },
+  "dashboard": {
+    "title": "Bosh sahifa",
+    "formFilter": "Ta'lim shakli",
+    "groups": "Guruhlar",
+    "teachers": "O'qituvchilar",
+    "rooms": "Xonalar",
+    "placed": "Joylashtirilgan darslar",
+    "unplaced": "Joylashtirilmagan darslar",
+    "unitsNote": "Kunduzgi va kechki shaklda — haftalik darslar soni, sirtqida — sessiyadagi jami darslar.",
+    "conflicts": "Ziddiyatlar",
+    "constraint": "{{n}}-qoida",
+    "noConflicts": "Ziddiyat yo'q. Jadvalni e'lon qilish mumkin.",
+    "readiness": "Fakultetlar bo'yicha tayyorlik",
+    "placedOf": "{{required}} tadan {{placed}} tasi joylashtirilgan",
+    "openEditor": "Jadval muharririni ochish"
+  },
+  "editor": {
+    "title": "Jadval muharriri",
+    "version": "Jadval versiyasi",
+    "form": "Ta'lim shakli",
+    "viewBy": "Ko'rinish",
+    "views": {
+      "group": "Guruh",
+      "teacher": "O'qituvchi",
+      "room": "Xona"
+    },
+    "period": "Sessiya davri",
+    "conflictCount": "Ziddiyatlar: {{count}}",
+    "gridLabel": "Dars jadvali to'ri",
+    "time": "Vaqt",
+    "date": "Sana",
+    "dateLabel": "{{day}}-{{month}}, {{weekday}}",
+    "lessonNumber": "{{n}}-para",
+    "noGrid": "Bu ta'lim shakli uchun qo'ng'iroq jadvali yoki o'quv kunlari kiritilmagan.",
+    "noSchedule": "Hali jadval versiyasi yo'q.",
+    "noTargets": "Bu ta'lim shaklida tanlash uchun hech narsa yo'q.",
+    "cardLabel": "{{subject}}, {{type}}, {{teacher}}, {{room}}",
+    "online": "Onlayn",
+    "subgroup": "{{n}}-kichik guruh",
+    "parity": {
+      "odd": "toq",
+      "even": "juft"
+    },
+    "parityLong": {
+      "odd": "Toq haftalarda",
+      "even": "Juft haftalarda"
+    },
+    "placeHere": "Shu yerga qo'yish: {{cell}}",
+    "cannotPlace": "Qo'yib bo'lmaydi: {{cell}}",
+    "notAvailable": "Bu vaqt to'g'ri kelmaydi.",
+    "checking": "Bo'sh vaqtlar tekshirilmoqda…",
+    "chooseCell": "«{{name}}» uchun yashil katakni tanlang. Bekor qilish — Esc.",
+    "cancelMove": "Bekor qilish",
+    "newLesson": "Yangi dars",
+    "saved": "Jadval saqlandi",
+    "unplaced": "Joylashtirilmagan darslar",
+    "unplacedHint": "Darsni to'rga sudrab olib boring yoki «Joy tanlash» tugmasini bosing.",
+    "unplacedReadOnly": "Jadvalni faqat dispetcher o'zgartiradi.",
+    "allPlaced": "Hamma darslar joylashtirilgan",
+    "placedOf": "{{placed}} / {{required}}",
+    "exportXlsx": "Excel",
+    "exportPdf": "PDF",
+    "choosePlace": "Joy tanlash"
+  },
+  "legend": {
+    "free": "Qo'yish mumkin",
+    "busy": "Band yoki to'g'ri kelmaydi",
+    "blocked": "Yopiq vaqt (juma namozi)",
+    "conflict": "Ziddiyatli dars"
+  },
+  "lesson": {
+    "when": "Qachon",
+    "teacher": "O'qituvchi",
+    "groups": "Guruhlar",
+    "students": "Talabalar",
+    "room": "Xona",
+    "floor": "{{n}}-qavat",
+    "note": "Izoh",
+    "pinned": "Qadalgan",
+    "pinnedHint": "Qadalgan dars avtomatik tuzishda o'z joyida qoladi. Ko'chirish uchun avval qadashni olib tashlang.",
+    "pin": "Qadash",
+    "unpin": "Qadashni olish",
+    "move": "Ko'chirish",
+    "changeRoom": "Xonani almashtirish (shu vaqtda bo'shlari)",
+    "remove": "Olib tashlash",
+    "removeTitle": "Darsni olib tashlaysizmi?",
+    "removeDraft": "Dars qoralamadan olib tashlanadi. Buni «Tarix»dan bekor qilish mumkin.",
+    "removePublished": "Dars e'lon qilingan jadvaldan olib tashlanadi, talabalar va o'qituvchiga xabar boradi.",
+    "removed": "Dars olib tashlandi"
+  },
+  "confirm": {
+    "title": "O'zgarishni tasdiqlang",
+    "linkTitle": "Onlayn dars havolasi",
+    "link": "Havola (Zoom, Meet va h.k.)",
+    "notify": "Xabar boradi: {{students}} talaba va {{teachers}} o'qituvchi.",
+    "nobody": "Bu o'zgarish haqida hech kimga xabar bormaydi.",
+    "comment": "Izoh (xabarga qo'shiladi)",
+    "commentPlaceholder": "Masalan: o'qituvchi konferensiyada",
+    "save": "Saqlash"
+  },
+  "history": {
+    "title": "Tarix",
+    "undo": "Oxirgisini bekor qilish",
+    "undone": "Oxirgi o'zgarish bekor qilindi",
+    "empty": "Hali o'zgarish yo'q",
+    "wasUndone": "bekor qilingan",
+    "notified": "Xabar yuborilgan"
+  },
+  "versions": {
+    "newDraft": "Yangi qoralama",
+    "copyName": "{{name}} (nusxa)",
+    "name": "Nomi",
+    "draftHint": "«{{name}}» nusxalanadi. Qoralamadagi o'zgarishlarni talabalar e'lon qilinmaguncha ko'rmaydi.",
+    "create": "Yaratish",
+    "created": "Qoralama yaratildi",
+    "publish": "E'lon qilish",
+    "publishTitle": "«{{name}}»ni e'lon qilish",
+    "publishText": "Bu versiya hamma uchun asosiy jadval bo'ladi, oldingisi arxivga o'tadi.",
+    "published": "Jadval e'lon qilindi",
+    "hasConflicts": "E'lon qilib bo'lmaydi, ziddiyatlar: {{count}}"
+  }
+}

@@ -16,7 +16,8 @@
   },
   "actions": {
     "logout": "Chiqish",
-    "retry": "Qayta urinish"
+    "retry": "Qayta urinish",
+    "close": "Yopish"
   },
   "home": {
     "greeting": "Assalomu alaykum, {{name}}!",
@@ -24,7 +25,8 @@
   },
   "errors": {
     "network": "Server bilan aloqa yo'q. Internetni tekshirib, qayta urinib ko'ring.",
-    "unknown": "Kutilmagan xatolik yuz berdi. Birozdan keyin qayta urinib ko'ring."
+    "unknown": "Kutilmagan xatolik yuz berdi. Birozdan keyin qayta urinib ko'ring.",
+    "loadFailed": "Ma'lumotni yuklab bo'lmadi"
   },
   "loading": "Yuklanmoqda…"
 }

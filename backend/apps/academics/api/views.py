@@ -10,6 +10,8 @@ Access summary (also tested in tests/test_api_permissions.py):
 - talaba: reads reference data needed to browse published timetables.
 """
 
+from django.db.models import Q, Sum
+from django.db.models.functions import Coalesce
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
@@ -258,7 +260,21 @@ class StudentViewSet(ExcelImportMixin, FacultyScopedViewSet):
 
 
 class TeacherViewSet(ExcelImportMixin, RoleModelViewSet):
-    queryset = Teacher.objects.select_related("department").prefetch_related("subjects")
+    # Weekly load in the current semester (lessons per week), shown in the teacher list.
+    queryset = (
+        Teacher.objects.select_related("department")
+        .prefetch_related("subjects")
+        .annotate(
+            weekly_lessons=Coalesce(
+                Sum(
+                    "assignments__weekly_lessons",
+                    filter=Q(assignments__period__semester__is_current=True),
+                ),
+                0,
+            )
+        )
+        .order_by("last_name", "first_name")
+    )
     write_roles = KAFEDRA_WRITE
     filterset_fields = ("department", "department__faculty", "position", "employment")
     search_fields = ("last_name", "first_name", "middle_name")

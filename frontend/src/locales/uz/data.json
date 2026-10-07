@@ -1,0 +1,284 @@
+{
+  "actions": {
+    "add": "Qo'shish",
+    "import": "Exceldan yuklash",
+    "search": "Qidirish",
+    "save": "Saqlash",
+    "saving": "Saqlanmoqda…",
+    "cancel": "Bekor qilish",
+    "delete": "O'chirish"
+  },
+  "filters": {
+    "all": "hammasi"
+  },
+  "empty": {
+    "title": "Hech narsa topilmadi",
+    "text": "Bu bo'limda hali yozuv yo'q.",
+    "filtered": "Qidiruv yoki filtrni o'zgartirib ko'ring."
+  },
+  "pagination": {
+    "label": "Sahifalar",
+    "status": "{{page}} / {{pages}} sahifa · {{count}} ta yozuv",
+    "previous": "Oldingi sahifa",
+    "next": "Keyingi sahifa"
+  },
+  "saved": "Saqlandi",
+  "deleted": "O'chirildi",
+  "yes": "Ha",
+  "no": "Yo'q",
+  "notSet": "Ko'rsatilmagan",
+  "choose": "Tanlang",
+  "loadingOptions": "Yuklanmoqda…",
+  "loadValue": "{{load}} / {{max}}",
+  "confirmDelete": {
+    "title": "O'chirasizmi?",
+    "text": "Yozuv butunlay o'chiriladi. Unga bog'liq ma'lumot bo'lsa, server o'chirishga ruxsat bermaydi."
+  },
+  "errors": {
+    "forbidden": "Bu yozuvni o'zgartirishga huquqingiz yo'q.",
+    "inUse": "O'chirib bo'lmaydi: bu yozuv boshqa ma'lumotlarda ishlatilgan."
+  },
+  "langs": {
+    "uz": "O'zbekcha",
+    "ru": "Ruscha",
+    "en": "Inglizcha"
+  },
+  "import": {
+    "title": "{{name}}: Exceldan yuklash",
+    "step1": "Shablonni yuklab oling (ustunlar sizning tilingizda).",
+    "template": "Shablonni yuklab olish",
+    "step2": "Shablonni to'ldiring. Mavjud yozuvlar yangilanadi, yangilari qo'shiladi.",
+    "step3": "To'ldirilgan faylni tanlang.",
+    "choose": "Faylni tanlash (.xlsx)",
+    "upload": "Yuklash",
+    "uploading": "Yuklanmoqda…",
+    "allOrNothing": "Birorta qatorda xato bo'lsa, hech narsa saqlanmaydi.",
+    "done": "Qo'shildi: {{created}}, yangilandi: {{updated}}",
+    "failed": "Fayl saqlanmadi, xatolar: {{count}}",
+    "rowError": "{{row}}-qator: {{message}}"
+  },
+  "resources": {
+    "faculties": {
+      "title": "Fakultetlar",
+      "hint": "Kodi, nomi va o'qitish tili.",
+      "create": "Yangi fakultet",
+      "edit": "Fakultetni tahrirlash"
+    },
+    "departments": {
+      "title": "Kafedralar",
+      "hint": "Fakultetlarga bo'lingan kafedralar.",
+      "create": "Yangi kafedra",
+      "edit": "Kafedrani tahrirlash"
+    },
+    "programs": {
+      "title": "Yo'nalishlar",
+      "hint": "Bakalavriat va magistratura yo'nalishlari.",
+      "create": "Yangi yo'nalish",
+      "edit": "Yo'nalishni tahrirlash"
+    },
+    "groups": {
+      "title": "Guruhlar",
+      "hint": "Kurs, til, smena va talabalar soni.",
+      "create": "Yangi guruh",
+      "edit": "Guruhni tahrirlash"
+    },
+    "streams": {
+      "title": "Oqimlar",
+      "hint": "Ma'ruzaga birga kiradigan guruhlar.",
+      "create": "Yangi oqim",
+      "edit": "Oqimni tahrirlash"
+    },
+    "teachers": {
+      "title": "O'qituvchilar",
+      "hint": "Lavozim, yuklama va o'qitadigan fanlari.",
+      "create": "Yangi o'qituvchi",
+      "edit": "O'qituvchini tahrirlash"
+    },
+    "students": {
+      "title": "Talabalar",
+      "hint": "HEMIS ID, guruh va kichik guruh.",
+      "create": "Yangi talaba",
+      "edit": "Talabani tahrirlash"
+    },
+    "rooms": {
+      "title": "Xonalar",
+      "hint": "Bino, sig'im va jihozlar.",
+      "create": "Yangi xona",
+      "edit": "Xonani tahrirlash"
+    },
+    "subjects": {
+      "title": "Fanlar",
+      "hint": "Fan kodlari va nomlari uch tilda.",
+      "create": "Yangi fan",
+      "edit": "Fanni tahrirlash"
+    },
+    "curriculum": {
+      "title": "O'quv reja",
+      "hint": "Semestrlar bo'yicha fanlar va soatlar.",
+      "create": "Yangi reja qatori",
+      "edit": "Reja qatorini tahrirlash"
+    },
+    "assignments": {
+      "title": "Yuklama",
+      "hint": "Qaysi o'qituvchi qaysi guruhga nima o'qitadi.",
+      "create": "Yangi yuklama",
+      "edit": "Yuklamani tahrirlash"
+    },
+    "lesson-times": {
+      "title": "Qo'ng'iroq jadvali",
+      "hint": "Har bir ta'lim shakli uchun paralar vaqti.",
+      "create": "Yangi para vaqti",
+      "edit": "Para vaqtini tahrirlash"
+    },
+    "blocked-periods": {
+      "title": "Yopiq vaqtlar",
+      "hint": "Dars qo'yilmaydigan vaqtlar, masalan juma namozi.",
+      "create": "Yangi yopiq vaqt",
+      "edit": "Yopiq vaqtni tahrirlash"
+    },
+    "calendar-days": {
+      "title": "Akademik kalendar",
+      "hint": "Bayramlar, dam olish kunlari va ko'chirilgan ish kunlari.",
+      "create": "Yangi kun",
+      "edit": "Kunni tahrirlash"
+    }
+  },
+  "fields": {
+    "annualLoad": "Yillik yuklama (soat)",
+    "building": "Bino",
+    "capacity": "Sig'imi",
+    "code": "Kodi",
+    "composition": "Tarkibi",
+    "computers": "Kompyuterlar",
+    "control": "Nazorat",
+    "course": "Kurs",
+    "credits": "Kredit",
+    "date": "Sana",
+    "dayKind": "Kun turi",
+    "degree": "Ilmiy daraja",
+    "department": "Kafedra",
+    "employment": "Ish turi",
+    "end": "Tugashi",
+    "estimated": "Taxminiy sana",
+    "everyOtherWeek": "Haftalararo (toq haftada)",
+    "faculty": "Fakultet",
+    "firstName": "Ismi",
+    "floor": "Qavat",
+    "form": "Ta'lim shakli",
+    "fullName": "F.I.Sh.",
+    "gender": "Jinsi",
+    "group": "Guruh",
+    "groupName": "Guruh nomi",
+    "groups": "Guruhlar",
+    "hemisId": "HEMIS ID",
+    "hoursByType": "Soatlar (ma'ruza / amaliy / seminar / lab.)",
+    "hoursLab": "Laboratoriya soatlari",
+    "hoursLecture": "Ma'ruza soatlari",
+    "hoursPractice": "Amaliy soatlari",
+    "hoursSeminar": "Seminar soatlari",
+    "inUse": "Foydalanishda",
+    "languageSubject": "Til fani",
+    "lastName": "Familiyasi",
+    "lessonNumber": "Para",
+    "lessonType": "Dars turi",
+    "level": "Ta'lim bosqichi",
+    "maxWeekly": "Haftasiga ko'pi bilan (para)",
+    "middleName": "Otasining ismi",
+    "name": "Nomi",
+    "numberInCourse": "Kursdagi raqami",
+    "period": "O'quv davri",
+    "perWeek": "Haftasiga",
+    "phone": "Telefon",
+    "planLanguage": "Reja tili (bo'sh — hamma tillar)",
+    "position": "Lavozimi",
+    "practiceRoomType": "Amaliyot xonasi turi",
+    "program": "Yo'nalish",
+    "programCode": "Yo'nalish shifri",
+    "programForm": "Yo'nalish va shakl",
+    "projector": "Proyektor bor",
+    "requiredRoomType": "Kerakli xona turi",
+    "reservedFor": "Qaysi fakultetga biriktirilgan",
+    "room": "Xona",
+    "roomType": "Xona turi",
+    "semester": "Semestr",
+    "shift": "Smena",
+    "start": "Boshlanishi",
+    "stream": "Oqim",
+    "strict": "Qat'iy",
+    "students": "Talabalar soni",
+    "studySemester": "O'quv semestri",
+    "subgroup": "Kichik guruh",
+    "subject": "Fan",
+    "subjects": "Fanlari",
+    "teacher": "O'qituvchi",
+    "teachingLanguage": "O'qitish tili",
+    "teachingLanguages": "O'qita oladigan tillari",
+    "total": "Jami",
+    "weekday": "Hafta kuni",
+    "weeklyLoad": "Haftalik yuklama",
+    "whom": "Kimga",
+    "worksAs": "Qaysi kun jadvali bo'yicha"
+  },
+  "choices": {
+    "language": {
+      "uz": "O'zbekcha",
+      "ru": "Ruscha",
+      "en": "Inglizcha",
+      "ar": "Arabcha"
+    },
+    "composition": {
+      "mixed": "Aralash",
+      "male": "Faqat yigitlar",
+      "female": "Faqat qizlar"
+    },
+    "shift": {
+      "1": "1-smena",
+      "2": "2-smena"
+    },
+    "position": {
+      "assistant": "Assistent",
+      "teacher": "O'qituvchi",
+      "senior_teacher": "Katta o'qituvchi",
+      "associate_professor": "Dotsent",
+      "professor": "Professor"
+    },
+    "employment": {
+      "staff": "Shtatda",
+      "part_time": "O'rindosh",
+      "hourly": "Soatbay"
+    },
+    "degree": {
+      "none": "Yo'q",
+      "phd": "PhD",
+      "dsc": "DSc"
+    },
+    "gender": {
+      "m": "Erkak",
+      "f": "Ayol"
+    },
+    "control": {
+      "exam": "Imtihon",
+      "credit": "Sinov"
+    },
+    "lessonType": {
+      "lecture": "Ma'ruza",
+      "practice": "Amaliy",
+      "seminar": "Seminar",
+      "lab": "Laboratoriya"
+    },
+    "weekday": {
+      "0": "Dushanba",
+      "1": "Seshanba",
+      "2": "Chorshanba",
+      "3": "Payshanba",
+      "4": "Juma",
+      "5": "Shanba",
+      "6": "Yakshanba"
+    },
+    "dayKind": {
+      "holiday": "Bayram",
+      "day_off": "Dam olish kuni",
+      "workday": "Ish kuni (ko'chirilgan)"
+    }
+  }
+}

@@ -11,7 +11,7 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/api': process.env.VITE_PROXY_TARGET ?? 'http://localhost:8010',
-      '/admin': process.env.VITE_PROXY_TARGET ?? 'http://localhost:8010',
+      '/django-admin': process.env.VITE_PROXY_TARGET ?? 'http://localhost:8010',
       '/static': process.env.VITE_PROXY_TARGET ?? 'http://localhost:8010',
     },
   },

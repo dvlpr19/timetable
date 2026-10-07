@@ -16,7 +16,8 @@
   },
   "actions": {
     "logout": "Sign out",
-    "retry": "Try again"
+    "retry": "Try again",
+    "close": "Close"
   },
   "home": {
     "greeting": "Welcome, {{name}}!",
@@ -24,7 +25,8 @@
   },
   "errors": {
     "network": "Can't reach the server. Check your connection and try again.",
-    "unknown": "Something went wrong. Please try again in a moment."
+    "unknown": "Something went wrong. Please try again in a moment.",
+    "loadFailed": "Couldn't load the data"
   },
   "loading": "Loading…"
 }

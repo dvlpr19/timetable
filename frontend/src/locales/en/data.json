@@ -1,0 +1,284 @@
+{
+  "actions": {
+    "add": "Add",
+    "import": "Import from Excel",
+    "search": "Search",
+    "save": "Save",
+    "saving": "Saving…",
+    "cancel": "Cancel",
+    "delete": "Delete"
+  },
+  "filters": {
+    "all": "all"
+  },
+  "empty": {
+    "title": "Nothing found",
+    "text": "There are no records in this section yet.",
+    "filtered": "Try a different search or filter."
+  },
+  "pagination": {
+    "label": "Pages",
+    "status": "Page {{page}} of {{pages}} · {{count}} records",
+    "previous": "Previous page",
+    "next": "Next page"
+  },
+  "saved": "Saved",
+  "deleted": "Deleted",
+  "yes": "Yes",
+  "no": "No",
+  "notSet": "Not set",
+  "choose": "Choose",
+  "loadingOptions": "Loading…",
+  "loadValue": "{{load}} / {{max}}",
+  "confirmDelete": {
+    "title": "Delete this record?",
+    "text": "The record will be deleted permanently. If other data depends on it, the server will refuse."
+  },
+  "errors": {
+    "forbidden": "You are not allowed to change this record.",
+    "inUse": "Cannot delete: this record is used elsewhere."
+  },
+  "langs": {
+    "uz": "Uzbek",
+    "ru": "Russian",
+    "en": "English"
+  },
+  "import": {
+    "title": "{{name}}: import from Excel",
+    "step1": "Download the template (column names in your language).",
+    "template": "Download template",
+    "step2": "Fill it in. Existing records are updated, new ones are added.",
+    "step3": "Choose the filled-in file.",
+    "choose": "Choose a file (.xlsx)",
+    "upload": "Upload",
+    "uploading": "Uploading…",
+    "allOrNothing": "If any row has an error, nothing is saved.",
+    "done": "Added: {{created}}, updated: {{updated}}",
+    "failed": "The file was not saved, errors: {{count}}",
+    "rowError": "Row {{row}}: {{message}}"
+  },
+  "resources": {
+    "faculties": {
+      "title": "Faculties",
+      "hint": "Code, name and teaching language.",
+      "create": "New faculty",
+      "edit": "Edit faculty"
+    },
+    "departments": {
+      "title": "Departments",
+      "hint": "Departments by faculty.",
+      "create": "New department",
+      "edit": "Edit department"
+    },
+    "programs": {
+      "title": "Programmes",
+      "hint": "Bachelor's and master's programmes.",
+      "create": "New programme",
+      "edit": "Edit programme"
+    },
+    "groups": {
+      "title": "Groups",
+      "hint": "Year, language, shift and number of students.",
+      "create": "New group",
+      "edit": "Edit group"
+    },
+    "streams": {
+      "title": "Streams",
+      "hint": "Groups that attend lectures together.",
+      "create": "New stream",
+      "edit": "Edit stream"
+    },
+    "teachers": {
+      "title": "Teachers",
+      "hint": "Position, workload and subjects.",
+      "create": "New teacher",
+      "edit": "Edit teacher"
+    },
+    "students": {
+      "title": "Students",
+      "hint": "HEMIS ID, group and subgroup.",
+      "create": "New student",
+      "edit": "Edit student"
+    },
+    "rooms": {
+      "title": "Rooms",
+      "hint": "Building, capacity and equipment.",
+      "create": "New room",
+      "edit": "Edit room"
+    },
+    "subjects": {
+      "title": "Subjects",
+      "hint": "Subject codes and names in three languages.",
+      "create": "New subject",
+      "edit": "Edit subject"
+    },
+    "curriculum": {
+      "title": "Curriculum",
+      "hint": "Subjects and hours by semester.",
+      "create": "New curriculum row",
+      "edit": "Edit curriculum row"
+    },
+    "assignments": {
+      "title": "Workload",
+      "hint": "Which teacher teaches what to which group.",
+      "create": "New assignment",
+      "edit": "Edit assignment"
+    },
+    "lesson-times": {
+      "title": "Bell schedule",
+      "hint": "Period times for each study form.",
+      "create": "New period time",
+      "edit": "Edit period time"
+    },
+    "blocked-periods": {
+      "title": "Closed times",
+      "hint": "Times with no lessons, e.g. Friday prayer.",
+      "create": "New closed time",
+      "edit": "Edit closed time"
+    },
+    "calendar-days": {
+      "title": "Academic calendar",
+      "hint": "Holidays, days off and moved working days.",
+      "create": "New day",
+      "edit": "Edit day"
+    }
+  },
+  "fields": {
+    "annualLoad": "Annual load (hours)",
+    "building": "Building",
+    "capacity": "Capacity",
+    "code": "Code",
+    "composition": "Composition",
+    "computers": "Computers",
+    "control": "Assessment",
+    "course": "Year",
+    "credits": "Credits",
+    "date": "Date",
+    "dayKind": "Day type",
+    "degree": "Degree",
+    "department": "Department",
+    "employment": "Employment",
+    "end": "End",
+    "estimated": "Estimated date",
+    "everyOtherWeek": "Every other week (odd weeks)",
+    "faculty": "Faculty",
+    "firstName": "First name",
+    "floor": "Floor",
+    "form": "Study form",
+    "fullName": "Full name",
+    "gender": "Gender",
+    "group": "Group",
+    "groupName": "Group name",
+    "groups": "Groups",
+    "hemisId": "HEMIS ID",
+    "hoursByType": "Hours (lecture / practice / seminar / lab)",
+    "hoursLab": "Lab hours",
+    "hoursLecture": "Lecture hours",
+    "hoursPractice": "Practice hours",
+    "hoursSeminar": "Seminar hours",
+    "inUse": "In use",
+    "languageSubject": "Language subject",
+    "lastName": "Last name",
+    "lessonNumber": "Period",
+    "lessonType": "Lesson type",
+    "level": "Level",
+    "maxWeekly": "Max per week (periods)",
+    "middleName": "Middle name",
+    "name": "Name",
+    "numberInCourse": "Number in year",
+    "period": "Teaching period",
+    "perWeek": "Per week",
+    "phone": "Phone",
+    "planLanguage": "Plan language (empty = all)",
+    "position": "Position",
+    "practiceRoomType": "Practice room type",
+    "program": "Programme",
+    "programCode": "Programme code",
+    "programForm": "Programme and form",
+    "projector": "Has a projector",
+    "requiredRoomType": "Required room type",
+    "reservedFor": "Reserved for faculty",
+    "room": "Room",
+    "roomType": "Room type",
+    "semester": "Semester",
+    "shift": "Shift",
+    "start": "Start",
+    "stream": "Stream",
+    "strict": "Strict",
+    "students": "Students",
+    "studySemester": "Study semester",
+    "subgroup": "Subgroup",
+    "subject": "Subject",
+    "subjects": "Subjects",
+    "teacher": "Teacher",
+    "teachingLanguage": "Teaching language",
+    "teachingLanguages": "Teaching languages",
+    "total": "Total",
+    "weekday": "Weekday",
+    "weeklyLoad": "Weekly load",
+    "whom": "For",
+    "worksAs": "Works as"
+  },
+  "choices": {
+    "language": {
+      "uz": "Uzbek",
+      "ru": "Russian",
+      "en": "English",
+      "ar": "Arabic"
+    },
+    "composition": {
+      "mixed": "Mixed",
+      "male": "Men only",
+      "female": "Women only"
+    },
+    "shift": {
+      "1": "1st shift",
+      "2": "2nd shift"
+    },
+    "position": {
+      "assistant": "Assistant",
+      "teacher": "Lecturer",
+      "senior_teacher": "Senior lecturer",
+      "associate_professor": "Associate professor",
+      "professor": "Professor"
+    },
+    "employment": {
+      "staff": "Full staff",
+      "part_time": "Part-time",
+      "hourly": "Hourly"
+    },
+    "degree": {
+      "none": "None",
+      "phd": "PhD",
+      "dsc": "DSc"
+    },
+    "gender": {
+      "m": "Male",
+      "f": "Female"
+    },
+    "control": {
+      "exam": "Exam",
+      "credit": "Pass/fail"
+    },
+    "lessonType": {
+      "lecture": "Lecture",
+      "practice": "Practice",
+      "seminar": "Seminar",
+      "lab": "Lab"
+    },
+    "weekday": {
+      "0": "Monday",
+      "1": "Tuesday",
+      "2": "Wednesday",
+      "3": "Thursday",
+      "4": "Friday",
+      "5": "Saturday",
+      "6": "Sunday"
+    },
+    "dayKind": {
+      "holiday": "Holiday",
+      "day_off": "Day off",
+      "workday": "Working day (moved)"
+    }
+  }
+}

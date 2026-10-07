@@ -4,6 +4,7 @@ from rest_framework import serializers
 from ..models import (
     AcademicCalendarDay,
     AcademicYear,
+    Academy,
     BlockedPeriod,
     Building,
     CurriculumItem,
@@ -47,6 +48,12 @@ class TranslatedModelSerializer(serializers.ModelSerializer):
 
 
 class FacultySerializer(TranslatedModelSerializer):
+    academy = serializers.PrimaryKeyRelatedField(queryset=Academy.objects.all(), required=False)
+
+    def create(self, validated_data):
+        validated_data.setdefault("academy", Academy.objects.first())
+        return super().create(validated_data)
+
     class Meta:
         model = Faculty
         fields = ("id", "academy", "code", *TRANSLATED, "teaching_language")
@@ -101,9 +108,11 @@ class ProgramSerializer(TranslatedModelSerializer):
 
 
 class ProgramFormSerializer(serializers.ModelSerializer):
+    label = serializers.CharField(source="__str__", read_only=True)
+
     class Meta:
         model = ProgramForm
-        fields = ("id", "program", "form", "duration_years", "group_prefix")
+        fields = ("id", "label", "program", "form", "duration_years", "group_prefix")
 
 
 class AcademicYearSerializer(serializers.ModelSerializer):
@@ -113,15 +122,28 @@ class AcademicYearSerializer(serializers.ModelSerializer):
 
 
 class SemesterSerializer(serializers.ModelSerializer):
+    label = serializers.CharField(source="__str__", read_only=True)
+
     class Meta:
         model = Semester
-        fields = ("id", "year", "kind", "start_date", "end_date", "is_current")
+        fields = ("id", "label", "year", "kind", "start_date", "end_date", "is_current")
 
 
 class TeachingPeriodSerializer(serializers.ModelSerializer):
+    label = serializers.CharField(source="__str__", read_only=True)
+
     class Meta:
         model = TeachingPeriod
-        fields = ("id", "semester", "form", "name", "start_date", "end_date", "weeks_count")
+        fields = (
+            "id",
+            "label",
+            "semester",
+            "form",
+            "name",
+            "start_date",
+            "end_date",
+            "weeks_count",
+        )
 
 
 class CalendarDaySerializer(TranslatedModelSerializer):
@@ -214,9 +236,11 @@ class CurriculumItemSerializer(serializers.ModelSerializer):
 
 
 class SubGroupSerializer(serializers.ModelSerializer):
+    label = serializers.CharField(source="__str__", read_only=True)
+
     class Meta:
         model = SubGroup
-        fields = ("id", "group", "number", "student_count")
+        fields = ("id", "label", "group", "number", "student_count")
 
 
 class GroupSerializer(serializers.ModelSerializer):
@@ -281,6 +305,8 @@ class TeacherPublicSerializer(serializers.ModelSerializer):
 
 
 class TeacherSerializer(TeacherPublicSerializer):
+    weekly_lessons = serializers.IntegerField(read_only=True, default=0)
+
     class Meta:
         model = Teacher
         fields = (
@@ -295,6 +321,7 @@ class TeacherSerializer(TeacherPublicSerializer):
             "max_weekly_lessons",
             "subjects",
             "teaching_languages",
+            "weekly_lessons",
         )
 
 

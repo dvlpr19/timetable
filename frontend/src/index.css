@@ -24,3 +24,14 @@
     animation-duration: 0ms !important;
   }
 }
+
+@keyframes slide-in {
+  from {
+    transform: translateX(24px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
