@@ -8,9 +8,11 @@ import { Button } from '@/components/ui/Button';
 import { Modal } from '@/components/ui/Modal';
 import { Pill } from '@/components/ui/Pill';
 import { Select } from '@/components/ui/Select';
+import { TextField } from '@/components/ui/TextField';
 import { useToast } from '@/components/ui/Toast';
 import { api } from '@/lib/api';
 import { lessonTypeClasses } from '@/lib/lessonTypes';
+import { needsLink } from '@/lib/links';
 import { useAll, useApi } from '@/lib/query';
 import type { GridCell, ScheduleVersion, TimetableEntry } from '@/types/timetable';
 
@@ -42,6 +44,7 @@ export function LessonDrawer({
   const [confirmDelete, setConfirmDelete] = useState(false);
   const [busy, setBusy] = useState(false);
   const online = !entry.room && Boolean(entry.online_url);
+  const [link, setLink] = useState(needsLink(entry.online_url) ? '' : entry.online_url);
 
   // Free rooms at the lesson's current time (same endpoint as drag-and-drop).
   const options = useApi<{ cells: GridCell[] }>(
@@ -165,6 +168,10 @@ export function LessonDrawer({
             <Row label={t('admin:lesson.room')}>
               {entry.room ? (
                 `${entry.room.name} · ${entry.room.building}, ${t('admin:lesson.floor', { n: entry.room.floor })} (${entry.room.capacity})`
+              ) : needsLink(entry.online_url) ? (
+                <span className="font-semibold text-warning-fg">
+                  {t('admin:lesson.linkNeeded')}
+                </span>
               ) : entry.online_url ? (
                 <a
                   href={entry.online_url}
@@ -184,6 +191,32 @@ export function LessonDrawer({
             <p className="rounded-button bg-subtle p-3 text-xs text-ink-muted">
               {t('admin:lesson.pinnedHint')}
             </p>
+          )}
+          {editable && online && (
+            <form
+              className="flex items-end gap-2"
+              onSubmit={(e) => {
+                e.preventDefault();
+                if (/^https?:\/\/\S+$/.test(link.trim())) void patch({ online_url: link.trim() });
+              }}
+            >
+              <TextField
+                className="flex-1"
+                label={t('admin:lesson.link')}
+                type="url"
+                inputMode="url"
+                placeholder="https://"
+                value={link}
+                onChange={(e) => setLink(e.target.value)}
+              />
+              <Button
+                type="submit"
+                variant="secondary"
+                disabled={busy || !/^https?:\/\/\S+$/.test(link.trim())}
+              >
+                {t('data:actions.save')}
+              </Button>
+            </form>
           )}
           {editable && !online && (
             <Select

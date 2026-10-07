@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dars-jadvali 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-07 12:04+0500\n"
+"POT-Creation-Date: 2026-10-07 15:42+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,23 +63,23 @@ msgstr "Excel faylini tanlang."
 msgid "The file could not be read as Excel (.xlsx)."
 msgstr "Faylni Excel (.xlsx) sifatida o'qib bo'lmadi."
 
-#: apps/academics/api/serializers.py:210
+#: apps/academics/api/serializers.py:232
 msgid "Classroom hours exceed the credits (1 credit = 30 hours)."
 msgstr "Auditoriya soatlari kreditdan ko'p (1 kredit = 30 soat)."
 
-#: apps/academics/api/serializers.py:257
+#: apps/academics/api/serializers.py:281
 msgid "Only groups with the same teaching language can form a stream."
 msgstr "Oqimga faqat ta'lim tili bir xil guruhlarni birlashtirish mumkin."
 
-#: apps/academics/api/serializers.py:335
+#: apps/academics/api/serializers.py:362
 msgid "The subgroup belongs to another group."
 msgstr "Bu kichik guruh boshqa guruhga tegishli."
 
-#: apps/academics/api/serializers.py:377
+#: apps/academics/api/serializers.py:404
 msgid "Choose exactly one of: group, stream or subgroup."
 msgstr "Guruh, oqim yoki kichik guruhdan faqat bittasini tanlang."
 
-#: apps/academics/api/serializers.py:383
+#: apps/academics/api/serializers.py:410
 msgid "This teacher does not teach in the group's language."
 msgstr "Bu o'qituvchi guruhning ta'lim tilida dars bermaydi."
 
@@ -847,7 +847,7 @@ msgstr "Dekanat"
 msgid "Head of department"
 msgstr "Kafedra mudiri"
 
-#: apps/accounts/models.py:10
+#: apps/accounts/models.py:10 apps/solver/api/views.py:167
 msgid "Teacher"
 msgstr "O'qituvchi"
 
@@ -1098,51 +1098,51 @@ msgstr "Akkauntingiz talaba yoki o'qituvchiga bog'lanmagan."
 msgid "Choose a group, a teacher or a room."
 msgstr "Guruh, o'qituvchi yoki xonani tanlang."
 
-#: apps/scheduling/api/views.py:202
+#: apps/scheduling/api/views.py:203
 msgid "The published timetable cannot be deleted."
 msgstr "E'lon qilingan jadvalni o'chirib bo'lmaydi."
 
-#: apps/scheduling/api/views.py:218
+#: apps/scheduling/api/views.py:219
 msgid "The timetable has conflicts and cannot be published."
 msgstr "Jadvalda ziddiyatlar bor, uni e'lon qilib bo'lmaydi."
 
-#: apps/scheduling/api/views.py:231
+#: apps/scheduling/api/views.py:232
 msgid "There is nothing to undo."
 msgstr "Bekor qiladigan o'zgarish yo'q."
 
-#: apps/scheduling/api/views.py:344
+#: apps/scheduling/api/views.py:345
 msgid "Choose a lesson."
 msgstr "Darsni tanlang."
 
-#: apps/scheduling/api/views.py:390
+#: apps/scheduling/api/views.py:391
 msgid "No suitable room is free at this time."
 msgstr "Bu vaqtda mos bo'sh xona yo'q."
 
-#: apps/scheduling/api/views.py:488
+#: apps/scheduling/api/views.py:489
 msgid "This change would create a conflict."
 msgstr "Bu o'zgarish ziddiyatga olib keladi."
 
-#: apps/scheduling/api/views.py:490 apps/scheduling/api/views.py:543
+#: apps/scheduling/api/views.py:491 apps/scheduling/api/views.py:544
 msgid "This time is already taken."
 msgstr "Bu vaqt allaqachon band."
 
-#: apps/scheduling/api/views.py:531
+#: apps/scheduling/api/views.py:532
 msgid "There is no such lesson on this date."
 msgstr "Bu sanada bunday dars yo'q."
 
-#: apps/scheduling/api/views.py:582
+#: apps/scheduling/api/views.py:583
 msgid "Enter a date (YYYY-MM-DD)."
 msgstr "Sanani kiriting (YYYY-MM-DD)."
 
-#: apps/scheduling/api/views.py:584
+#: apps/scheduling/api/views.py:585
 msgid "Choose at most two months."
 msgstr "Ko'pi bilan ikki oyni tanlang."
 
-#: apps/scheduling/api/views.py:698
+#: apps/scheduling/api/views.py:699
 msgid "Choose xlsx or pdf."
 msgstr "xlsx yoki pdf ni tanlang."
 
-#: apps/scheduling/api/views.py:701
+#: apps/scheduling/api/views.py:702
 msgid "Choose uz, ru or en."
 msgstr "uz, ru yoki en ni tanlang."
 
@@ -1169,7 +1169,7 @@ msgstr "%(name)s xonasining jadvali"
 msgid "Date"
 msgstr "Sana"
 
-#: apps/scheduling/exports.py:89
+#: apps/scheduling/exports.py:89 apps/solver/api/views.py:166
 msgid "Lesson"
 msgstr "Dars"
 
@@ -1332,14 +1332,14 @@ msgstr "ko'chirish so'rovi"
 msgid "reschedule requests"
 msgstr "ko'chirish so'rovlari"
 
-#: apps/scheduling/validators.py:782
+#: apps/scheduling/validators.py:792
 #, python-format
 msgid ""
 "%(teacher)s has two lessons at the same time (%(when)s): %(a)s and %(b)s."
 msgstr ""
 "%(teacher)s bir vaqtda ikkita darsga qo'yilgan (%(when)s): %(a)s va %(b)s."
 
-#: apps/scheduling/validators.py:790
+#: apps/scheduling/validators.py:800
 #, python-format
 msgid ""
 "%(group)s has two lessons at the same time (%(when)s): %(a)s and %(b)s."
@@ -1347,14 +1347,14 @@ msgstr ""
 "%(group)s guruhiga bir vaqtda ikkita dars qo'yilgan (%(when)s): %(a)s va "
 "%(b)s."
 
-#: apps/scheduling/validators.py:797
+#: apps/scheduling/validators.py:807
 #, python-format
 msgid "Room %(room)s is taken twice (%(when)s): %(a)s and %(b)s."
 msgstr ""
 "%(room)s xonasi bir vaqtda ikki darsga band qilingan (%(when)s): %(a)s va "
 "%(b)s."
 
-#: apps/scheduling/validators.py:806
+#: apps/scheduling/validators.py:816
 #, python-format
 msgid ""
 "Room %(room)s has %(seats)s seats, but %(lesson)s has %(students)s students."
@@ -1362,7 +1362,7 @@ msgstr ""
 "%(room)s xonasida %(seats)s o'rin bor, %(lesson)s darsida esa %(students)s "
 "talaba."
 
-#: apps/scheduling/validators.py:816
+#: apps/scheduling/validators.py:826
 #, python-format
 msgid ""
 "%(lesson)s needs a room of type “%(required)s”, %(room)s is “%(actual)s”."
@@ -1370,73 +1370,247 @@ msgstr ""
 "%(lesson)s uchun “%(required)s” turidagi xona kerak, %(room)s esa "
 "“%(actual)s”."
 
-#: apps/scheduling/validators.py:824
+#: apps/scheduling/validators.py:834
 #, python-format
 msgid "%(lesson)s needs a room."
 msgstr "%(lesson)s uchun xona tanlanmagan."
 
-#: apps/scheduling/validators.py:826
+#: apps/scheduling/validators.py:836
 #, python-format
 msgid "Online lesson %(lesson)s needs a link."
 msgstr "%(lesson)s onlayn darsi uchun havola kiritilmagan."
 
-#: apps/scheduling/validators.py:828
+#: apps/scheduling/validators.py:838
 #, python-format
 msgid "Room %(room)s is not in use."
 msgstr "%(room)s xonasidan hozir foydalanilmaydi."
 
-#: apps/scheduling/validators.py:830
+#: apps/scheduling/validators.py:840
 #, python-format
 msgid "%(when)s is closed for lessons (%(reason)s): %(lesson)s."
 msgstr "%(when)s darslar uchun yopiq (%(reason)s): %(lesson)s."
 
-#: apps/scheduling/validators.py:836
+#: apps/scheduling/validators.py:846
 #, python-format
 msgid "%(when)s is a day off (%(reason)s): %(lesson)s."
 msgstr "%(when)s dam olish kuni (%(reason)s): %(lesson)s."
 
-#: apps/scheduling/validators.py:842
+#: apps/scheduling/validators.py:852
 #, python-format
 msgid "%(lesson)s is outside the %(form)s timetable (%(when)s)."
 msgstr "%(lesson)s %(form)s ta'lim jadvalidan tashqarida (%(when)s)."
 
-#: apps/scheduling/validators.py:848
+#: apps/scheduling/validators.py:858
 #, python-format
 msgid "%(lesson)s: %(when)s is outside the teaching period."
 msgstr "%(lesson)s: %(when)s o'qish davridan tashqarida."
 
-#: apps/scheduling/validators.py:853
+#: apps/scheduling/validators.py:863
 #, python-format
 msgid "%(teacher)s is not available at %(when)s (%(lesson)s)."
 msgstr "%(teacher)s %(when)s dars bera olmaydi (%(lesson)s)."
 
-#: apps/scheduling/validators.py:860
+#: apps/scheduling/validators.py:870
 #, python-format
 msgid "%(lesson)s: %(placed)s of %(required)s lessons are placed."
 msgstr "%(lesson)s: %(required)s ta darsdan %(placed)s tasi joylashtirilgan."
 
-#: apps/scheduling/validators.py:862
+#: apps/scheduling/validators.py:872
 #, python-format
 msgid "%(lesson)s: %(placed)s lessons are placed, the plan has %(required)s."
 msgstr ""
 "%(lesson)s: %(placed)s ta dars joylashtirilgan, rejada esa %(required)s ta."
 
-#: apps/scheduling/validators.py:870
+#: apps/scheduling/validators.py:880
 #, python-format
 msgid "%(group)s has %(count)s lessons on %(day)s (at most %(limit)s)."
 msgstr ""
 "%(group)s guruhida %(day)s kuni %(count)s ta dars bor, ko'pi bilan %(limit)s"
 " ta bo'lishi mumkin."
 
-#: apps/scheduling/validators.py:879
+#: apps/scheduling/validators.py:889
 #, python-format
 msgid "%(teacher)s does not teach in %(language)s (%(lesson)s)."
 msgstr "%(teacher)s %(language)s dars bermaydi (%(lesson)s)."
 
-#: apps/scheduling/validators.py:885
+#: apps/scheduling/validators.py:895
 #, python-format
 msgid "Stream %(stream)s joins groups with different teaching languages."
 msgstr "%(stream)s oqimida ta'lim tili har xil bo'lgan guruhlar bor."
+
+#: apps/solver/api/serializers.py:97
+#, python-format
+msgid "Unknown soft constraints: %(names)s"
+msgstr "Noma'lum yumshoq cheklovlar: %(names)s"
+
+#: apps/solver/api/views.py:48
+msgid "Choose a version of the current semester."
+msgstr "Joriy semestr versiyasini tanlang."
+
+#: apps/solver/api/views.py:97
+msgid "This run has already finished."
+msgstr "Bu ishga tushirish allaqachon tugagan."
+
+#: apps/solver/api/views.py:112 apps/solver/api/views.py:156
+msgid "This run has no result yet."
+msgstr "Bu ishga tushirishning hali natijasi yo'q."
+
+#: apps/solver/api/views.py:166
+msgid "Form"
+msgstr "Ta'lim shakli"
+
+#: apps/solver/api/views.py:166
+msgid "Day"
+msgstr "Kun"
+
+#: apps/solver/api/views.py:166
+msgid "Weeks"
+msgstr "Haftalar"
+
+#: apps/solver/api/views.py:166
+msgid "Time"
+msgstr "Vaqt"
+
+#: apps/solver/api/views.py:166
+msgid "Subject"
+msgstr "Fan"
+
+#: apps/solver/api/views.py:167
+msgid "Lesson type"
+msgstr "Dars turi"
+
+#: apps/solver/api/views.py:167
+msgid "Groups"
+msgstr "Guruhlar"
+
+#: apps/solver/api/views.py:167
+msgid "Room"
+msgstr "Xona"
+
+#: apps/solver/api/views.py:167
+msgid "Pinned"
+msgstr "Qadalgan"
+
+#: apps/solver/messages.py:57
+#, python-format
+msgid ""
+"%(lesson)s: %(teacher)s does not teach in the group's language. Choose "
+"another teacher in the workload."
+msgstr ""
+"%(lesson)s: %(teacher)s guruh tilida dars bermaydi. Yuklamada boshqa "
+"o'qituvchini tanlang."
+
+#: apps/solver/messages.py:61
+#, python-format
+msgid "%(lesson)s: the stream joins groups with different teaching languages."
+msgstr "%(lesson)s: oqimga turli o'qitish tilidagi guruhlar birlashtirilgan."
+
+#: apps/solver/messages.py:66
+#, python-format
+msgid ""
+"%(lesson)s: no suitable room (%(students)s students, the biggest suitable "
+"room has %(biggest)s seats)."
+msgstr ""
+"%(lesson)s: mos xona yo'q (%(students)s talaba, eng katta mos xona "
+"%(biggest)s o'rinli)."
+
+#: apps/solver/messages.py:75
+#, python-format
+msgid ""
+"%(lesson)s: no free time is left — study days, closed times and the "
+"teacher's unavailable times exclude everything."
+msgstr ""
+"%(lesson)s: bo'sh vaqt qolmadi — o'qish kunlari, yopiq vaqtlar va "
+"o'qituvchining band vaqtlari hammasini yopadi."
+
+#: apps/solver/messages.py:80
+#, python-format
+msgid ""
+"%(count)s conflicts are among the lessons that stay in place (pinned or "
+"outside the chosen scope). The solver works around them but cannot fix them."
+msgstr ""
+"Joyida qoladigan darslar orasida %(count)s ta ziddiyat bor (qadalgan yoki "
+"tanlangan doiradan tashqarida). Dastur ularni chetlab o'tadi, lekin tuzata "
+"olmaydi."
+
+#: apps/solver/messages.py:85
+#, python-format
+msgid ""
+"%(teacher)s has %(lessons)s lessons to place but only %(slots)s possible "
+"times."
+msgstr ""
+"%(teacher)s uchun %(lessons)s ta dars qo'yilishi kerak, lekin faqat "
+"%(slots)s ta mumkin bo'lgan vaqt bor."
+
+#: apps/solver/messages.py:93
+#, python-format
+msgid ""
+"%(group)s needs %(lessons)s lessons, but the daily limit allows only "
+"%(capacity)s."
+msgstr ""
+"%(group)s guruhiga %(lessons)s ta dars kerak, lekin kunlik chegara faqat "
+"%(capacity)s taga ruxsat beradi."
+
+#: apps/solver/messages.py:102
+#, python-format
+msgid "teacher busy: %(n)s"
+msgstr "o'qituvchi band: %(n)s"
+
+#: apps/solver/messages.py:104
+#, python-format
+msgid "group busy: %(n)s"
+msgstr "guruh band: %(n)s"
+
+#: apps/solver/messages.py:106
+#, python-format
+msgid "daily limit reached: %(n)s"
+msgstr "kunlik chegaraga yetgan: %(n)s"
+
+#: apps/solver/messages.py:108
+#, python-format
+msgid "no free room: %(n)s"
+msgstr "bo'sh xona yo'q: %(n)s"
+
+#: apps/solver/messages.py:110
+#, python-format
+msgid ""
+"%(lesson)s: %(missing)s lesson(s) not placed. All %(total)s possible times "
+"are taken (%(why)s)."
+msgstr ""
+"%(lesson)s: %(missing)s ta dars joylashtirilmadi. Mumkin bo'lgan %(total)s "
+"ta vaqtning hammasi band (%(why)s)."
+
+#: apps/solver/messages.py:120
+#, python-format
+msgid ""
+"%(count)s distance lessons were placed without a link. Add the links in the "
+"editor before publishing."
+msgstr ""
+"%(count)s ta masofaviy dars havolasiz qo'yildi. E'lon qilishdan oldin "
+"muharrirda havolalarni kiriting."
+
+#: apps/solver/messages.py:126
+#, python-format
+msgid ""
+"Each lesson may use the %(n)s smallest rooms that fit it; bigger rooms are "
+"kept for bigger lessons."
+msgstr ""
+"Har bir dars o'ziga sig'adigan eng kichik %(n)s ta xonadan birini oladi; "
+"katta xonalar katta darslar uchun qoldiriladi."
+
+#: apps/solver/messages.py:129
+msgid "Weekly forms are assumed to share week numbering (week 1 is odd)."
+msgstr ""
+"Haftalik shakllarda hafta raqamlari bir xil deb olinadi (1-hafta toq)."
+
+#: apps/solver/messages.py:131
+msgid ""
+"Building moves are reduced by keeping each group in few buildings; the "
+"lecture-before-seminar order is scored after the search, not optimised."
+msgstr ""
+"Binolar orasida yurish har bir guruhni kam binoda saqlash orqali "
+"kamaytiriladi; «avval ma'ruza, keyin seminar» tartibi qidiruvdan keyin "
+"baholanadi, optimallashtirilmaydi."
 
 #: apps/solver/models.py:10
 msgid "Queued"

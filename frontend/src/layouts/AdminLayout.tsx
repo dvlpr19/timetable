@@ -1,4 +1,4 @@
-import { CalendarDays, LayoutDashboard, LogOut, Menu, X } from 'lucide-react';
+import { CalendarDays, LayoutDashboard, LogOut, Menu, Wand2, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
@@ -64,6 +64,7 @@ function Sidebar() {
       <div className="space-y-1">
         <NavItem to="/admin" end icon={LayoutDashboard} label={t('admin:nav.dashboard')} />
         <NavItem to="/admin/schedule" icon={CalendarDays} label={t('admin:nav.schedule')} />
+        <NavItem to="/admin/solver" icon={Wand2} label={t('admin:nav.solver')} />
       </div>
       <div className="space-y-1">
         <p className="px-3 pb-1 text-xs font-bold uppercase tracking-wider text-mint/70">

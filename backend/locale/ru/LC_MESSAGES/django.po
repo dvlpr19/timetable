@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dars-jadvali 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-07 12:04+0500\n"
+"POT-Creation-Date: 2026-10-07 15:42+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,23 +63,23 @@ msgstr "Выберите файл Excel."
 msgid "The file could not be read as Excel (.xlsx)."
 msgstr "Не удалось прочитать файл как Excel (.xlsx)."
 
-#: apps/academics/api/serializers.py:210
+#: apps/academics/api/serializers.py:232
 msgid "Classroom hours exceed the credits (1 credit = 30 hours)."
 msgstr "Аудиторных часов больше, чем позволяют кредиты (1 кредит = 30 часов)."
 
-#: apps/academics/api/serializers.py:257
+#: apps/academics/api/serializers.py:281
 msgid "Only groups with the same teaching language can form a stream."
 msgstr "В поток можно объединять только группы с одинаковым языком обучения."
 
-#: apps/academics/api/serializers.py:335
+#: apps/academics/api/serializers.py:362
 msgid "The subgroup belongs to another group."
 msgstr "Эта подгруппа относится к другой группе."
 
-#: apps/academics/api/serializers.py:377
+#: apps/academics/api/serializers.py:404
 msgid "Choose exactly one of: group, stream or subgroup."
 msgstr "Выберите что-то одно: группу, поток или подгруппу."
 
-#: apps/academics/api/serializers.py:383
+#: apps/academics/api/serializers.py:410
 msgid "This teacher does not teach in the group's language."
 msgstr "Этот преподаватель не ведёт занятия на языке обучения группы."
 
@@ -851,7 +851,7 @@ msgstr "Деканат"
 msgid "Head of department"
 msgstr "Заведующий кафедрой"
 
-#: apps/accounts/models.py:10
+#: apps/accounts/models.py:10 apps/solver/api/views.py:167
 msgid "Teacher"
 msgstr "Преподаватель"
 
@@ -1101,51 +1101,51 @@ msgstr "Ваша учётная запись не связана со студе
 msgid "Choose a group, a teacher or a room."
 msgstr "Выберите группу, преподавателя или аудиторию."
 
-#: apps/scheduling/api/views.py:202
+#: apps/scheduling/api/views.py:203
 msgid "The published timetable cannot be deleted."
 msgstr "Опубликованное расписание нельзя удалить."
 
-#: apps/scheduling/api/views.py:218
+#: apps/scheduling/api/views.py:219
 msgid "The timetable has conflicts and cannot be published."
 msgstr "В расписании есть конфликты, его нельзя опубликовать."
 
-#: apps/scheduling/api/views.py:231
+#: apps/scheduling/api/views.py:232
 msgid "There is nothing to undo."
 msgstr "Нечего отменять."
 
-#: apps/scheduling/api/views.py:344
+#: apps/scheduling/api/views.py:345
 msgid "Choose a lesson."
 msgstr "Выберите занятие."
 
-#: apps/scheduling/api/views.py:390
+#: apps/scheduling/api/views.py:391
 msgid "No suitable room is free at this time."
 msgstr "В это время нет подходящей свободной аудитории."
 
-#: apps/scheduling/api/views.py:488
+#: apps/scheduling/api/views.py:489
 msgid "This change would create a conflict."
 msgstr "Это изменение приведёт к конфликту."
 
-#: apps/scheduling/api/views.py:490 apps/scheduling/api/views.py:543
+#: apps/scheduling/api/views.py:491 apps/scheduling/api/views.py:544
 msgid "This time is already taken."
 msgstr "Это время уже занято."
 
-#: apps/scheduling/api/views.py:531
+#: apps/scheduling/api/views.py:532
 msgid "There is no such lesson on this date."
 msgstr "В эту дату такого занятия нет."
 
-#: apps/scheduling/api/views.py:582
+#: apps/scheduling/api/views.py:583
 msgid "Enter a date (YYYY-MM-DD)."
 msgstr "Введите дату (ГГГГ-ММ-ДД)."
 
-#: apps/scheduling/api/views.py:584
+#: apps/scheduling/api/views.py:585
 msgid "Choose at most two months."
 msgstr "Выберите не больше двух месяцев."
 
-#: apps/scheduling/api/views.py:698
+#: apps/scheduling/api/views.py:699
 msgid "Choose xlsx or pdf."
 msgstr "Выберите xlsx или pdf."
 
-#: apps/scheduling/api/views.py:701
+#: apps/scheduling/api/views.py:702
 msgid "Choose uz, ru or en."
 msgstr "Выберите uz, ru или en."
 
@@ -1172,7 +1172,7 @@ msgstr "Расписание аудитории %(name)s"
 msgid "Date"
 msgstr "Дата"
 
-#: apps/scheduling/exports.py:89
+#: apps/scheduling/exports.py:89 apps/solver/api/views.py:166
 msgid "Lesson"
 msgstr "Пара"
 
@@ -1333,25 +1333,25 @@ msgstr "запрос на перенос"
 msgid "reschedule requests"
 msgstr "запросы на перенос"
 
-#: apps/scheduling/validators.py:782
+#: apps/scheduling/validators.py:792
 #, python-format
 msgid ""
 "%(teacher)s has two lessons at the same time (%(when)s): %(a)s and %(b)s."
 msgstr "У %(teacher)s два занятия одновременно (%(when)s): %(a)s и %(b)s."
 
-#: apps/scheduling/validators.py:790
+#: apps/scheduling/validators.py:800
 #, python-format
 msgid ""
 "%(group)s has two lessons at the same time (%(when)s): %(a)s and %(b)s."
 msgstr ""
 "У группы %(group)s два занятия одновременно (%(when)s): %(a)s и %(b)s."
 
-#: apps/scheduling/validators.py:797
+#: apps/scheduling/validators.py:807
 #, python-format
 msgid "Room %(room)s is taken twice (%(when)s): %(a)s and %(b)s."
 msgstr "Аудитория %(room)s занята дважды (%(when)s): %(a)s и %(b)s."
 
-#: apps/scheduling/validators.py:806
+#: apps/scheduling/validators.py:816
 #, python-format
 msgid ""
 "Room %(room)s has %(seats)s seats, but %(lesson)s has %(students)s students."
@@ -1359,7 +1359,7 @@ msgstr ""
 "В аудитории %(room)s мест: %(seats)s, а студентов на занятии %(lesson)s: "
 "%(students)s."
 
-#: apps/scheduling/validators.py:816
+#: apps/scheduling/validators.py:826
 #, python-format
 msgid ""
 "%(lesson)s needs a room of type “%(required)s”, %(room)s is “%(actual)s”."
@@ -1367,74 +1367,249 @@ msgstr ""
 "Для занятия %(lesson)s нужна аудитория типа «%(required)s», а %(room)s — "
 "«%(actual)s»."
 
-#: apps/scheduling/validators.py:824
+#: apps/scheduling/validators.py:834
 #, python-format
 msgid "%(lesson)s needs a room."
 msgstr "Для занятия %(lesson)s не выбрана аудитория."
 
-#: apps/scheduling/validators.py:826
+#: apps/scheduling/validators.py:836
 #, python-format
 msgid "Online lesson %(lesson)s needs a link."
 msgstr "Для онлайн-занятия %(lesson)s не указана ссылка."
 
-#: apps/scheduling/validators.py:828
+#: apps/scheduling/validators.py:838
 #, python-format
 msgid "Room %(room)s is not in use."
 msgstr "Аудитория %(room)s сейчас не используется."
 
-#: apps/scheduling/validators.py:830
+#: apps/scheduling/validators.py:840
 #, python-format
 msgid "%(when)s is closed for lessons (%(reason)s): %(lesson)s."
 msgstr "%(when)s — время закрыто для занятий (%(reason)s): %(lesson)s."
 
-#: apps/scheduling/validators.py:836
+#: apps/scheduling/validators.py:846
 #, python-format
 msgid "%(when)s is a day off (%(reason)s): %(lesson)s."
 msgstr "%(when)s — выходной день (%(reason)s): %(lesson)s."
 
-#: apps/scheduling/validators.py:842
+#: apps/scheduling/validators.py:852
 #, python-format
 msgid "%(lesson)s is outside the %(form)s timetable (%(when)s)."
 msgstr ""
 "Занятие %(lesson)s вне расписания формы обучения «%(form)s» (%(when)s)."
 
-#: apps/scheduling/validators.py:848
+#: apps/scheduling/validators.py:858
 #, python-format
 msgid "%(lesson)s: %(when)s is outside the teaching period."
 msgstr "%(lesson)s: %(when)s — вне учебного периода."
 
-#: apps/scheduling/validators.py:853
+#: apps/scheduling/validators.py:863
 #, python-format
 msgid "%(teacher)s is not available at %(when)s (%(lesson)s)."
 msgstr "%(teacher)s не может вести занятия: %(when)s (%(lesson)s)."
 
-#: apps/scheduling/validators.py:860
+#: apps/scheduling/validators.py:870
 #, python-format
 msgid "%(lesson)s: %(placed)s of %(required)s lessons are placed."
 msgstr "%(lesson)s: размещено %(placed)s из %(required)s занятий."
 
-#: apps/scheduling/validators.py:862
+#: apps/scheduling/validators.py:872
 #, python-format
 msgid "%(lesson)s: %(placed)s lessons are placed, the plan has %(required)s."
 msgstr ""
 "%(lesson)s: размещено занятий — %(placed)s, а по плану — %(required)s."
 
-#: apps/scheduling/validators.py:870
+#: apps/scheduling/validators.py:880
 #, python-format
 msgid "%(group)s has %(count)s lessons on %(day)s (at most %(limit)s)."
 msgstr ""
 "У группы %(group)s слишком много занятий (%(day)s): %(count)s, допустимо не "
 "более %(limit)s."
 
-#: apps/scheduling/validators.py:879
+#: apps/scheduling/validators.py:889
 #, python-format
 msgid "%(teacher)s does not teach in %(language)s (%(lesson)s)."
 msgstr "%(teacher)s не преподаёт на языке: %(language)s (%(lesson)s)."
 
-#: apps/scheduling/validators.py:885
+#: apps/scheduling/validators.py:895
 #, python-format
 msgid "Stream %(stream)s joins groups with different teaching languages."
 msgstr "В поток %(stream)s объединены группы с разными языками обучения."
+
+#: apps/solver/api/serializers.py:97
+#, python-format
+msgid "Unknown soft constraints: %(names)s"
+msgstr "Неизвестные мягкие ограничения: %(names)s"
+
+#: apps/solver/api/views.py:48
+msgid "Choose a version of the current semester."
+msgstr "Выберите версию текущего семестра."
+
+#: apps/solver/api/views.py:97
+msgid "This run has already finished."
+msgstr "Этот запуск уже завершён."
+
+#: apps/solver/api/views.py:112 apps/solver/api/views.py:156
+msgid "This run has no result yet."
+msgstr "У этого запуска пока нет результата."
+
+#: apps/solver/api/views.py:166
+msgid "Form"
+msgstr "Форма обучения"
+
+#: apps/solver/api/views.py:166
+msgid "Day"
+msgstr "День"
+
+#: apps/solver/api/views.py:166
+msgid "Weeks"
+msgstr "Недели"
+
+#: apps/solver/api/views.py:166
+msgid "Time"
+msgstr "Время"
+
+#: apps/solver/api/views.py:166
+msgid "Subject"
+msgstr "Предмет"
+
+#: apps/solver/api/views.py:167
+msgid "Lesson type"
+msgstr "Тип занятия"
+
+#: apps/solver/api/views.py:167
+msgid "Groups"
+msgstr "Группы"
+
+#: apps/solver/api/views.py:167
+msgid "Room"
+msgstr "Аудитория"
+
+#: apps/solver/api/views.py:167
+msgid "Pinned"
+msgstr "Закреплено"
+
+#: apps/solver/messages.py:57
+#, python-format
+msgid ""
+"%(lesson)s: %(teacher)s does not teach in the group's language. Choose "
+"another teacher in the workload."
+msgstr ""
+"%(lesson)s: %(teacher)s не преподаёт на языке группы. Выберите другого "
+"преподавателя в нагрузке."
+
+#: apps/solver/messages.py:61
+#, python-format
+msgid "%(lesson)s: the stream joins groups with different teaching languages."
+msgstr "%(lesson)s: в поток объединены группы с разными языками обучения."
+
+#: apps/solver/messages.py:66
+#, python-format
+msgid ""
+"%(lesson)s: no suitable room (%(students)s students, the biggest suitable "
+"room has %(biggest)s seats)."
+msgstr ""
+"%(lesson)s: нет подходящей аудитории (студентов: %(students)s, в самой "
+"большой подходящей %(biggest)s мест)."
+
+#: apps/solver/messages.py:75
+#, python-format
+msgid ""
+"%(lesson)s: no free time is left — study days, closed times and the "
+"teacher's unavailable times exclude everything."
+msgstr ""
+"%(lesson)s: свободного времени не осталось — учебные дни, закрытое время и "
+"занятость преподавателя исключают всё."
+
+#: apps/solver/messages.py:80
+#, python-format
+msgid ""
+"%(count)s conflicts are among the lessons that stay in place (pinned or "
+"outside the chosen scope). The solver works around them but cannot fix them."
+msgstr ""
+"Среди занятий, которые остаются на месте (закреплённые или вне выбранной "
+"области), конфликтов: %(count)s. Программа обходит их, но исправить не "
+"может."
+
+#: apps/solver/messages.py:85
+#, python-format
+msgid ""
+"%(teacher)s has %(lessons)s lessons to place but only %(slots)s possible "
+"times."
+msgstr ""
+"У преподавателя %(teacher)s нужно разместить занятий: %(lessons)s, а "
+"возможных времён только %(slots)s."
+
+#: apps/solver/messages.py:93
+#, python-format
+msgid ""
+"%(group)s needs %(lessons)s lessons, but the daily limit allows only "
+"%(capacity)s."
+msgstr ""
+"Группе %(group)s нужно занятий: %(lessons)s, а дневной лимит позволяет "
+"только %(capacity)s."
+
+#: apps/solver/messages.py:102
+#, python-format
+msgid "teacher busy: %(n)s"
+msgstr "преподаватель занят: %(n)s"
+
+#: apps/solver/messages.py:104
+#, python-format
+msgid "group busy: %(n)s"
+msgstr "группа занята: %(n)s"
+
+#: apps/solver/messages.py:106
+#, python-format
+msgid "daily limit reached: %(n)s"
+msgstr "дневной лимит исчерпан: %(n)s"
+
+#: apps/solver/messages.py:108
+#, python-format
+msgid "no free room: %(n)s"
+msgstr "нет свободной аудитории: %(n)s"
+
+#: apps/solver/messages.py:110
+#, python-format
+msgid ""
+"%(lesson)s: %(missing)s lesson(s) not placed. All %(total)s possible times "
+"are taken (%(why)s)."
+msgstr ""
+"%(lesson)s: не размещено занятий: %(missing)s. Все возможные времена "
+"(%(total)s) заняты (%(why)s)."
+
+#: apps/solver/messages.py:120
+#, python-format
+msgid ""
+"%(count)s distance lessons were placed without a link. Add the links in the "
+"editor before publishing."
+msgstr ""
+"Дистанционных занятий без ссылки: %(count)s. Добавьте ссылки в редакторе "
+"перед публикацией."
+
+#: apps/solver/messages.py:126
+#, python-format
+msgid ""
+"Each lesson may use the %(n)s smallest rooms that fit it; bigger rooms are "
+"kept for bigger lessons."
+msgstr ""
+"Каждое занятие может занять одну из %(n)s самых маленьких подходящих "
+"аудиторий; большие остаются для больших занятий."
+
+#: apps/solver/messages.py:129
+msgid "Weekly forms are assumed to share week numbering (week 1 is odd)."
+msgstr ""
+"Считается, что у недельных форм общая нумерация недель (1-я неделя "
+"нечётная)."
+
+#: apps/solver/messages.py:131
+msgid ""
+"Building moves are reduced by keeping each group in few buildings; the "
+"lecture-before-seminar order is scored after the search, not optimised."
+msgstr ""
+"Переходы между корпусами сокращаются за счёт того, что группа занимается в "
+"немногих корпусах; порядок «сначала лекция, потом семинар» оценивается после"
+" поиска, а не оптимизируется."
 
 #: apps/solver/models.py:10
 msgid "Queued"

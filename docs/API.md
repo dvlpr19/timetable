@@ -71,3 +71,19 @@ Ziddiyat bo'lsa `409` qaytadi, `violations[].message` so'rov tilida bo'ladi. `"d
 Javobdagi `notify_students` va `notify_teachers` o'zgarish kimga xabar qilinishini bildiradi
 (faqat e'lon qilingan jadval uchun, qoralamada 0). Har bir o'zgarish `ScheduleChange`ga yoziladi.
 Bazadagi `EXCLUDE` cheklovlari validator ko'ra olmagan holatni ham ushlaydi, masalan bir vaqtdagi ikki tahrirni.
+
+## Avtomatik tuzish (CP-SAT)
+
+| So'rov | Kim | Nima qiladi |
+|---|---|---|
+| `POST /api/solver-runs/precheck/` | admin | Boshlashdan oldin tekshirish: nechta dars qo'yiladi, nimasi qo'yib bo'lmaydi va nega (hech narsa saqlanmaydi) |
+| `POST /api/solver-runs/ {"faculty"?, "form"?, "base_schedule"?, "mode": "rebuild" \| "fill", "time_limit": 10–600, "seed"?, "weights"?}` | admin | Ishga tushirish (Celery navbatiga qo'yiladi) |
+| `GET /api/solver-runs/` va `/{id}/` | xodimlar | Holat, jonli `progress` (bosqich, joylashtirilgan darslar, vaqt), natija raqamlari va izohlar (so'rov tilida) |
+| `POST /api/solver-runs/{id}/cancel/` | admin | To'xtatish (1 soniya ichida to'xtaydi, natija saqlanmaydi) |
+| `GET /api/solver-runs/{id}/compare/` | xodimlar | Natijani boshlang'ich versiya bilan solishtirish: darslar, joylashtirilmaganlar, ziddiyatlar, yumshoq ko'rsatkichlar, nechta dars ko'chdi |
+| `GET /api/solver-runs/{id}/entries/` | xodimlar | Natija jadvali CSV ko'rinishida |
+| `GET /api/solver-runs/export/` | xodimlar | Barcha ishga tushirishlar raqamlari CSV (sozlamalar va algoritmlarni solishtirish uchun) |
+
+- `mode = rebuild`: tanlangan doiradagi darslar qaytadan qo'yiladi, qadalganlari qoladi. `fill`: mavjud darslar qoladi, faqat yetishmayotganlari qo'yiladi.
+- Natija har doim yangi qoralama (`result_schedule`). Undagi har bir dars validatordan qayta o'tkaziladi, `hard_violations` shu tekshiruv natijasi.
+- Buyruq qatoridan: `python manage.py run_solver --faculty ISL --time-limit 90`.

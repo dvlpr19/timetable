@@ -8,6 +8,7 @@ import { AdminLayout } from '@/layouts/AdminLayout';
 import { DashboardPage } from '@/pages/admin/DashboardPage';
 import { ResourcePage } from '@/pages/admin/data/ResourcePage';
 import { SchedulePage } from '@/pages/admin/schedule/SchedulePage';
+import { SolverPage } from '@/pages/admin/solver/SolverPage';
 import { HomePage } from '@/pages/HomePage';
 import { LoginPage } from '@/pages/LoginPage';
 
@@ -54,6 +55,7 @@ export default function App() {
       >
         <Route index element={<DashboardPage />} />
         <Route path="schedule" element={<SchedulePage />} />
+        <Route path="solver" element={<SolverPage />} />
         <Route path="data/:resource" element={<ResourcePage />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />

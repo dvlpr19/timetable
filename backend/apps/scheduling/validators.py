@@ -41,6 +41,16 @@ from apps.core.dates import format_long_date, lesson_label, weekday_name
 
 from .services.occurrences import CalendarIndex, lesson_dates, parity_matches
 
+# Distance lessons placed automatically get this stand-in link (the database requires a room
+# or a link). ".invalid" never resolves; the validator still reports the link as missing, so
+# such a timetable cannot be published until real links are entered.
+LINK_PLACEHOLDER = "https://link-kerak.invalid/"
+
+
+def needs_link(url: str) -> bool:
+    return not url or url.startswith(LINK_PLACEHOLDER)
+
+
 # --------------------------------------------------------------------------- codes
 
 
@@ -437,7 +447,7 @@ class Validator:
         if form.requires_room:
             if p.room_id is None:
                 add(Code.ROOM_MISSING)
-        elif p.room_id is None and not p.online_url:
+        elif p.room_id is None and needs_link(p.online_url):
             add(Code.LINK_MISSING)
         room = ctx.rooms.get(p.room_id) if p.room_id is not None else None
         if room:
@@ -1068,6 +1078,7 @@ def validate_schedule(schedule, *, completeness: bool = True):
 
 __all__ = [
     "DEFAULT_WEIGHTS",
+    "LINK_PLACEHOLDER",
     "Code",
     "Placement",
     "Soft",
@@ -1076,6 +1087,7 @@ __all__ = [
     "Validator",
     "Violation",
     "describe",
+    "needs_link",
     "load_context",
     "plan_fulfilment",
     "placements_from_entries",

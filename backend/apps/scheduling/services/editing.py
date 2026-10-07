@@ -246,12 +246,12 @@ def publish(schedule: Schedule) -> None:
 
 
 @transaction.atomic
-def copy_schedule(source: Schedule, *, name: str, user=None) -> Schedule:
-    """A new draft with the same entries and cancellations."""
+def copy_schedule(source: Schedule, *, name: str, user=None, exclude=()) -> Schedule:
+    """A new draft with the same entries and cancellations (minus `exclude` entry ids)."""
     draft = Schedule.objects.create(
         semester=source.semester, name=name, based_on=source, created_by=user
     )
-    entries = list(source.entries.all())
+    entries = list(source.entries.exclude(pk__in=exclude))
     old_pks = [e.pk for e in entries]
     for entry in entries:
         entry.pk = None
@@ -259,7 +259,7 @@ def copy_schedule(source: Schedule, *, name: str, user=None) -> Schedule:
     ScheduleEntry.objects.bulk_create(entries, batch_size=1000)
     mapping = dict(zip(old_pks, entries, strict=True))
     occurrences = []
-    for occ in EntryOccurrence.objects.filter(schedule=source):
+    for occ in EntryOccurrence.objects.filter(schedule=source, entry__in=old_pks):
         occ.pk = None
         occ.schedule = draft
         occ.entry = mapping[occ.entry_id]

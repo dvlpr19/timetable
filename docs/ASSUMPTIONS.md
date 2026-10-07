@@ -56,3 +56,14 @@ Ustunlar: **Qayerda sozlanadi** — admin panel (Django admin, 5-bosqichdan bosh
 | 27 | Yumshoq cheklovlarning boshlang'ich og'irliklari: talaba oynasi 10, bir kunda bir fandan 2 tadan ortiq dars 8, binolar orasida ko'chish 6, smenadan chiqish 6, o'qituvchining qulay vaqti 5, ma'ruzaning seminardan oldin bo'lishi 4, o'qituvchi oynasi 3, haftada bir nechta bino 2, asr tanaffusi 1. Haftalik darslar bir toq va bir juft hafta bo'yicha o'rtacha hisoblanadi. | `DEFAULT_WEIGHTS`, keyin "Avtomatik tuzish" ekranidagi slayderlar | Taxmin |
 | 28 | Kunlik dars limiti har bir talaba nuqtai nazaridan sanaladi: butun guruh darsi va o'z kichik guruhining darsi. Masalan, 3 ta umumiy dars va har bir kichik guruhga 1 tadan dars bo'lsa, talabada 4 ta dars, 5 ta emas. | Kod | Taxmin |
 | 29 | Toq va juft haftada o'tiladigan darslar (masalan, haftasiga 1,5 dars) eng yaqin butun songa yaxlitlanadi. Rejadagi va jadvaldagi soatlar orasidagi farq "reja bajarilishi" hisobotida ko'rsatiladi. | `distribute_weekly` | Taxmin |
+
+## Avtomatik tuzish (CP-SAT)
+
+| # | Taxmin | Qayerda sozlanadi | Holat |
+|---|---|---|---|
+| 30 | Har bir dars o'ziga sig'adigan (va kerakli turdagi) eng kichik 8 ta xonadan birini oladi. Katta xonalar katta darslar uchun bo'sh qoladi, model ham kichik bo'ladi. | Kod: `ROOMS_PER_UNIT` | Taxmin |
+| 31 | Haftalik shakllar (kunduzgi, kechki, masofaviy) bir xil hafta raqamlashidan foydalanadi (1-hafta toq). Ikki haftalik dars bir vaqtga to'g'ri kelsa, ularning davrlari kesishmasa ham ziddiyat deb hisoblanadi (ehtiyotkor yondashuv). Sirtqi sana darslari esa haftalik darslar bilan aniq sana bo'yicha solishtiriladi. | Kod: `apps/solver/cpsat.py` | Taxmin |
+| 32 | Dastur avval iloji boricha ko'p darsni joylashtiradi (1-bosqich, vaqtning 40 %), keyin shu sonni saqlagan holda yumshoq cheklovlarni yaxshilaydi (2-bosqich). Vaqt chegarasi butun ishga tushirishni (yuklash va saqlash bilan) o'z ichiga oladi. | Kod: `PHASE1_SHARE`, "Avtomatik tuzish" ekrani | Taxmin |
+| 33 | Qidiruv paytida optimallashtiriladi: talaba va o'qituvchi oynalari, o'qituvchining qulay vaqti, bir kunda bir fandan ko'p dars, smena, asr tanaffusi, guruh foydalanadigan binolar soni (binolar orasida yurishni ham kamaytiradi). "Avval ma'ruza, keyin seminar" tartibi va aniq yurishlar soni faqat natijada baholanadi. | Kod | Taxmin |
+| 34 | Avtomatik qo'yilgan masofaviy darslarga vaqtinchalik `https://link-kerak.invalid/…` havolasi yoziladi (bazada xona yoki havola majburiy). Bu manzil hech qachon ochilmaydi, validator uni "havola yo'q" deb hisoblaydi, shuning uchun haqiqiy havolalar kiritilmaguncha jadval e'lon qilinmaydi. | `LINK_PLACEHOLDER` | Taxmin |
+| 35 | Avtomatik tuzish natijasi har doim yangi qoralama bo'ladi; e'lon qilingan jadval o'zgarmaydi. Qadalgan darslar va tanlangan doiradan (fakultet, shakl) tashqaridagi darslar joyida qoladi. | "Avtomatik tuzish" ekrani | Promptdan |

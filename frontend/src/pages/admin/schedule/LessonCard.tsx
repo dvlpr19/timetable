@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { cn } from '@/lib/cn';
 import { lessonTypeClasses } from '@/lib/lessonTypes';
+import { needsLink } from '@/lib/links';
 import type { TimetableEntry } from '@/types/timetable';
 
 import type { MoveSource } from './useEditor';
@@ -34,7 +35,11 @@ export function LessonCard({ entry, view, draggable, conflict, onOpen }: Props) 
     view !== 'group' && (entry.stream ?? entry.groups.map((g) => g.name).join(', ')),
     entry.subgroup && t('admin:editor.subgroup', { n: entry.subgroup }),
   ].filter(Boolean);
-  const where = entry.room ? entry.room.name : entry.online_url ? t('admin:editor.online') : '';
+  const where = entry.room
+    ? entry.room.name
+    : needsLink(entry.online_url)
+      ? t('admin:lesson.linkNeeded')
+      : t('admin:editor.online');
 
   return (
     <button
@@ -64,7 +69,13 @@ export function LessonCard({ entry, view, draggable, conflict, onOpen }: Props) 
         <span className="ml-auto flex shrink-0 gap-0.5 text-ink-muted">
           {conflict && <AlertTriangle size={13} aria-hidden="true" className="text-danger-fg" />}
           {entry.is_locked && <Pin size={13} aria-hidden="true" />}
-          {entry.online_url && <Video size={13} aria-hidden="true" />}
+          {entry.online_url && (
+            <Video
+              size={13}
+              aria-hidden="true"
+              className={needsLink(entry.online_url) ? 'text-warning-fg' : undefined}
+            />
+          )}
         </span>
       </span>
       <span className="mt-0.5 block truncate text-ink-muted">
