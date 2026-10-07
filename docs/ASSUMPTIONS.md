@@ -48,3 +48,11 @@ Ustunlar: **Qayerda sozlanadi** — admin panel (Django admin, 5-bosqichdan bosh
 | 24 | Ilova tili birinchi kirishda brauzer tilidan aniqlanadi, aniqlanmasa o'zbekcha. Keyin profilda saqlanadi. Rus guruhi talabalari uchun boshlang'ich til ruscha. | `frontend/src/i18n`, `User.language` | Promptdan |
 | 25 | Demo hozirgi sana sifatida 2026-yil 8-aprel (chorshanba) ishlatiladi. Haqiqiy sana 2025–2026 o'quv yilidan keyin bo'lgani uchun busiz "Bugun" ekrani bo'sh qolardi. Bu 7-bosqichda `DEMO_NOW` sozlamasi bilan qo'shiladi. | `.env` | Reja |
 | 26 | Hamma ism, familiya, HEMIS ID va telefonlar to'qima. HEMIS ID formati namuna: `36` + shifrning oxirgi 4 raqami + tartib raqami. | Seed | To'qima |
+
+## Cheklovlar (validator)
+
+| # | Taxmin | Qayerda sozlanadi | Holat |
+|---|---|---|---|
+| 27 | Yumshoq cheklovlarning boshlang'ich og'irliklari: talaba oynasi 10, bir kunda bir fandan 2 tadan ortiq dars 8, binolar orasida ko'chish 6, smenadan chiqish 6, o'qituvchining qulay vaqti 5, ma'ruzaning seminardan oldin bo'lishi 4, o'qituvchi oynasi 3, haftada bir nechta bino 2, asr tanaffusi 1. Haftalik darslar bir toq va bir juft hafta bo'yicha o'rtacha hisoblanadi. | `DEFAULT_WEIGHTS`, keyin "Avtomatik tuzish" ekranidagi slayderlar | Taxmin |
+| 28 | Kunlik dars limiti har bir talaba nuqtai nazaridan sanaladi: butun guruh darsi va o'z kichik guruhining darsi. Masalan, 3 ta umumiy dars va har bir kichik guruhga 1 tadan dars bo'lsa, talabada 4 ta dars, 5 ta emas. | Kod | Taxmin |
+| 29 | Toq va juft haftada o'tiladigan darslar (masalan, haftasiga 1,5 dars) eng yaqin butun songa yaxlitlanadi. Rejadagi va jadvaldagi soatlar orasidagi farq "reja bajarilishi" hisobotida ko'rsatiladi. | `distribute_weekly` | Taxmin |

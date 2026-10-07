@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "django_filters",
     "drf_spectacular",
+    "apps.core",
     "apps.accounts",
     "apps.academics",
     "apps.scheduling",

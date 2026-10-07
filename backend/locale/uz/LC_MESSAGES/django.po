@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dars-jadvali 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-07 10:44+0500\n"
+"POT-Creation-Date: 2026-10-07 11:38+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: apps/academics/choices.py:10 config/settings.py:92
+#: apps/academics/choices.py:10 config/settings.py:93
 msgid "Uzbek"
 msgstr "O'zbekcha"
 
-#: apps/academics/choices.py:11 config/settings.py:93
+#: apps/academics/choices.py:11 config/settings.py:94
 msgid "Russian"
 msgstr "Ruscha"
 
-#: apps/academics/choices.py:12 config/settings.py:94
+#: apps/academics/choices.py:12 config/settings.py:95
 msgid "English"
 msgstr "Inglizcha"
 
@@ -49,31 +49,31 @@ msgstr "Kuzgi semestr"
 msgid "Spring semester"
 msgstr "Bahorgi semestr"
 
-#: apps/academics/choices.py:27 apps/notifications/rendering.py:15
+#: apps/academics/choices.py:27 apps/core/dates.py:10
 msgid "Monday"
 msgstr "Dushanba"
 
-#: apps/academics/choices.py:28 apps/notifications/rendering.py:16
+#: apps/academics/choices.py:28 apps/core/dates.py:11
 msgid "Tuesday"
 msgstr "Seshanba"
 
-#: apps/academics/choices.py:29 apps/notifications/rendering.py:17
+#: apps/academics/choices.py:29 apps/core/dates.py:12
 msgid "Wednesday"
 msgstr "Chorshanba"
 
-#: apps/academics/choices.py:30 apps/notifications/rendering.py:18
+#: apps/academics/choices.py:30 apps/core/dates.py:13
 msgid "Thursday"
 msgstr "Payshanba"
 
-#: apps/academics/choices.py:31 apps/notifications/rendering.py:19
+#: apps/academics/choices.py:31 apps/core/dates.py:14
 msgid "Friday"
 msgstr "Juma"
 
-#: apps/academics/choices.py:32 apps/notifications/rendering.py:20
+#: apps/academics/choices.py:32 apps/core/dates.py:15
 msgid "Saturday"
 msgstr "Shanba"
 
-#: apps/academics/choices.py:33 apps/notifications/rendering.py:21
+#: apps/academics/choices.py:33 apps/core/dates.py:16
 msgid "Sunday"
 msgstr "Yakshanba"
 
@@ -94,7 +94,6 @@ msgid "Public holiday"
 msgstr "Bayram kuni"
 
 #: apps/academics/choices.py:44
-#| msgid "Dean's office"
 msgid "Day off"
 msgstr "Dam olish kuni"
 
@@ -107,7 +106,6 @@ msgid "Mixed"
 msgstr "Aralash"
 
 #: apps/academics/choices.py:50
-#| msgid "Student"
 msgid "Male students"
 msgstr "O'g'il bolalar"
 
@@ -415,7 +413,6 @@ msgstr "fanlar"
 
 #: apps/academics/models/curriculum.py:73 apps/academics/models/people.py:32
 #: apps/academics/models/people.py:111
-#| msgid "interface language"
 msgid "teaching language"
 msgstr "ta'lim tili"
 
@@ -469,7 +466,6 @@ msgstr "kursdagi tartib raqami"
 
 #: apps/academics/models/people.py:34 apps/academics/models/people.py:83
 #: apps/academics/models/people.py:235
-#| msgid "Student"
 msgid "students"
 msgstr "talabalar"
 
@@ -538,17 +534,14 @@ msgid "max lessons per week"
 msgstr "haftasiga ko'pi bilan darslar"
 
 #: apps/academics/models/people.py:151
-#| msgid "interface language"
 msgid "teaching languages"
 msgstr "dars bera oladigan tillari"
 
 #: apps/academics/models/people.py:156
-#| msgid "Teacher"
 msgid "teacher"
 msgstr "o'qituvchi"
 
 #: apps/academics/models/people.py:157
-#| msgid "Teacher"
 msgid "teachers"
 msgstr "o'qituvchilar"
 
@@ -573,7 +566,6 @@ msgid "phone"
 msgstr "telefon"
 
 #: apps/academics/models/people.py:234
-#| msgid "Student"
 msgid "student"
 msgstr "talaba"
 
@@ -646,7 +638,6 @@ msgid "academies"
 msgstr "akademiyalar"
 
 #: apps/academics/models/structure.py:28
-#| msgid "interface language"
 msgid "main teaching language"
 msgstr "asosiy ta'lim tili"
 
@@ -659,12 +650,10 @@ msgid "faculties"
 msgstr "fakultetlar"
 
 #: apps/academics/models/structure.py:51 apps/accounts/models.py:44
-#| msgid "Head of department"
 msgid "department"
 msgstr "kafedra"
 
 #: apps/academics/models/structure.py:52
-#| msgid "Head of department"
 msgid "departments"
 msgstr "kafedralar"
 
@@ -784,33 +773,102 @@ msgstr "foydalanuvchilar"
 msgid "Incorrect login or password."
 msgstr "Login yoki parol noto'g'ri."
 
-#: apps/notifications/models.py:9 apps/notifications/rendering.py:72
+#: apps/core/dates.py:22
+msgctxt "genitive month"
+msgid "January"
+msgstr "yanvar"
+
+#: apps/core/dates.py:23
+msgctxt "genitive month"
+msgid "February"
+msgstr "fevral"
+
+#: apps/core/dates.py:24
+msgctxt "genitive month"
+msgid "March"
+msgstr "mart"
+
+#: apps/core/dates.py:25
+msgctxt "genitive month"
+msgid "April"
+msgstr "aprel"
+
+#: apps/core/dates.py:26
+msgctxt "genitive month"
+msgid "May"
+msgstr "may"
+
+#: apps/core/dates.py:27
+msgctxt "genitive month"
+msgid "June"
+msgstr "iyun"
+
+#: apps/core/dates.py:28
+msgctxt "genitive month"
+msgid "July"
+msgstr "iyul"
+
+#: apps/core/dates.py:29
+msgctxt "genitive month"
+msgid "August"
+msgstr "avgust"
+
+#: apps/core/dates.py:30
+msgctxt "genitive month"
+msgid "September"
+msgstr "sentabr"
+
+#: apps/core/dates.py:31
+msgctxt "genitive month"
+msgid "October"
+msgstr "oktabr"
+
+#: apps/core/dates.py:32
+msgctxt "genitive month"
+msgid "November"
+msgstr "noyabr"
+
+#: apps/core/dates.py:33
+msgctxt "genitive month"
+msgid "December"
+msgstr "dekabr"
+
+#: apps/core/dates.py:44
+#, python-format
+msgid "%(day)s %(month)s, %(weekday)s"
+msgstr "%(day)s-%(month)s, %(weekday)s"
+
+#: apps/core/dates.py:62
+#, python-format
+msgid "%(day)s, lesson %(number)s"
+msgstr "%(day)s, %(number)s-dars"
+
+#: apps/notifications/models.py:9 apps/notifications/rendering.py:22
 msgid "Lesson moved to another room"
 msgstr "Dars boshqa xonaga ko'chirildi"
 
-#: apps/notifications/models.py:10 apps/notifications/rendering.py:73
+#: apps/notifications/models.py:10 apps/notifications/rendering.py:23
 msgid "Lesson moved to another time"
 msgstr "Dars boshqa vaqtga ko'chirildi"
 
-#: apps/notifications/models.py:11 apps/notifications/rendering.py:74
+#: apps/notifications/models.py:11 apps/notifications/rendering.py:24
 #: apps/scheduling/models.py:185
 msgid "Lesson cancelled"
 msgstr "Dars bekor qilindi"
 
-#: apps/notifications/models.py:12 apps/notifications/rendering.py:75
-#| msgid "Teacher"
+#: apps/notifications/models.py:12 apps/notifications/rendering.py:25
 msgid "Teacher replaced"
 msgstr "O'qituvchi almashtirildi"
 
-#: apps/notifications/models.py:13 apps/notifications/rendering.py:76
+#: apps/notifications/models.py:13 apps/notifications/rendering.py:26
 msgid "New lesson added"
 msgstr "Yangi dars qo'shildi"
 
-#: apps/notifications/models.py:14 apps/notifications/rendering.py:77
+#: apps/notifications/models.py:14 apps/notifications/rendering.py:27
 msgid "Online lesson link changed"
 msgstr "Onlayn dars havolasi o'zgardi"
 
-#: apps/notifications/models.py:15 apps/notifications/rendering.py:78
+#: apps/notifications/models.py:15 apps/notifications/rendering.py:28
 msgid "New timetable published"
 msgstr "Yangi dars jadvali e'lon qilindi"
 
@@ -862,79 +920,14 @@ msgstr "kechki xulosa"
 msgid "notification settings"
 msgstr "xabar sozlamalari"
 
-#: apps/notifications/rendering.py:27
-msgctxt "genitive month"
-msgid "January"
-msgstr "yanvar"
-
-#: apps/notifications/rendering.py:28
-msgctxt "genitive month"
-msgid "February"
-msgstr "fevral"
-
-#: apps/notifications/rendering.py:29
-msgctxt "genitive month"
-msgid "March"
-msgstr "mart"
-
-#: apps/notifications/rendering.py:30
-msgctxt "genitive month"
-msgid "April"
-msgstr "aprel"
-
-#: apps/notifications/rendering.py:31
-msgctxt "genitive month"
-msgid "May"
-msgstr "may"
-
-#: apps/notifications/rendering.py:32
-msgctxt "genitive month"
-msgid "June"
-msgstr "iyun"
-
-#: apps/notifications/rendering.py:33
-msgctxt "genitive month"
-msgid "July"
-msgstr "iyul"
-
-#: apps/notifications/rendering.py:34
-msgctxt "genitive month"
-msgid "August"
-msgstr "avgust"
-
 #: apps/notifications/rendering.py:35
-msgctxt "genitive month"
-msgid "September"
-msgstr "sentabr"
-
-#: apps/notifications/rendering.py:36
-msgctxt "genitive month"
-msgid "October"
-msgstr "oktabr"
-
-#: apps/notifications/rendering.py:37
-msgctxt "genitive month"
-msgid "November"
-msgstr "noyabr"
-
-#: apps/notifications/rendering.py:38
-msgctxt "genitive month"
-msgid "December"
-msgstr "dekabr"
-
-#: apps/notifications/rendering.py:49
-#, python-format
-msgid "%(day)s %(month)s, %(weekday)s"
-msgstr "%(day)s-%(month)s, %(weekday)s"
-
-#: apps/notifications/rendering.py:85
 #, python-format
 msgid "The timetable for %(semester)s is published. Check your lessons."
 msgstr ""
 "%(semester)s uchun dars jadvali e'lon qilindi. Darslaringizni ko'rib "
 "chiqing."
 
-#: apps/notifications/rendering.py:91
+#: apps/notifications/rendering.py:41
 #, python-format
 msgid ""
 "%(day)s, lesson %(number)s: %(subject)s moved from %(old_room)s to room "
@@ -943,7 +936,7 @@ msgstr ""
 "%(day)s, %(number)s-dars: %(subject)s darsi %(old_room)s dan %(new_room)s "
 "xonasiga ko'chirildi."
 
-#: apps/notifications/rendering.py:95
+#: apps/notifications/rendering.py:45
 #, python-format
 msgid ""
 "%(subject)s moved from %(day)s, lesson %(number)s to %(new_day)s, lesson "
@@ -952,12 +945,12 @@ msgstr ""
 "%(subject)s darsi %(day)s, %(number)s-darsdan %(new_day)s, "
 "%(new_number)s-darsga ko'chirildi."
 
-#: apps/notifications/rendering.py:99
+#: apps/notifications/rendering.py:49
 #, python-format
 msgid "%(day)s, lesson %(number)s: %(subject)s is cancelled."
 msgstr "%(day)s, %(number)s-dars: %(subject)s darsi bekor qilindi."
 
-#: apps/notifications/rendering.py:102
+#: apps/notifications/rendering.py:52
 #, python-format
 msgid ""
 "%(day)s, lesson %(number)s: %(subject)s will be taught by %(new_teacher)s "
@@ -966,12 +959,12 @@ msgstr ""
 "%(day)s, %(number)s-dars: %(subject)s darsini %(old_teacher)s o'rniga "
 "%(new_teacher)s o'tadi."
 
-#: apps/notifications/rendering.py:106
+#: apps/notifications/rendering.py:56
 #, python-format
 msgid "New lesson: %(subject)s, %(day)s, lesson %(number)s, %(room)s."
 msgstr "Yangi dars: %(subject)s, %(day)s, %(number)s-dars, %(room)s."
 
-#: apps/notifications/rendering.py:112
+#: apps/notifications/rendering.py:62
 #, python-format
 msgid ""
 "%(subject)s (%(day)s, lesson %(number)s): the online lesson link has "
@@ -996,7 +989,6 @@ msgid "status"
 msgstr "holati"
 
 #: apps/scheduling/models.py:39
-#| msgid "Timetable"
 msgid "timetable version"
 msgstr "jadval versiyasi"
 
@@ -1025,12 +1017,10 @@ msgid "note"
 msgstr "izoh"
 
 #: apps/scheduling/models.py:88
-#| msgid "Timetable"
 msgid "timetable entry"
 msgstr "jadvaldagi dars"
 
 #: apps/scheduling/models.py:89
-#| msgid "Timetable"
 msgid "timetable entries"
 msgstr "jadvaldagi darslar"
 
@@ -1079,12 +1069,10 @@ msgid "comment"
 msgstr "izoh"
 
 #: apps/scheduling/models.py:211
-#| msgid "Timetable"
 msgid "timetable change"
 msgstr "jadvaldagi o'zgarish"
 
 #: apps/scheduling/models.py:212
-#| msgid "Timetable"
 msgid "timetable changes"
 msgstr "jadvaldagi o'zgarishlar"
 
@@ -1123,6 +1111,112 @@ msgstr "ko'chirish so'rovi"
 #: apps/scheduling/models.py:254
 msgid "reschedule requests"
 msgstr "ko'chirish so'rovlari"
+
+#: apps/scheduling/validators.py:782
+#, python-format
+msgid ""
+"%(teacher)s has two lessons at the same time (%(when)s): %(a)s and %(b)s."
+msgstr ""
+"%(teacher)s bir vaqtda ikkita darsga qo'yilgan (%(when)s): %(a)s va %(b)s."
+
+#: apps/scheduling/validators.py:790
+#, python-format
+msgid ""
+"%(group)s has two lessons at the same time (%(when)s): %(a)s and %(b)s."
+msgstr ""
+"%(group)s guruhiga bir vaqtda ikkita dars qo'yilgan (%(when)s): %(a)s va "
+"%(b)s."
+
+#: apps/scheduling/validators.py:797
+#, python-format
+msgid "Room %(room)s is taken twice (%(when)s): %(a)s and %(b)s."
+msgstr ""
+"%(room)s xonasi bir vaqtda ikki darsga band qilingan (%(when)s): %(a)s va "
+"%(b)s."
+
+#: apps/scheduling/validators.py:806
+#, python-format
+msgid ""
+"Room %(room)s has %(seats)s seats, but %(lesson)s has %(students)s students."
+msgstr ""
+"%(room)s xonasida %(seats)s o'rin bor, %(lesson)s darsida esa %(students)s "
+"talaba."
+
+#: apps/scheduling/validators.py:816
+#, python-format
+msgid ""
+"%(lesson)s needs a room of type “%(required)s”, %(room)s is “%(actual)s”."
+msgstr ""
+"%(lesson)s uchun “%(required)s” turidagi xona kerak, %(room)s esa "
+"“%(actual)s”."
+
+#: apps/scheduling/validators.py:824
+#, python-format
+msgid "%(lesson)s needs a room."
+msgstr "%(lesson)s uchun xona tanlanmagan."
+
+#: apps/scheduling/validators.py:826
+#, python-format
+msgid "Online lesson %(lesson)s needs a link."
+msgstr "%(lesson)s onlayn darsi uchun havola kiritilmagan."
+
+#: apps/scheduling/validators.py:828
+#, python-format
+msgid "Room %(room)s is not in use."
+msgstr "%(room)s xonasidan hozir foydalanilmaydi."
+
+#: apps/scheduling/validators.py:830
+#, python-format
+msgid "%(when)s is closed for lessons (%(reason)s): %(lesson)s."
+msgstr "%(when)s darslar uchun yopiq (%(reason)s): %(lesson)s."
+
+#: apps/scheduling/validators.py:836
+#, python-format
+msgid "%(when)s is a day off (%(reason)s): %(lesson)s."
+msgstr "%(when)s dam olish kuni (%(reason)s): %(lesson)s."
+
+#: apps/scheduling/validators.py:842
+#, python-format
+msgid "%(lesson)s is outside the %(form)s timetable (%(when)s)."
+msgstr "%(lesson)s %(form)s ta'lim jadvalidan tashqarida (%(when)s)."
+
+#: apps/scheduling/validators.py:848
+#, python-format
+msgid "%(lesson)s: %(when)s is outside the teaching period."
+msgstr "%(lesson)s: %(when)s o'qish davridan tashqarida."
+
+#: apps/scheduling/validators.py:853
+#, python-format
+msgid "%(teacher)s is not available at %(when)s (%(lesson)s)."
+msgstr "%(teacher)s %(when)s dars bera olmaydi (%(lesson)s)."
+
+#: apps/scheduling/validators.py:860
+#, python-format
+msgid "%(lesson)s: %(placed)s of %(required)s lessons are placed."
+msgstr "%(lesson)s: %(required)s ta darsdan %(placed)s tasi joylashtirilgan."
+
+#: apps/scheduling/validators.py:862
+#, python-format
+msgid "%(lesson)s: %(placed)s lessons are placed, the plan has %(required)s."
+msgstr ""
+"%(lesson)s: %(placed)s ta dars joylashtirilgan, rejada esa %(required)s ta."
+
+#: apps/scheduling/validators.py:870
+#, python-format
+msgid "%(group)s has %(count)s lessons on %(day)s (at most %(limit)s)."
+msgstr ""
+"%(group)s guruhida %(day)s kuni %(count)s ta dars bor, ko'pi bilan %(limit)s"
+" ta bo'lishi mumkin."
+
+#: apps/scheduling/validators.py:879
+#, python-format
+msgid "%(teacher)s does not teach in %(language)s (%(lesson)s)."
+msgstr "%(teacher)s %(language)s dars bermaydi (%(lesson)s)."
+
+#: apps/scheduling/validators.py:885
+#, python-format
+msgid "Stream %(stream)s joins groups with different teaching languages."
+msgstr "%(stream)s oqimida ta'lim tili har xil bo'lgan guruhlar bor."
 
 #: apps/solver/models.py:10
 msgid "Queued"

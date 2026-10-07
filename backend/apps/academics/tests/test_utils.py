@@ -10,6 +10,9 @@ from apps.academics.utils import distribute_weekly
         (30, 15, 1, 0, 15),  # 1 lesson a week
         (60, 15, 2, 0, 30),
         (45, 15, 1, 1, 23),  # 1.5 a week → every week + odd weeks
+        (20, 15, 0, 1, 10),  # 10 lessons: one every other week (8) is the closest
+        (8, 15, 0, 1, 4),
+        (24, 15, 0, 2, 12),
     ],
 )
 def test_distribute_weekly(hours, weeks, weekly, alternating, total):

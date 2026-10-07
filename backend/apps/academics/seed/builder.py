@@ -26,6 +26,7 @@ from apps.scheduling.models import (
     ScheduleStatus,
 )
 from apps.scheduling.services.occurrences import CalendarIndex, sync_occurrences
+from apps.scheduling.validators import describe, validate_schedule
 
 from ..models import (
     HOURS_PER_CREDIT,
@@ -768,7 +769,21 @@ class DemoBuilder:
         self.build_users()
         self.build_schedule()
         self.build_notifications()
+        self.check_schedule()
         return self.summary()
+
+    def check_schedule(self) -> None:
+        """Section 7: the seeded timetable must have zero hard conflicts."""
+        report, ctx, placements = validate_schedule(self.schedule)
+        if report.conflicts:
+            reasons = "\n".join(describe(v, ctx, placements) for v in report.conflicts)
+            raise RuntimeError(f"Seeded timetable has conflicts:\n{reasons}")
+        self.hard_conflicts = len(report.conflicts)
+        self.not_placed = sum(
+            v.params["required"] - v.params["placed"]
+            for v in report.violations
+            if v.is_completeness
+        )
 
     def summary(self) -> dict:
         return {
@@ -792,6 +807,8 @@ class DemoBuilder:
                 for a in TeachingAssignment.objects.filter(period__weeks_count__isnull=True)
             ),
             "timetable entries (pinned)": ScheduleEntry.objects.count(),
+            "hard conflicts (validator)": self.hard_conflicts,
+            "lessons not yet placed": self.not_placed,
             "lesson occurrences": EntryOccurrence.objects.count(),
             "calendar days": AcademicCalendarDay.objects.count(),
             "users": User.objects.count(),

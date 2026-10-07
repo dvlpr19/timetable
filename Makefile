@@ -42,7 +42,7 @@ format:
 	$(FRONTEND) npm run format
 
 makemessages:
-	$(BACKEND) python manage.py makemessages -l uz -l ru -l en --no-fuzzy-matching --ignore=tests
+	$(BACKEND) python manage.py makemessages -l uz -l ru -l en --ignore=tests --ignore=*/seed/*
 
 shell:
 	$(BACKEND_DB) python manage.py shell
