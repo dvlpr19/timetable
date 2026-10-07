@@ -18,31 +18,63 @@ class TeachingAssignment(models.Model):
     `total_lessons` is always the number the plan expects in the period.
     """
 
-    period = models.ForeignKey(TeachingPeriod, on_delete=models.CASCADE, related_name="assignments")
-    teacher = models.ForeignKey(Teacher, on_delete=models.PROTECT, related_name="assignments")
-    subject = models.ForeignKey(Subject, on_delete=models.PROTECT, related_name="assignments")
-    lesson_type = models.ForeignKey(LessonType, on_delete=models.PROTECT, related_name="+")
+    period = models.ForeignKey(
+        TeachingPeriod,
+        verbose_name=_("teaching period"),
+        on_delete=models.CASCADE,
+        related_name="assignments",
+    )
+    teacher = models.ForeignKey(
+        Teacher, verbose_name=_("teacher"), on_delete=models.PROTECT, related_name="assignments"
+    )
+    subject = models.ForeignKey(
+        Subject, verbose_name=_("subject"), on_delete=models.PROTECT, related_name="assignments"
+    )
+    lesson_type = models.ForeignKey(
+        LessonType, verbose_name=_("lesson type"), on_delete=models.PROTECT, related_name="+"
+    )
     curriculum_item = models.ForeignKey(
         CurriculumItem,
+        verbose_name=_("curriculum item"),
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
         related_name="assignments",
     )
     group = models.ForeignKey(
-        Group, on_delete=models.CASCADE, null=True, blank=True, related_name="assignments"
+        Group,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="assignments",
+        verbose_name=_("group"),
     )
     stream = models.ForeignKey(
-        Stream, on_delete=models.CASCADE, null=True, blank=True, related_name="assignments"
+        Stream,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="assignments",
+        verbose_name=_("stream"),
     )
     subgroup = models.ForeignKey(
-        SubGroup, on_delete=models.CASCADE, null=True, blank=True, related_name="assignments"
+        SubGroup,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="assignments",
+        verbose_name=_("subgroup"),
     )
     weekly_lessons = models.PositiveSmallIntegerField(_("lessons every week"), default=0)
     alternating_lessons = models.PositiveSmallIntegerField(_("lessons every other week"), default=0)
     total_lessons = models.PositiveSmallIntegerField(_("lessons in the period"))
     required_room_type = models.ForeignKey(
-        RoomType, on_delete=models.SET_NULL, null=True, blank=True, related_name="+"
+        RoomType,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="+",
+        verbose_name=_("required room type"),
     )
 
     class Meta:

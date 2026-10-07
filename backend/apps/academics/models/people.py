@@ -24,7 +24,9 @@ from .structure import Department, Faculty, ProgramForm
 
 
 class Group(models.Model):
-    program_form = models.ForeignKey(ProgramForm, on_delete=models.PROTECT, related_name="groups")
+    program_form = models.ForeignKey(
+        ProgramForm, verbose_name=_("program form"), on_delete=models.PROTECT, related_name="groups"
+    )
     name = models.CharField(_("name"), max_length=30, unique=True)
     course = models.PositiveSmallIntegerField(_("year of study"))
     number = models.PositiveSmallIntegerField(_("number within course"))
@@ -78,7 +80,9 @@ class Group(models.Model):
 class SubGroup(models.Model):
     """Half of a group for language or lab lessons."""
 
-    group = models.ForeignKey(Group, on_delete=models.CASCADE, related_name="subgroups")
+    group = models.ForeignKey(
+        Group, verbose_name=_("group"), on_delete=models.CASCADE, related_name="subgroups"
+    )
     number = models.PositiveSmallIntegerField(_("number"))
     student_count = models.PositiveSmallIntegerField(_("students"))
 
@@ -104,13 +108,17 @@ class SubGroup(models.Model):
 class Stream(models.Model):
     """Oqim: several groups of the same teaching language attending one lecture."""
 
-    semester = models.ForeignKey(Semester, on_delete=models.CASCADE, related_name="streams")
-    faculty = models.ForeignKey(Faculty, on_delete=models.PROTECT, related_name="streams")
+    semester = models.ForeignKey(
+        Semester, verbose_name=_("semester"), on_delete=models.CASCADE, related_name="streams"
+    )
+    faculty = models.ForeignKey(
+        Faculty, verbose_name=_("faculty"), on_delete=models.PROTECT, related_name="streams"
+    )
     name = models.CharField(_("name"), max_length=100)
     teaching_language = models.CharField(
         _("teaching language"), max_length=2, choices=TeachingLanguage.choices
     )
-    groups = models.ManyToManyField(Group, related_name="streams")
+    groups = models.ManyToManyField(Group, verbose_name=_("groups"), related_name="streams")
 
     class Meta:
         verbose_name = _("stream")
@@ -127,6 +135,7 @@ class Stream(models.Model):
 class Teacher(models.Model):
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL,
+        verbose_name=_("user"),
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
@@ -135,7 +144,9 @@ class Teacher(models.Model):
     last_name = models.CharField(_("last name"), max_length=100)
     first_name = models.CharField(_("first name"), max_length=100)
     middle_name = models.CharField(_("patronymic"), max_length=100, blank=True)
-    department = models.ForeignKey(Department, on_delete=models.PROTECT, related_name="teachers")
+    department = models.ForeignKey(
+        Department, verbose_name=_("department"), on_delete=models.PROTECT, related_name="teachers"
+    )
     position = models.CharField(_("position"), max_length=30, choices=Position.choices)
     degree = models.CharField(
         _("academic degree"), max_length=10, choices=AcademicDegree.choices, default="none"
@@ -145,7 +156,9 @@ class Teacher(models.Model):
     )
     annual_load_hours = models.PositiveSmallIntegerField(_("annual teaching load (hours)"))
     max_weekly_lessons = models.PositiveSmallIntegerField(_("max lessons per week"), default=18)
-    subjects = models.ManyToManyField(Subject, related_name="teachers", blank=True)
+    subjects = models.ManyToManyField(
+        Subject, verbose_name=_("subjects"), related_name="teachers", blank=True
+    )
     teaching_languages = ArrayField(
         models.CharField(max_length=2, choices=TeachingLanguage.choices),
         verbose_name=_("teaching languages"),
@@ -186,10 +199,17 @@ class TeacherAvailability(models.Model):
     Missing rows mean "possible".
     """
 
-    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name="availability")
+    teacher = models.ForeignKey(
+        Teacher, verbose_name=_("teacher"), on_delete=models.CASCADE, related_name="availability"
+    )
     weekday = models.PositiveSmallIntegerField(_("weekday"), choices=Weekday.choices)
     lesson_time = models.ForeignKey(
-        LessonTime, on_delete=models.CASCADE, null=True, blank=True, related_name="+"
+        LessonTime,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="+",
+        verbose_name=_("lesson time"),
     )
     level = models.CharField(_("availability"), max_length=12, choices=AvailabilityLevel.choices)
 
@@ -214,6 +234,7 @@ class TeacherAvailability(models.Model):
 class Student(models.Model):
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL,
+        verbose_name=_("user"),
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
@@ -223,9 +244,16 @@ class Student(models.Model):
     first_name = models.CharField(_("first name"), max_length=100)
     middle_name = models.CharField(_("patronymic"), max_length=100, blank=True)
     hemis_id = models.CharField(_("HEMIS ID"), max_length=20, unique=True)
-    group = models.ForeignKey(Group, on_delete=models.PROTECT, related_name="students")
+    group = models.ForeignKey(
+        Group, verbose_name=_("group"), on_delete=models.PROTECT, related_name="students"
+    )
     subgroup = models.ForeignKey(
-        SubGroup, on_delete=models.SET_NULL, null=True, blank=True, related_name="students"
+        SubGroup,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="students",
+        verbose_name=_("subgroup"),
     )
     gender = models.CharField(_("gender"), max_length=1, choices=Gender.choices)
     phone = models.CharField(_("phone"), max_length=20, blank=True)

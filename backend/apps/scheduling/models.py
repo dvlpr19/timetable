@@ -193,6 +193,9 @@ class ScheduleChange(models.Model):
         ScheduleEntry, on_delete=models.SET_NULL, null=True, blank=True, related_name="changes"
     )
     batch = models.UUIDField(_("change batch"), db_index=True)
+    reverts = models.UUIDField(
+        null=True, blank=True, help_text=_("Set on changes made by undoing another batch.")
+    )
     action = models.CharField(max_length=10, choices=ChangeAction.choices)
     before = models.JSONField(null=True, blank=True)
     after = models.JSONField(null=True, blank=True)

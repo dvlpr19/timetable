@@ -60,4 +60,4 @@ tuzish orqali to'ldiriladi. Hamma ism va ID'lar to'qima.
 
 ## Hujjatlar
 
-`docs/PLAN.md` (bosqichlar), `docs/ER.md` (ER-diagramma), `docs/ASSUMPTIONS.md` (taxminlar).
+`docs/PLAN.md` (bosqichlar), `docs/ER.md` (ER-diagramma), `docs/API.md` (API izohlari), `docs/ASSUMPTIONS.md` (taxminlar).

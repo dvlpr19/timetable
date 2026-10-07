@@ -30,7 +30,12 @@ class AcademicYear(models.Model):
 
 
 class Semester(models.Model):
-    year = models.ForeignKey(AcademicYear, on_delete=models.CASCADE, related_name="semesters")
+    year = models.ForeignKey(
+        AcademicYear,
+        verbose_name=_("academic year"),
+        on_delete=models.CASCADE,
+        related_name="semesters",
+    )
     kind = models.CharField(_("semester"), max_length=10, choices=SemesterKind.choices)
     start_date = models.DateField(_("start date"))
     end_date = models.DateField(_("end date"))
@@ -60,8 +65,15 @@ class TeachingPeriod(models.Model):
     Weekly forms: the semester teaching weeks. Sirtqi: a session with fixed dates.
     """
 
-    semester = models.ForeignKey(Semester, on_delete=models.CASCADE, related_name="periods")
-    form = models.ForeignKey(EducationForm, on_delete=models.PROTECT, related_name="periods")
+    semester = models.ForeignKey(
+        Semester, verbose_name=_("semester"), on_delete=models.CASCADE, related_name="periods"
+    )
+    form = models.ForeignKey(
+        EducationForm,
+        verbose_name=_("education form"),
+        on_delete=models.PROTECT,
+        related_name="periods",
+    )
     name = models.CharField(_("name"), max_length=255)
     start_date = models.DateField(_("start date"))
     end_date = models.DateField(_("end date"))
@@ -142,7 +154,12 @@ class AcademicCalendarDay(models.Model):
 class LessonTime(models.Model):
     """One row of a form's bell schedule: lesson N runs start–end (80 min, one "juftlik")."""
 
-    form = models.ForeignKey(EducationForm, on_delete=models.CASCADE, related_name="lesson_times")
+    form = models.ForeignKey(
+        EducationForm,
+        verbose_name=_("education form"),
+        on_delete=models.CASCADE,
+        related_name="lesson_times",
+    )
     number = models.PositiveSmallIntegerField(_("lesson number"))
     start = models.TimeField(_("start"))
     end = models.TimeField(_("end"))
@@ -178,6 +195,7 @@ class BlockedPeriod(models.Model):
     end = models.TimeField(_("end"))
     form = models.ForeignKey(
         EducationForm,
+        verbose_name=_("education form"),
         on_delete=models.CASCADE,
         null=True,
         blank=True,

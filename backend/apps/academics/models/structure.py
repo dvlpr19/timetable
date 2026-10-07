@@ -21,7 +21,9 @@ class Academy(models.Model):
 
 
 class Faculty(models.Model):
-    academy = models.ForeignKey(Academy, on_delete=models.PROTECT, related_name="faculties")
+    academy = models.ForeignKey(
+        Academy, verbose_name=_("academy"), on_delete=models.PROTECT, related_name="faculties"
+    )
     code = models.CharField(_("code"), max_length=20, unique=True)
     name = models.CharField(_("name"), max_length=255)
     teaching_language = models.CharField(
@@ -43,7 +45,9 @@ class Faculty(models.Model):
 class Department(models.Model):
     """Kafedra. Teachers belong to departments."""
 
-    faculty = models.ForeignKey(Faculty, on_delete=models.PROTECT, related_name="departments")
+    faculty = models.ForeignKey(
+        Faculty, verbose_name=_("faculty"), on_delete=models.PROTECT, related_name="departments"
+    )
     code = models.CharField(_("code"), max_length=20, unique=True)
     name = models.CharField(_("name"), max_length=255)
 
@@ -122,8 +126,15 @@ class EducationForm(models.Model):
 class Program(models.Model):
     """Ta'lim yo'nalishi (degree program), e.g. 60220300 Islomshunoslik."""
 
-    faculty = models.ForeignKey(Faculty, on_delete=models.PROTECT, related_name="programs")
-    level = models.ForeignKey(EducationLevel, on_delete=models.PROTECT, related_name="programs")
+    faculty = models.ForeignKey(
+        Faculty, verbose_name=_("faculty"), on_delete=models.PROTECT, related_name="programs"
+    )
+    level = models.ForeignKey(
+        EducationLevel,
+        verbose_name=_("education level"),
+        on_delete=models.PROTECT,
+        related_name="programs",
+    )
     code = models.CharField(_("program code"), max_length=20)
     name = models.CharField(_("name"), max_length=255)
 
@@ -144,8 +155,15 @@ class Program(models.Model):
 class ProgramForm(models.Model):
     """A program offered in a given education form, with its own duration and group naming."""
 
-    program = models.ForeignKey(Program, on_delete=models.CASCADE, related_name="forms")
-    form = models.ForeignKey(EducationForm, on_delete=models.PROTECT, related_name="programs")
+    program = models.ForeignKey(
+        Program, verbose_name=_("program"), on_delete=models.CASCADE, related_name="forms"
+    )
+    form = models.ForeignKey(
+        EducationForm,
+        verbose_name=_("education form"),
+        on_delete=models.PROTECT,
+        related_name="programs",
+    )
     duration_years = models.DecimalField(
         _("study duration (years)"), max_digits=3, decimal_places=1
     )

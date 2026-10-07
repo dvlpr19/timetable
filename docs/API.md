@@ -1,0 +1,73 @@
+# API izohlari
+
+To'liq interaktiv hujjat: http://localhost:8010/api/docs/ (Swagger, `drf-spectacular`).
+Bu yerda asosiy qoidalar va jadval bilan ishlash tartibi qisqacha yozilgan.
+
+## Umumiy
+
+- **Kirish:** `POST /api/auth/login/` (`username`, `password`) → `access`, `refresh` (JWT).
+  So'rovlarga `Authorization: Bearer <access>` qo'shiladi. Token yangilash: `POST /api/auth/refresh/`.
+- **Til:** javob matnlari (xatolar, ziddiyat sabablari, fan va xona turi nomlari) `Accept-Language: uz | ru | en`
+  sarlavhasiga qarab chiqadi. Tarjima qilinadigan nomlar uchun `name` (so'rov tilida, bo'lmasa o'zbekcha),
+  `name_uz` (majburiy), `name_ru`, `name_en` maydonlari bor.
+- **Profil:** `GET /api/auth/me/` foydalanuvchi, rol, ilova tili va talaba yoki o'qituvchi profilini qaytaradi.
+  `PATCH /api/auth/me/ {"language": "ru"}` ilova tilini o'zgartiradi.
+- **Ro'yxatlar:** sahifalanadi (`?page=`, `?page_size=` ≤ 1000), `?search=`, maydon bo'yicha filtr
+  va `?ordering=` bor.
+
+## Rollar
+
+| Rol | Ko'radi | O'zgartiradi |
+|---|---|---|
+| `admin` (dispetcher) | hammasini | hammasini; jadvalni faqat u tahrirlaydi va e'lon qiladi |
+| `dekanat` | ma'lumotnomalar, qoralamalar, ziddiyatlar; faqat o'z fakultetining talabalari | o'z fakultetining guruhlari, kichik guruhlari, oqimlari, talabalari, o'quv rejasi va yuklamasi |
+| `kafedra_mudiri` | ma'lumotnomalar, qoralamalar, ziddiyatlar | o'z kafedrasining o'qituvchilari, ularning qulay vaqtlari va yuklamasi |
+| `oqituvchi` | ma'lumotnomalar, o'z yuklamasi, **faqat e'lon qilingan** jadval | faqat o'zining qulay vaqtlari |
+| `talaba` | ma'lumotnomalar, **faqat e'lon qilingan** jadval | hech narsa |
+
+Huquqlar serverda tekshiriladi. Ruxsat yo'q bo'lsa `403` qaytadi, qoralama talaba uchun mavjud bo'lmagandek `404` bo'ladi.
+
+## Ma'lumotnomalar (CRUD)
+
+`/api/faculties/`, `departments/`, `education-levels/`, `education-forms/` (qo'ng'iroq jadvali bilan),
+`lesson-times/`, `blocked-periods/`, `programs/`, `program-forms/`, `academic-years/`, `semesters/`,
+`teaching-periods/`, `calendar-days/`, `buildings/`, `room-types/`, `rooms/`, `lesson-types/`, `subjects/`,
+`curriculum/`, `groups/`, `subgroups/`, `streams/`, `teachers/`, `teacher-availability/`, `students/`,
+`assignments/` (yuklama taqsimoti).
+
+- `PUT /api/teacher-availability/replace/ {"teacher": id, "rows": [{"weekday", "lesson_time", "level"}]}`:
+  o'qituvchining "Qulay kunlarim" jadvalini bir martada almashtiradi.
+- **Excel import:** `rooms`, `subjects`, `teachers`, `groups`, `students`.
+  - `GET …/import-template/` foydalanuvchi tilidagi sarlavhali shablonni beradi.
+  - `POST …/import/` (multipart `file`) bilan to'ldirilgan shablon yuklanadi. Mavjud yozuvlar tabiiy kalit bo'yicha
+    yangilanadi: xona — bino va nomi, fan — kodi, guruh — nomi, talaba — HEMIS ID.
+  - Bitta qatorda xato bo'lsa hech narsa saqlanmaydi, javobda `{"errors": [{"row", "column", "message"}]}` qaytadi.
+
+## Dars jadvali
+
+| So'rov | Kim | Nima qiladi |
+|---|---|---|
+| `GET /api/schedules/` | hamma (talaba/o'qituvchi faqat e'lon qilinganini) | Versiyalar |
+| `POST /api/schedules/ {"semester", "name", "based_on"?}` | admin | Yangi qoralama (yoki mavjud versiyadan nusxa) |
+| `POST /api/schedules/{id}/publish/` | admin | E'lon qilish. Qat'iy ziddiyat bo'lsa `409` va ro'yxati qaytadi |
+| `GET /api/schedules/{id}/conflicts/` | xodimlar | Ziddiyatlar: `code`, `constraint` (1–11), `entries`, `message` |
+| `GET /api/schedules/{id}/unplaced/?group=&teacher=&form=` | xodimlar | Joylashtirilmagan darslar (muharrir yon paneli) |
+| `GET /api/schedules/{id}/options/?entry=` yoki `?assignment=` | admin | To'rning har bir katagi: `ok`, sabablar, bo'sh xonalar |
+| `POST /api/schedules/{id}/check/` | admin | O'zgarishni saqlamasdan tekshirish va kimga xabar ketishini sanash |
+| `GET /api/schedules/{id}/changes/` | xodimlar | O'zgarishlar tarixi |
+| `POST /api/schedules/{id}/undo/` | admin | Oxirgi o'zgarishlar to'plamini bekor qilish |
+| `GET /api/schedules/{id}/stats/` | xodimlar | Yumshoq cheklovlar bali va reja bajarilishi |
+| `POST /api/entries/` | admin | Dars qo'yish. Haftalik: `weekday` + `week_parity`, sirtqi: `date`, masofaviy: `online_url` |
+| `PATCH /api/entries/{id}/` | admin | Darsni ko'chirish yoki xonasini almashtirish (`comment` xabarga qo'shiladi) |
+| `DELETE /api/entries/{id}/` | admin | Darsni olib tashlash |
+| `POST /api/entries/{id}/cancel/ {"date", "comment", "restore"?}` | admin | Bitta sanadagi darsni bekor qilish yoki tiklash |
+| `GET /api/timetable/?group= \| teacher= \| room= \| me=1` | hamma | Haftalik yoki sessiya jadvali (`schedule=` faqat xodimlar uchun) |
+| `GET /api/timetable/occurrences/?me=1&date_from=&date_to=` | hamma | Aniq sanalar bo'yicha darslar (bekor qilinganlari bilan) |
+| `GET /api/export/?type=xlsx \| pdf&group= \| teacher= \| room= \| me=1&lang=` | hamma | Excel yoki PDF |
+| `GET /api/dashboard/?form=` | xodimlar | Bosh sahifa raqamlari va fakultetlar bo'yicha tayyorlik |
+
+**Tahrir qoidasi.** Har bir `POST` yoki `PATCH` saqlanishdan oldin validatordan o'tadi (11 ta qat'iy cheklov, `docs/ER.md`).
+Ziddiyat bo'lsa `409` qaytadi, `violations[].message` so'rov tilida bo'ladi. `"dry_run": true` bo'lsa hech narsa saqlanmaydi.
+Javobdagi `notify_students` va `notify_teachers` o'zgarish kimga xabar qilinishini bildiradi
+(faqat e'lon qilingan jadval uchun, qoralamada 0). Har bir o'zgarish `ScheduleChange`ga yoziladi.
+Bazadagi `EXCLUDE` cheklovlari validator ko'ra olmagan holatni ham ushlaydi, masalan bir vaqtdagi ikki tahrirni.

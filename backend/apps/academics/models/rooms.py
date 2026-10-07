@@ -35,16 +35,21 @@ class RoomType(models.Model):
 
 
 class Room(models.Model):
-    building = models.ForeignKey(Building, on_delete=models.PROTECT, related_name="rooms")
+    building = models.ForeignKey(
+        Building, verbose_name=_("building"), on_delete=models.PROTECT, related_name="rooms"
+    )
     name = models.CharField(_("room"), max_length=50)  # "A-115", "Ma'ruza zali 1"
     floor = models.SmallIntegerField(_("floor"), default=1)
-    room_type = models.ForeignKey(RoomType, on_delete=models.PROTECT, related_name="rooms")
+    room_type = models.ForeignKey(
+        RoomType, verbose_name=_("room type"), on_delete=models.PROTECT, related_name="rooms"
+    )
     capacity = models.PositiveSmallIntegerField(_("seats"))
     has_projector = models.BooleanField(_("projector"), default=False)
     computer_count = models.PositiveSmallIntegerField(_("computers"), default=0)
     has_board = models.BooleanField(_("board"), default=True)
     faculty = models.ForeignKey(
         Faculty,
+        verbose_name=_("faculty"),
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
