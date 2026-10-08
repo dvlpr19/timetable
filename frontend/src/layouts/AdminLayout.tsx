@@ -38,16 +38,18 @@ function NavItem({
       end={end}
       className={({ isActive }) =>
         cn(
-          'flex min-h-touch items-center gap-3 rounded-button px-3 text-sm font-semibold transition-colors',
-          isActive
-            ? 'bg-white/10 text-ink-on-primary'
-            : 'text-mint hover:bg-white/5 hover:text-ink-on-primary',
+          'flex min-h-touch items-center gap-3 rounded-full px-4 text-sm font-semibold transition-colors',
+          isActive ? 'bg-primary-700 text-ink-on-primary shadow-soft' : 'text-ink hover:bg-subtle',
         )
       }
     >
       {({ isActive }) => (
         <>
-          <Icon size={20} aria-hidden="true" className={isActive ? 'text-gold' : undefined} />
+          <Icon
+            size={20}
+            aria-hidden="true"
+            className={isActive ? 'text-ink-on-primary' : 'text-accent'}
+          />
           <span className="truncate">{label}</span>
         </>
       )}
@@ -73,8 +75,8 @@ function NavGroup({ group, items }: { group: ResourceGroup; items: Resource[] })
         aria-controls={id}
         onClick={() => setOpen((o) => !o)}
         className={cn(
-          'flex min-h-touch w-full items-center gap-2 rounded-button px-3 text-left text-sm font-bold transition-colors hover:bg-white/5',
-          active ? 'text-ink-on-primary' : 'text-mint',
+          'flex min-h-touch w-full items-center gap-2 rounded-full px-4 text-left text-sm font-bold transition-colors hover:bg-subtle',
+          active ? 'text-primary-700' : 'text-ink',
         )}
       >
         <span className="flex-1 truncate">{t(`admin:nav.groups.${group}`)}</span>
@@ -85,7 +87,7 @@ function NavGroup({ group, items }: { group: ResourceGroup; items: Resource[] })
         />
       </button>
       {open && (
-        <div id={id} className="ml-3 space-y-1 border-l border-white/10 pl-2">
+        <div id={id} className="ml-4 space-y-1 border-l border-line pl-2">
           {items.map((r) => (
             <NavItem
               key={r.key}
@@ -109,14 +111,10 @@ function Sidebar() {
       aria-label={t('admin:nav.label')}
       className="flex h-full flex-col gap-6 overflow-y-auto p-4"
     >
-      <div className="flex items-center gap-3 px-2">
-        <BrandMark />
-        <div className="min-w-0">
-          <p className="truncate text-base font-extrabold text-ink-on-primary">
-            {t('common:appName')}
-          </p>
-          <p className="truncate text-xs text-mint">{t('admin:nav.subtitle')}</p>
-        </div>
+      <div className="flex flex-col items-center gap-2 rounded-tile bg-hero px-3 py-5 text-center shadow-soft">
+        <BrandMark size="lg" />
+        <p className="text-base font-extrabold text-ink-on-primary">{t('common:appName')}</p>
+        <p className="text-xs leading-snug text-mint">{t('common:academyName')}</p>
       </div>
       <div className="space-y-1">
         <NavItem to="/admin" end icon={LayoutDashboard} label={t('admin:nav.dashboard')} />
@@ -126,7 +124,7 @@ function Sidebar() {
         <NavItem to="/admin/reports" icon={BarChart3} label={t('admin:nav.reports')} />
       </div>
       <div className="space-y-1">
-        <p className="px-3 pb-1 text-xs font-bold uppercase tracking-wider text-mint/70">
+        <p className="px-4 pb-1 text-xs font-bold uppercase tracking-wider text-ink-muted">
           {t('admin:nav.data')}
         </p>
         {RESOURCE_GROUPS.map((group) => {
@@ -153,7 +151,7 @@ export function AdminLayout() {
       >
         {t('admin:skipToContent')}
       </a>
-      <aside className="hidden w-64 shrink-0 bg-primary-900 lg:block">
+      <aside className="hidden w-72 shrink-0 border-r border-line bg-card lg:block">
         <div className="sticky top-0 h-dvh">
           <Sidebar />
         </div>
@@ -165,12 +163,12 @@ export function AdminLayout() {
             aria-hidden="true"
             onClick={() => setMenuOpen(false)}
           />
-          <aside className="relative h-full w-72 max-w-[85vw] bg-primary-900">
+          <aside className="relative h-full w-72 max-w-[85vw] bg-card">
             <button
               type="button"
               onClick={() => setMenuOpen(false)}
               aria-label={t('common:actions.close')}
-              className="absolute right-2 top-2 flex min-h-touch min-w-touch items-center justify-center text-mint"
+              className="absolute right-2 top-2 z-10 flex min-h-touch min-w-touch items-center justify-center rounded-full bg-white/20 text-ink-on-primary"
             >
               <X size={22} aria-hidden="true" />
             </button>
@@ -179,7 +177,7 @@ export function AdminLayout() {
         </div>
       )}
       <div className="flex min-w-0 flex-1 flex-col">
-        <header className="sticky top-0 z-30 flex items-center gap-3 border-b border-line bg-card/95 px-4 py-2 backdrop-blur sm:px-6">
+        <header className="sticky top-0 z-30 flex items-center gap-3 border-b border-line bg-card/90 px-4 py-2 backdrop-blur sm:px-6">
           <button
             type="button"
             onClick={() => setMenuOpen(true)}
@@ -193,7 +191,7 @@ export function AdminLayout() {
             <Link
               to="/admin/profile"
               title={t('admin:nav.profile')}
-              className="flex min-h-touch items-center gap-2 rounded-button px-1.5 hover:bg-subtle sm:pr-3"
+              className="flex min-h-touch items-center gap-2 rounded-full px-1.5 hover:bg-subtle sm:pr-4"
             >
               <Avatar name={user?.full_name ?? ''} size="sm" />
               <span className="hidden text-left sm:block">

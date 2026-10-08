@@ -1,5 +1,6 @@
 import {
   AlertTriangle,
+  ArrowRight,
   CalendarCheck,
   CalendarClock,
   DoorOpen,
@@ -75,18 +76,44 @@ export function DashboardPage() {
         <ErrorState onRetry={() => refetch()} />
       ) : (
         <>
+          {data && (
+            <Link
+              to="/admin/schedule"
+              className="group flex items-center gap-4 rounded-card bg-feature p-5 text-ink-on-primary shadow-soft transition-shadow hover:shadow-lift sm:p-6"
+            >
+              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white/20">
+                <CalendarCheck size={28} aria-hidden="true" />
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="block text-lg font-extrabold">{data.schedule.name}</span>
+                <span className="block text-sm text-mint">
+                  {data.lessons_unplaced
+                    ? t('admin:dashboard.featureTodo', { count: data.lessons_unplaced })
+                    : t('admin:dashboard.featureDone')}
+                </span>
+              </span>
+              <ArrowRight
+                size={24}
+                aria-hidden="true"
+                className="shrink-0 transition-transform group-hover:translate-x-1"
+              />
+            </Link>
+          )}
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-5">
             {isLoading
-              ? Array.from({ length: 5 }, (_, i) => <Skeleton key={i} className="h-28" />)
+              ? Array.from({ length: 5 }, (_, i) => <Skeleton key={i} className="h-36" />)
               : stats.map(({ icon: Icon, label, value, warn }) => (
-                  <Card key={label} className="p-4">
-                    <Icon
-                      size={22}
-                      aria-hidden="true"
-                      className={warn ? 'text-warning-fg' : 'text-primary-700'}
-                    />
-                    <p className="mt-3 text-3xl font-extrabold text-ink">{value}</p>
-                    <p className="text-sm text-ink-muted">{label}</p>
+                  <Card key={label} className="rounded-tile p-5">
+                    <span
+                      className={cn(
+                        'flex h-12 w-12 items-center justify-center rounded-2xl',
+                        warn ? 'bg-warning-bg text-warning-fg' : 'bg-subtle text-accent',
+                      )}
+                    >
+                      <Icon size={24} strokeWidth={1.75} aria-hidden="true" />
+                    </span>
+                    <p className="mt-4 text-3xl font-extrabold text-ink">{value}</p>
+                    <p className="text-sm font-semibold text-ink-muted">{label}</p>
                   </Card>
                 ))}
           </div>
@@ -154,7 +181,7 @@ export function DashboardPage() {
                       className="mt-2 h-2 overflow-hidden rounded-full bg-subtle"
                     >
                       <div
-                        className="h-2 rounded-full bg-primary-500"
+                        className="h-2 rounded-full bg-feature"
                         style={{ width: `${f.percent}%` }}
                       />
                     </div>

@@ -31,7 +31,14 @@ const teacherUser: CurrentUser = {
 
 function renderApp(ui: ReactElement, user: CurrentUser = teacherUser) {
   const client = new QueryClient({ defaultOptions: { queries: { retry: false } } });
-  const auth = { user, restoring: false, login: vi.fn(), logout: vi.fn(), setLanguage: vi.fn() };
+  const auth = {
+    user,
+    restoring: false,
+    login: vi.fn(),
+    logout: vi.fn(),
+    setLanguage: vi.fn(),
+    updateProfile: vi.fn(),
+  };
   return render(
     <QueryClientProvider client={client}>
       <MemoryRouter>

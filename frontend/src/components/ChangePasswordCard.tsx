@@ -66,10 +66,10 @@ export function ChangePasswordCard() {
     );
 
   return (
-    <Card className="p-4">
+    <Card className="p-5">
       <form noValidate onSubmit={onSubmit} className="space-y-3">
-        <h2 className="flex items-center gap-2 font-bold text-ink">
-          <KeyRound size={18} aria-hidden="true" />
+        <h2 className="flex items-center gap-2 text-lg font-bold text-ink">
+          <KeyRound size={20} aria-hidden="true" className="text-accent" />
           {t('common:profile.password')}
         </h2>
         <div>

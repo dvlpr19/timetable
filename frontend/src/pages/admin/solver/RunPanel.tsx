@@ -144,7 +144,7 @@ export function RunPanel({ id, canEdit }: { id: number; canEdit: boolean }) {
             <div className="flex flex-wrap gap-2">
               <Link
                 to={`/admin/schedule?v=${run.result_schedule}`}
-                className="inline-flex min-h-touch items-center gap-2 rounded-button bg-primary-700 px-4 text-base font-semibold text-ink-on-primary hover:bg-primary-900"
+                className="inline-flex min-h-touch items-center gap-2 rounded-full bg-primary-700 px-5 text-base font-semibold text-ink-on-primary hover:bg-primary-900"
               >
                 {t('admin:solver.openDraft')}
                 <ArrowRight size={18} aria-hidden="true" />

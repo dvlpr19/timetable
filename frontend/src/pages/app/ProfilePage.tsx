@@ -1,21 +1,38 @@
 import { useQueryClient } from '@tanstack/react-query';
 import {
+  BadgeCheck,
+  BookOpen,
+  Briefcase,
+  Building2,
+  CalendarClock,
   CalendarPlus,
+  Clock,
   Download,
   FileSpreadsheet,
   FileText,
+  GraduationCap,
+  IdCard,
+  Landmark,
+  Languages,
+  Layers,
   LogOut,
   Smartphone,
   Trash2,
+  User,
+  Users,
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useAuth } from '@/auth/useAuth';
-import { Avatar } from '@/components/Avatar';
+import type { CurrentUser } from '@/auth/types';
 import { ChangePasswordCard } from '@/components/ChangePasswordCard';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
-import { ScreenHeader } from '@/components/ScreenHeader';
+import { ContactCard } from '@/components/profile/ContactCard';
+import { DetailsCard } from '@/components/profile/DetailsCard';
+import type { Detail } from '@/components/profile/DetailsCard';
+import { ProfileHero } from '@/components/profile/ProfileHero';
+import { StatsTiles } from '@/components/profile/StatsTiles';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Pill } from '@/components/ui/Pill';
@@ -27,7 +44,7 @@ import { useApi } from '@/lib/query';
 import type { Occurrence } from '@/types/timetable';
 
 import { NotificationSettings } from './NotificationSettings';
-import { formatDayMonth } from '@/i18n/date';
+import { formatDayMonth, formatDayMonthTime } from '@/i18n/date';
 import { parseISO } from '@/lib/dates';
 
 interface Request {
@@ -51,7 +68,90 @@ const STATUS: Record<Request['status'], string> = {
   rejected: 'bg-danger-bg text-danger-fg',
 };
 
-/** Who I am, language, downloads, my requests (teachers), install, sign out. */
+function heroFacts(user: CurrentUser): string[] {
+  const facts = user.student
+    ? [user.student.group.name, user.student.program]
+    : [user.teacher?.position, user.teacher?.department];
+  return facts.filter((x): x is string => Boolean(x));
+}
+
+/** Study (student) or work (teacher) facts plus the account itself. */
+function PersonDetails({ user }: { user: CurrentUser }) {
+  const { t } = useTranslation(['common', 'app', 'dates']);
+  const s = user.student;
+  const tc = user.teacher;
+  const lastLogin = user.last_login ? new Date(user.last_login) : null;
+  const study: Detail[] = s
+    ? [
+        { icon: IdCard, label: t('common:profile.hemisId'), value: s.hemis_id },
+        { icon: Landmark, label: t('common:profile.faculty'), value: s.faculty },
+        { icon: GraduationCap, label: t('common:profile.program'), value: s.program },
+        {
+          icon: Users,
+          label: t('common:profile.group'),
+          value: s.subgroup
+            ? `${s.group.name} · ${t('app:lesson.subgroup', { n: s.subgroup })}`
+            : s.group.name,
+        },
+        { icon: Layers, label: t('common:profile.course'), value: s.group.course },
+        { icon: BookOpen, label: t('common:profile.form'), value: s.form_name },
+        {
+          icon: Languages,
+          label: t('common:profile.teachingLanguage'),
+          value: s.teaching_language,
+        },
+        { icon: Clock, label: t('common:profile.shift'), value: s.shift },
+      ]
+    : tc
+      ? [
+          { icon: Landmark, label: t('common:profile.faculty'), value: tc.faculty },
+          { icon: Building2, label: t('common:profile.department'), value: tc.department },
+          { icon: Briefcase, label: t('common:profile.position'), value: tc.position },
+          { icon: BadgeCheck, label: t('common:profile.degree'), value: tc.degree },
+          { icon: User, label: t('common:profile.employment'), value: tc.employment },
+          {
+            icon: Languages,
+            label: t('common:profile.teachingLanguages'),
+            value: tc.teaching_languages?.join(', '),
+          },
+          { icon: Layers, label: t('common:profile.maxWeekly'), value: tc.max_weekly_lessons },
+          { icon: Clock, label: t('common:profile.annualLoad'), value: tc.annual_load_hours },
+        ]
+      : [];
+  return (
+    <>
+      <DetailsCard title={s ? t('common:profile.study') : t('common:profile.work')} items={study} />
+      {tc?.subjects && tc.subjects.length > 0 && (
+        <Card className="p-5">
+          <h2 className="text-lg font-bold text-ink">{t('common:profile.subjects')}</h2>
+          <ul className="mt-3 flex flex-wrap gap-2">
+            {tc.subjects.map((name) => (
+              <li
+                key={name}
+                className="rounded-full bg-subtle px-3 py-1.5 text-sm font-semibold text-primary-700"
+              >
+                {name}
+              </li>
+            ))}
+          </ul>
+        </Card>
+      )}
+      <DetailsCard
+        title={t('common:profile.account')}
+        items={[
+          { icon: User, label: t('common:profile.username'), value: user.username },
+          {
+            icon: CalendarClock,
+            label: t('common:profile.lastLogin'),
+            value: lastLogin && formatDayMonthTime(lastLogin, t),
+          },
+        ]}
+      />
+    </>
+  );
+}
+
+/** Who I am, my numbers, contacts, language, downloads, my requests (teachers), install, sign out. */
 export function ProfilePage() {
   const { t } = useTranslation(['app', 'common']);
   const { user, logout } = useAuth();
@@ -75,20 +175,14 @@ export function ProfilePage() {
 
   return (
     <>
-      <ScreenHeader
-        title={user?.full_name ?? ''}
-        subtitle={user ? t(`common:roles.${user.role}`) : undefined}
-      >
-        <div className="mt-3 flex items-center gap-3">
-          <Avatar name={user?.full_name ?? ''} size="lg" className="bg-white text-primary-900" />
-          <p className="text-sm text-mint">
-            {user?.student
-              ? `${user.student.group.name} · ${user.student.program}`
-              : `${user?.teacher?.position ?? ''} · ${user?.teacher?.department ?? ''}`}
-          </p>
-        </div>
-      </ScreenHeader>
+      {user && <ProfileHero user={user} facts={heroFacts(user)} variant="screen" />}
       <div className="space-y-4 px-4 py-5 sm:px-6">
+        <StatsTiles />
+
+        {user && <PersonDetails user={user} />}
+
+        <ContactCard />
+
         <Card className="space-y-3 p-4">
           <h2 className="font-bold text-ink">{t('common:language.label')}</h2>
           <LanguageSwitcher />

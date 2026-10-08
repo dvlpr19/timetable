@@ -128,8 +128,8 @@ def to_xlsx(table: Table) -> bytes:
     )
     thin = Side(style="thin", color="E2E8F0")
     border = Border(left=thin, right=thin, top=thin, bottom=thin)
-    head_fill = PatternFill("solid", fgColor="1D4ED8")
-    closed_fill = PatternFill("solid", fgColor="EEF3FB")
+    head_fill = PatternFill("solid", fgColor="1565C0")
+    closed_fill = PatternFill("solid", fgColor="EAF2FC")
     for c, title in enumerate(table.columns, start=1):
         cell = ws.cell(row=5, column=c, value=title)
         cell.font = Font(bold=True, color="FFFFFF")

@@ -80,7 +80,7 @@ export function AppLayout() {
       </main>
       <nav
         aria-label={t('app:tabs.label')}
-        className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-card/95 pb-[env(safe-area-inset-bottom)] backdrop-blur"
+        className="fixed inset-x-0 bottom-0 z-30 rounded-t-header bg-card/95 pb-[env(safe-area-inset-bottom)] shadow-lift backdrop-blur"
       >
         <ul className="mx-auto flex max-w-xl">
           {tabs.map(({ to, icon: Icon, label, end }) => (
@@ -90,8 +90,8 @@ export function AppLayout() {
                 end={end}
                 className={({ isActive }) =>
                   cn(
-                    'flex min-h-[60px] flex-col items-center justify-center gap-1 px-1 text-[11px] font-semibold transition-colors',
-                    isActive ? 'text-primary-700' : 'text-ink-muted hover:text-ink',
+                    'flex min-h-[64px] flex-col items-center justify-center gap-1 px-1 text-[11px] font-semibold transition-colors',
+                    isActive ? 'font-bold text-primary-700' : 'text-ink-muted hover:text-ink',
                   )
                 }
               >
@@ -99,8 +99,8 @@ export function AppLayout() {
                   <>
                     <span
                       className={cn(
-                        'flex h-7 w-12 items-center justify-center rounded-full transition-colors',
-                        isActive && 'bg-primary-700/10',
+                        'flex h-8 w-14 items-center justify-center rounded-full transition-colors',
+                        isActive && 'bg-primary-700 text-ink-on-primary shadow-soft',
                       )}
                     >
                       <Icon size={20} aria-hidden="true" />

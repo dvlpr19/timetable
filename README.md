@@ -1,6 +1,6 @@
 # Dars jadvali
 
-O'zbekiston xalqaro islom akademiyasi dars jadvalini tuzish, tekshirish va e'lon qilishni
+O'zbekiston Xalqaro Islomshunoslik Akademiyasi dars jadvalini tuzish, tekshirish va e'lon qilishni
 avtomatlashtiruvchi tizim (BMI loyihasi). To'rtta ta'lim shakli bitta tizimda: kunduzgi, kechki,
 sirtqi (sessiya) va masofaviy. Ilova o'zbek, rus va ingliz tillarida ishlaydi.
 

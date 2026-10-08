@@ -66,7 +66,7 @@ export function SearchPage() {
           <button
             type="button"
             onClick={() => setParams({ type: kind })}
-            className="mt-3 inline-flex min-h-touch items-center gap-2 rounded-button bg-white/10 px-3 text-sm font-semibold"
+            className="mt-3 inline-flex min-h-touch items-center gap-2 rounded-full bg-white/20 px-4 text-sm font-semibold"
           >
             <ArrowLeft size={18} aria-hidden="true" />
             {t('app:search.back')}
@@ -92,14 +92,14 @@ export function SearchPage() {
           <Search
             size={18}
             aria-hidden="true"
-            className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-muted"
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-accent"
           />
           <input
             type="search"
             value={text}
             onChange={(e) => setText(e.target.value)}
             placeholder={t(`app:search.placeholders.${kind}`)}
-            className="min-h-touch w-full rounded-button border-0 bg-card py-3 pl-10 pr-4 text-base text-ink placeholder:text-ink-muted"
+            className="min-h-[52px] w-full rounded-full border-0 bg-card py-3 pl-12 pr-5 text-base text-ink shadow-soft placeholder:text-ink-muted"
           />
         </label>
       </ScreenHeader>
@@ -118,7 +118,7 @@ export function SearchPage() {
         ) : !rows.length ? (
           <EmptyState title={t('app:search.nothing')} />
         ) : (
-          <ul className="divide-y divide-line overflow-hidden rounded-card border border-line bg-card">
+          <ul className="divide-y divide-line overflow-hidden rounded-card bg-card shadow-soft dark:border dark:border-line">
             {rows.map((r) => (
               <li key={r.id}>
                 <button

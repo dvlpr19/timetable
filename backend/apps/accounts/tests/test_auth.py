@@ -99,3 +99,33 @@ def test_change_password_rejects_wrong_current(user):
 
 def test_change_password_requires_auth():
     assert APIClient().post(reverse("change-password"), {}).status_code == 401
+
+
+def test_me_contact_details_are_editable(user):
+    client = APIClient()
+    client.force_authenticate(user)
+    resp = client.patch(
+        reverse("me"), {"email": "aziza@example.uz", "phone": "+998 90 123-45-67"}, format="json"
+    )
+    assert resp.status_code == 200
+    user.refresh_from_db()
+    assert (user.email, user.phone) == ("aziza@example.uz", "+998 90 123-45-67")
+
+
+def test_me_rejects_bad_phone(user):
+    client = APIClient()
+    client.force_authenticate(user)
+    resp = client.patch(reverse("me"), {"phone": "call me"}, format="json")
+    assert resp.status_code == 400
+    assert "phone" in resp.data
+
+
+def test_my_stats_for_staff_without_person(user):
+    user.role = Role.ADMIN
+    user.save()
+    client = APIClient()
+    client.force_authenticate(user)
+    resp = client.get(reverse("my-stats"))
+    assert resp.status_code == 200
+    assert resp.data["kind"] == "staff"
+    assert {"groups", "teachers", "rooms"} <= resp.data.keys()

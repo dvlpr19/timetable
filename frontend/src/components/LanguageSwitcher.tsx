@@ -15,9 +15,9 @@ export function LanguageSwitcher({ tone = 'light', className = '' }: Props) {
   const active = currentLanguage();
 
   const base =
-    tone === 'dark' ? 'bg-white/10 text-mint' : 'bg-subtle text-ink-muted border border-line';
+    tone === 'dark' ? 'bg-white/20 text-ink-on-primary' : 'bg-card text-ink-muted shadow-soft';
   const selected =
-    tone === 'dark' ? 'bg-gold text-primary-900' : 'bg-primary-700 text-ink-on-primary shadow-sm';
+    tone === 'dark' ? 'bg-white text-primary-700' : 'bg-primary-700 text-ink-on-primary';
 
   return (
     <div

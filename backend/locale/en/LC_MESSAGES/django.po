@@ -1859,9 +1859,13 @@ msgid "automatic scheduling runs"
 msgstr "automatic scheduling runs"
 
 #: config/views.py:27
-msgid "International Islamic Academy of Uzbekistan"
-msgstr "International Islamic Academy of Uzbekistan"
+msgid "International Academy of Islamic Studies of Uzbekistan"
+msgstr "International Academy of Islamic Studies of Uzbekistan"
 
 #: apps/accounts/serializers.py
 msgid "Current password is incorrect."
 msgstr "Current password is incorrect."
+
+#: apps/accounts/serializers.py
+msgid "Enter a valid phone number."
+msgstr "Enter a valid phone number."

@@ -1,55 +1,78 @@
-import { LogOut } from 'lucide-react';
+import {
+  Building2,
+  CalendarClock,
+  CalendarPlus,
+  Landmark,
+  LogOut,
+  ShieldCheck,
+  User,
+} from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 import { useAuth } from '@/auth/useAuth';
-import { Avatar } from '@/components/Avatar';
 import { ChangePasswordCard } from '@/components/ChangePasswordCard';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import { ContactCard } from '@/components/profile/ContactCard';
+import { DetailsCard } from '@/components/profile/DetailsCard';
+import { ProfileHero } from '@/components/profile/ProfileHero';
+import { StatsTiles } from '@/components/profile/StatsTiles';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
+import { formatDayMonth, formatDayMonthTime } from '@/i18n/date';
 
-/** Profile of a staff account: who I am, my scope, language, password, sign out. */
+/** Profile of a staff account: who I am, my scope, contacts, language, password, sign out. */
 export function AdminProfilePage() {
-  const { t } = useTranslation(['common', 'admin']);
+  const { t } = useTranslation(['common', 'admin', 'dates']);
   const { user, logout } = useAuth();
   if (!user) return null;
-  const details = [
-    { label: t('common:profile.username'), value: user.username },
-    { label: t('common:profile.role'), value: t(`common:roles.${user.role}`) },
-    { label: t('common:profile.faculty'), value: user.faculty_name },
-    { label: t('common:profile.department'), value: user.department_name },
-  ].filter((d) => d.value);
+  const joined = user.date_joined ? new Date(user.date_joined) : null;
+  const lastLogin = user.last_login ? new Date(user.last_login) : null;
 
   return (
-    <div className="mx-auto max-w-3xl space-y-4">
-      <h1 className="text-2xl font-extrabold text-ink">{t('common:profile.title')}</h1>
+    <div className="mx-auto max-w-5xl space-y-6">
+      <ProfileHero
+        user={user}
+        facts={[user.faculty_name, user.department_name, t('common:academyName')].filter(
+          (x): x is string => Boolean(x),
+        )}
+      />
 
-      <Card className="overflow-hidden">
-        <div className="flex items-center gap-4 bg-primary-900 p-5 text-ink-on-primary">
-          <Avatar name={user.full_name} size="lg" className="bg-white text-primary-900" />
-          <div className="min-w-0">
-            <p className="truncate text-xl font-extrabold">{user.full_name}</p>
-            <p className="text-sm text-mint">{t(`common:roles.${user.role}`)}</p>
-          </div>
-        </div>
-        <dl className="grid gap-4 p-5 sm:grid-cols-2">
-          {details.map((d) => (
-            <div key={d.label}>
-              <dt className="text-xs font-bold uppercase tracking-wide text-ink-muted">
-                {d.label}
-              </dt>
-              <dd className="mt-1 font-semibold text-ink">{d.value}</dd>
-            </div>
-          ))}
-        </dl>
-      </Card>
+      <StatsTiles />
 
-      <Card className="space-y-3 p-4">
-        <h2 className="font-bold text-ink">{t('common:language.label')}</h2>
-        <LanguageSwitcher />
-      </Card>
+      <div className="grid gap-6 lg:grid-cols-2">
+        <DetailsCard
+          title={t('common:profile.account')}
+          items={[
+            { icon: User, label: t('common:profile.username'), value: user.username },
+            {
+              icon: ShieldCheck,
+              label: t('common:profile.role'),
+              value: t(`common:roles.${user.role}`),
+            },
+            { icon: Landmark, label: t('common:profile.faculty'), value: user.faculty_name },
+            { icon: Building2, label: t('common:profile.department'), value: user.department_name },
+            {
+              icon: CalendarPlus,
+              label: t('common:profile.memberSince'),
+              value: joined && `${formatDayMonth(joined, t)} ${joined.getFullYear()}`,
+            },
+            {
+              icon: CalendarClock,
+              label: t('common:profile.lastLogin'),
+              value: lastLogin && formatDayMonthTime(lastLogin, t),
+            },
+          ]}
+        />
+        <ContactCard />
+      </div>
 
-      <ChangePasswordCard />
+      <div className="grid gap-6 lg:grid-cols-[1fr_2fr]">
+        <Card className="space-y-3 p-5">
+          <h2 className="text-lg font-bold text-ink">{t('common:language.label')}</h2>
+          <LanguageSwitcher />
+        </Card>
+        <ChangePasswordCard />
+      </div>
 
       <Button variant="secondary" icon={<LogOut size={18} aria-hidden="true" />} onClick={logout}>
         {t('common:actions.logout')}

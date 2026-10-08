@@ -1,5 +1,5 @@
 import { useDraggable } from '@dnd-kit/core';
-import { CheckCircle2, GripVertical, MousePointerClick } from 'lucide-react';
+import { CheckCircle2, GripVertical, Loader2, MousePointerClick, Sparkles } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 import { Card } from '@/components/ui/Card';
@@ -17,18 +17,75 @@ interface Props {
   editable: boolean;
   online: boolean;
   onPlace: (source: MoveSource) => void;
+  onAuto: (source: MoveSource, item: UnplacedItem) => void;
+  /** "place all" is offered on drafts of forms with rooms; otherwise the reason why not */
+  fillBlocked: string | null;
+  filling: { done: number; total: number } | null;
+  onAutoFill: () => void;
 }
 
 /** Side panel: lessons of the plan that are not in the grid yet. */
-export function UnplacedPanel({ items, loading, editable, online, onPlace }: Props) {
+export function UnplacedPanel({
+  items,
+  loading,
+  editable,
+  online,
+  onPlace,
+  onAuto,
+  fillBlocked,
+  filling,
+  onAutoFill,
+}: Props) {
   const { t } = useTranslation(['admin']);
+  const missing = items.reduce((n, i) => n + Math.max(0, i.required - i.placed), 0);
   return (
     <Card className="flex max-h-[calc(100dvh-180px)] flex-col">
       <div className="border-b border-line px-4 py-3">
-        <h2 className="text-base font-bold text-ink">{t('admin:editor.unplaced')}</h2>
+        <div className="flex items-center justify-between gap-2">
+          <h2 className="text-base font-bold text-ink">{t('admin:editor.unplaced')}</h2>
+          {missing > 0 && (
+            <span className="rounded-full bg-primary-700 px-2.5 py-0.5 text-xs font-bold text-ink-on-primary">
+              {missing}
+            </span>
+          )}
+        </div>
         <p className="text-xs text-ink-muted">
           {editable ? t('admin:editor.unplacedHint') : t('admin:editor.unplacedReadOnly')}
         </p>
+        {editable && missing > 0 && (
+          <div className="mt-3">
+            <button
+              type="button"
+              onClick={onAutoFill}
+              disabled={Boolean(fillBlocked) || Boolean(filling)}
+              className="inline-flex min-h-touch w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary-700 to-primary-500 px-4 text-sm font-bold text-ink-on-primary shadow-soft transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              {filling ? (
+                <Loader2 size={18} aria-hidden="true" className="animate-spin" />
+              ) : (
+                <Sparkles size={18} aria-hidden="true" />
+              )}
+              {filling
+                ? t('admin:editor.autoFilling', filling)
+                : t('admin:editor.autoFill', { count: missing })}
+            </button>
+            {filling && (
+              <div
+                className="mt-2 h-1.5 overflow-hidden rounded-full bg-subtle"
+                role="progressbar"
+                aria-valuemin={0}
+                aria-valuemax={filling.total}
+                aria-valuenow={filling.done}
+              >
+                <div
+                  className="h-full rounded-full bg-primary-500 transition-all"
+                  style={{ width: `${(filling.done / Math.max(1, filling.total)) * 100}%` }}
+                />
+              </div>
+            )}
+            {fillBlocked && <p className="mt-1.5 text-xs text-ink-muted">{fillBlocked}</p>}
+          </div>
+        )}
       </div>
       <div className="flex-1 space-y-2 overflow-y-auto p-3">
         {loading ? (
@@ -46,6 +103,7 @@ export function UnplacedPanel({ items, loading, editable, online, onPlace }: Pro
               editable={editable}
               online={online}
               onPlace={onPlace}
+              onAuto={onAuto}
             />
           ))
         )}
@@ -59,11 +117,13 @@ function UnplacedRow({
   editable,
   online,
   onPlace,
+  onAuto,
 }: {
   item: UnplacedItem;
   editable: boolean;
   online: boolean;
   onPlace: (source: MoveSource) => void;
+  onAuto: (source: MoveSource, item: UnplacedItem) => void;
 }) {
   const { t } = useTranslation(['admin']);
   const source: MoveSource = {
@@ -113,14 +173,24 @@ function UnplacedRow({
         </div>
       </div>
       {editable && (
-        <button
-          type="button"
-          onClick={() => onPlace(source)}
-          className="mt-2 inline-flex min-h-[36px] items-center gap-1.5 rounded-button px-2 text-xs font-bold text-link hover:bg-subtle"
-        >
-          <MousePointerClick size={15} aria-hidden="true" />
-          {t('admin:editor.choosePlace')}
-        </button>
+        <div className="mt-2 flex flex-wrap gap-1">
+          <button
+            type="button"
+            onClick={() => onAuto(source, item)}
+            className="inline-flex min-h-[36px] items-center gap-1.5 rounded-full bg-primary-700/10 px-3 text-xs font-bold text-primary-700 hover:bg-primary-700/15"
+          >
+            <Sparkles size={15} aria-hidden="true" />
+            {t('admin:editor.autoPlace')}
+          </button>
+          <button
+            type="button"
+            onClick={() => onPlace(source)}
+            className="inline-flex min-h-[36px] items-center gap-1.5 rounded-full px-3 text-xs font-bold text-link hover:bg-subtle"
+          >
+            <MousePointerClick size={15} aria-hidden="true" />
+            {t('admin:editor.choosePlace')}
+          </button>
+        </div>
       )}
     </div>
   );

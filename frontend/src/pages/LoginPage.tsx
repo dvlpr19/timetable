@@ -43,22 +43,23 @@ export function LoginPage() {
 
   return (
     <div className="flex min-h-dvh flex-col bg-page">
-      <header className="flex justify-end px-4 pt-4 sm:px-8 sm:pt-6">
-        <LanguageSwitcher />
+      <header className="rounded-b-header bg-hero px-4 pb-24 pt-[calc(16px+env(safe-area-inset-top))] text-ink-on-primary sm:px-8">
+        <div className="flex justify-end">
+          <LanguageSwitcher tone="dark" />
+        </div>
+        <div className="mx-auto mt-4 flex max-w-md flex-col items-center text-center">
+          <BrandMark size="xl" className="mb-5 shadow-lift" />
+          <p className="text-sm font-semibold text-mint">{t('common:academyName')}</p>
+          <h1 className="mt-1 text-3xl font-extrabold">{t('common:appName')}</h1>
+        </div>
       </header>
 
-      <main className="flex flex-1 items-center justify-center px-4 py-8">
-        <div className="w-full max-w-[400px]">
-          <div className="mb-8 flex flex-col items-center text-center">
-            <BrandMark size="lg" className="mb-4 shadow-md" />
-            <p className="text-sm font-semibold text-ink-muted">{t('common:academyName')}</p>
-            <h1 className="mt-1 text-2xl font-extrabold text-ink">{t('common:appName')}</h1>
-          </div>
-
+      <main className="-mt-16 flex flex-1 justify-center px-4 pb-10">
+        <div className="w-full max-w-[420px]">
           <form
             noValidate
             onSubmit={onSubmit}
-            className="rounded-card border border-line bg-card p-6 shadow-sm"
+            className="rounded-tile bg-card p-6 shadow-lift dark:border dark:border-line sm:p-8"
           >
             <h2 className="text-lg font-bold text-ink">{t('auth:title')}</h2>
             <p className="mt-1 text-sm text-ink-muted">{t('auth:subtitle')}</p>

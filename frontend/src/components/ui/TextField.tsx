@@ -17,7 +17,7 @@ export const TextField = forwardRef<HTMLInputElement, Props>(function TextField(
       <label htmlFor={inputId} className="mb-2 block text-sm font-semibold text-ink">
         {label}
       </label>
-      <div className="flex min-h-touch items-center rounded-button border border-line bg-card focus-within:border-primary-500 focus-within:ring-2 focus-within:ring-primary-500/30">
+      <div className="flex min-h-touch items-center rounded-2xl border border-line bg-card focus-within:border-primary-500 focus-within:ring-2 focus-within:ring-primary-500/30">
         <input
           ref={ref}
           id={inputId}

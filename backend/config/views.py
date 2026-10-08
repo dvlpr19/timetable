@@ -24,7 +24,7 @@ def meta(request):
     return Response(
         {
             "app_name": _("Timetable"),
-            "academy_name": _("International Islamic Academy of Uzbekistan"),
+            "academy_name": _("International Academy of Islamic Studies of Uzbekistan"),
             "language": get_language(),
             "languages": [code for code, _name in settings.LANGUAGES],
             "now": clock.now().isoformat(timespec="seconds"),

@@ -121,3 +121,19 @@ def test_teacher_asks_to_move_own_lesson_and_dispatcher_answers(demo):
     # an answered request can no longer be withdrawn
     assert teacher.delete(f"/api/reschedule-requests/{req_id}/").status_code == 400
     assert RescheduleRequest.objects.get(pk=req_id).review_comment == "Xona yo'q"
+
+
+def test_my_stats_count_own_lessons(demo):
+    stats = client_for("talaba").get("/api/my-stats/").data
+    assert stats["kind"] == "person" and stats["lessons"] > 0
+    assert sum(t["count"] for t in stats["by_type"]) == stats["lessons"]
+    assert stats["subjects"] >= 1 and stats["teachers"] >= 1
+    teacher = client_for("oqituvchi").get("/api/my-stats/").data
+    assert teacher["lessons"] > 0 and teacher["groups"] >= 1
+
+
+def test_me_shows_full_person_details(demo):
+    me = client_for("oqituvchi").get("/api/auth/me/").data
+    assert me["teacher"]["faculty"] and me["teacher"]["teaching_languages"]
+    me = client_for("talaba").get("/api/auth/me/").data
+    assert me["student"]["hemis_id"] and me["student"]["faculty"]

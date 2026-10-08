@@ -1,6 +1,6 @@
 {
   "appName": "Dars jadvali",
-  "academyName": "O'zbekiston xalqaro islom akademiyasi",
+  "academyName": "O'zbekiston Xalqaro Islomshunoslik Akademiyasi",
   "language": {
     "label": "Ilova tili",
     "uz": "O'zbekcha",
@@ -37,6 +37,42 @@
     "confirmPassword": "Yangi parolni takrorlang",
     "mismatch": "Parollar mos kelmadi",
     "savePassword": "Parolni saqlash",
-    "passwordChanged": "Parol o'zgartirildi"
+    "passwordChanged": "Parol o'zgartirildi",
+    "account": "Hisob",
+    "memberSince": "Ro'yxatdan o'tgan",
+    "lastLogin": "Oxirgi kirish",
+    "contacts": "Aloqa ma'lumotlari",
+    "contactsHint": "Dispetcher va hamkasblar siz bilan bog'lana olishi uchun.",
+    "email": "Elektron pochta",
+    "phone": "Telefon",
+    "saveContacts": "Saqlash",
+    "saving": "Saqlanmoqda…",
+    "contactsSaved": "Aloqa ma'lumotlari saqlandi",
+    "study": "O'qish",
+    "work": "Ish joyi",
+    "hemisId": "HEMIS ID",
+    "program": "Yo'nalish",
+    "group": "Guruh",
+    "course": "Kurs",
+    "form": "Ta'lim shakli",
+    "teachingLanguage": "O'qitish tili",
+    "shift": "Smena",
+    "position": "Lavozim",
+    "degree": "Ilmiy daraja",
+    "employment": "Ish turi",
+    "teachingLanguages": "Dars beradigan tillari",
+    "maxWeekly": "Haftasiga ko'pi bilan (para)",
+    "annualLoad": "Yillik yuklama (soat)",
+    "subjects": "O'qitadigan fanlari"
+  },
+  "stats": {
+    "title": "Mening jadvalim",
+    "scope": "Mas'uliyat doirasi",
+    "lessons": "Darslar",
+    "subjects": "Fanlar",
+    "teachers": "O'qituvchilar",
+    "groups": "Guruhlar",
+    "days": "O'quv kunlari",
+    "rooms": "Xonalar"
   }
 }

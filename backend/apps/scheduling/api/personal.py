@@ -10,12 +10,12 @@ from django.utils.translation import gettext as _
 from django.utils.translation import gettext_lazy
 from rest_framework import mixins, serializers, viewsets
 from rest_framework.decorators import action
-from rest_framework.exceptions import PermissionDenied, ValidationError
+from rest_framework.exceptions import NotFound, PermissionDenied, ValidationError
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from apps.academics.models import LessonTime, Room
+from apps.academics.models import Group, LessonTime, Room, Teacher
 from apps.accounts.models import Role
 from apps.core.permissions import ADMIN_ONLY, STAFF_ROLES, RolePermission, role_of
 
@@ -28,7 +28,73 @@ from ..models import (
     ScheduleEntry,
 )
 from .serializers import entry_payload
-from .views import ENTRY_RELATED, entries_for, resolve_target, schedule_for
+from .views import (
+    ENTRY_RELATED,
+    entries_for,
+    published_schedule,
+    resolve_target,
+    schedule_for,
+)
+
+
+class MyStatsView(APIView):
+    """GET /api/my-stats/ — numbers for the profile page.
+
+    Student and teacher: their lessons in the published timetable. Staff: what their
+    scope (whole academy, a faculty or a department) holds.
+    """
+
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        user = request.user
+        student = getattr(user, "student", None)
+        teacher = getattr(user, "teacher", None)
+        if student is None and teacher is None:
+            return Response({"kind": "staff", **self._scope(user)})
+        try:
+            schedule = published_schedule()
+        except NotFound:
+            return Response({"kind": "person", "schedule": None})
+        target = {"student": student} if student else {"teacher": teacher.pk}
+        entries = list(entries_for(schedule, **target))
+        by_type: dict[str, dict] = {}
+        for e in entries:
+            lt = e.assignment.lesson_type
+            by_type.setdefault(lt.code, {"code": lt.code, "name": lt.name, "count": 0})
+            by_type[lt.code]["count"] += 1
+        groups = {g.pk for e in entries for g in e.assignment.target_groups()}
+        return Response(
+            {
+                "kind": "person",
+                "schedule": schedule.name,
+                "lessons": len(entries),
+                "days": len({(e.date, e.weekday) for e in entries}),
+                "subjects": len({e.assignment.subject_id for e in entries}),
+                "teachers": len({e.assignment.teacher_id for e in entries}),
+                "groups": len(groups),
+                "by_type": sorted(by_type.values(), key=lambda t: -t["count"]),
+            }
+        )
+
+    @staticmethod
+    def _scope(user):
+        groups = Group.objects.all()
+        teachers = Teacher.objects.all()
+        rooms = Room.objects.filter(is_active=True)
+        if user.department_id:
+            groups = groups.none()
+            teachers = teachers.filter(department=user.department_id)
+            rooms = rooms.none()
+        elif user.faculty_id:
+            groups = groups.filter(program_form__program__faculty=user.faculty_id)
+            teachers = teachers.filter(department__faculty=user.faculty_id)
+            rooms = rooms.none()
+        return {
+            "groups": groups.count(),
+            "teachers": teachers.count(),
+            "rooms": rooms.count(),
+        }
 
 
 class IcsView(APIView):

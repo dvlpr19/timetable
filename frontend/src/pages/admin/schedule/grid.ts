@@ -3,7 +3,7 @@
  * and which cells are closed by a blocked period (Friday prayer).
  */
 import { weekdayIndex } from '@/i18n/date';
-import type { BlockedPeriod, EducationForm, TimetableEntry } from '@/types/timetable';
+import type { BlockedPeriod, EducationForm, GridCell, TimetableEntry } from '@/types/timetable';
 
 export interface Day {
   key: string;
@@ -90,4 +90,37 @@ export function blockedAt(
       hhmm(b.start) < hhmm(time.end) &&
       hhmm(time.start) < hhmm(b.end),
   );
+}
+
+const dayOf = (c: { date?: string | null; weekday?: number | null }) =>
+  c.date ? `d:${c.date}` : `w:${c.weekday}`;
+
+/**
+ * The cell auto-placement picks: a free one on the least busy day that does not already
+ * have this subject, earliest lesson first. `entries` are the lessons already shown.
+ */
+export function pickBestCell(
+  cells: Iterable<GridCell>,
+  entries: Pick<TimetableEntry, 'date' | 'weekday' | 'subject'>[],
+  subject?: string,
+): GridCell | undefined {
+  const load = new Map<string, number>();
+  const sameSubject = new Set<string>();
+  for (const e of entries) {
+    const day = dayOf(e);
+    load.set(day, (load.get(day) ?? 0) + 1);
+    if (subject !== undefined && e.subject.name === subject) sameSubject.add(day);
+  }
+  let best: GridCell | undefined;
+  let bestScore = Infinity;
+  for (const cell of cells) {
+    if (!cell.ok) continue;
+    const day = dayOf(cell);
+    const score = (sameSubject.has(day) ? 1000 : 0) + (load.get(day) ?? 0) * 10 + cell.number;
+    if (score < bestScore) {
+      best = cell;
+      bestScore = score;
+    }
+  }
+  return best;
 }

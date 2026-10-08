@@ -83,9 +83,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     [user],
   );
 
+  /** Save editable profile fields (e-mail, phone); errors are left to the caller. */
+  const updateProfile = useCallback(
+    async (patch: Partial<Pick<CurrentUser, 'email' | 'phone'>>) => {
+      setUser(await api<CurrentUser>('/api/auth/me/', { method: 'PATCH', body: patch }));
+    },
+    [],
+  );
+
   const value = useMemo(
-    () => ({ user, restoring, login, logout, setLanguage }),
-    [user, restoring, login, logout, setLanguage],
+    () => ({ user, restoring, login, logout, setLanguage, updateProfile }),
+    [user, restoring, login, logout, setLanguage, updateProfile],
   );
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

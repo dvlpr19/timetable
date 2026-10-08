@@ -7,7 +7,7 @@ export default {
   content: ['./index.html', './src/**/*.{ts,tsx}'],
   theme: {
     fontFamily: {
-      sans: ['Manrope', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+      sans: ['Inter', 'Roboto', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
     },
     extend: {
       colors: {
@@ -15,7 +15,10 @@ export default {
           900: token('primary-900'),
           700: token('primary-700'),
           500: token('primary-500'),
+          300: token('primary-300'),
+          200: token('primary-200'),
         },
+        accent: token('accent'),
         mint: token('mint'),
         gold: token('gold'),
         page: token('page'),
@@ -42,9 +45,18 @@ export default {
         },
       },
       borderRadius: {
-        card: '16px',
+        card: '20px',
+        tile: '24px',
         button: '14px',
-        header: '28px',
+        header: '32px',
+      },
+      boxShadow: {
+        soft: '0 2px 6px rgb(var(--shadow) / 0.04), 0 8px 24px rgb(var(--shadow) / 0.06)',
+        lift: '0 4px 10px rgb(var(--shadow) / 0.06), 0 16px 40px rgb(var(--shadow) / 0.10)',
+      },
+      backgroundImage: {
+        hero: 'linear-gradient(180deg, rgb(var(--primary-700)) 0%, rgb(var(--primary-300)) 100%)',
+        feature: 'linear-gradient(90deg, rgb(var(--primary-700)) 0%, rgb(var(--primary-200)) 100%)',
       },
       minHeight: { touch: '44px' },
       minWidth: { touch: '44px' },

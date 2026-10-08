@@ -1,42 +1,47 @@
-/* Design tokens as RGB channels (see tailwind.config.ts). Blue and white palette. */
+/* Design tokens as RGB channels (see tailwind.config.ts). Deep blue, sky blue and white. */
 :root {
   color-scheme: light;
-  --primary-900: 30 58 138; /* #1E3A8A */
-  --primary-700: 29 78 216; /* #1D4ED8 */
-  --primary-500: 59 130 246; /* #3B82F6 */
-  --mint: 219 234 254; /* #DBEAFE light text on dark blue */
-  --gold: 125 211 252; /* #7DD3FC accent on dark blue */
-  --page: 247 249 252; /* #F7F9FC */
+  --primary-900: 13 71 161; /* #0D47A1 hover / pressed */
+  --primary-700: 21 101 192; /* #1565C0 primary */
+  --primary-500: 66 165 245; /* #42A5F5 primary light */
+  --primary-300: 91 170 240; /* #5BAAF0 header gradient end */
+  --primary-200: 100 181 246; /* #64B5F6 feature card gradient end */
+  --accent: 30 136 229; /* #1E88E5 icons */
+  --mint: 220 235 251; /* #DCEBFB subtitles on blue */
+  --gold: 187 222 251; /* #BBDEFB highlight on blue */
+  --page: 241 243 246; /* #F1F3F6 */
   --card: 255 255 255;
-  --subtle: 238 243 251; /* #EEF3FB */
-  --ink: 15 23 42; /* #0F172A */
-  --ink-muted: 91 100 120; /* #5B6478 */
+  --subtle: 234 242 252; /* #EAF2FC */
+  --ink: 17 24 39; /* #111827 */
+  --ink-muted: 107 114 128; /* #6B7280 */
   --ink-on-primary: 255 255 255;
-  --link: 29 78 216;
-  --line: 226 232 240; /* #E2E8F0 */
+  --link: 21 101 192;
+  --line: 229 231 235; /* #E5E7EB */
   --warning-bg: 255 244 221; /* #FFF4DD */
   --warning-fg: 154 95 0; /* #9A5F00 */
   --danger-bg: 253 236 236; /* #FDECEC */
   --danger-fg: 180 35 24; /* #B42318 */
-  --lesson-lecture: 29 78 216;
-  --lesson-lecture-bg: 232 240 254;
+  --lesson-lecture: 21 101 192;
+  --lesson-lecture-bg: 227 240 253;
   --lesson-practice: 14 116 144;
   --lesson-practice-bg: 231 246 250;
   --lesson-seminar: 94 55 174;
   --lesson-seminar-bg: 242 236 252;
   --lesson-lab: 122 90 20;
   --lesson-lab-bg: 251 244 228;
+  --shadow: 17 24 39;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    --page: 10 15 28;
-    --card: 17 24 39;
-    --subtle: 26 35 54;
+    --page: 11 17 30;
+    --card: 20 28 45;
+    --subtle: 28 40 62;
     --ink: 230 236 245;
     --ink-muted: 152 163 184;
-    --link: 147 197 253;
+    --accent: 100 181 246;
+    --link: 144 202 249;
     --line: 38 50 74;
     --warning-bg: 58 45 14;
     --warning-fg: 242 196 107;
@@ -50,5 +55,6 @@
     --lesson-seminar-bg: 40 30 66;
     --lesson-lab: 230 196 120;
     --lesson-lab-bg: 52 41 15;
+    --shadow: 0 0 0;
   }
 }

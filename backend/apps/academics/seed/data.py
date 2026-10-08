@@ -4,9 +4,9 @@ from datetime import date, time
 
 # (uz, ru, en)
 ACADEMY = (
-    "O'zbekiston xalqaro islom akademiyasi",
-    "Международная исламская академия Узбекистана",
-    "International Islamic Academy of Uzbekistan",
+    "O'zbekiston Xalqaro Islomshunoslik Akademiyasi",
+    "Международная академия исламоведения Узбекистана",
+    "International Academy of Islamic Studies of Uzbekistan",
 )
 
 FACULTIES = {

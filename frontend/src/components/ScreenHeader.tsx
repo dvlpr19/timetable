@@ -16,14 +16,14 @@ export function ScreenHeader({
   bell?: boolean;
 }) {
   return (
-    <header className="rounded-b-header bg-primary-900 px-4 pb-6 pt-[calc(16px+env(safe-area-inset-top))] text-ink-on-primary sm:px-6">
+    <header className="rounded-b-header bg-hero px-4 pb-7 pt-[calc(16px+env(safe-area-inset-top))] text-ink-on-primary sm:px-6">
       <div className="flex items-start justify-between gap-3">
-        <BrandMark size="sm" className="mt-1" />
+        <BrandMark size="md" />
         <div className="min-w-0 flex-1">
           {subtitle && (
             <p className="text-sm font-medium text-mint first-letter:uppercase">{subtitle}</p>
           )}
-          <h1 className="mt-1 text-2xl font-extrabold">{title}</h1>
+          <h1 className="mt-1 text-2xl font-extrabold leading-tight">{title}</h1>
         </div>
         {bell && <NotificationBell />}
       </div>

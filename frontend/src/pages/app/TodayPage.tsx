@@ -72,9 +72,11 @@ export function TodayPage() {
                 aria-label={`${formatLongDate(parseISO(d), t)}: ${t('app:today.lessonsCount', { n })}`}
                 onClick={() => setPicked(d)}
                 className={cn(
-                  'flex min-h-[64px] flex-1 flex-col items-center justify-center gap-1 rounded-button text-sm font-bold transition-colors',
-                  selected ? 'bg-gold text-primary-900' : 'text-ink-on-primary hover:bg-white/10',
-                  d === today && !selected && 'ring-1 ring-gold',
+                  'flex min-h-[64px] flex-1 flex-col items-center justify-center gap-1 rounded-2xl text-sm font-bold transition-colors',
+                  selected
+                    ? 'bg-white text-primary-700 shadow-soft'
+                    : 'bg-white/15 text-ink-on-primary hover:bg-white/25',
+                  d === today && !selected && 'ring-2 ring-white/70',
                 )}
               >
                 <span className="text-xs font-semibold opacity-80">
@@ -84,7 +86,7 @@ export function TodayPage() {
                 <span
                   className={cn(
                     'h-1.5 w-1.5 rounded-full',
-                    n ? (selected ? 'bg-primary-900' : 'bg-gold') : 'bg-transparent',
+                    n ? (selected ? 'bg-primary-700' : 'bg-white') : 'bg-transparent',
                   )}
                 />
               </button>

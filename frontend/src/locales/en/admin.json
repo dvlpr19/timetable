@@ -173,7 +173,9 @@
     "noConflicts": "No conflicts. The timetable can be published.",
     "readiness": "Readiness by faculty",
     "placedOf": "{{placed}} of {{required}} placed",
-    "openEditor": "Open the timetable editor"
+    "openEditor": "Open the timetable editor",
+    "featureTodo": "{{count}} lessons still to place — open the editor",
+    "featureDone": "Every lesson is placed — open the timetable"
   },
   "editor": {
     "title": "Timetable editor",
@@ -215,13 +217,28 @@
     "newLesson": "New lesson",
     "saved": "Timetable saved",
     "unplaced": "Lessons to place",
-    "unplacedHint": "Drag a lesson into the grid or press “Choose a place”.",
+    "unplacedHint": "Press “Auto” to put a lesson in the best free slot, or drag it onto the grid.",
     "unplacedReadOnly": "Only the dispatcher can change the timetable.",
     "allPlaced": "All lessons are placed",
     "placedOf": "{{placed}} / {{required}}",
     "exportXlsx": "Excel",
     "exportPdf": "PDF",
-    "choosePlace": "Choose a place"
+    "choosePlace": "Choose a place",
+    "autoPlace": "Auto",
+    "autoFill": "Place all automatically ({{count}})",
+    "autoFilling": "Placing: {{done}} / {{total}}",
+    "autoFillDone": "{{count}} lessons placed",
+    "autoFillPartial": "{{placed}} placed, no free slot for {{failed}}",
+    "autoFillDraftOnly": "Automatic placement works on drafts only. Create a “New draft” first.",
+    "autoFillOnline": "Online lessons need a link — place them one by one with “Auto”.",
+    "noFreeCell": "No free slot for this lesson",
+    "prevTarget": "Previous",
+    "nextTarget": "Next",
+    "steps": {
+      "pick": "Choose a group or teacher",
+      "place": "Place lessons with “Auto” or by dragging",
+      "publish": "Check and publish"
+    }
   },
   "legend": {
     "free": "Can be placed",

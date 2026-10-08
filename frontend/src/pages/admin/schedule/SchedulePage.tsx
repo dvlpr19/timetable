@@ -2,6 +2,8 @@ import { DndContext, DragOverlay, PointerSensor, useSensor, useSensors } from '@
 import type { DragEndEvent, DragStartEvent } from '@dnd-kit/core';
 import {
   AlertTriangle,
+  ChevronLeft,
+  ChevronRight,
   CopyPlus,
   FileSpreadsheet,
   FileText,
@@ -101,6 +103,7 @@ export function SchedulePage() {
         : {},
   );
   const target = targets.rows.find((r) => String(r.id) === params.get('target')) ?? targets.rows[0];
+  const targetIndex = target ? targets.rows.indexOf(target) : -1;
 
   const periods = useAll<TeachingPeriod>(
     schedule && form?.schedule_mode === 'session' ? '/api/teaching-periods/' : null,
@@ -312,15 +315,29 @@ export function SchedulePage() {
               label: t(`admin:editor.views.${v}`),
             }))}
           />
-          <Select
-            label={t(`admin:editor.views.${view}`)}
-            hideLabel
-            className="min-w-[200px]"
-            value={target?.id ?? ''}
-            disabled={targets.isLoading}
-            onChange={(e) => set({ target: e.target.value })}
-            options={targets.rows.map((r) => ({ value: r.id, label: TARGETS[view].label(r) }))}
-          />
+          <div className="flex items-center gap-1">
+            <StepButton
+              label={t('admin:editor.prevTarget')}
+              icon={ChevronLeft}
+              disabled={targetIndex <= 0}
+              onClick={() => set({ target: String(targets.rows[targetIndex - 1].id) })}
+            />
+            <Select
+              label={t(`admin:editor.views.${view}`)}
+              hideLabel
+              className="min-w-[200px]"
+              value={target?.id ?? ''}
+              disabled={targets.isLoading}
+              onChange={(e) => set({ target: e.target.value })}
+              options={targets.rows.map((r) => ({ value: r.id, label: TARGETS[view].label(r) }))}
+            />
+            <StepButton
+              label={t('admin:editor.nextTarget')}
+              icon={ChevronRight}
+              disabled={targetIndex < 0 || targetIndex >= targets.rows.length - 1}
+              onClick={() => set({ target: String(targets.rows[targetIndex + 1].id) })}
+            />
+          </div>
           {form.schedule_mode === 'session' && periods.rows.length > 1 && (
             <Select
               label={t('admin:editor.period')}
@@ -333,11 +350,13 @@ export function SchedulePage() {
           )}
         </Card>
 
+        {editable && <Steps />}
+
         {/* ----- "choose a cell" banner (keyboard / click path, also shown while dragging) */}
-        {moving && (
+        {(moving || editor.loadingCells) && (
           <div
             role="status"
-            className="flex flex-wrap items-center gap-3 rounded-button bg-primary-900 px-4 py-3 text-sm text-ink-on-primary"
+            className="flex flex-wrap items-center gap-3 rounded-card bg-feature px-4 py-3 text-sm text-ink-on-primary shadow-soft"
           >
             {editor.loadingCells && (
               <Loader2 size={18} aria-hidden="true" className="animate-spin" />
@@ -347,7 +366,7 @@ export function SchedulePage() {
                 ? t('admin:editor.checking')
                 : t('admin:editor.chooseCell', { name: movingLabel })}
             </span>
-            {!dragging && (
+            {moving && !dragging && (
               <button
                 type="button"
                 onClick={editor.cancel}
@@ -393,6 +412,16 @@ export function SchedulePage() {
             editable={editable}
             online={!form.requires_room}
             onPlace={(source) => void editor.start(source)}
+            onAuto={(source, item) => void editor.autoPlace(source, entries, item.subject)}
+            fillBlocked={
+              schedule.status !== 'draft'
+                ? t('admin:editor.autoFillDraftOnly')
+                : !form.requires_room
+                  ? t('admin:editor.autoFillOnline')
+                  : null
+            }
+            filling={editor.filling}
+            onAutoFill={() => void editor.autoFill(unplaced.data ?? [], entries)}
           />
         </div>
       </div>
@@ -447,6 +476,59 @@ export function SchedulePage() {
         <PublishDialog schedule={schedule} onClose={() => setDialog(null)} />
       )}
     </DndContext>
+  );
+}
+
+function StepButton({
+  label,
+  icon: Icon,
+  disabled,
+  onClick,
+}: {
+  label: string;
+  icon: typeof ChevronLeft;
+  disabled: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      aria-label={label}
+      title={label}
+      disabled={disabled}
+      onClick={onClick}
+      className="flex min-h-touch min-w-touch items-center justify-center rounded-full text-primary-700 hover:bg-primary-700/10 disabled:opacity-30"
+    >
+      <Icon size={20} aria-hidden="true" />
+    </button>
+  );
+}
+
+/** Three-step reminder of how a timetable is made. */
+function Steps() {
+  const { t } = useTranslation(['admin']);
+  const steps = [
+    t('admin:editor.steps.pick'),
+    t('admin:editor.steps.place'),
+    t('admin:editor.steps.publish'),
+  ];
+  return (
+    <ol className="grid gap-2 sm:grid-cols-3">
+      {steps.map((text, i) => (
+        <li
+          key={text}
+          className="flex items-center gap-3 rounded-card bg-card px-4 py-3 text-sm shadow-soft"
+        >
+          <span
+            aria-hidden="true"
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-700 text-sm font-extrabold text-ink-on-primary"
+          >
+            {i + 1}
+          </span>
+          <span className="font-semibold text-ink">{text}</span>
+        </li>
+      ))}
+    </ol>
   );
 }
 

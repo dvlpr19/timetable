@@ -24,6 +24,7 @@ class User(AbstractUser):
     language = models.CharField(
         _("interface language"), max_length=2, choices=UILanguage.choices, default=UILanguage.UZ
     )
+    phone = models.CharField(_("phone"), max_length=20, blank=True)
     # True until the user explicitly picks a language; lets the client apply browser detection.
     language_auto = models.BooleanField(default=True)
     # Scope for the dekanat / kafedra_mudiri roles.

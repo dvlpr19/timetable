@@ -11,6 +11,7 @@ export interface AuthState {
   login: (username: string, password: string) => Promise<void>;
   logout: () => void;
   setLanguage: (lng: Language) => Promise<void>;
+  updateProfile: (patch: Partial<Pick<CurrentUser, 'email' | 'phone'>>) => Promise<void>;
 }
 
 export const AuthContext = createContext<AuthState | null>(null);

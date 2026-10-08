@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 
-import type { BlockedPeriod, EducationForm, TimetableEntry } from '@/types/timetable';
+import type { BlockedPeriod, EducationForm, GridCell, TimetableEntry } from '@/types/timetable';
 
-import { blockedAt, entriesAt, sessionDays, weeklyDays } from './grid';
+import { blockedAt, entriesAt, pickBestCell, sessionDays, weeklyDays } from './grid';
 
 const form: EducationForm = {
   id: 1,
@@ -89,5 +89,41 @@ describe('timetable grid helpers', () => {
     expect(blockedAt([friday], form, fri, fourth)?.name).toBe('Juma namozi');
     expect(blockedAt([friday], form, { key: 'w:3', weekday: 3 }, third)).toBeUndefined();
     expect(blockedAt([{ ...friday, is_hard: false }], form, fri, third)).toBeUndefined();
+  });
+});
+
+describe('pickBestCell', () => {
+  const cell = (weekday: number, number: number, ok = true): GridCell => ({
+    weekday,
+    lesson_time: number,
+    number,
+    ok,
+    room: 1,
+    free_rooms: [1],
+    reasons: [],
+  });
+  const lesson = (weekday: number, subject: string) => ({
+    weekday,
+    date: null,
+    subject: { id: 1, name: subject },
+  });
+
+  it('skips busy cells and prefers the earliest lesson', () => {
+    expect(pickBestCell([cell(0, 1, false), cell(0, 3), cell(0, 2)], [])).toMatchObject({
+      weekday: 0,
+      number: 2,
+    });
+  });
+
+  it('spreads lessons to the least busy day without the same subject', () => {
+    const entries = [lesson(0, 'Fiqh'), lesson(1, 'Arab tili'), lesson(1, 'Tarix')];
+    expect(pickBestCell([cell(0, 2), cell(1, 1), cell(2, 4)], entries, 'Fiqh')).toMatchObject({
+      weekday: 2,
+    });
+    expect(pickBestCell([cell(0, 2), cell(1, 1)], entries, 'Fiqh')).toMatchObject({ weekday: 1 });
+  });
+
+  it('returns nothing when no cell is free', () => {
+    expect(pickBestCell([cell(0, 1, false)], [])).toBeUndefined();
   });
 });

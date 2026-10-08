@@ -10,7 +10,7 @@ class LoginView(TokenObtainPairView):
 
 
 class MeView(generics.RetrieveUpdateAPIView):
-    """Current user; only the interface language is editable here."""
+    """Current user; the interface language, e-mail and phone are editable here."""
 
     serializer_class = MeSerializer
     http_method_names = ["get", "patch", "head", "options"]

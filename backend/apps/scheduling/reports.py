@@ -354,7 +354,7 @@ def report_to_xlsx(report: Report) -> bytes:
     )
     thin = Side(style="thin", color="E2E8F0")
     border = Border(left=thin, right=thin, top=thin, bottom=thin)
-    head = PatternFill("solid", fgColor="1D4ED8")
+    head = PatternFill("solid", fgColor="1565C0")
     for c, col in enumerate(report.columns, start=1):
         cell = ws.cell(row=5, column=c, value=col.label)
         cell.font = Font(bold=True, color="FFFFFF")
@@ -375,7 +375,7 @@ def report_to_xlsx(report: Report) -> bytes:
             )
             if is_total:
                 cell.font = Font(bold=True)
-                cell.fill = PatternFill("solid", fgColor="EEF3FB")
+                cell.fill = PatternFill("solid", fgColor="EAF2FC")
     line = 7 + len(body)
     for note in report.notes:
         ws.cell(row=line, column=1, value=note).font = Font(color="5B6478", size=9)

@@ -1,5 +1,5 @@
 {
-  "name": "Dars jadvali — O'zbekiston xalqaro islom akademiyasi",
+  "name": "Dars jadvali — O'zbekiston Xalqaro Islomshunoslik Akademiyasi",
   "short_name": "Dars jadvali",
   "description": "Talabalar va o'qituvchilar uchun dars jadvali",
   "lang": "uz",
@@ -7,8 +7,8 @@
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#1E3A8A",
-  "theme_color": "#1E3A8A",
+  "background_color": "#1565C0",
+  "theme_color": "#1565C0",
   "icons": [
     { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
     { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },

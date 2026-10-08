@@ -1876,9 +1876,13 @@ msgid "automatic scheduling runs"
 msgstr "avtomatik tuzishlar"
 
 #: config/views.py:27
-msgid "International Islamic Academy of Uzbekistan"
-msgstr "O'zbekiston xalqaro islom akademiyasi"
+msgid "International Academy of Islamic Studies of Uzbekistan"
+msgstr "O'zbekiston Xalqaro Islomshunoslik Akademiyasi"
 
 #: apps/accounts/serializers.py
 msgid "Current password is incorrect."
 msgstr "Joriy parol noto'g'ri."
+
+#: apps/accounts/serializers.py
+msgid "Enter a valid phone number."
+msgstr "Telefon raqamini to'g'ri kiriting."

@@ -173,7 +173,9 @@
     "noConflicts": "Ziddiyat yo'q. Jadvalni e'lon qilish mumkin.",
     "readiness": "Fakultetlar bo'yicha tayyorlik",
     "placedOf": "{{required}} tadan {{placed}} tasi joylashtirilgan",
-    "openEditor": "Jadval muharririni ochish"
+    "openEditor": "Jadval muharririni ochish",
+    "featureTodo": "Yana {{count}} ta dars joylanishi kerak — muharrirni oching",
+    "featureDone": "Hamma darslar joylangan — jadvalni ko'rish"
   },
   "editor": {
     "title": "Jadval muharriri",
@@ -215,13 +217,28 @@
     "newLesson": "Yangi dars",
     "saved": "Jadval saqlandi",
     "unplaced": "Joylashtirilmagan darslar",
-    "unplacedHint": "Darsni to'rga sudrab olib boring yoki «Joy tanlash» tugmasini bosing.",
+    "unplacedHint": "«Avto» bosing — eng qulay bo'sh vaqtga o'zi qo'yadi. Yoki darsni to'rga sudrab olib boring.",
     "unplacedReadOnly": "Jadvalni faqat dispetcher o'zgartiradi.",
     "allPlaced": "Hamma darslar joylashtirilgan",
     "placedOf": "{{placed}} / {{required}}",
     "exportXlsx": "Excel",
     "exportPdf": "PDF",
-    "choosePlace": "Joy tanlash"
+    "choosePlace": "Joy tanlash",
+    "autoPlace": "Avto",
+    "autoFill": "Hammasini avtomatik joylash ({{count}})",
+    "autoFilling": "Joylanmoqda: {{done}} / {{total}}",
+    "autoFillDone": "{{count}} ta dars joylandi",
+    "autoFillPartial": "{{placed}} ta dars joylandi, {{failed}} tasiga bo'sh joy topilmadi",
+    "autoFillDraftOnly": "Avtomatik joylash faqat qoralamada ishlaydi. Avval «Yangi qoralama» yarating.",
+    "autoFillOnline": "Onlayn darslarga havola kerak — ularni «Avto» tugmasi bilan birma-bir joylang.",
+    "noFreeCell": "Bu dars uchun bo'sh joy topilmadi",
+    "prevTarget": "Oldingisi",
+    "nextTarget": "Keyingisi",
+    "steps": {
+      "pick": "Guruh yoki o'qituvchini tanlang",
+      "place": "Darslarni «Avto» yoki sudrab joylang",
+      "publish": "Tekshirib, e'lon qiling"
+    }
   },
   "legend": {
     "free": "Qo'yish mumkin",

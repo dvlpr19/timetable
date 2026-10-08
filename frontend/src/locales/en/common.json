@@ -1,6 +1,6 @@
 {
   "appName": "Timetable",
-  "academyName": "International Islamic Academy of Uzbekistan",
+  "academyName": "International Academy of Islamic Studies of Uzbekistan",
   "language": {
     "label": "App language",
     "uz": "Uzbek",
@@ -37,6 +37,42 @@
     "confirmPassword": "Repeat new password",
     "mismatch": "Passwords do not match",
     "savePassword": "Save password",
-    "passwordChanged": "Password changed"
+    "passwordChanged": "Password changed",
+    "account": "Account",
+    "memberSince": "Member since",
+    "lastLogin": "Last sign-in",
+    "contacts": "Contact details",
+    "contactsHint": "So the dispatcher and colleagues can reach you.",
+    "email": "E-mail",
+    "phone": "Phone",
+    "saveContacts": "Save",
+    "saving": "Saving…",
+    "contactsSaved": "Contact details saved",
+    "study": "Studies",
+    "work": "Workplace",
+    "hemisId": "HEMIS ID",
+    "program": "Programme",
+    "group": "Group",
+    "course": "Year",
+    "form": "Study mode",
+    "teachingLanguage": "Language of instruction",
+    "shift": "Shift",
+    "position": "Position",
+    "degree": "Academic degree",
+    "employment": "Employment",
+    "teachingLanguages": "Teaching languages",
+    "maxWeekly": "Max lessons per week",
+    "annualLoad": "Annual load (hours)",
+    "subjects": "Subjects taught"
+  },
+  "stats": {
+    "title": "My timetable",
+    "scope": "My scope",
+    "lessons": "Lessons",
+    "subjects": "Subjects",
+    "teachers": "Teachers",
+    "groups": "Groups",
+    "days": "Study days",
+    "rooms": "Rooms"
   }
 }
