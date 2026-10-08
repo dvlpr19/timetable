@@ -6,7 +6,10 @@
     "save": "Saqlash",
     "saving": "Saqlanmoqda…",
     "cancel": "Bekor qilish",
-    "delete": "O'chirish"
+    "delete": "O'chirish",
+    "edit": "Tahrirlash",
+    "view": "Ko'rish",
+    "column": "Amallar"
   },
   "filters": {
     "all": "hammasi"

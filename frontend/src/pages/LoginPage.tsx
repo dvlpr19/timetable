@@ -50,7 +50,7 @@ export function LoginPage() {
       <main className="flex flex-1 items-center justify-center px-4 py-8">
         <div className="w-full max-w-[400px]">
           <div className="mb-8 flex flex-col items-center text-center">
-            <BrandMark className="mb-4" />
+            <BrandMark size="lg" className="mb-4 shadow-md" />
             <p className="text-sm font-semibold text-ink-muted">{t('common:academyName')}</p>
             <h1 className="mt-1 text-2xl font-extrabold text-ink">{t('common:appName')}</h1>
           </div>

@@ -24,5 +24,19 @@
     "unknown": "Произошла непредвиденная ошибка. Попробуйте чуть позже.",
     "loadFailed": "Не удалось загрузить данные"
   },
-  "loading": "Загрузка…"
+  "loading": "Загрузка…",
+  "profile": {
+    "title": "Профиль",
+    "username": "Логин",
+    "role": "Роль",
+    "faculty": "Факультет",
+    "department": "Кафедра",
+    "password": "Сменить пароль",
+    "currentPassword": "Текущий пароль",
+    "newPassword": "Новый пароль",
+    "confirmPassword": "Повторите новый пароль",
+    "mismatch": "Пароли не совпадают",
+    "savePassword": "Сохранить пароль",
+    "passwordChanged": "Пароль изменён"
+  }
 }

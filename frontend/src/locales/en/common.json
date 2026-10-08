@@ -24,5 +24,19 @@
     "unknown": "Something went wrong. Please try again in a moment.",
     "loadFailed": "Couldn't load the data"
   },
-  "loading": "Loading…"
+  "loading": "Loading…",
+  "profile": {
+    "title": "Profile",
+    "username": "Login",
+    "role": "Role",
+    "faculty": "Faculty",
+    "department": "Department",
+    "password": "Change password",
+    "currentPassword": "Current password",
+    "newPassword": "New password",
+    "confirmPassword": "Repeat new password",
+    "mismatch": "Passwords do not match",
+    "savePassword": "Save password",
+    "passwordChanged": "Password changed"
+  }
 }

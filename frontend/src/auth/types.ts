@@ -19,4 +19,6 @@ export interface CurrentUser {
     form: string;
   } | null;
   teacher: { id: number; short_name: string; department: string; position: string } | null;
+  faculty_name?: string | null;
+  department_name?: string | null;
 }

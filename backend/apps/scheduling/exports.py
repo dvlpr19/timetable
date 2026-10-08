@@ -122,14 +122,14 @@ def to_xlsx(table: Table) -> bytes:
     width = len(table.columns)
     ws.cell(row=1, column=1, value=table.academy).font = Font(bold=True, size=12)
     ws.cell(row=2, column=1, value=table.title).font = Font(bold=True, size=14)
-    ws.cell(row=3, column=1, value=table.subtitle).font = Font(color="5B6863")
+    ws.cell(row=3, column=1, value=table.subtitle).font = Font(color="5B6478")
     ws.cell(row=1, column=width, value=signature_text()).alignment = Alignment(
         horizontal="right", wrap_text=True, vertical="top"
     )
-    thin = Side(style="thin", color="E1E5DF")
+    thin = Side(style="thin", color="E2E8F0")
     border = Border(left=thin, right=thin, top=thin, bottom=thin)
-    head_fill = PatternFill("solid", fgColor="0B5D4B")
-    closed_fill = PatternFill("solid", fgColor="EEF1EC")
+    head_fill = PatternFill("solid", fgColor="1D4ED8")
+    closed_fill = PatternFill("solid", fgColor="EEF3FB")
     for c, title in enumerate(table.columns, start=1):
         cell = ws.cell(row=5, column=c, value=title)
         cell.font = Font(bold=True, color="FFFFFF")
@@ -148,9 +148,9 @@ def to_xlsx(table: Table) -> bytes:
                 cell.font = Font(bold=True)
             if (r - 6, c - 1) in table.closed:
                 cell.fill = closed_fill
-                cell.font = Font(italic=True, color="5B6863")
+                cell.font = Font(italic=True, color="5B6478")
     ws.cell(row=7 + len(table.rows), column=1, value=generated_text()).font = Font(
-        color="5B6863", size=9
+        color="5B6478", size=9
     )
     out = io.BytesIO()
     wb.save(out)

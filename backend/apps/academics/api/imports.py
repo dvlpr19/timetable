@@ -226,7 +226,7 @@ def build_template(resource: Resource) -> bytes:
     ws = wb.active
     ws.title = str(resource.model._meta.verbose_name_plural)[:31]
     bold = Font(bold=True, color="FFFFFF")
-    fill = PatternFill("solid", fgColor="0B5D4B")
+    fill = PatternFill("solid", fgColor="1D4ED8")
     for i, col in enumerate(resource.columns, start=1):
         title = column_title(resource, col) + ("" if col.required else f" ({_('optional')})")
         cell = ws.cell(row=1, column=i, value=title)

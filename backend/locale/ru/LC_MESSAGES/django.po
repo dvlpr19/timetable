@@ -1879,3 +1879,7 @@ msgstr "запуски автосоставления"
 #: config/views.py:27
 msgid "International Islamic Academy of Uzbekistan"
 msgstr "Международная исламская академия Узбекистана"
+
+#: apps/accounts/serializers.py
+msgid "Current password is incorrect."
+msgstr "Текущий пароль неверен."

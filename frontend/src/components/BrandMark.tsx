@@ -1,12 +1,26 @@
-import { CalendarDays } from 'lucide-react';
+import logo from '@/assets/logo.png';
+import { cn } from '@/lib/cn';
 
-export function BrandMark({ className = '' }: { className?: string }) {
+const SIZES = {
+  sm: 'h-10 w-10',
+  md: 'h-12 w-12',
+  lg: 'h-24 w-24',
+};
+
+/** Academy logo on a white disc, so it stays readable on the blue sidebar and header too. */
+export function BrandMark({
+  size = 'md',
+  className = '',
+}: {
+  size?: keyof typeof SIZES;
+  className?: string;
+}) {
   return (
-    <span
+    <img
+      src={logo}
+      alt=""
       aria-hidden="true"
-      className={`inline-flex h-12 w-12 items-center justify-center rounded-button bg-primary-900 text-gold ${className}`}
-    >
-      <CalendarDays size={26} strokeWidth={2} />
-    </span>
+      className={cn('shrink-0 rounded-full bg-white object-contain p-0.5', SIZES[size], className)}
+    />
   );
 }

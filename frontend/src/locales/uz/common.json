@@ -24,5 +24,19 @@
     "unknown": "Kutilmagan xatolik yuz berdi. Birozdan keyin qayta urinib ko'ring.",
     "loadFailed": "Ma'lumotni yuklab bo'lmadi"
   },
-  "loading": "Yuklanmoqda…"
+  "loading": "Yuklanmoqda…",
+  "profile": {
+    "title": "Profil",
+    "username": "Login",
+    "role": "Lavozim",
+    "faculty": "Fakultet",
+    "department": "Kafedra",
+    "password": "Parolni o'zgartirish",
+    "currentPassword": "Joriy parol",
+    "newPassword": "Yangi parol",
+    "confirmPassword": "Yangi parolni takrorlang",
+    "mismatch": "Parollar mos kelmadi",
+    "savePassword": "Parolni saqlash",
+    "passwordChanged": "Parol o'zgartirildi"
+  }
 }

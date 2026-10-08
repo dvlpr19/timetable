@@ -65,8 +65,13 @@ export interface Filter {
   values?: (string | number)[];
 }
 
+/** Sub-categories of the "Data" menu, in display order. Labels: admin:nav.groups.<key> */
+export const RESOURCE_GROUPS = ['structure', 'people', 'rooms', 'study', 'time'] as const;
+export type ResourceGroup = (typeof RESOURCE_GROUPS)[number];
+
 export interface Resource {
   key: string; // URL segment and permission key
+  group: ResourceGroup;
   path: string; // API path
   icon: LucideIcon;
   columns: Column[];
@@ -85,6 +90,7 @@ const STAFF = ['admin', 'dekanat', 'kafedra_mudiri'];
 export const RESOURCES: Resource[] = [
   {
     key: 'faculties',
+    group: 'structure',
     path: '/api/faculties/',
     icon: Building2,
     search: true,
@@ -108,6 +114,7 @@ export const RESOURCES: Resource[] = [
   },
   {
     key: 'departments',
+    group: 'structure',
     path: '/api/departments/',
     icon: Network,
     search: true,
@@ -125,6 +132,7 @@ export const RESOURCES: Resource[] = [
   },
   {
     key: 'programs',
+    group: 'structure',
     path: '/api/programs/',
     icon: GraduationCap,
     search: true,
@@ -153,6 +161,7 @@ export const RESOURCES: Resource[] = [
   },
   {
     key: 'groups',
+    group: 'structure',
     path: '/api/groups/',
     icon: Users,
     search: true,
@@ -210,6 +219,7 @@ export const RESOURCES: Resource[] = [
   },
   {
     key: 'streams',
+    group: 'structure',
     path: '/api/streams/',
     icon: Layers,
     search: true,
@@ -243,6 +253,7 @@ export const RESOURCES: Resource[] = [
   },
   {
     key: 'teachers',
+    group: 'people',
     path: '/api/teachers/',
     icon: UserSquare,
     search: true,
@@ -320,6 +331,7 @@ export const RESOURCES: Resource[] = [
   },
   {
     key: 'students',
+    group: 'people',
     path: '/api/students/',
     icon: UserRound,
     search: true,
@@ -353,6 +365,7 @@ export const RESOURCES: Resource[] = [
   },
   {
     key: 'rooms',
+    group: 'rooms',
     path: '/api/rooms/',
     icon: DoorOpen,
     search: true,
@@ -395,6 +408,7 @@ export const RESOURCES: Resource[] = [
   },
   {
     key: 'subjects',
+    group: 'study',
     path: '/api/subjects/',
     icon: BookOpen,
     search: true,
@@ -421,6 +435,7 @@ export const RESOURCES: Resource[] = [
   },
   {
     key: 'curriculum',
+    group: 'study',
     path: '/api/curriculum/',
     icon: ClipboardList,
     roles: STAFF,
@@ -475,6 +490,7 @@ export const RESOURCES: Resource[] = [
   },
   {
     key: 'assignments',
+    group: 'study',
     path: '/api/assignments/',
     icon: Briefcase,
     search: true,
@@ -525,6 +541,7 @@ export const RESOURCES: Resource[] = [
   },
   {
     key: 'lesson-times',
+    group: 'time',
     path: '/api/lesson-times/',
     icon: Clock,
     filters: [{ param: 'form', label: 'form', path: '/api/education-forms/' }],
@@ -552,6 +569,7 @@ export const RESOURCES: Resource[] = [
   },
   {
     key: 'blocked-periods',
+    group: 'time',
     path: '/api/blocked-periods/',
     icon: Lock,
     columns: [
@@ -578,6 +596,7 @@ export const RESOURCES: Resource[] = [
   },
   {
     key: 'calendar-days',
+    group: 'time',
     path: '/api/calendar-days/',
     icon: CalendarX,
     columns: [

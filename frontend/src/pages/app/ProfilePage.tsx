@@ -12,6 +12,8 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useAuth } from '@/auth/useAuth';
+import { Avatar } from '@/components/Avatar';
+import { ChangePasswordCard } from '@/components/ChangePasswordCard';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { ScreenHeader } from '@/components/ScreenHeader';
 import { Button } from '@/components/ui/Button';
@@ -77,11 +79,14 @@ export function ProfilePage() {
         title={user?.full_name ?? ''}
         subtitle={user ? t(`common:roles.${user.role}`) : undefined}
       >
-        <p className="mt-1 text-sm text-mint">
-          {user?.student
-            ? `${user.student.group.name} · ${user.student.program}`
-            : `${user?.teacher?.position ?? ''} · ${user?.teacher?.department ?? ''}`}
-        </p>
+        <div className="mt-3 flex items-center gap-3">
+          <Avatar name={user?.full_name ?? ''} size="lg" className="bg-white text-primary-900" />
+          <p className="text-sm text-mint">
+            {user?.student
+              ? `${user.student.group.name} · ${user.student.program}`
+              : `${user?.teacher?.position ?? ''} · ${user?.teacher?.department ?? ''}`}
+          </p>
+        </div>
       </ScreenHeader>
       <div className="space-y-4 px-4 py-5 sm:px-6">
         <Card className="space-y-3 p-4">
@@ -118,6 +123,8 @@ export function ProfilePage() {
         </Card>
 
         <NotificationSettings />
+
+        <ChangePasswordCard />
 
         {teacher && <MyRequests />}
 

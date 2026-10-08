@@ -9,7 +9,15 @@
     "data": "Data",
     "solver": "Auto-scheduling",
     "requests": "Reschedule requests",
-    "reports": "Reports"
+    "reports": "Reports",
+    "profile": "Profile",
+    "groups": {
+      "structure": "Structure",
+      "people": "People",
+      "rooms": "Rooms",
+      "study": "Teaching",
+      "time": "Time and calendar"
+    }
   },
   "lesson": {
     "link": "Online lesson link",

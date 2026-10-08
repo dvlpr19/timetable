@@ -1,3 +1,4 @@
+from django.contrib.auth.password_validation import validate_password
 from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
@@ -13,6 +14,8 @@ class LoginSerializer(TokenObtainPairSerializer):
 
 class MeSerializer(serializers.ModelSerializer):
     full_name = serializers.CharField(read_only=True)
+    faculty_name = serializers.CharField(source="faculty.name", read_only=True, default=None)
+    department_name = serializers.CharField(source="department.name", read_only=True, default=None)
     student = serializers.SerializerMethodField()
     teacher = serializers.SerializerMethodField()
 
@@ -52,7 +55,9 @@ class MeSerializer(serializers.ModelSerializer):
             "language",
             "language_auto",
             "faculty",
+            "faculty_name",
             "department",
+            "department_name",
             "student",
             "teacher",
         )
@@ -66,3 +71,17 @@ class MeSerializer(serializers.ModelSerializer):
             "faculty",
             "department",
         )
+
+
+class ChangePasswordSerializer(serializers.Serializer):
+    current_password = serializers.CharField(write_only=True, trim_whitespace=False)
+    new_password = serializers.CharField(write_only=True, trim_whitespace=False)
+
+    def validate_current_password(self, value):
+        if not self.context["request"].user.check_password(value):
+            raise serializers.ValidationError(_("Current password is incorrect."))
+        return value
+
+    def validate_new_password(self, value):
+        validate_password(value, self.context["request"].user)
+        return value

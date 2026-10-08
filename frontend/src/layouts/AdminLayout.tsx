@@ -2,6 +2,7 @@ import {
   BarChart3,
   CalendarClock,
   CalendarDays,
+  ChevronDown,
   LayoutDashboard,
   LogOut,
   Menu,
@@ -10,13 +11,15 @@ import {
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 
 import { useAuth } from '@/auth/useAuth';
+import { Avatar } from '@/components/Avatar';
 import { BrandMark } from '@/components/BrandMark';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { cn } from '@/lib/cn';
-import { RESOURCES } from '@/pages/admin/data/resources';
+import { RESOURCE_GROUPS, RESOURCES } from '@/pages/admin/data/resources';
+import type { Resource, ResourceGroup } from '@/pages/admin/data/resources';
 
 function NavItem({
   to,
@@ -52,6 +55,51 @@ function NavItem({
   );
 }
 
+/** A collapsible sub-category of the data menu; the one holding the open page starts expanded. */
+function NavGroup({ group, items }: { group: ResourceGroup; items: Resource[] }) {
+  const { t } = useTranslation(['admin', 'data']);
+  const { pathname } = useLocation();
+  const active = items.some((r) => pathname === `/admin/data/${r.key}`);
+  const [open, setOpen] = useState(active);
+  useEffect(() => {
+    if (active) setOpen(true);
+  }, [active]);
+  const id = `nav-group-${group}`;
+  return (
+    <div>
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-controls={id}
+        onClick={() => setOpen((o) => !o)}
+        className={cn(
+          'flex min-h-touch w-full items-center gap-2 rounded-button px-3 text-left text-sm font-bold transition-colors hover:bg-white/5',
+          active ? 'text-ink-on-primary' : 'text-mint',
+        )}
+      >
+        <span className="flex-1 truncate">{t(`admin:nav.groups.${group}`)}</span>
+        <ChevronDown
+          size={16}
+          aria-hidden="true"
+          className={cn('shrink-0 transition-transform', open && 'rotate-180')}
+        />
+      </button>
+      {open && (
+        <div id={id} className="ml-3 space-y-1 border-l border-white/10 pl-2">
+          {items.map((r) => (
+            <NavItem
+              key={r.key}
+              to={`/admin/data/${r.key}`}
+              icon={r.icon}
+              label={t(`data:resources.${r.key}.title`)}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function Sidebar() {
   const { t } = useTranslation(['admin', 'data', 'common']);
   const { user } = useAuth();
@@ -62,7 +110,7 @@ function Sidebar() {
       className="flex h-full flex-col gap-6 overflow-y-auto p-4"
     >
       <div className="flex items-center gap-3 px-2">
-        <BrandMark className="bg-white/10" />
+        <BrandMark />
         <div className="min-w-0">
           <p className="truncate text-base font-extrabold text-ink-on-primary">
             {t('common:appName')}
@@ -81,14 +129,10 @@ function Sidebar() {
         <p className="px-3 pb-1 text-xs font-bold uppercase tracking-wider text-mint/70">
           {t('admin:nav.data')}
         </p>
-        {sections.map((r) => (
-          <NavItem
-            key={r.key}
-            to={`/admin/data/${r.key}`}
-            icon={r.icon}
-            label={t(`data:resources.${r.key}.title`)}
-          />
-        ))}
+        {RESOURCE_GROUPS.map((group) => {
+          const items = sections.filter((r) => r.group === group);
+          return items.length ? <NavGroup key={group} group={group} items={items} /> : null;
+        })}
       </div>
     </nav>
   );
@@ -146,10 +190,20 @@ export function AdminLayout() {
           </button>
           <div className="ml-auto flex items-center gap-3">
             <LanguageSwitcher />
-            <div className="hidden text-right sm:block">
-              <p className="text-sm font-bold text-ink">{user?.full_name}</p>
-              <p className="text-xs text-ink-muted">{user && t(`common:roles.${user.role}`)}</p>
-            </div>
+            <Link
+              to="/admin/profile"
+              title={t('admin:nav.profile')}
+              className="flex min-h-touch items-center gap-2 rounded-button px-1.5 hover:bg-subtle sm:pr-3"
+            >
+              <Avatar name={user?.full_name ?? ''} size="sm" />
+              <span className="hidden text-left sm:block">
+                <span className="block text-sm font-bold text-ink">{user?.full_name}</span>
+                <span className="block text-xs text-ink-muted">
+                  {user && t(`common:roles.${user.role}`)}
+                </span>
+              </span>
+              <span className="sr-only sm:hidden">{t('admin:nav.profile')}</span>
+            </Link>
             <button
               type="button"
               onClick={logout}

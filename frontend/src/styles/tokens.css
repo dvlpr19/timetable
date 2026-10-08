@@ -1,27 +1,27 @@
-/* Design tokens as RGB channels (see tailwind.config.ts). Light values match the Figma design. */
+/* Design tokens as RGB channels (see tailwind.config.ts). Blue and white palette. */
 :root {
   color-scheme: light;
-  --primary-900: 7 61 49; /* #073D31 */
-  --primary-700: 11 93 75; /* #0B5D4B */
-  --primary-500: 15 122 97; /* #0F7A61 */
-  --mint: 207 235 225; /* #CFEBE1 */
-  --gold: 227 199 127; /* #E3C77F */
-  --page: 245 246 243; /* #F5F6F3 */
+  --primary-900: 30 58 138; /* #1E3A8A */
+  --primary-700: 29 78 216; /* #1D4ED8 */
+  --primary-500: 59 130 246; /* #3B82F6 */
+  --mint: 219 234 254; /* #DBEAFE light text on dark blue */
+  --gold: 125 211 252; /* #7DD3FC accent on dark blue */
+  --page: 247 249 252; /* #F7F9FC */
   --card: 255 255 255;
-  --subtle: 238 241 236; /* #EEF1EC */
-  --ink: 20 32 28; /* #14201C */
-  --ink-muted: 91 104 99; /* #5B6863 */
+  --subtle: 238 243 251; /* #EEF3FB */
+  --ink: 15 23 42; /* #0F172A */
+  --ink-muted: 91 100 120; /* #5B6478 */
   --ink-on-primary: 255 255 255;
-  --link: 11 93 75;
-  --line: 225 229 223; /* #E1E5DF */
+  --link: 29 78 216;
+  --line: 226 232 240; /* #E2E8F0 */
   --warning-bg: 255 244 221; /* #FFF4DD */
   --warning-fg: 154 95 0; /* #9A5F00 */
   --danger-bg: 253 236 236; /* #FDECEC */
   --danger-fg: 180 35 24; /* #B42318 */
-  --lesson-lecture: 11 93 75;
-  --lesson-lecture-bg: 230 244 238;
-  --lesson-practice: 31 87 184;
-  --lesson-practice-bg: 234 241 253;
+  --lesson-lecture: 29 78 216;
+  --lesson-lecture-bg: 232 240 254;
+  --lesson-practice: 14 116 144;
+  --lesson-practice-bg: 231 246 250;
   --lesson-seminar: 94 55 174;
   --lesson-seminar-bg: 242 236 252;
   --lesson-lab: 122 90 20;
@@ -31,21 +31,21 @@
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    --page: 11 17 15;
-    --card: 20 29 26;
-    --subtle: 28 39 35;
-    --ink: 232 238 234;
-    --ink-muted: 156 170 164;
-    --link: 110 207 172;
-    --line: 41 54 49;
+    --page: 10 15 28;
+    --card: 17 24 39;
+    --subtle: 26 35 54;
+    --ink: 230 236 245;
+    --ink-muted: 152 163 184;
+    --link: 147 197 253;
+    --line: 38 50 74;
     --warning-bg: 58 45 14;
     --warning-fg: 242 196 107;
     --danger-bg: 63 22 19;
     --danger-fg: 253 128 116;
-    --lesson-lecture: 110 207 172;
-    --lesson-lecture-bg: 19 50 41;
-    --lesson-practice: 138 176 245;
-    --lesson-practice-bg: 22 36 64;
+    --lesson-lecture: 147 197 253;
+    --lesson-lecture-bg: 23 37 72;
+    --lesson-practice: 103 232 249;
+    --lesson-practice-bg: 14 45 56;
     --lesson-seminar: 190 163 245;
     --lesson-seminar-bg: 40 30 66;
     --lesson-lab: 230 196 120;

@@ -6,7 +6,10 @@
     "save": "Save",
     "saving": "Saving…",
     "cancel": "Cancel",
-    "delete": "Delete"
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "column": "Actions"
   },
   "filters": {
     "all": "all"

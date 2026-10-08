@@ -9,7 +9,15 @@
     "data": "Ma'lumotlar",
     "solver": "Avtomatik tuzish",
     "requests": "Ko'chirish so'rovlari",
-    "reports": "Hisobotlar"
+    "reports": "Hisobotlar",
+    "profile": "Profil",
+    "groups": {
+      "structure": "Tuzilma",
+      "people": "Odamlar",
+      "rooms": "Xonalar",
+      "study": "O'quv jarayoni",
+      "time": "Vaqt va kalendar"
+    }
   },
   "lesson": {
     "link": "Onlayn dars havolasi",

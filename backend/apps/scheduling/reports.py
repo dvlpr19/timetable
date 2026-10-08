@@ -348,13 +348,13 @@ def report_to_xlsx(report: Report) -> bytes:
     width = len(report.columns)
     ws.cell(row=1, column=1, value=report.academy).font = Font(bold=True, size=12)
     ws.cell(row=2, column=1, value=report.title).font = Font(bold=True, size=14)
-    ws.cell(row=3, column=1, value=report.subtitle).font = Font(color="5B6863")
+    ws.cell(row=3, column=1, value=report.subtitle).font = Font(color="5B6478")
     ws.cell(row=1, column=width, value=signature_text()).alignment = Alignment(
         horizontal="right", wrap_text=True, vertical="top"
     )
-    thin = Side(style="thin", color="E1E5DF")
+    thin = Side(style="thin", color="E2E8F0")
     border = Border(left=thin, right=thin, top=thin, bottom=thin)
-    head = PatternFill("solid", fgColor="0B5D4B")
+    head = PatternFill("solid", fgColor="1D4ED8")
     for c, col in enumerate(report.columns, start=1):
         cell = ws.cell(row=5, column=c, value=col.label)
         cell.font = Font(bold=True, color="FFFFFF")
@@ -375,12 +375,12 @@ def report_to_xlsx(report: Report) -> bytes:
             )
             if is_total:
                 cell.font = Font(bold=True)
-                cell.fill = PatternFill("solid", fgColor="EEF1EC")
+                cell.fill = PatternFill("solid", fgColor="EEF3FB")
     line = 7 + len(body)
     for note in report.notes:
-        ws.cell(row=line, column=1, value=note).font = Font(color="5B6863", size=9)
+        ws.cell(row=line, column=1, value=note).font = Font(color="5B6478", size=9)
         line += 1
-    ws.cell(row=line, column=1, value=generated_text()).font = Font(color="5B6863", size=9)
+    ws.cell(row=line, column=1, value=generated_text()).font = Font(color="5B6478", size=9)
     ws.freeze_panes = "B6"
     out = io.BytesIO()
     wb.save(out)

@@ -1,7 +1,8 @@
-from rest_framework import generics
+from rest_framework import generics, status
+from rest_framework.response import Response
 from rest_framework_simplejwt.views import TokenObtainPairView
 
-from .serializers import LoginSerializer, MeSerializer
+from .serializers import ChangePasswordSerializer, LoginSerializer, MeSerializer
 
 
 class LoginView(TokenObtainPairView):
@@ -22,3 +23,16 @@ class MeView(generics.RetrieveUpdateAPIView):
             serializer.save(language_auto=False)
         else:
             serializer.save()
+
+
+class ChangePasswordView(generics.GenericAPIView):
+    """Any signed-in user changes their own password; the current one is required."""
+
+    serializer_class = ChangePasswordSerializer
+
+    def post(self, request):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        request.user.set_password(serializer.validated_data["new_password"])
+        request.user.save(update_fields=["password"])
+        return Response(status=status.HTTP_204_NO_CONTENT)

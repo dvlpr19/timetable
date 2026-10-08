@@ -1,5 +1,6 @@
-import { ChevronLeft, ChevronRight, FileUp, Plus, Search } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Eye, FileUp, Pencil, Plus, Search } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import type { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Navigate, useParams } from 'react-router-dom';
 
@@ -150,6 +151,9 @@ function ResourceView({ resource }: { resource: Resource }) {
                     {t(`data:fields.${c.label}`)}
                   </th>
                 ))}
+                <th scope="col" className="w-16 px-4 py-3 text-right">
+                  <span className="sr-only">{t('data:actions.column')}</span>
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -170,6 +174,13 @@ function ResourceView({ resource }: { resource: Resource }) {
                       )}
                     </td>
                   ))}
+                  <td className="px-2 py-1.5 text-right align-middle">
+                    <RowAction
+                      writable={writable}
+                      name={renderCell(row, resource.columns[0], maps, t)}
+                      onClick={() => setEditing(row)}
+                    />
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -214,6 +225,34 @@ function ResourceView({ resource }: { resource: Resource }) {
       )}
       {importing && <ImportDialog resource={resource} onClose={() => setImporting(false)} />}
     </div>
+  );
+}
+
+/** Pencil (or eye when read-only) button at the end of each row: opens the edit form. */
+function RowAction({
+  writable,
+  name,
+  onClick,
+}: {
+  writable: boolean;
+  name: ReactNode;
+  onClick: () => void;
+}) {
+  const { t } = useTranslation(['data']);
+  const label = writable ? t('data:actions.edit') : t('data:actions.view');
+  const Icon = writable ? Pencil : Eye;
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      title={label}
+      className="inline-flex min-h-touch min-w-touch items-center justify-center rounded-button text-primary-700 transition-colors hover:bg-primary-500/10 hover:text-primary-900"
+    >
+      <Icon size={18} aria-hidden="true" />
+      <span className="sr-only">
+        {label}: {name}
+      </span>
+    </button>
   );
 }
 

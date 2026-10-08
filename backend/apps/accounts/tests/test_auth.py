@@ -67,3 +67,35 @@ def test_me_rejects_unknown_language(user):
     client = APIClient()
     client.force_authenticate(user)
     assert client.patch(reverse("me"), {"language": "de"}, format="json").status_code == 400
+
+
+def test_change_password(user):
+    client = APIClient()
+    client.force_authenticate(user)
+    resp = client.post(
+        reverse("change-password"),
+        {"current_password": "talaba123", "new_password": "Yangi-parol-2026"},
+        format="json",
+    )
+    assert resp.status_code == 204
+    user.refresh_from_db()
+    assert user.check_password("Yangi-parol-2026")
+
+
+def test_change_password_rejects_wrong_current(user):
+    client = APIClient()
+    client.force_authenticate(user)
+    resp = client.post(
+        reverse("change-password"),
+        {"current_password": "wrong", "new_password": "Yangi-parol-2026"},
+        format="json",
+        HTTP_ACCEPT_LANGUAGE="en",
+    )
+    assert resp.status_code == 400
+    assert resp.data["current_password"] == ["Current password is incorrect."]
+    user.refresh_from_db()
+    assert user.check_password("talaba123")
+
+
+def test_change_password_requires_auth():
+    assert APIClient().post(reverse("change-password"), {}).status_code == 401
